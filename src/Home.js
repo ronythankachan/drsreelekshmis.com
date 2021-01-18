@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import Hero from './Hero';
+import ServiceCards from './ServiceCards';
 
 const Home = ()=> {
     const [isOpen,setIsOpen] =useState(false);
@@ -8,119 +10,12 @@ const Home = ()=> {
         setIsOpen(!isOpen)
     }
     return (
-        <>
+        <div className="home">
             <Navbar toggle={toggle}/>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-            <h3>Test</h3>
-
-            
+            <Hero/>
+            <ServiceCards/>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
-
-        </>
+        </div>
     )
 }
 
