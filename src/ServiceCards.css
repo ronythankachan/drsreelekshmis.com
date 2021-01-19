@@ -1,21 +1,27 @@
-.card__type1{
-    margin:30px;
+.card{
     display: flex;
     justify-content: space-between;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-}
-.card__type2{
-    flex-direction: row-reverse;
+    margin: 100px;
 }
 
-@media screen and (max-width:768px){
-    .card__type1{
-        flex-direction: column;
+@media screen and (max-width:1200px){
+    .card{
+        flex-direction: column !important;
+        width: 100% !important;
+        margin:0px;
+        padding: 0px;
+    }
+    .card__image{
+        width:100% !important;
+        transform: scale(0.4,0.4);
+    }
+    .card__image> img{
+        text-align: center;
+        padding: 0 !important;
+        
     }
     .card__details{
-        width: 100%;
+        width:100% !important; 
     }
 }
 
