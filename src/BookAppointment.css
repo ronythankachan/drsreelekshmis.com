@@ -1,0 +1,8 @@
+.bookappointment{
+    width: 100vw;
+    margin: 100px;
+}
+.bookappointment >form{
+    display: flex;
+    flex-direction: column;
+}

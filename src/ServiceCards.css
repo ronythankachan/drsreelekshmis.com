@@ -11,7 +11,7 @@
         padding: 0px;
         margin: 20px 20px 0px 0px;
         padding-bottom: 20px;
-        border-bottom: 1px solid green;
+        border-bottom: 1px solid rgba(23, 73, 23, 0.13);
     }
     .card__image{
         width: 100% !important;

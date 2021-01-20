@@ -25,17 +25,17 @@ const Navbar = ({toggle}) => {
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to="about">About</NavLinks>
+                            <NavLinks to="/about">About</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="contact">Contact Us</NavLinks>
+                            <NavLinks to="/contact">Contact Us</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="services">Services</NavLinks>
+                            <NavLinks to="/services">Services</NavLinks>
                         </NavItem>
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink to="/book_apointment">Book an appointment</NavBtnLink>
+                        <NavBtnLink to="/book_appointment">Book an appointment</NavBtnLink>
                     </NavBtn>
                 </NavbarContainer>
             </Nav>
