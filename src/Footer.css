@@ -29,7 +29,12 @@
 }
 .footer__logo, .footer__heading{
     padding: 20px;
-    color: rgb(102, 115, 242);
+    color: rgb(9, 155, 45);
+}
+.logo_green{
+    font-size: 2rem;
+    color: rgb(9, 155, 45);
+
 }
 .footer__left > a{
     color: #fff;

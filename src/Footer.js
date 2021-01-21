@@ -1,5 +1,6 @@
-import React from 'react'
-import './Footer.css'
+import React from 'react';
+import './Footer.css';
+import {Link} from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
@@ -7,7 +8,9 @@ const Footer = () => {
         <div className="footer">
             <div className="footer__left">
                 <div className="footer__logo">
-                    <h2>Dr.Sreelakshmi clinic</h2>
+                    <h2>
+                        <Link to={'/'} className="link logo_green">Dr.Sreelakshmi clinic</Link>
+                    </h2>
                 </div>
                 <a href="/about">About</a>
                 <a href="/contact">Contact us</a>
@@ -16,11 +19,11 @@ const Footer = () => {
                 <div className="footer__heading">
                     <h3>SERVICES</h3>
                 </div>
-                <a href="/medicine">Order medicines</a>
+                <a href="/shop">Order medicines</a>
                 <a href="/panchakarma">Panchakarma</a>
-                <a href="/marma">Marma Therapy</a>
-                <a href="/post_delivery">Post delivery care</a>
-                <a href="/svarna_prashana">Svarna prashana</a>
+                <a href="/marma_therapy">Marma Therapy</a>
+                <a href="/post_delivery_care">Post delivery care</a>
+                <a href="/swarna_prashana">Svarna prashana</a>
                 <a href="/yoga">Yoga</a>
             </div>
             <div className="footer__right">

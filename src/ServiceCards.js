@@ -3,7 +3,6 @@ import './ServiceCards.css';
 import Panchakarma from './images/panchakarma.jpg';
 import Marma from './images/marma_therapy.jpg';
 import Yoga from './images/yoga.jpg';
-    
 
 const ServiceCards = () => {
     return (

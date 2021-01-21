@@ -8,7 +8,12 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import About from './About';
 import Contact from './Contact';
-
+import MedicineShop from './MedicineShop';
+import Panchakarma from './Panchakarma';
+import MarmaTherapy from './MarmaTherapy';
+import PostDeliveryCare from './PostDeliveryCare';
+import SwarnaPrashana from './SwarnaPrashana';
+import Yoga from './Yoga';
 function App() {
 
   const [isOpen,setIsOpen] =useState(false);
@@ -23,8 +28,14 @@ function App() {
           <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/book_appointment' component={BookAppointment}/>
-              <Route exact path='/about' component={About}/>
-              <Route exact path='/contact' component={Contact}/>
+              <Route path='/about' component={About}/>
+              <Route path='/contact' component={Contact}/>
+              <Route path='/shop' component={MedicineShop}/>
+              <Route path='/panchakarma' component={Panchakarma}/>
+              <Route path='/marma_therapy' component={MarmaTherapy}/>
+              <Route path='/post_delivery_care' component={PostDeliveryCare}/>
+              <Route path='/swarna_prashana' component={SwarnaPrashana}/>
+              <Route path='/yoga' component={Yoga}/>
           </Switch>
           <Footer/>
       </Router>

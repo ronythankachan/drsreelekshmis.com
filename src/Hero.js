@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import HeroVideo from './video/hero_background.mp4';
+import {Link} from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -14,8 +15,8 @@ const Hero = () => {
                 <h1>Authentic kerala ayurveda clinic</h1>
                 <h4>An ayurveda care center offers authentic treatments and stuff</h4>
                 <div className="hero__buttons">
-                    <button> Buy medicines online</button>
-                    <button>Schedule an at home appointment</button> 
+                    <button><Link to={'/shop'} className="link">Buy medicines online</Link></button>
+                    <button><Link to={'/book_appointment'} className="link">Schedule a home appointment</Link></button> 
                 </div>
             </div>
         </div>

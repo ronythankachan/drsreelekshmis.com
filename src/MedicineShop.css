@@ -1,0 +1,10 @@
+.medicineshop{
+    text-align: center;
+    margin: 100px;
+}
+.medicineshop > img{
+    width: 30vw;
+}
+.medicineshop > h2{
+    color: grey;
+}
