@@ -14,6 +14,7 @@ import MarmaTherapy from './MarmaTherapy';
 import PostDeliveryCare from './PostDeliveryCare';
 import SwarnaPrashana from './SwarnaPrashana';
 import Yoga from './Yoga';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
   const [isOpen,setIsOpen] =useState(false);
