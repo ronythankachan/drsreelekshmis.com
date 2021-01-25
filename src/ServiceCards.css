@@ -1,11 +1,12 @@
-.card{
+.data_card{
     display: flex;
     justify-content: space-between;
     margin: 100px;
+    margin-left: 300px;
 }
 
 @media screen and (max-width:1200px){
-    .card{
+    .data_card{
         flex-direction: column !important;
         width: 100% !important;
         padding: 0px;
