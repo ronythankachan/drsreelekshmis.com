@@ -63,23 +63,3 @@ export const SideBtnWrap = styled.div`
     display:flex;
     justify-content:center;
 `;
-
-export const SidebarRoute = styled(LinkR)`
-    border-radius:50px;
-    background: #01bf71;
-    white-space:nowrap;
-    padding: 13px 20px;
-    color:#010606;
-    font-size:16px;
-    outline: none;
-    border:none;
-    cursor:pointer;
-    transition:0.2s ease-in-out;
-    text-decoration:none;
-
-    &:hover{
-        transition: all 0.2s ease-in-out;
-        background: #fff;
-        color:#010606;
-    }
-`;

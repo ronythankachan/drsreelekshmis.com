@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {
     SidebarContainer,
     CloseIcon,
@@ -6,9 +7,9 @@ import {
     SidebarWrapper,
     SidebarMenu,
     SidebarLink,
-    SidebarRoute,
     SideBtnWrap
 } from './SidebarElements';
+import { Button } from 'react-bootstrap';
 
 const Sidebar = ({isOpen,toggle}) => {
     return (
@@ -20,10 +21,9 @@ const Sidebar = ({isOpen,toggle}) => {
                 <SidebarMenu>
                     <SidebarLink to="about">About</SidebarLink>
                     <SidebarLink to="contact">Contact Us</SidebarLink>
-                    <SidebarLink to="services">Services</SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <SidebarRoute to="/book_appointment">Book an appointment</SidebarRoute>
+                    <Button variant="danger"><Link to={'/book_appointment'} className="link">Book appointment</Link></Button>
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

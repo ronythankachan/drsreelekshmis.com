@@ -2,7 +2,6 @@
     height: fit-content;
     width: 100%;
     background-color: #0d0d0d;
-    bottom: 0%;
     color: #fff;
     display: flex;
     justify-content: space-evenly;
@@ -30,7 +29,11 @@
 a{
     color: white;
 }
-
+.footer__heading,.footer__logo{
+    font-weight: bolder;
+    font-family:monospace;
+    color: green !important;
+}
 .footer__right >p {
     text-align: center;
 }
