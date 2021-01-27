@@ -16,14 +16,14 @@ const Footer = () => {
             </div>
             <div className="footer__middle">
                 <div className="footer__heading">
-                    <h3>Links</h3>
+                    <h2>Links</h2>
                 </div>
                 <Link to={'/about'} className="link">About</Link>
                 <Link to={'/contact'} className="link">Contact us</Link>
             </div>
             <div className="footer__right">
                 <div className="footer__heading">
-                    <h3>Connect with us</h3>
+                    <h2>Connect with us</h2>
                 </div>
                 <p>Tel: +919847532286</p>
                 <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>

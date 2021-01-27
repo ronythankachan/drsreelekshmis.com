@@ -31,8 +31,7 @@ a{
 }
 .footer__heading,.footer__logo{
     font-weight: bolder;
-    font-family:monospace;
-    color: green !important;
+    color: lightcyan;
 }
 .footer__right >p {
     text-align: center;
