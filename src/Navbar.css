@@ -1,0 +1,40 @@
+.navbar{
+    background-color: rgb(20, 20, 20);
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.navbar__middle{
+    text-align: center;
+}
+.navbar__logo{
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+.navbar__middle > .link{
+    padding: 0 1rem;
+}
+.navbar__right{
+    display: flex;
+    align-items: center;
+}
+.navbar__mobile__icon{
+    color: white;
+    margin-left: 20px;
+    font-size: 2rem;
+    display: none;
+}
+@media screen and (max-width:1200px){
+    .navbar__middle{
+        display: none;
+    }
+    .navbar__button{
+        display: none;
+    }
+    .navbar__mobile__icon{
+        display: block;
+    }
+}

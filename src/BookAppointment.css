@@ -1,10 +1,12 @@
 
 .bookappointment{
     box-sizing: border-box;
-    width: 100%;
-    height: 100%;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80vh;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding: 30px;
 }
 .bookappointment__form{
@@ -30,6 +32,7 @@
 .bookappointment__heading{
     color: purple;
     width: 50%;
+    height: 560px;
 }
 .bookappointment__heading> ul{
     margin-left: 40px;

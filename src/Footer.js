@@ -12,27 +12,21 @@ const Footer = () => {
                         <Link to={'/'} className="link logo_green">Dr.Sreelakshmi clinic</Link>
                     </h2>
                 </div>
-                <a href="/about">About</a>
-                <a href="/contact">Contact us</a>
+
             </div>
             <div className="footer__middle">
                 <div className="footer__heading">
-                    <h3>SERVICES</h3>
+                    <h3>Links</h3>
                 </div>
-                <a href="/shop">Order medicines</a>
-                <a href="/panchakarma">Panchakarma</a>
-                <a href="/marma_therapy">Marma Therapy</a>
-                <a href="/post_delivery_care">Post delivery care</a>
-                <a href="/swarna_prashana">Svarna prashana</a>
-                <a href="/yoga">Yoga</a>
+                <Link to={'/about'} className="link">About</Link>
+                <Link to={'/contact'} className="link">Contact us</Link>
             </div>
             <div className="footer__right">
                 <div className="footer__heading">
-                    <h3>CONNECT WITH US</h3>
+                    <h3>Connect with us</h3>
                 </div>
                 <p>Tel: +919847532286</p>
-                <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New
-town, Bangalore 560064</p>
+                <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
                 <div className="footer__right__socialmedia">
                     <a href="https://www.instagram.com"><FaFacebook/></a>
                     <a href="https://www.facebook.com"><FaInstagram/></a>

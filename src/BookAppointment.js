@@ -82,6 +82,7 @@ const handleSubmit = (event)=> {
                     <li> No waiting in queue</li>
                     <li> Get follow up updates on your appointment</li>
                 </ul>
+
             </div>
             <div className="bookappointment__form">
                 <Form onSubmit={handleSubmit}>

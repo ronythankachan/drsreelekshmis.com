@@ -1,17 +1,15 @@
 import React from 'react';
 import './Hero.css';
 import HeroVideo from './video/hero_background.mp4';
-import Ayurvedha from './images/ayurvedha.jpg';
 import {Link} from 'react-router-dom';
 
 const Hero = () => {
     return (
         <div className="hero">
             <div className="hero__video">
-                <img src={Ayurvedha} alt="ayurvedha"/>
-                {/* <video autoPlay loop muted>
+                <video autoPlay loop muted>
                     <source src={HeroVideo} type="video/mp4"/>
-                </video> */}
+                </video>
             </div>
             <div className="hero__title">
                 <h1>Authentic kerala ayurveda clinic</h1>
