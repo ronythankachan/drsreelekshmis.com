@@ -9,6 +9,7 @@ import Sidebar from './Sidebar';
 import About from './About';
 import Contact from './Contact';
 import MedicineShop from './MedicineShop';
+import HomeAppointment from './HomeAppointment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route path='/about' component={About}/>
               <Route path='/contact' component={Contact}/>
               <Route path='/shop' component={MedicineShop}/>
+              <Route path='/home_appointment' component={HomeAppointment}/>
           </Switch>
           <Footer/>
       </Router>
