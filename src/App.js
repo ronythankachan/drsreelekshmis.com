@@ -11,6 +11,7 @@ import Contact from './Contact';
 import MedicineShop from './MedicineShop';
 import HomeAppointment from './HomeAppointment';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ScrollToTop from './ScrollToTop';
 function App() {
 
   const [isOpen,setIsOpen] =useState(false);
@@ -22,14 +23,15 @@ function App() {
       <Router>
           <Navbar toggle={toggle}/>
           <Sidebar isOpen={isOpen} toggle={toggle}/>
-          <Switch>
-              <Route exact path='/' component={Home}/>
-              <Route path='/book_appointment' component={BookAppointment}/>
-              <Route path='/about' component={About}/>
-              <Route path='/contact' component={Contact}/>
-              <Route path='/shop' component={MedicineShop}/>
-              <Route path='/home_appointment' component={HomeAppointment}/>
-          </Switch>
+          <ScrollToTop/>
+            <Switch>
+                <Route exact path='/' component={Home}/>
+                <Route path='/book_appointment' component={BookAppointment}/>
+                <Route path='/about' component={About}/>
+                <Route path='/contact' component={Contact}/>
+                <Route path='/shop' component={MedicineShop}/>
+                <Route path='/home_appointment' component={HomeAppointment}/>
+            </Switch>
           <Footer/>
       </Router>
     </div>
