@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import './BookAppointment.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import backend from './axios';
 
 const BookAppointment = () => {
 
@@ -8,15 +9,14 @@ const BookAppointment = () => {
         "date":null,
         "first_name":null,
         "last_name":null,
-        "op_number":null,
         "phone":null,
         "age":null,
         "address":null,
+        "doctor":null,
         "form_errors":{
             "date":"",
             "first_name":"",
             "last_name":"",
-            "op_number":"",
             "phone":"",
             "age":"",
             "address":"",
@@ -67,6 +67,10 @@ const BookAppointment = () => {
 const handleSubmit = (event)=> {
     event.preventDefault();
     if(formValid){
+        let data = formData;
+        delete data["form_errors"];
+        console.log("booking data",data);
+        backend.post("/appointments",data);
         alert("A booking has been made");
     }else{
         alert("Please correct the information and try resubmitting it.")
