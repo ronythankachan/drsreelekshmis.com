@@ -1,0 +1,9 @@
+.appointment{
+    padding: 10px;
+    background-color: khaki;
+    margin: 20px 0px;
+    border-radius: 12px;
+}
+.list_item{
+    display: flex;
+}
