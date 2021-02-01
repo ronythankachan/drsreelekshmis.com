@@ -2,166 +2,21 @@ import React,{useState, useEffect} from 'react';
 import './ShowAppointments.css';
 import Appointment from './Appointment';
 import {CardColumns, Form, Row, Col} from 'react-bootstrap';
+import backend from './axios';
 
 const ShowAppointments = ({user}) => {
-
     const [appointments, setAppointments] = useState([]);
     useEffect(()=>{
-        setAppointments([
-            {
-                "_id":1,
-                "date":"2018-03-29",
-                "first_name":"rishi",
-                "last_name":"nv",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":2,
-                "date":"2018-03-29",
-                "first_name":"nazeel",
-                "last_name":"ashraf",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.leena"
-            },
-            {
-                "_id":3,
-                "date":"2018-03-29",
-                "first_name":"leena",
-                "last_name":"thomas",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":4,
-                "date":"2018-03-29",
-                "first_name":"rishi",
-                "last_name":"nv",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":5,
-                "date":"2018-03-29",
-                "first_name":"nazeel",
-                "last_name":"ashraf",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.leena"
-            },
-            {
-                "_id":6,
-                "date":"2018-03-29",
-                "first_name":"leena",
-                "last_name":"thomas",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":7,
-                "date":"2018-03-29",
-                "first_name":"rishi",
-                "last_name":"nv",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":8,
-                "date":"2018-03-29",
-                "first_name":"nazeel",
-                "last_name":"ashraf",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.leena"
-            },
-            {
-                "_id":9,
-                "date":"2018-03-29",
-                "first_name":"leena",
-                "last_name":"thomas",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":10,
-                "date":"2018-03-29",
-                "first_name":"rishi",
-                "last_name":"nv",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":11,
-                "date":"2018-03-29",
-                "first_name":"nazeel",
-                "last_name":"ashraf",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.leena"
-            },
-            {
-                "_id":12,
-                "date":"2018-03-29",
-                "first_name":"leena",
-                "last_name":"thomas",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":13,
-                "date":"2018-03-29",
-                "first_name":"rishi",
-                "last_name":"nv",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            },
-            {
-                "_id":14,
-                "date":"2018-03-29",
-                "first_name":"nazeel",
-                "last_name":"ashraf",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.leena"
-            },
-            {
-                "_id":15,
-                "date":"2018-03-29",
-                "first_name":"leena",
-                "last_name":"thomas",
-                "phone":9847534345,
-                "age":25,
-                "address":"Konnanikkatu house, pottankad p.o, tea company",
-                "doctor":"dr.rony"
-            }
-        ])
+        async function fetchData(){
+            const appointments = await backend('/appointments').then((response) => {
+                setAppointments(response.data);
+                console.log(response.status);
+              }, (error) => {
+                console.log(error);
+              });
+        }
+        fetchData();
     },[]);
-
-
 
     const [formData, setFormData] = useState({
         "doctor":"",
