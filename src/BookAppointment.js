@@ -6,13 +6,13 @@ import backend from './axios';
 const BookAppointment = () => {
 
     const [formData, setFormData] = useState({
-        "date":null,
-        "first_name":null,
-        "last_name":null,
-        "phone":null,
-        "age":null,
-        "address":null,
-        "doctor":null,
+        "date":"",
+        "first_name":"",
+        "last_name":"",
+        "phone":"",
+        "age":"",
+        "address":"",
+        "doctor":"",
         "form_errors":{
             "date":"",
             "first_name":"",
@@ -32,7 +32,6 @@ const BookAppointment = () => {
         let name = e.target.name;
         let value = e.target.value;
         newFormData[name] = value;
-
         switch(name){
             case 'date':
                 setValidDate(true);
@@ -44,9 +43,11 @@ const BookAppointment = () => {
                 newFormData.form_errors[name] = value.length ? "":"Second Name cannot be empty";
                 break;
             case 'phone': 
-                newFormData.form_errors[name] = value.length ? "":"Enter a valid phone number";
+                let phone_regex = /\+?\d[\d -]{8,12}\d/;
+                newFormData.form_errors[name] = phone_regex.test(value) ? "":"Enter a valid phone number";
                 break;
             case 'age':
+                newFormData.form_errors[name] = value<0 || value>130 ? "Age is not valid":"";
                 break;
             case 'address':
                 newFormData.form_errors[name] = value.length ? "":"Address cannot be empty";
@@ -54,12 +55,23 @@ const BookAppointment = () => {
             default: console.log('unable to validate form');
 
         }
-        if(!formData.form_errors.date && !formData.form_errors.first_name && !formData.form_errors.last_name && !formData.form_errors.phone && !formData.form_errors.age && !formData.form_errors.address){
-            setFormValid(true);
-        }else{
-            setFormValid(false);
-        }
-        setFormData(newFormData);
+        if(!formData.form_errors.date && 
+            !formData.form_errors.first_name && 
+            !formData.form_errors.last_name && 
+            !formData.form_errors.phone && 
+            !formData.form_errors.age && 
+            !formData.form_errors.address && 
+            formData.date &&
+            formData.first_name && 
+            formData.last_name && 
+            formData.phone && 
+            formData.age && 
+            formData.address){
+                setFormValid(true);
+            }else{
+                setFormValid(false);
+            }
+            setFormData(newFormData);
     }
 
     
@@ -70,8 +82,12 @@ const handleSubmit = (event)=> {
         let data = formData;
         delete data["form_errors"];
         console.log("booking data",data);
-        backend.post("/appointments",data);
-        alert("A booking has been made");
+        backend.post("/appointments",data).then((response) => {
+            console.log(response);
+            formData.date=null;
+          }, (error) => {
+            console.log(error);
+          });
     }else{
         alert("Please correct the information and try resubmitting it.")
     }
@@ -92,9 +108,8 @@ const handleSubmit = (event)=> {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Label>Select Date *</Form.Label>
-                        <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange}/>
+                        <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange} value={formData.date}/>
                         <small className="error">{formData.form_errors.date}</small>
-                        
                     </Form.Group>
                     <Form.Group>
                         <Row>

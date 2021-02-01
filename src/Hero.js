@@ -1,9 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Hero.css';
 import HeroVideo from './video/hero_background.mp4';
 import {Link} from 'react-router-dom';
+import { Modal, Button } from 'react-bootstrap';
+import HomeAppointment from './HomeAppointment';
 
 const Hero = () => {
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div className="hero">
             <div className="hero__video">
@@ -16,9 +23,10 @@ const Hero = () => {
                 <h4>An ayurveda care center offers authentic treatments and stuff</h4>
                 <div className="hero__buttons">
                     <button><Link to={'/shop'} className="link black">Buy medicines online</Link></button>
-                    <button><Link to={'/home_appointment'} className="link black">Schedule a home appointment</Link></button> 
+                    <button onClick={handleShow}>Schedule a home appointment</button> 
                 </div>
             </div>
+            <HomeAppointment handleClose={handleClose} show={show} />
         </div>
     )
 }

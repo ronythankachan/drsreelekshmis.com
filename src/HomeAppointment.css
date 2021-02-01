@@ -5,3 +5,11 @@
     align-items: center;
     justify-content: center;
 }
+.alert{
+    position: fixed !important;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 999;
+    font-weight: bolder;
+}
