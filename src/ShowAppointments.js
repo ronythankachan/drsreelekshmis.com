@@ -6,22 +6,22 @@ import backend from './axios';
 
 const ShowAppointments = ({user}) => {
     const [appointments, setAppointments] = useState([]);
-    useEffect(()=>{
-        async function fetchData(){
-            const appointments = await backend('/appointments').then((response) => {
-                setAppointments(response.data);
-                console.log(response.status);
-              }, (error) => {
-                console.log(error);
-              });
-        }
-        fetchData();
-    },[]);
-
     const [formData, setFormData] = useState({
         "doctor":"",
         "date":""
     });
+    async function fetchData(){
+        console.log(formData);
+        const appointments = await backend.get('/appointments',{ params:{"doctor":formData.doctor,"date":formData.date}}).then((response) => {
+            setAppointments(response.data);
+          }, (error) => {
+            console.log(error);
+          });
+    }
+    useEffect(()=>{
+        fetchData();
+    },[]);
+
     const appointment_list = appointments.map((item)=>{
         return <Appointment data={item} key={item._id}/>
     });
@@ -30,8 +30,13 @@ const ShowAppointments = ({user}) => {
         console.log("searching...");
     }
     const handleChange = (e) =>{
-        formData[e.target.name]=e.target.value;
+        if(e.target.value=="Choose..."){
+            formData[e.target.name]="";
+        }else{
+            formData[e.target.name]=e.target.value;
+        }
         console.log(formData);
+        fetchData();
     }
     return (
         <div className="showappointments">
@@ -41,7 +46,7 @@ const ShowAppointments = ({user}) => {
                         <Row>
                             <Col>
                                 <Form.Label>Doctor</Form.Label>
-                                <Form.Control as="select" onChange={handleChange} defaultValue={formData.doctor} >
+                                <Form.Control as="select" onChange={handleChange} name="doctor" defaultValue={formData.doctor} >
                                     <option>Choose...</option>
                                     <option>Dr.Leena</option>
                                     <option>Dr.Rony</option>
