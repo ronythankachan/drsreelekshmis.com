@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import './HomeAppointment.css';
 import {Modal,Button, Form, Alert, Row, Col} from 'react-bootstrap';
-import BookAppointment from './BookAppointment';
 
 const HomeAppointment = ({handleClose,show}) => {
     const [formData, setFormData] = useState({
