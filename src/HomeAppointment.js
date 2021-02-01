@@ -49,8 +49,6 @@ const HomeAppointment = ({handleClose,show}) => {
         console.log(value);
     }
 
-
-
     return (
         <div className="homeappointment">
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered>
