@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import './HomeAppointment.css';
-import {Modal,Button, Form, Alert} from 'react-bootstrap';
+import {Modal,Button, Form, Alert, Row, Col} from 'react-bootstrap';
 import BookAppointment from './BookAppointment';
 
 const HomeAppointment = ({handleClose,show}) => {
@@ -23,6 +23,7 @@ const HomeAppointment = ({handleClose,show}) => {
             "address":""
         }
     });
+    const [success, setSuccess] = useState("success");
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const fadeAlert = async () => {
         await delay(5000);
@@ -40,6 +41,7 @@ const HomeAppointment = ({handleClose,show}) => {
         let value = event.target.value;
         formData[name]=value;
         validate(name,value);
+        
     }
 
     const validate =(name,value) => {
@@ -52,7 +54,7 @@ const HomeAppointment = ({handleClose,show}) => {
     return (
         <div className="homeappointment">
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered>
-                <Modal.Header closeButton>
+                <Modal.Header className="modal_header" closeButton>
                     <Modal.Title>Schedule Home Appointment</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -64,21 +66,68 @@ const HomeAppointment = ({handleClose,show}) => {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Select Date *</Form.Label>
-                            <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange} value={formData.date}/>
+                            <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange}/>
                             <small className="error">{formData.form_errors.date}</small>
                         </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Service *</Form.Label>
+                            <Form.Control as="select" name="service" defaultValue="Choose..." onChange={handleChange}>
+                                <option>Choose...</option>
+                                <option>Panchakarma</option>
+                                <option>Marma Therapy</option>
+                                <option>Post Delivery Care</option>
+                                <option>Swarna prashana</option>
+                                <option>Yoga</option>
+                                <option>Others</option>
+                            </Form.Control>
+                        </Form.Group>
+                        <Form.Group>
+                            <Row>
+                                <Col>
+                                    <Form.Label> First Name *</Form.Label>
+                                    <Form.Control type="text" placeholder="First Name" name="first_name" onChange={handleChange}/>
+                                    <small className="error">{formData.form_errors.first_name}</small>
+                                </Col>
+                                <Col>
+                                    <Form.Label> Last Name *</Form.Label>
+                                    <Form.Control type="text" placeholder="Last Name" name="last_name" onChange={handleChange}/>
+                                    <small className="error">{formData.form_errors.last_name}</small>
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Phone *</Form.Label>
+                            <Form.Control type="number" placeholder="Phone Number" name="phone" onChange={handleChange}/>
+                            <small className="error">{formData.form_errors.phone}</small>
+                        </Form.Group>
+                        <Form.Group>
+                                <Form.Label>Age *</Form.Label>
+                                <Form.Control type="number" placeholder="Age" name="age" onChange={handleChange}/>
+                                <small className="error">{formData.form_errors.age}</small>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Address *</Form.Label>
+                            <Form.Control placeholder="Address" name="address" onChange={handleChange}/>
+                            <small className="error">{formData.form_errors.address}</small>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Comments</Form.Label>
+                            <Form.Control placeholder="Comments (optional)" name="address" onChange={handleChange}/>
+                        </Form.Group>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
+                            <Button variant="warning" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button  variant="primary" onClick={handleSubmit}>
+                            <Button  variant="success" onClick={handleSubmit}>
                                 Book Home Appointment
                             </Button>
                         </Modal.Footer>
                     </Form>
                 </Modal.Body>
             </Modal>
-            <Alert className="alert" variant="success" show={alertshow} onClose={ ()=> setAlertShow(false)} dismissible>Home appintment booked</Alert>
+            <Alert className="alert" variant={success} show={alertshow} onClose={ ()=> setAlertShow(false)} dismissible>
+                Home appointment booked succesfully
+            </Alert>
         </div>
     )
 }

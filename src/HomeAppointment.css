@@ -13,3 +13,7 @@
     z-index: 999;
     font-weight: bolder;
 }
+.modal_header{
+    color: white !important;
+    background-color: rgba(23, 122, 106, 0.657) !important;
+}

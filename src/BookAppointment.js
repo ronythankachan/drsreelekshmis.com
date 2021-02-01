@@ -138,7 +138,6 @@ const handleSubmit = (event)=> {
                                 <small className="error">{formData.form_errors.age}</small>
                             </Col>
                         </Row>
-
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Address *</Form.Label>
