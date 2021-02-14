@@ -6,12 +6,12 @@
     margin-right: auto;
     min-height:80vh;
     display: flex;
-    align-items: center;
     padding: 30px;
+    align-items: center;
 }
 .bookappointment__form{
     width: 50%;
-    height: 560px;
+    height: fit-content;
     padding: 30px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

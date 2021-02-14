@@ -1,97 +1,49 @@
-import React,{useState} from 'react';
+import React from 'react';
 import './BookAppointment.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import backend from './axios';
+import {useFormik} from 'formik'
+
+const validate = values =>{
+    const errors={}
+    if(!values.date){
+        errors.date = 'Required field'
+    }
+    if(!values.firstName){
+        errors.firstName = 'Required field'
+    }else if(values.firstName.length <3){
+        errors.firstName = 'First Name should be atleast 3 characters long'
+    }
+    if(!values.phone){
+        errors.phone = 'Required field'
+    }
+    if(!values.age){
+        errors.age = 'Required field'
+    }
+    if(!values.address){
+        errors.address = 'Required field'
+    }
+    return errors
+}
+
 
 const BookAppointment = () => {
 
-    const [formData, setFormData] = useState({
-        "date":"",
-        "first_name":"",
-        "last_name":"",
-        "phone":"",
-        "age":"",
-        "address":"",
-        "doctor":"",
-        "form_errors":{
-            "date":"",
-            "first_name":"",
-            "last_name":"",
-            "phone":"",
-            "age":"",
-            "address":"",
+    const formik = useFormik({
+        initialValues:{
+            date:'',
+            firstName:'',
+            lastName:'',
+            phone:'',
+            age:'',
+            address:'',
+            doctor:''
+        },
+        validate,
+        onSubmit: values => {
+            alert(JSON.stringify(values,null,2))
+            formik.resetForm()
         }
-
-    });
-    const [formValid,setFormValid] =useState(false);
-    const [validDate,setValidDate] =useState(false);
-
-
-    const handleChange = e=>{
-        let newFormData = {...formData};
-        let name = e.target.name;
-        let value = e.target.value;
-        newFormData[name] = value;
-        switch(name){
-            case 'date':
-                setValidDate(true);
-                break;
-            case 'first_name': 
-                newFormData.form_errors[name] = value.length <3 ? "First Name should be atleast 3 letters long":"";
-                break;
-            case 'last_name': 
-                newFormData.form_errors[name] = value.length ? "":"Second Name cannot be empty";
-                break;
-            case 'phone': 
-                let phone_regex = /\+?\d[\d -]{8,12}\d/;
-                newFormData.form_errors[name] = phone_regex.test(value) ? "":"Enter a valid phone number";
-                break;
-            case 'age':
-                newFormData.form_errors[name] = value<0 || value>130 ? "Age is not valid":"";
-                break;
-            case 'address':
-                newFormData.form_errors[name] = value.length ? "":"Address cannot be empty";
-                break;
-            default: console.log('unable to validate form');
-
-        }
-        if(!formData.form_errors.date && 
-            !formData.form_errors.first_name && 
-            !formData.form_errors.last_name && 
-            !formData.form_errors.phone && 
-            !formData.form_errors.age && 
-            !formData.form_errors.address && 
-            formData.date &&
-            formData.first_name && 
-            formData.last_name && 
-            formData.phone && 
-            formData.age && 
-            formData.address){
-                setFormValid(true);
-            }else{
-                setFormValid(false);
-            }
-            setFormData(newFormData);
-    }
-
-    
-
-const handleSubmit = (event)=> {
-    event.preventDefault();
-    if(formValid){
-        let data = formData;
-        delete data["form_errors"];
-        console.log("booking data",data);
-        backend.post("/appointments",data).then((response) => {
-            console.log(response);
-            formData.date=null;
-          }, (error) => {
-            console.log(error);
-          });
-    }else{
-        alert("Please correct the information and try resubmitting it.")
-    }
-}
+    })
 
     return (
         <div className="bookappointment">
@@ -105,54 +57,53 @@ const handleSubmit = (event)=> {
 
             </div>
             <div className="bookappointment__form">
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={formik.handleSubmit}>
                     <Form.Group>
                         <Form.Label>Select Date *</Form.Label>
-                        <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange} value={formData.date}/>
-                        <small className="error">{formData.form_errors.date}</small>
+                        <Form.Control id="date" type="date" placeholder="Select date" name="date" value={formik.values.date} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                        {formik.touched.date && formik.errors.date ? (<div className="error">{formik.errors.date}</div>) : null}
                     </Form.Group>
-                    <Form.Group>
-                        <Row>
-                            <Col>
-                                <Form.Label> First Name *</Form.Label>
-                                <Form.Control type="text" placeholder="First Name" name="first_name" onChange={handleChange} disabled={validDate? false:true}/>
-                                <small className="error">{formData.form_errors.first_name}</small>
-                            </Col>
-                            <Col>
-                                <Form.Label> Last Name *</Form.Label>
-                                <Form.Control type="text" placeholder="Last Name" name="last_name" onChange={handleChange} disabled={validDate? false:true}/>
-                                <small className="error">{formData.form_errors.last_name}</small>
-                            </Col>
-                        </Row>
-                    </Form.Group>
-                    <Form.Group>
-                        <Row>
-                            <Col>
-                                <Form.Label>Phone *</Form.Label>
-                                <Form.Control type="number" placeholder="Phone Number" name="phone" onChange={handleChange}  disabled={validDate? false:true}/>
-                                <small className="error">{formData.form_errors.phone}</small>
-                            </Col>
-                            <Col>
-                                <Form.Label>Age *</Form.Label>
-                                <Form.Control type="number" placeholder="Age" name="age" onChange={handleChange}  disabled={validDate? false:true}/>
-                                <small className="error">{formData.form_errors.age}</small>
-                            </Col>
-                        </Row>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Address *</Form.Label>
-                        <Form.Control placeholder="Address with ZIP Code" name="address" onChange={handleChange}  disabled={validDate? false:true}/>
-                        <small className="error">{formData.form_errors.address}</small>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Doctor *</Form.Label>
-                        <Form.Control as="select" name="doctor" defaultValue="Choose..." onChange={handleChange} disabled={validDate? false:true}>
-                            <option>Choose...</option>
-                            <option>Dr.Leena</option>
-                            <option>Dr.Rony</option>
-                        </Form.Control>
-                    </Form.Group>
-                    <Button variant="primary" type="submit" disabled={formValid? false:true}>Book appointment</Button>
+                        <Form.Group>
+                            <Row>
+                                <Col>
+                                    <Form.Label> First Name *</Form.Label>
+                                    <Form.Control id="firstName" type="text" placeholder="First Name" name="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                                    {formik.touched.firstName && formik.errors.firstName ? (<div className="error">{formik.errors.firstName}</div>) : null}
+                                </Col>
+                                <Col>
+                                    <Form.Label> Last Name</Form.Label>
+                                    <Form.Control id="lastName" type="text" placeholder="Last Name" name="lastName" value={formik.values.lastName} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group>
+                            <Row>
+                                <Col>
+                                    <Form.Label>Phone *</Form.Label>
+                                    <Form.Control id="phone" type="number" placeholder="Phone Number" name="phone" value={formik.values.phone} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                                    {formik.touched.phone && formik.errors.phone ? (<div className="error">{formik.errors.phone}</div>) : null}
+                                </Col>
+                                <Col>
+                                    <Form.Label>Age *</Form.Label>
+                                    <Form.Control id="age" type="number" placeholder="Age" name="age" value={formik.values.age} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                                    {formik.touched.age && formik.errors.age ? (<div className="error">{formik.errors.age}</div>) : null}
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Address *</Form.Label>
+                            <Form.Control as="textarea" rows={3} id="address" placeholder="Address with ZIP Code" name="address" value={formik.values.address} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                            {formik.touched.address && formik.errors.address ? (<div className="error">{formik.errors.address}</div>) : null}
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Doctor</Form.Label>
+                            <Form.Control as="select" name="doctor" value={formik.values.doctor} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                                <option>Choose...</option>
+                                <option>Dr.Leena</option>
+                                <option>Dr.Rony</option>
+                            </Form.Control>
+                        </Form.Group>
+                        <Button variant="primary" type="submit" >Book appointment</Button>
                 </Form>
             </div>
         </div>
