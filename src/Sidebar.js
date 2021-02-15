@@ -23,7 +23,7 @@ const Sidebar = ({isOpen,toggle}) => {
                     <SidebarLink to="contact">Contact Us</SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <Button variant="danger"><Link to={'/book_appointment'} className="link">Book appointment</Link></Button>
+                    <Button><Link to={'/book_appointment'} className="link">Book appointment</Link></Button>
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

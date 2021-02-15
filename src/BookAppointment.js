@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './BookAppointment.css';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button, Toast } from 'react-bootstrap';
 import {useFormik} from 'formik'
 import backend from './axios'
 
@@ -39,6 +39,8 @@ const validate = values =>{
 
 
 const BookAppointment = () => {
+    const [show, setShow] = useState(false);
+    const [toastMsg, setToastMsg] =useState("");
 
     const formik = useFormik({
         initialValues:{
@@ -54,9 +56,11 @@ const BookAppointment = () => {
         onSubmit: values => {
             backend.post('/appointment',values)
             .then((response) =>{
-                alert("booking done")
+                setToastMsg(`Your appointment has been made on ${values.date}`)
+                setShow(true);
             },(error) =>{
-                alert("Error in booking")
+                setToastMsg('Failed to book appointment')
+                setShow(true);
                 console.log(error)
             })
             formik.resetForm()
@@ -65,16 +69,8 @@ const BookAppointment = () => {
 
     return (
         <div className="bookappointment">
-            <div className="bookappointment__heading">
-                <h1>Book an appointment</h1>
-                <ul>
-                    <li> Get a confirmed visiting date</li>
-                    <li> No waiting in queue</li>
-                    <li> Get follow up updates on your appointment</li>
-                </ul>
-
-            </div>
             <div className="bookappointment__form">
+                <h2>BOOK APPOINTMENT</h2>
                 <Form onSubmit={formik.handleSubmit}>
                     <Form.Group>
                         <Form.Label>Select Date *</Form.Label>
@@ -123,6 +119,16 @@ const BookAppointment = () => {
                         </Form.Group>
                         <Button variant="primary" type="submit" >Book appointment</Button>
                 </Form>
+                <div style={{position: 'fixed',bottom: 0,right: 0}}>
+                    <Toast variant="primary" onClose={() => setShow(false)} show={show} delay={3000}>
+                        <Toast.Header>
+                            <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                            <strong className="mr-auto">Appointment Booking</strong>
+                            <small>Just now</small>
+                        </Toast.Header>
+                        <Toast.Body>{toastMsg}</Toast.Body>
+                    </Toast>
+                </div>
             </div>
         </div>
     )

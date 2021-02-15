@@ -1,51 +1,23 @@
 
 .bookappointment{
-    box-sizing: border-box;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    min-height:80vh;
-    display: flex;
     padding: 30px;
+    min-height:100vh;
+    display: flex;
+    background-image: url('/src/images/background_pattern.png');
     align-items: center;
+    justify-content:space-evenly;
+}
+.bookappointment__form > h2{
+    font-family: monospace !important;
+    margin-bottom: 20px;
 }
 .bookappointment__form{
-    width: 50%;
     height: fit-content;
+    width: 700px;
     padding: 30px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 12px;
-}
-@media screen and (max-width:1200px){
-    .bookappointment{
-        width: 100%;
-        flex-direction: column;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .bookappointment__form{
-        width: 100%;
-        height: fit-content;
-    }
-    .bookappointment__heading{
-        width: 100% !important;
-        height: fit-content !important;
-    }
-}
-.bookappointment__heading{
-    color: purple;
-    width: 50%;
-    height: 560px;
-}
-.bookappointment__heading> ul{
-    margin-left: 40px;
-    color: black;
-    font-size: 1.2rem;
-    list-style:circle;
 }
 .error{
     color: red;
