@@ -22,6 +22,10 @@ const Appointment = ({data}) => {
                 <p style={{fontWeight:"bold"}}>Address:&nbsp;</p>
                 <p>{data.address}</p>
             </ListGroupItem>
+            <ListGroupItem className="list_item">
+                <p style={{fontWeight:"bold"}}>Appointment Type:&nbsp;</p>
+                <p>{data.appointmentType}</p>
+            </ListGroupItem>
         </ListGroup>
         <Card.Footer>
             <small className="text-muted">Doctor: {data.doctor}</small>

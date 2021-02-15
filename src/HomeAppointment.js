@@ -1,52 +1,86 @@
 import React,{useState} from 'react';
 import './HomeAppointment.css';
-import {Modal,Button, Form, Alert, Row, Col} from 'react-bootstrap';
+import {Modal,Button, Form, Row, Col, Toast} from 'react-bootstrap';
+import {useFormik} from 'formik'
+import backend from './axios'
+
+const isValidZip = (zip) =>{
+    // Check if service is available in this zip
+    return true
+}
+const isValidDate = (date) =>{
+    // Check if doctors are available in this date
+    return true
+}
+
+const validate = values => {
+    const errors={}
+    if(!values.zip){
+        errors.zip = 'Required field'
+    }else if(!isValidZip(values.zip)){
+        errors.zip = 'Sorry, our services are not availble in your area'
+    }
+    if(!values.date){
+        errors.date = 'Required field'
+    }else if(!isValidDate(values.date)){
+        errors.date = 'Doctors are not available on this date. Please select some other date'
+    }
+    if(!values.firstName){
+        errors.firstName = 'Required field'
+    }else if(values.firstName.length <3){
+        errors.firstName = 'First Name should be atleast 3 characters long'
+    }
+    if(!values.phone){
+        errors.phone = 'Required field'
+    }else if(!/\+?\d[\d -]{8,12}\d/.test(values.phone)){
+        errors.phone = 'Invalid phone number'
+    }
+    if(!values.age){
+        errors.age = 'Required field'
+    }else if(parseInt(values.age)<0 || parseInt(values.age)>120){
+        errors.age= 'Age is not valid'
+    }
+    if(!values.address){
+        errors.address = 'Required field'
+    }
+    if(!values.service || values.service === "Choose..."){
+        errors.service = 'Required field'
+    }
+    return errors
+}
 
 const HomeAppointment = ({handleClose,show}) => {
-    const [formData, setFormData] = useState({
-        "zip":"",
-        "date":"",
-        "first_name":"",
-        "last_name":"",
-        "phone":"",
-        "age":"",
-        "address":"",
-        "comments":"",
-        "form_errors":{
-            "zip":"",
-            "date":"",
-            "first_name":"",
-            "last_name":"",
-            "phone":"",
-            "age":"",
-            "address":""
+
+    const [toastShow, setToastShow] = useState(false);
+    const [toastMsg, setToastMsg] =useState("");
+    const formik = useFormik({
+        initialValues:{
+            zip:'',
+            date:'',
+            firstName:'',
+            lastName:'',
+            phone:'',
+            age:'',
+            address:'',
+            doctor:'',
+            comments:'',
+            service:'',
+            appointmentType:'home'
+        },
+        validate,
+        onSubmit: values => {
+            backend.post('/appointments',values)
+            .then((response) =>{
+                setToastMsg(`Hi ${values.firstName}, Your appointment has been made successfully on ${values.date}`)
+            },(error) =>{
+                handleClose()
+                setToastMsg('Failed to book appointment')
+                console.log(error)
+            })
+            setToastShow(true);
+            formik.resetForm()
         }
-    });
-    const [success, setSuccess] = useState("success");
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-    const fadeAlert = async () => {
-        await delay(5000);
-        setAlertShow(false);
-      };
-    const [alertshow,setAlertShow] = useState(false);
-    const handleSubmit = (event)=>{
-        setAlertShow(true);
-        handleClose(event);
-        fadeAlert();
-    }
-
-    const handleChange =(event)=>{
-        let name = event.target.name;
-        let value = event.target.value;
-        formData[name]=value;
-        validate(name,value);
-        
-    }
-
-    const validate =(name,value) => {
-        console.log(name);
-        console.log(value);
-    }
+    })
 
     return (
         <div className="homeappointment">
@@ -55,20 +89,20 @@ const HomeAppointment = ({handleClose,show}) => {
                     <Modal.Title>Schedule Home Appointment</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={formik.handleSubmit}>
                         <Form.Group>
                             <Form.Label>ZIP *</Form.Label>
-                            <Form.Control type="number" placeholder="Pin Code" name="zip" onChange={handleChange}/>
-                            <small className="error">{formData.form_errors.zip}</small>
+                            <Form.Control id="zip" type="number" placeholder="Zip Code" name="zip" value={formik.values.zip} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.zip && formik.errors.zip}/>                             
+                            {formik.touched.zip && formik.errors.zip ? (<div className="error">{formik.errors.zip}</div>) : null}
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Select Date *</Form.Label>
-                            <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange}/>
-                            <small className="error">{formData.form_errors.date}</small>
+                            <Form.Control id="date" type="date" placeholder="Select date" name="date" value={formik.values.date} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.date && formik.errors.date}/>
+                            {formik.touched.date && formik.errors.date ? (<div className="error">{formik.errors.date}</div>) : null}
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Service *</Form.Label>
-                            <Form.Control as="select" name="service" defaultValue="Choose..." onChange={handleChange}>
+                            <Form.Control as="select" name="service" value={formik.values.service} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.service && formik.errors.service}>
                                 <option>Choose...</option>
                                 <option>Panchakarma</option>
                                 <option>Marma Therapy</option>
@@ -77,54 +111,73 @@ const HomeAppointment = ({handleClose,show}) => {
                                 <option>Yoga</option>
                                 <option>Others</option>
                             </Form.Control>
+                            {formik.touched.service && formik.errors.service ? (<div className="error">{formik.errors.service}</div>) : null}
                         </Form.Group>
                         <Form.Group>
                             <Row>
                                 <Col>
                                     <Form.Label> First Name *</Form.Label>
-                                    <Form.Control type="text" placeholder="First Name" name="first_name" onChange={handleChange}/>
-                                    <small className="error">{formData.form_errors.first_name}</small>
+                                    <Form.Control id="firstName" type="text" placeholder="First Name" name="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.firstName && formik.errors.firstName}/>
+                                    {formik.touched.firstName && formik.errors.firstName ? (<div className="error">{formik.errors.firstName}</div>) : null}
                                 </Col>
                                 <Col>
-                                    <Form.Label> Last Name *</Form.Label>
-                                    <Form.Control type="text" placeholder="Last Name" name="last_name" onChange={handleChange}/>
-                                    <small className="error">{formData.form_errors.last_name}</small>
+                                    <Form.Label> Last Name</Form.Label>
+                                    <Form.Control id="lastName" type="text" placeholder="Last Name" name="lastName" value={formik.values.lastName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                                 </Col>
                             </Row>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Phone *</Form.Label>
-                            <Form.Control type="number" placeholder="Phone Number" name="phone" onChange={handleChange}/>
-                            <small className="error">{formData.form_errors.phone}</small>
-                        </Form.Group>
-                        <Form.Group>
-                                <Form.Label>Age *</Form.Label>
-                                <Form.Control type="number" placeholder="Age" name="age" onChange={handleChange}/>
-                                <small className="error">{formData.form_errors.age}</small>
+                            <Form.Label>Doctor</Form.Label>
+                            <Form.Control as="select" name="doctor" value={formik.values.doctor} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                                <option>Choose...</option>
+                                <option>Dr.Leena</option>
+                                <option>Dr.Rony</option>
+                            </Form.Control>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Address *</Form.Label>
-                            <Form.Control placeholder="Address" name="address" onChange={handleChange}/>
-                            <small className="error">{formData.form_errors.address}</small>
+                            <Form.Control as="textarea" rows={3} id="address" placeholder="Address with ZIP Code" name="address" value={formik.values.address} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.address && formik.errors.address}/>
+                            {formik.touched.address && formik.errors.address ? (<div className="error">{formik.errors.address}</div>) : null}
+                        </Form.Group>
+                        <Form.Group>
+                            <Row>
+                                <Col>
+                                    <Form.Label>Phone *</Form.Label>
+                                    <Form.Control id="phone" type="number" placeholder="Phone Number" name="phone" value={formik.values.phone} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.phone && formik.errors.phone}/>
+                                    {formik.touched.phone && formik.errors.phone ? (<div className="error">{formik.errors.phone}</div>) : null}
+                                </Col>
+                                <Col>
+                                    <Form.Label>Age *</Form.Label>
+                                    <Form.Control id="age" type="number" placeholder="Age" name="age" value={formik.values.age} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.age && formik.errors.age}/>
+                                    {formik.touched.age && formik.errors.age ? (<div className="error">{formik.errors.age}</div>) : null}
+                                </Col>
+                            </Row>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Comments</Form.Label>
-                            <Form.Control placeholder="Comments (optional)" name="address" onChange={handleChange}/>
+                            <Form.Control as="textarea" rows={3} id="comments" placeholder="Comments" name="comments" value={formik.values.comments} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                         </Form.Group>
                         <Modal.Footer>
                             <Button variant="warning" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button  variant="success" onClick={handleSubmit}>
+                            <Button variant="success" type="submit">
                                 Book Home Appointment
                             </Button>
                         </Modal.Footer>
                     </Form>
                 </Modal.Body>
             </Modal>
-            <Alert className="alert" variant={success} show={alertshow} onClose={ ()=> setAlertShow(false)} dismissible>
-                Home appointment booked succesfully
-            </Alert>
+            <div style={{position: 'fixed',bottom: 0,right: 0}}>
+                <Toast variant="primary" onClose={() => setToastShow(false)} show={toastShow} delay={3000}>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                        <strong className="mr-auto">Appointment Booking</strong>
+                        <small>Just now</small>
+                    </Toast.Header>
+                    <Toast.Body>{toastMsg}</Toast.Body>
+                </Toast>
+            </div>
         </div>
     )
 }
