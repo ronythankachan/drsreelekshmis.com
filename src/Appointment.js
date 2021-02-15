@@ -4,10 +4,10 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
 
 const Appointment = ({data}) => {
     return (
-        <Card>
-        <Card.Body >
-        <Card.Title>{data.firstName+" "+data.lastName}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{data.date}</Card.Subtitle>
+        <Card style={{ width: '20rem' }}>
+        <Card.Body>
+            <Card.Title>{data.firstName+" "+data.lastName}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">{data.date}</Card.Subtitle>
         </Card.Body>
         <ListGroup className="list-group-flush">
             <ListGroupItem className="list_item">

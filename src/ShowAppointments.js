@@ -1,8 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import './ShowAppointments.css';
 import Appointment from './Appointment';
-import {CardColumns, Form, Row, Col} from 'react-bootstrap';
+import {CardColumns, Form, Row, Col, Button} from 'react-bootstrap';
 import backend from './axios';
+import Filters from './Filters';
 
 const ShowAppointments = ({user}) => {
     const [appointments, setAppointments] = useState([]);
@@ -38,33 +39,15 @@ const ShowAppointments = ({user}) => {
         console.log(formData);
         fetchData();
     }
+    const [filterValues, setFilterValues] = useState({});
+
     return (
         <div className="showappointments">
-            <div className="searchform">
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group>
-                        <Row>
-                            <Col>
-                                <Form.Label>Doctor</Form.Label>
-                                <Form.Control as="select" onChange={handleChange} name="doctor" defaultValue={formData.doctor} >
-                                    <option>Choose...</option>
-                                    <option>Dr.Leena</option>
-                                    <option>Dr.Rony</option>
-                                </Form.Control>
-                            </Col>
-                            <Col>
-                            <Form.Label>Select Date</Form.Label>
-                            <Form.Control type="date" placeholder="Select date" name="date" onChange={handleChange} defaultValue={formData.date}/>
-                            </Col>
-                        </Row>
-                    </Form.Group>
-                </Form>
-            </div>
-            <div className="cardlist">
-                <CardColumns>
-                    {appointment_list}
-                </CardColumns>
-            </div>
+            <Filters setFilterValues={setFilterValues}/>
+            {filterValues.date}
+            {filterValues.doctor}
+            {filterValues.service}
+            {filterValues.appointmentType}
         </div>
     )
 }
