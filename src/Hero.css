@@ -24,9 +24,12 @@
 }
 .hero__title >h1{
     font-size: 3rem;
+    font-weight: bolder;
 }
 .hero__title >h4{
-    color: lightpink;
+    color: darkgrey;
+    font-family: monospace !important;
+    font-weight: bolder;
 }
 
 .hero__buttons >button{

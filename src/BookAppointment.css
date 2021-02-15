@@ -10,6 +10,7 @@
 .bookappointment__form > h2{
     font-family: monospace !important;
     margin-bottom: 20px;
+    font-weight: bolder;
 }
 .bookappointment__form{
     height: fit-content;

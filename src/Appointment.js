@@ -6,14 +6,10 @@ const Appointment = ({data}) => {
     return (
         <Card>
         <Card.Body >
-        <Card.Title>{data.first_name+" "+data.last_name}</Card.Title>
+        <Card.Title>{data.firstName+" "+data.lastName}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{data.date}</Card.Subtitle>
         </Card.Body>
         <ListGroup className="list-group-flush">
-            <ListGroupItem className="list_item">
-                <p style={{fontWeight:"bold"}}>Name:&nbsp;</p>
-                <p>{data.first_name+" "+data.last_name}</p>
-            </ListGroupItem>
             <ListGroupItem className="list_item">
                 <p style={{fontWeight:"bold"}}>Age:&nbsp;</p>
                 <p>{data.age}</p>

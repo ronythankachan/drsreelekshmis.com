@@ -50,11 +50,12 @@ const BookAppointment = () => {
             phone:'',
             age:'',
             address:'',
-            doctor:''
+            doctor:'',
+            appointmentType:'clinic'
         },
         validate,
         onSubmit: values => {
-            backend.post('/appointment',values)
+            backend.post('/appointments',values)
             .then((response) =>{
                 setToastMsg(`Your appointment has been made on ${values.date}`)
                 setShow(true);
