@@ -12,7 +12,7 @@ import MedicineShop from './MedicineShop';
 import HomeAppointment from './HomeAppointment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollToTop from './ScrollToTop';
-import ShowAppointments from './ShowAppointments';
+import AppointmentsContainer from './AppointmentsContainer';
 function App() {
 
   const [isOpen,setIsOpen] =useState(false);
@@ -32,7 +32,7 @@ function App() {
                 <Route path='/contact' component={Contact}/>
                 <Route path='/shop' component={MedicineShop}/>
                 <Route path='/home_appointment' component={HomeAppointment}/>
-                <Route path='/appointments' component={ShowAppointments}/>
+                <Route path='/appointments' component={AppointmentsContainer}/>
             </Switch>
           <Footer/>
       </Router>

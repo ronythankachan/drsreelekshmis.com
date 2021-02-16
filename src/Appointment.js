@@ -4,7 +4,7 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
 
 const Appointment = ({data}) => {
     return (
-        <Card style={{ width: '20rem' }}>
+        <Card style={{minWidth:"18rem", height:"30rem", margin:"20px"}}>
         <Card.Body>
             <Card.Title>{data.firstName+" "+data.lastName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{data.date}</Card.Subtitle>
