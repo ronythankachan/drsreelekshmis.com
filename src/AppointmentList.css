@@ -3,7 +3,7 @@
     display: flex;   
 }
 .searchform{
-    min-width: 250px;
+    min-width: 300px;
     padding: 20px;
 }
 .appointment__items{
