@@ -5,8 +5,6 @@ import Marma from './images/marma_therapy.jpg';
 import PostDeliveryCare from './images/post_delivery_care.jpg';
 import SwarnaPrashana from './images/swarna_prashana.jpg';
 import Yoga from './images/yoga.jpg';
-import { Button } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 
 const ServiceCards = () => {
     return (
