@@ -6,7 +6,7 @@ import Filters from './Filters';
 import AddUser from './AddUser';
 import DateControl from './DateControl';
 import ZipControl from './ZipControl';
-import {Accordion, Card} from 'react-bootstrap';
+import {Accordion, Card, CardColumns} from 'react-bootstrap';
 
 const AppointmentList = ({user}) => {
     const [appointments, setAppointments] = useState([]);
@@ -80,7 +80,9 @@ const AppointmentList = ({user}) => {
                 </Accordion>
             </div>
             <div className="appointment__items">
+                <CardColumns>
                     {appointment_list}
+                </CardColumns>
             </div>
         </div>
     )

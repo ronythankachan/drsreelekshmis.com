@@ -8,7 +8,7 @@
 }
 .appointment__items{
     width: calc(100% - 250px);
-    padding: 30px;
+    padding: 0px 100px;
     background-color: rgba(45, 209, 53, 0.219);
     display: flex;
     background-image: url('/src/images/background_pattern.png');

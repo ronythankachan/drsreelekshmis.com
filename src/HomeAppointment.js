@@ -53,6 +53,8 @@ const HomeAppointment = ({handleClose,show}) => {
 
     const [toastShow, setToastShow] = useState(false);
     const [toastMsg, setToastMsg] =useState("");
+    const [toastColor, setToastColor] = useState("red");
+
     const formik = useFormik({
         initialValues:{
             zip:'',
@@ -72,13 +74,15 @@ const HomeAppointment = ({handleClose,show}) => {
             backend.post('/appointments',values)
             .then((response) =>{
                 setToastMsg(`Hi ${values.firstName}, Your appointment has been made successfully on ${values.date}`)
+                setToastColor("green")
             },(error) =>{
-                handleClose()
                 setToastMsg('Failed to book appointment')
+                setToastColor("red")
                 console.log(error)
             })
-            setToastShow(true);
+            setToastShow(true)
             formik.resetForm()
+            handleClose()
         }
     })
 
@@ -168,14 +172,13 @@ const HomeAppointment = ({handleClose,show}) => {
                     </Form>
                 </Modal.Body>
             </Modal>
-            <div style={{position: 'fixed',bottom: 0,right: 0}}>
-                <Toast variant="primary" onClose={() => setToastShow(false)} show={toastShow} delay={3000}>
-                    <Toast.Header>
-                        <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+            <div style={{position: 'fixed',bottom: 0,right: 0,margin:"30px"}}>
+                <Toast variant="primary" onClose={() => setToastShow(false)} show={toastShow} delay={3000} style={{color:"white",backgroundColor:toastColor, borderRadius:"12px"}}>
+                    <Toast.Header style={{fontSize:"1rem", color:"white",backgroundColor:toastColor,borderRadius:"12px"}}>
                         <strong className="mr-auto">Appointment Booking</strong>
-                        <small>Just now</small>
+                        <small >Just now</small>
                     </Toast.Header>
-                    <Toast.Body>{toastMsg}</Toast.Body>
+                    <Toast.Body style={{fontSize:"1rem"}}>{toastMsg}</Toast.Body>
                 </Toast>
             </div>
         </div>
