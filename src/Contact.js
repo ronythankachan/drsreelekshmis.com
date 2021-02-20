@@ -1,10 +1,14 @@
-import React from 'react';
-import './Contact.css';
+import React from 'react'
+import './Contact.css'
+import Map from './Map'
+import ClinicInfo from './ClinicInfo'
+
 
 const Contact = () => {
     return (
         <div className="contact">
-            <h2>Contact page</h2>
+            <Map/>
+            <ClinicInfo/>
         </div>
     )
 }

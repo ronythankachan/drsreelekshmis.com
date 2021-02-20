@@ -73,16 +73,16 @@ const HomeAppointment = ({handleClose,show}) => {
         onSubmit: values => {
             backend.post('/appointments',values)
             .then((response) =>{
-                setToastMsg(`Hi ${values.firstName}, Your appointment has been made successfully on ${values.date}`)
                 setToastColor("green")
+                setToastMsg(`Hi ${values.firstName}, Your appointment has been made successfully on ${values.date}`)
             },(error) =>{
-                setToastMsg('Failed to book appointment')
                 setToastColor("red")
+                setToastMsg('Failed to book appointment')
                 console.log(error)
             })
-            setToastShow(true)
             formik.resetForm()
             handleClose()
+            setToastShow(true)
         }
     })
 

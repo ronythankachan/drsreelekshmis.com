@@ -7,7 +7,7 @@ import Leena from './images/leena.jpg'
 const Doctors = () => {
     return (
         <div className="doctors">
-            <h3>Our Doctors</h3>
+            <h3>Doctors</h3>
             <CardDeck>
                 <Card>
                     <Card.Img variant="top" src={Rony} />

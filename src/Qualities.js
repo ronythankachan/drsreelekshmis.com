@@ -1,9 +1,9 @@
 import React from 'react'
+import './Qualities.css'
 
 const Qualities = () => {
     return (
-        <div>
-            qualities
+        <div className="qualities">
         </div>
     )
 }

@@ -1,21 +1,21 @@
-.contact{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact__start{
+.vision{
     max-width: 1000px;
     padding: 30px;
 }
-.contact__start >h3{
+.vision > h3{
     width: fit-content;
     margin:0 auto;
     font-size: 2.3rem;
     margin-bottom: 40px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(20, 20, 20);
+    font-family: serif;
+}
+.jumbotron{
+    background-color: white !important;
+    border-radius: 0px !important;
+    border-bottom: 1px solid black;
+}
+.jumbotron > h1{
     font-family: serif;
 }
