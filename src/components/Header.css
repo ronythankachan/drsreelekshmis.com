@@ -1,0 +1,45 @@
+.header{
+    height: 35px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color:rgb(100, 86, 57);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.phone{
+    display: flex;
+    justify-content: center;
+}
+.phone__icon, .address__icon{
+    font-size: 1rem;
+    margin-top: -2px;
+    margin-right: 10px;
+}
+.address{
+    display: flex;
+    justify-content: center;
+}
+.social__media{
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width:768px){
+    .header{
+        flex-direction: column;
+        height: fit-content;
+        row-gap: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}

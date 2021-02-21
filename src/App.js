@@ -17,6 +17,7 @@ import SwarnaPrashanaPage from './pages/SwarnaPrashanaPage';
 import YogaPage from './pages/YogaPage';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
+import Header from './components/Header';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
   }
   return (
       <Router>
+          <Header/>
           <Navbar toggle={toggle}/>
           <Sidebar isOpen={isOpen} toggle={toggle}/>
           <ScrollToTop/>
