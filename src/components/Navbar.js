@@ -23,7 +23,7 @@ const Navbar = ({toggle}) => {
             </div>
             <div className="navbar__right">
                 <div className="navbar__button">
-                    <Button><Link to={'/book_appointment'} className="link">Book appointment</Link></Button>
+                    <Button href="/book_appointment">Book Appointment</Button>
                 </div>
                 <div className="navbar__mobile__icon" onClick={toggle}>
                     <RiMenu3Fill/>

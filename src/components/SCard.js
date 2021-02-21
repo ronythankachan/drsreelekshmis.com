@@ -12,7 +12,7 @@ const SCard = ({image, name, description, direction, readmore}) => {
             <div className="card__details">
                 <h2>{name}</h2>
                 <p>{description}</p>
-                <Button variant="warning"><Link to={readmore}>Read More</Link></Button>
+                <Button variant="info" href={readmore}>Read More&nbsp;&nbsp;&gt;&gt;</Button>
             </div>
         </div>
     )

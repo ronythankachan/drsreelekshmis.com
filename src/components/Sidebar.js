@@ -20,7 +20,7 @@ const Sidebar = ({isOpen,toggle}) => {
                     <NavDropdown.Item href="/swarna_prashana">Swarna Prashana</NavDropdown.Item>
                     <NavDropdown.Item href="/yoga">Yoga</NavDropdown.Item>
                 </NavDropdown>
-                <Button variant="primary" onClick={toggle} className="bottom">Book Appointment</Button>
+                <Button variant="primary" onClick={toggle} className="bottom" href='/book_appointment'>Book Appointment</Button>
             </div>
         </div>
     )
