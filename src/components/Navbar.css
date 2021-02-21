@@ -32,6 +32,9 @@
     font-size: 2rem;
     display: none;
 }
+.navbar__mobile__icon :hover{
+    color: grey;
+}
 @media screen and (max-width:1200px){
     .navbar__middle{
         display: none;

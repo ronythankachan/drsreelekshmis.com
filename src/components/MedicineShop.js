@@ -1,6 +1,6 @@
 import React from 'react';
 import './MedicineShop.css';
-import DeliveryBoyGif from './gif/delivery_boy.gif';
+import DeliveryBoyGif from '../gif/delivery_boy.gif';
 
 const MedicineShop = () => {
     return (

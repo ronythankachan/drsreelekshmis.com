@@ -87,7 +87,7 @@ const HomeAppointment = ({handleClose,show}) => {
     })
 
     return (
-        <div className="homeappointment">
+        <div>
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered>
                 <Modal.Header className="modal_header" closeButton>
                     <Modal.Title>Schedule Home Appointment</Modal.Title>
