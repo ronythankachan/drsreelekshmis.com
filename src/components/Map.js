@@ -1,7 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import './Map.css'
-import ClinicIcon from './images/clinic_icon.png'
+import ClinicIcon from '../images/clinic_icon.png'
 
 
 const Location = ({ text }) => {

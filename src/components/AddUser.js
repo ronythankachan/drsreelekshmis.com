@@ -28,7 +28,7 @@ const AddUser = () => {
                     <Form.Control type="text" name="username" placeholder="User Name" onChange={handleChange} required/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Passowrd</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control type="text" name="username" placeholder="Password" onChange={handleChange} required/>
                 </Form.Group>
                 <Button variant="success" type="submit">Add User</Button>

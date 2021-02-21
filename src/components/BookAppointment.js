@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './BookAppointment.css';
 import { Form, Row, Col, Button, Toast } from 'react-bootstrap';
 import {useFormik} from 'formik'
-import backend from './axios'
+import backend from '../axios'
 
 const isValidDate = (date) =>{
     // Check if doctors are available in this date

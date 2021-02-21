@@ -1,8 +1,8 @@
 import React from 'react'
 import { CardDeck, Card } from 'react-bootstrap'
 import './Doctors.css'
-import Rony from './images/rony.jpg'
-import Leena from './images/leena.jpg'
+import Rony from '../images/rony.jpg'
+import Leena from '../images/leena.jpg'
 
 const Doctors = () => {
     return (

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './HomeAppointment.css';
 import {Modal,Button, Form, Row, Col, Toast} from 'react-bootstrap';
 import {useFormik} from 'formik'
-import backend from './axios'
+import backend from '../axios'
 
 const isValidZip = (zip) =>{
     // Check if service is available in this zip

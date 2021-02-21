@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import './Login.css'
 import { Form, Button } from 'react-bootstrap'
-import backend from './axios'
+import backend from '../axios'
 
 const Login = ({setIsLoggedIn}) => {
 

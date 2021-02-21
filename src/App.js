@@ -1,18 +1,23 @@
 import React,{useState} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
-import Home from './Home';
-import Footer from './Footer';
-import BookAppointment from './BookAppointment';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
-import About from './About';
-import Contact from './Contact';
-import MedicineShop from './MedicineShop';
-import HomeAppointment from './HomeAppointment';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import BookAppointmentPage from './pages/BookAppointmentPage';
+import ShopPage from './pages/ShopPage';
+import AppointmentsPage from './pages/AppointmentsPage.js';
+import PanchakarmaPage from './pages/PanchakarmaPage';
+import MarmaTherapyPage from './pages/MarmaTherapyPage';
+import PostDeliveryCarePage from './pages/PostDeliveryCarePage';
+import SwarnaPrashanaPage from './pages/SwarnaPrashanaPage';
+import YogaPage from './pages/YogaPage';
+import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
-import AppointmentsContainer from './AppointmentsContainer';
+
 function App() {
 
   const [isOpen,setIsOpen] =useState(false);
@@ -20,25 +25,25 @@ function App() {
       setIsOpen(!isOpen)
   }
   return (
-    <div>
       <Router>
           <Navbar toggle={toggle}/>
           <Sidebar isOpen={isOpen} toggle={toggle}/>
           <ScrollToTop/>
-            <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route path='/book_appointment' component={BookAppointment}/>
-                <Route path='/about' component={About}/>
-                <Route path='/contact' component={Contact}/>
-                <Route path='/shop' component={MedicineShop}/>
-                <Route path='/home_appointment' component={HomeAppointment}/>
-                <Route path='/appointments' component={AppointmentsContainer}/>
-            </Switch>
+          <Switch>
+              <Route exact path='/' component={HomePage}/>
+              <Route path='/about' component={AboutPage}/>
+              <Route path='/contact' component={ContactPage}/>
+              <Route path='/book_appointment' component={BookAppointmentPage}/>
+              <Route path='/shop' component={ShopPage}/>
+              <Route path='/appointments' component={AppointmentsPage}/>
+              <Route path='/panchakarma' component={PanchakarmaPage}/>
+              <Route path='/marma_therapy' component={MarmaTherapyPage}/>
+              <Route path='/post_delivery_care' component={PostDeliveryCarePage}/>
+              <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
+              <Route path='/yoga' component={YogaPage}/>
+          </Switch>
           <Footer/>
       </Router>
-    </div>
-
-
   );
 }
 

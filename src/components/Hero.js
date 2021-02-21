@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import './Hero.css';
-import HeroVideo from './video/hero_background.mp4';
+import HeroVideo from '../video/hero_background.mp4';
 import {Link} from 'react-router-dom';
-import HomeAppointment from './HomeAppointment';
+import HomeAppointment from '../components/HomeAppointment';
 
 const Hero = () => {
 
@@ -21,7 +21,7 @@ const Hero = () => {
                 <h1>Authentic kerala ayurveda clinic</h1>
                 <h4>An ayurveda care center offers authentic treatments and stuff</h4>
                 <div className="hero__buttons">
-                    <button><Link to={'/shop'} className="link black">Buy medicines online</Link></button>
+                    <button><Link to={'/shop'} className="link black">Buy Kerala Medicines</Link></button>
                     <button onClick={handleShow}>Schedule a home appointment</button> 
                 </div>
             </div>

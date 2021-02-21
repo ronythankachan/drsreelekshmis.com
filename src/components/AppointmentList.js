@@ -1,11 +1,11 @@
 import React,{useState, useEffect} from 'react';
 import './AppointmentList.css';
 import Appointment from './Appointment';
-import backend from './axios';
+import backend from '../axios';
 import Filters from './Filters';
 import AddUser from './AddUser';
 import DateControl from './DateControl';
-import ZipControl from './ZipControl';
+import ZipControl from './components/ZipControl';
 import {Accordion, Card, CardColumns} from 'react-bootstrap';
 
 const AppointmentList = ({user}) => {
