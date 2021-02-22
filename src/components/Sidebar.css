@@ -11,7 +11,7 @@
     font-size: 2rem;
     position: absolute;
     right: 1.2rem;
-    top: 1.2rem;
+    top: 2rem;
 }
 .icon :hover{
     color: grey;
@@ -36,4 +36,9 @@
 .bottom{
     position: absolute;
     bottom: 20%;
+}
+@media screen and (max-width:950px){
+    .icon{
+        top: 8rem;
+    }
 }

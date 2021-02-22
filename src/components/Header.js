@@ -11,20 +11,10 @@ const Header = () => {
     return (
         <div className="header">
           <div className="address">
-            <div className="address__icon">
-              <FaLocationArrow/>
-            </div>
-            <div className="address_info">
-               Yelahanka New town, Bangalore
-            </div>
+            <FaLocationArrow/>Yelahanka New town, Bangalore
           </div>
           <div className="phone">
-            <div className="phone__icon">
-              <CgPhone/>
-            </div>
-            <div className="phone__number">
-              Contact at +91 9847532286
-            </div>
+              <CgPhone/>Contact at +91 9847532286
           </div>
           <div className="social__media">
               <FaFacebookF/>
