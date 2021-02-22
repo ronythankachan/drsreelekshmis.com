@@ -6,6 +6,31 @@
     padding: 100px;
 }
 
+.card__image{
+    width: 50%;
+    text-align:center;
+}
+.card__image> img{
+    width: 500px;
+    object-fit: cover;
+    border: 2px solid lightgray;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 300px;
+}
+.card__details{
+    width: 50%;
+    text-align: center;
+}
+.card__details > h2{
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: rgb(23, 131, 41);
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
 @media screen and (max-width:1200px){
     .scard{
         flex-direction: column !important;
