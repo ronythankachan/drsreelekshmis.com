@@ -1,20 +1,23 @@
 .header{
     width: 100%;
-    background-color:rgb(100, 86, 57);
+    background-color:#a3d078;
     color: white;
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
     padding: 0px 10px;
+    font-size: 1rem;
 }
 .phone,.address,.social__media{
     width: 30%;
     display: flex;
     align-items: center;
     column-gap: 10px;
+    padding:7px 0px;
 }
 .phone{
     justify-content: center;
+    background-color: #529f04;
+    padding: 2px;
 }
 .social__media{
     justify-content: flex-end;
@@ -23,11 +26,12 @@
     .header{
         flex-direction: column;
         row-gap: 10px;
-        padding:10px;
+        padding:10px 0px;
     }
     .phone,.address,.social__media{
         width: 100%;
         justify-content: center;
+        padding:3px 0px;
     }
 }
 .social__media{

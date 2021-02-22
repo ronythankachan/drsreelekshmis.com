@@ -17,9 +17,9 @@ const Header = () => {
               <CgPhone/>Contact at +91 9847532286
           </div>
           <div className="social__media">
-              <FaFacebookF/>
-              <FaInstagram/>
-              <FaTwitter/>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF/></a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter/></a>
           </div>
         </div>
     )
