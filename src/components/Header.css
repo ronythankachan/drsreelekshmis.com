@@ -1,6 +1,6 @@
 .header{
     width: 100%;
-    background-color:#a3d078;
+    background-color:#355876;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -16,7 +16,7 @@
 }
 .phone{
     justify-content: center;
-    background-color: #529f04;
+    background-color: #173652;
     padding: 2px;
 }
 .social__media{

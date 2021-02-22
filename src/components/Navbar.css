@@ -38,6 +38,9 @@
     color: grey;
 }
 @media screen and (max-width:1200px){
+    .navbar__container{
+        position: relative !important;
+    }
     .navbar__middle{
         display: none;
     }
