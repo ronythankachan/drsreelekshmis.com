@@ -1,9 +1,11 @@
 import React from 'react'
+import Panchakarma from '../components/Panchakarma'
+import './PanchakarmaPage.css'
 
 const PanchakarmaPage = () => {
     return (
-        <div>
-            
+        <div className="panchakarmapage">
+            <Panchakarma/>
         </div>
     )
 }
