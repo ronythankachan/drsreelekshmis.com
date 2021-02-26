@@ -1,15 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Panchakarma.css'
 import {Button} from 'react-bootstrap'
-
-
-const content = {
-    title: "Panchakarma",
-    subtitle:"All Panchakarma therapies will be done at home by trained therapists under doctor’s supervision."
-
-}
+import HomeAppointment from './HomeAppointment'
 
 const Panchakarma = () => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div className="panchakarma">
             <div className="main__heading">
@@ -84,7 +81,8 @@ const Panchakarma = () => {
                     </ul>
                 </div>
             </div>
-            <Button className="book__button" variant="success">Book Appointment</Button>
+            <Button className="book__button" variant="success" onClick={handleShow}>Book Appointment</Button>
+            <HomeAppointment handleClose={handleClose} show={show} />
         </div>
     )
 }

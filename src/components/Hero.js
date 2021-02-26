@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './Hero.css';
 import HeroVideo from '../video/hero_background.mp4';
 import {Link} from 'react-router-dom';
-import HomeAppointment from '../components/HomeAppointment';
+import HomeAppointment from './HomeAppointment';
 
 const Hero = () => {
 
