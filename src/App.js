@@ -17,6 +17,7 @@ import SwarnaPrashanaPage from './pages/SwarnaPrashanaPage';
 import YogaPage from './pages/YogaPage';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
+import RejuvenationPage from './pages/RejuvenationPage';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
               <Route path='/book_appointment' component={BookAppointmentPage}/>
               <Route path='/shop' component={ShopPage}/>
               <Route path='/appointments' component={AppointmentsPage}/>
+              <Route path='/rejuvenation' component={RejuvenationPage}/>
               <Route path='/panchakarma' component={PanchakarmaPage}/>
               <Route path='/marma_therapy' component={MarmaTherapyPage}/>
               <Route path='/post_delivery_care' component={PostDeliveryCarePage}/>

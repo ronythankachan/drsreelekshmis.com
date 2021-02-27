@@ -19,11 +19,12 @@ const Navbar = ({toggle}) => {
                     <Link to={'/about'} className="link">About</Link>
                     <Link to={'/contact'} className="link">Contact Us</Link>
                     <NavDropdown title="Services" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/rejuvenation">Rejuvenation &amp; Pain Relief Therapies </NavDropdown.Item>
                         <NavDropdown.Item href="/panchakarma">Panchakarma</NavDropdown.Item>
-                        <NavDropdown.Item href="/marma_therapy">Marma Therapy</NavDropdown.Item>
-                        <NavDropdown.Item href="/post_delivery_care">Post Delivery Care</NavDropdown.Item>
+                        <NavDropdown.Item href="/post_delivery_care">Pregnancy &amp; Post Delivery Care </NavDropdown.Item>
+                        <NavDropdown.Divider />
                         <NavDropdown.Item href="/swarna_prashana">Swarna Prashana</NavDropdown.Item>
-                        <NavDropdown.Item href="/yoga">Yoga</NavDropdown.Item>
+                        <NavDropdown.Item href="/yoga">Therapeutic Yoga </NavDropdown.Item>
                     </NavDropdown>
                 </div>
                 <div className="navbar__right">
