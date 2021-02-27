@@ -1,9 +1,11 @@
 import React from 'react'
+import './PostDeliveryCarePage.css'
+import PostDeliveryCare from '../components/PostDeliveryCare'
 
 const PostDeliveryCarePage = () => {
     return (
-        <div>
-            
+        <div className="postdeliverycarepage">
+            <PostDeliveryCare/>
         </div>
     )
 }
