@@ -66,12 +66,16 @@
         text-align: justify;
         margin: 20px;
         font-size: 1rem;
+        padding: 0px 100px;
     }
 }
 @media screen and (max-width:768px){
     .card__image > img{
         min-height: auto;
         height: 200px;
+    }
+    .card__details > p {
+        padding: 0px 4px;
     }
 }
 
