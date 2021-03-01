@@ -1,0 +1,31 @@
+.sidepanel{
+    position: relative;
+    width: 300px;
+    height: 100vh;
+    margin-left: 0px;
+    background-color: rgba(192, 186, 186, 0.075);
+    border-right: 2px solid rgba(0, 0, 0, 0.075);
+    -webkit-transition: all ease .2s;
+    transition: all ease .2s;
+}
+.minimize_button{
+    position: absolute;
+    right: 0;
+    top:40px;
+    margin-top: 20px;
+    margin-right: -13px;
+}
+.minimize_button > button{
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    background:#fff;
+    color: #7f98a4;
+    font-weight: 100;
+    border: 1px solid #b8cdd8;
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 25%);
+    cursor: pointer;
+}
+.minimize{
+    margin-left: -280px;
+}
