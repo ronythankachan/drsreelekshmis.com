@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './Panchakarma.css'
 import {Button} from 'react-bootstrap'
 import HomeAppointment from './HomeAppointment'
+import PanchakarmaImg from '../images/panchakarma2.jpg'
 
 const Panchakarma = () => {
     const [show, setShow] = useState(false);
@@ -13,7 +14,11 @@ const Panchakarma = () => {
                 <h1>Ayurveda Panchakarma Therapy</h1>
                 <p>All Panchakarma therapies will be done at home by trained therapists under doctor’s supervision.</p>
             </div>
+
             <div className="content">
+                <div className="content__image">
+                    <img src={PanchakarmaImg} alt="pain" />
+                </div>
                 <div className="sub__heading1">
                     <h2>Panchakarma (Detox therapies)</h2>
                 </div>

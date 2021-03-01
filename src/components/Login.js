@@ -3,7 +3,7 @@ import './Login.css'
 import { Form, Button } from 'react-bootstrap'
 import backend from '../axios'
 
-const Login = ({setIsLoggedIn}) => {
+const Login = ({setLoginKey,validKey}) => {
 
     const [loginData,setLoginData] =useState({
         username:'',
@@ -21,10 +21,10 @@ const Login = ({setIsLoggedIn}) => {
         event.preventDefault();
         backend.post('/login',loginData)
         .then((response)=>{
-            setIsLoggedIn(true);
+            setLoginKey(validKey);
         })
         .catch((error=> {
-            if(error.response.status === 401){
+            if(error.response && error.response.status === 401){
                 setLoginMsg(error.response.data)
             }else{
                 setLoginMsg("Something went wrong")

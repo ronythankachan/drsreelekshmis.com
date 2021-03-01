@@ -9,7 +9,6 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
 import ShopPage from './pages/ShopPage';
-import AppointmentsPage from './pages/AppointmentsPage.js';
 import PanchakarmaPage from './pages/PanchakarmaPage';
 import MarmaTherapyPage from './pages/MarmaTherapyPage';
 import PostDeliveryCarePage from './pages/PostDeliveryCarePage';
@@ -18,6 +17,7 @@ import YogaPage from './pages/YogaPage';
 import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import RejuvenationPage from './pages/RejuvenationPage';
+import AdminPanel from './components/AdminPanel';
 
 function App() {
 
@@ -36,7 +36,7 @@ function App() {
               <Route path='/contact' component={ContactPage}/>
               <Route path='/book_appointment' component={BookAppointmentPage}/>
               <Route path='/shop' component={ShopPage}/>
-              <Route path='/appointments' component={AppointmentsPage}/>
+              <Route path='/appointments' component={AdminPanel}/>
               <Route path='/rejuvenation' component={RejuvenationPage}/>
               <Route path='/panchakarma' component={PanchakarmaPage}/>
               <Route path='/marma_therapy' component={MarmaTherapyPage}/>

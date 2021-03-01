@@ -1,12 +1,6 @@
-.login{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('/src/images/background_pattern.png');
-}
 .login__form{
     min-width: 400px;
+    width: fit-content;
     padding: 30px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -19,5 +13,10 @@
 .login__error{
     color: red;
     font-family: monospace !important;
-    font-weight: bolder;
+    font-weight: bold;
+}
+@media screen and (max-width:768px){
+    .login__form{
+        min-width:300px;
+    }
 }

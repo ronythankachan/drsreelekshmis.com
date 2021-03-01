@@ -5,7 +5,7 @@ import backend from '../axios';
 import Filters from './Filters';
 import AddUser from './AddUser';
 import DateControl from './DateControl';
-import ZipControl from './components/ZipControl';
+import ZipControl from './ZipControl';
 import {Accordion, Card, CardColumns} from 'react-bootstrap';
 
 const AppointmentList = ({user}) => {

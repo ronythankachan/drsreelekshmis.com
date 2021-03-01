@@ -1,10 +1,11 @@
 import React from 'react'
 import Login from '../components/Login'
+import './LoginPage.css'
 
-const Loginpage = () => {
+const Loginpage = ({setLoginKey,validKey}) => {
     return (
-        <div>
-            <Login/>
+        <div className="loginpage">
+            <Login setLoginKey={setLoginKey} validKey={validKey}/>
         </div>
     )
 }
