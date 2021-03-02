@@ -46,6 +46,9 @@ const validate = values => {
     if(!values.service || values.service === "Choose..."){
         errors.service = 'Required field'
     }
+    if(!values.sex || values.sex === "Choose..."){
+        errors.sex = 'Required field'
+    }
     return errors
 }
 
@@ -64,10 +67,11 @@ const HomeAppointment = ({handleClose,show}) => {
             phone:'',
             age:'',
             address:'',
+            sex:'',
             doctor:'',
             comments:'',
             service:'',
-            appointmentType:'home'
+            appointmentType:'Home'
         },
         validate,
         onSubmit: values => {
@@ -131,12 +135,27 @@ const HomeAppointment = ({handleClose,show}) => {
                             </Row>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Doctor</Form.Label>
-                            <Form.Control as="select" name="doctor" value={formik.values.doctor} onChange={formik.handleChange} onBlur={formik.handleBlur}>
-                                <option>Choose...</option>
-                                <option>Dr.Leena</option>
-                                <option>Dr.Rony</option>
-                            </Form.Control>
+                            <Row>
+                                <Col>
+                                    <Form.Label>Sex *</Form.Label>
+                                    <Form.Control as="select" name="service" value={formik.values.sex} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.sex && formik.errors.sex}>
+                                        <option>Choose...</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Others</option>
+                                    </Form.Control>
+                                    {formik.touched.sex && formik.errors.sex ? (<div className="error">{formik.errors.sex}</div>) : null}
+                                </Col>
+                                <Col>
+                                    <Form.Label>Doctor</Form.Label>
+                                    <Form.Control as="select" name="doctor" value={formik.values.doctor} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                                        <option>Choose...</option>
+                                        <option>Dr.Leena</option>
+                                        <option>Dr.Rony</option>
+                                    </Form.Control>
+                                </Col>
+                            </Row>
+
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Address *</Form.Label>

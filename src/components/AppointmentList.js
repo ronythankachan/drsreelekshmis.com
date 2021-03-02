@@ -6,10 +6,18 @@ const AppointmentList = ({filters}) => {
     const [appointments, setAppointments] = useState([]);
 
     useEffect(()=>{
-        async function fetchData(filters){
-            await backend.get('/appointments',{ params:{"doctor":filters.doctor,"date":filters.date}}).then((response) => {
-                var array = response.data
+        console.log(filters)
+        async function fetchData(){
+            await backend.get('/appointments',{
+                 params:{
+                     "doctor":filters.doctor,
+                     "date":filters.date,
+                     "appointmentType":filters.appointmentType, 
+                     "service":filters.service
+                }
+            }).then((response) => {
                 // sort wrt date
+                var array = response.data
                 array.sort(function(a,b){
                     var dateA = new Date(a.date).getTime();
                     var dateB = new Date(b.date).getTime();
@@ -20,8 +28,9 @@ const AppointmentList = ({filters}) => {
                 console.log(error)
             })
         }
-        fetchData(filters)
-    },[])
+        fetchData()
+         // eslint-disable-next-line
+    },[filters])
 
     const appointment_list = appointments.map((item)=>{
         return <Appointment data={item} key={item._id}/>

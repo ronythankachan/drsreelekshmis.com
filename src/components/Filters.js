@@ -2,33 +2,30 @@ import React,{ useState } from 'react'
 import './Filters.css'
 import { Form, Button } from 'react-bootstrap'
 
-
-
-const initialFilters = {
+const initialFormData = {
     date:'',
     service:'',
     doctor:'',
-    appointmentType:'',
+    appointmentType:''
 }
 
-const Filters = ({setFilterValues}) => {
-
-    const [filters,setFilters] = useState(initialFilters)
+const Filters = ({setFilters}) => {
+    const [formData,setFormData] = useState(initialFormData)
     const handleChange = (event) =>{
-        setFilters({
-            ...filters,
+        setFormData({
+            ...formData,
             [event.target.name]:event.target.value
         })
     }
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        alert(JSON.stringify(filters),2)
-        setFilterValues(filters)
+        setFilters(formData)
     }
 
-    const resetForm = ()=>{
+    const resetForm = (event)=>{
         document.getElementById("filterform").reset();
+        setFormData(initialFormData)
     }
 
     return (
@@ -70,7 +67,6 @@ const Filters = ({setFilterValues}) => {
                 <Button type="submit" variant="success" className="mr-3">Apply</Button>
                 <Button variant="dark" onClick={resetForm}>Reset</Button>
             </Form>
-        
         </div>
     )
 }

@@ -31,6 +31,9 @@ const validate = values =>{
     }else if(parseInt(values.age)<0 || parseInt(values.age)>120){
         errors.age= 'Age is not valid'
     }
+    if(!values.sex || values.sex === "Choose..."){
+        errors.sex = 'Required field'
+    }
     if(!values.address){
         errors.address = 'Required field'
     }
@@ -50,9 +53,10 @@ const BookAppointment = () => {
             lastName:'',
             phone:'',
             age:'',
+            sex:'',
             address:'',
             doctor:'',
-            appointmentType:'clinic'
+            appointmentType:'Clinic'
         },
         validate,
         onSubmit: values => {
@@ -110,17 +114,31 @@ const BookAppointment = () => {
                         </Row>
                     </Form.Group>
                     <Form.Group>
+                        <Row>
+                            <Col>
+                                <Form.Label>Sex *</Form.Label>
+                                <Form.Control as="select" name="sex" value={formik.values.sex} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.sex && formik.errors.sex}>
+                                    <option>Choose...</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Others</option>
+                                </Form.Control>
+                                {formik.touched.sex && formik.errors.sex ? (<div className="error">{formik.errors.sex}</div>) : null}
+                            </Col>
+                            <Col>
+                                <Form.Label>Doctor</Form.Label>
+                                <Form.Control as="select" name="doctor" value={formik.values.doctor} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                                    <option>Choose...</option>
+                                    <option>Dr.Leena</option>
+                                    <option>Dr.Rony</option>
+                                </Form.Control>
+                            </Col>
+                        </Row>
+                    </Form.Group>
+                    <Form.Group>
                         <Form.Label>Address *</Form.Label>
                         <Form.Control as="textarea" rows={3} id="address" placeholder="Address with ZIP Code" name="address" value={formik.values.address} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.address && formik.errors.address}/>
                         {formik.touched.address && formik.errors.address ? (<div className="error">{formik.errors.address}</div>) : null}
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Doctor</Form.Label>
-                        <Form.Control as="select" name="doctor" value={formik.values.doctor} onChange={formik.handleChange} onBlur={formik.handleBlur}>
-                            <option>Choose...</option>
-                            <option>Dr.Leena</option>
-                            <option>Dr.Rony</option>
-                        </Form.Control>
                     </Form.Group>
                     <Button variant="primary" type="submit" >Book appointment</Button>
                 </Form>

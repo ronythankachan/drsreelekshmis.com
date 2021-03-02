@@ -1,12 +1,11 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import Filters from './Filters'
 import AddUser from './AddUser'
 import DateControl from './DateControl'
 import ZipControl from './ZipControl'
 
-const AdminControls = ({}) => {
-    const [filterValues, setFilterValues] = useState({});
+const AdminControls = ({setFilters}) => {
     return (
         <div>
             <Accordion>
@@ -14,7 +13,7 @@ const AdminControls = ({}) => {
                     <Accordion.Toggle as={Card.Header} eventKey="0">Filters</Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                     <Card.Body>
-                        <Filters setFilterValues={setFilterValues}/>  
+                        <Filters setFilters={setFilters}/>  
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>

@@ -1,7 +1,6 @@
 import React from 'react'
 import './Appointment.css'
 import Avatar from '../images/avatar.png'
-import DoctorIcon from '../images/doctor_icon.png'
 const Appointment = ({data}) => {
 
     const date = new Date(data.date)
@@ -37,6 +36,16 @@ const Appointment = ({data}) => {
                         <span>Phone</span> 
                         {data.phone}
                     </p>
+                    <p>
+                        <span>Sex</span> 
+                        {data.sex}
+                    </p>
+                    {
+                        data.service ? <p><span>Service</span> {data.service}</p>: null
+                    }
+                    {
+                        data.zip ? <p><span>Pin Code</span> {data.zip}</p>: null
+                    }
                 </div>
                 <div className="card__address">
                     <p>{data.address}</p>

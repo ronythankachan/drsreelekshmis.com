@@ -3,7 +3,7 @@ import './SidePanel.css'
 import AdminControls from './AdminControls'
 
 
-const SidePanel = ({setIsMinimized}) => {
+const SidePanel = ({setIsMinimized,setFilters}) => {
     const [sidePanelClasses, setSidePanelClasses] = useState("sidepanel")
     const [content, setContent] =useState("<")
     const [isHidden,setIsHidden] =useState(true)
@@ -22,7 +22,7 @@ const SidePanel = ({setIsMinimized}) => {
     }
     return (
         <div className={sidePanelClasses}>
-            <AdminControls/>
+            <AdminControls setFilters={setFilters}/>
             <div className="minimize_button">
                 <button onClick={minimize}>{content}</button>
             </div>
