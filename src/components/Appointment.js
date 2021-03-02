@@ -1,36 +1,48 @@
 import React from 'react'
 import './Appointment.css'
-import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
-
+import Avatar from '../images/avatar.png'
+import DoctorIcon from '../images/doctor_icon.png'
 const Appointment = ({data}) => {
+
+    const date = new Date(data.date)
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'short' });
+    const dt = date.getDate();
     return (
-        <Card style={{minWidth:"18rem", height:"30rem", margin:"20px"}}>
-        <Card.Body>
-            <Card.Title>{data.firstName+" "+data.lastName}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{data.date}</Card.Subtitle>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-            <ListGroupItem className="list_item">
-                <p style={{fontWeight:"bold"}}>Age:&nbsp;</p>
-                <p>{data.age}</p>
-            </ListGroupItem>
-            <ListGroupItem className="list_item">
-                <p style={{fontWeight:"bold"}}>Phone:&nbsp;</p>
-                <p>{data.phone}</p>
-            </ListGroupItem>
-            <ListGroupItem className="list_item">
-                <p style={{fontWeight:"bold"}}>Address:&nbsp;</p>
-                <p>{data.address}</p>
-            </ListGroupItem>
-            <ListGroupItem className="list_item">
-                <p style={{fontWeight:"bold"}}>Appointment Type:&nbsp;</p>
-                <p>{data.appointmentType}</p>
-            </ListGroupItem>
-        </ListGroup>
-        <Card.Footer>
-            <small className="text-muted">Doctor: {data.doctor}</small>
-        </Card.Footer>
-        </Card>
+        <div className="appointment">
+            <div className="card__left">
+                <div className="type">
+                    {data.appointmentType}
+                </div>
+                <div className="avatar">
+                    <img src = {Avatar} alt=""/>
+                </div>
+                <div className="type">
+                    {dt+" - "+month+" - "+year}
+                </div>
+            </div>
+            <div className="card__right">
+                {
+                    data.doctor ? <div className="card__doctor type">{data.doctor}</div>:null
+                }
+                <div className="more__info">
+                    <h1>{data.firstName +" "+ data.lastName}</h1>
+                </div>
+                <div className="others">
+                    <p>
+                        <span>Age</span> 
+                        {data.age}
+                    </p>
+                    <p>
+                        <span>Phone</span> 
+                        {data.phone}
+                    </p>
+                </div>
+                <div className="card__address">
+                    <p>{data.address}</p>
+                </div>
+            </div>
+        </div>
     )
 }
 

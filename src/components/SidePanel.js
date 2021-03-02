@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import './SidePanel.css'
+import AdminControls from './AdminControls'
 
 
 const SidePanel = () => {
@@ -7,7 +8,7 @@ const SidePanel = () => {
     const [content, setContent] =useState("<")
     const [isHidden,setIsHidden] =useState("false")
 
-    const minimize = (event) =>{
+    const minimize = () =>{
         setIsHidden(!isHidden)
         if(isHidden){
             setSidePanelClasses("sidepanel minimize")
@@ -19,7 +20,7 @@ const SidePanel = () => {
     }
     return (
         <div className={sidePanelClasses}>
-            {/* SidePanel Accordian */}
+            <AdminControls/>
             <div className="minimize_button">
                 <button onClick={minimize}>{content}</button>
             </div>

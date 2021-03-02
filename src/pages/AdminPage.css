@@ -1,3 +1,20 @@
 .adminpage{
     min-height: 100vh;
+    display: flex;
+}
+.side__panel{
+    width: 300px;
+}
+.appointment__list{
+    width: calc(100vw - 300px);
+    padding: 0px 50px;
+}
+@media screen and (max-width:768px){
+    .adminpage{
+        min-height: fit-content;
+        flex-direction: column;
+    }
+    .appointment__list{
+        width: 100%;
+    }
 }
