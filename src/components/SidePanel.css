@@ -29,3 +29,14 @@
 .minimize{
     margin-left: -280px;
 }
+@media screen and (max-width:768px){
+    .sidepanel{
+        position: unset;
+        width: 100%;
+        height: fit-content;
+        padding: 10px;
+    }
+    .minimize_button{
+        display: none;
+    }
+}

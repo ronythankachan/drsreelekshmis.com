@@ -72,7 +72,6 @@
 }
 .card__address{
     color: #224C36;
-    width: 65%;
     position: absolute;
     bottom: 0px;
     text-align: center;
@@ -80,4 +79,27 @@
 .card__doctor {
     position: absolute;
     right: 15px;
+}
+@media screen and (max-width:768px){
+    .appointment{
+        width: 100%;
+        padding: 0px;
+        margin: 10px;
+    }
+    .more__info > h1{
+        line-height: 1.2rem;
+        margin-top: 60px;
+    }
+    .avatar > img{
+        width: 70px;
+        height: 70px;
+    }
+    .type{
+        font-size: 0.6rem;
+    }
+    .avatar{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
 }
