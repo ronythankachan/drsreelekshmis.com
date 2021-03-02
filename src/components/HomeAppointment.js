@@ -77,16 +77,18 @@ const HomeAppointment = ({handleClose,show}) => {
         onSubmit: values => {
             backend.post('/appointments',values)
             .then((response) =>{
-                setToastColor("green")
                 setToastMsg(`Hi ${values.firstName}, Your appointment has been made successfully on ${values.date}`)
+                setToastColor("green")
+                setToastShow(true)
+
             },(error) =>{
+                setToastMsg('Failed to book appointment.Please try after some time.')
                 setToastColor("red")
-                setToastMsg('Failed to book appointment')
+                setToastShow(true)
                 console.log(error)
             })
             formik.resetForm()
             handleClose()
-            setToastShow(true)
         }
     })
 
@@ -138,7 +140,7 @@ const HomeAppointment = ({handleClose,show}) => {
                             <Row>
                                 <Col>
                                     <Form.Label>Sex *</Form.Label>
-                                    <Form.Control as="select" name="service" value={formik.values.sex} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.sex && formik.errors.sex}>
+                                    <Form.Control as="select" name="sex" value={formik.values.sex} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.sex && formik.errors.sex}>
                                         <option>Choose...</option>
                                         <option>Male</option>
                                         <option>Female</option>
