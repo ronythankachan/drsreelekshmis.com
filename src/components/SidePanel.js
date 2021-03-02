@@ -3,13 +3,15 @@ import './SidePanel.css'
 import AdminControls from './AdminControls'
 
 
-const SidePanel = () => {
+const SidePanel = ({setIsMinimized}) => {
     const [sidePanelClasses, setSidePanelClasses] = useState("sidepanel")
     const [content, setContent] =useState("<")
-    const [isHidden,setIsHidden] =useState("false")
+    const [isHidden,setIsHidden] =useState(true)
 
     const minimize = () =>{
         setIsHidden(!isHidden)
+        console.log(isHidden)
+        setIsMinimized(isHidden)
         if(isHidden){
             setSidePanelClasses("sidepanel minimize")
             setContent(">")
