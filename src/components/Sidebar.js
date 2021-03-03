@@ -14,11 +14,12 @@ const Sidebar = ({isOpen,toggle}) => {
                 <Link to={'/about'} className="link" onClick={toggle}>About</Link>
                 <Link to={'/contact'} className="link" onClick={toggle}>Contact Us</Link>
                 <NavDropdown title="Services" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="/rejuvenation">Rejuvenation &amp; Pain Relief Therapies</NavDropdown.Item>
                     <NavDropdown.Item href="/panchakarma">Panchakarma</NavDropdown.Item>
-                    <NavDropdown.Item href="/marma_therapy">Marma Therapy</NavDropdown.Item>
-                    <NavDropdown.Item href="/post_delivery_care">Post Delivery Care</NavDropdown.Item>
+                    <NavDropdown.Item href="/post_delivery_care">Pregnancy &amp; Post Delivery Care</NavDropdown.Item>
+                    <NavDropdown.Divider/>
                     <NavDropdown.Item href="/swarna_prashana">Swarna Prashana</NavDropdown.Item>
-                    <NavDropdown.Item href="/yoga">Yoga</NavDropdown.Item>
+                    <NavDropdown.Item href="/yoga">Therapeutic Yoga</NavDropdown.Item>
                 </NavDropdown>
                 <Button variant="primary" onClick={toggle} className="bottom" href='/book_appointment'>Book Appointment</Button>
             </div>

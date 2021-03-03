@@ -21,7 +21,7 @@
 }
 @media screen and (max-width:768px){
     .adminpage{
-        min-height: fit-content;    
+        min-height: 100vh;    
         flex-direction: column;
     }
     .appointment__list{

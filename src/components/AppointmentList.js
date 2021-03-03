@@ -1,13 +1,17 @@
-import React,{useState, useEffect} from 'react';
-import Appointment from './Appointment';
-import backend from '../axios';
+import React,{useState, useEffect} from 'react'
+import Appointment from './Appointment'
+import backend from '../axios'
+import {Spinner} from 'react-bootstrap'
+import './AppointmentList.css'
 
 const AppointmentList = ({filters}) => {
     const [appointments, setAppointments] = useState([]);
+    const [isLoading, setIsLoading] =useState(true);
 
     useEffect(()=>{
         console.log(filters)
         async function fetchData(){
+            setIsLoading(true)
             await backend.get('/appointments',{
                  params:{
                      "doctor":filters.doctor,
@@ -16,6 +20,7 @@ const AppointmentList = ({filters}) => {
                      "service":filters.service
                 }
             }).then((response) => {
+                setIsLoading(false)
                 // sort wrt date
                 var array = response.data
                 array.sort(function(a,b){
@@ -37,8 +42,13 @@ const AppointmentList = ({filters}) => {
     });
 
     return (
-        <div className="appointmentlist" style={{width:"100%", display:"flex", flexWrap:"wrap"}}>
-            {appointment_list}
+        <div className="appointmentlist">
+            {
+                isLoading? 
+                <div className="loading">
+                    <Spinner animation="grow" style={{ width:"60px", height:"60px"}}/>
+                </div>:appointment_list
+            }
         </div>
 
     )
