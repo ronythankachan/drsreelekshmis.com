@@ -9,37 +9,37 @@ import SCard from './SCard';
 
 const cardData = [
     {
+        name: "Rejuvenation & Pain Relief Therapies",
+        image: Marma,
+        description: "There are several therapies in Ayurveda which helps in the treatment of musculoskeletal diseases like slip disc, joint pains, arthritis of different kind, spondylosis and spondylitis. It is also used in the treatment of neurological diseases, skin disorders, obesity, stress, depression, insomnia and migraine.",
+        direction: "row",
+        readmore:"/rejuvenation"
+    },
+    {
         name: "Panchakarma",
         image: Panchakarma,
-        description: "Panchakarma is a combination of five procedures of purification- Vamana (Emesis), Virechana (Purgation), Niroohavasti (Decoction enema), Nasya (instillation of medicine through nostrils), and Anuvasanavasti (Oil enema). These procedures aim at plucking away the deep rooted imbalances in the body. We offer panchakarma services at your doorstep.",
-        direction: "row",
+        description: "Marma points therapy is a traditional Ayurvedic massage technique that's believed to help sustain the flow of energy throughout your body. There are 107 marma points located around your body. Stimulation of these points is said to affect everything from the health of your organs to the production of hormones and more.",
+        direction: "row-reverse",
         readmore:"/panchakarma"
     },
     {
-        name: "Marma Therapy",
-        image: Marma,
-        description: "Marma points therapy is a traditional Ayurvedic massage technique that's believed to help sustain the flow of energy throughout your body. There are 107 marma points located around your body. Stimulation of these points is said to affect everything from the health of your organs to the production of hormones and more.",
-        direction: "row-reverse",
-        readmore:"/marma_therapy"
-    },
-    {
-        name: "Post Delivery Care",
+        name: "Pregnancy & Post Delivery Care",
         image: PostDeliveryCare,
-        description: "What is postpartum care? The postpartum period refers to the first six weeks after childbirth. This is a joyous time, but it's also a period of adjustment and healing for mothers. During these weeks, you'll bond with your baby and you'll have a post-delivery checkup with your doctor.",
+        description: "We provide simple home based herbal formulations and diet plans for common health problems associated with pregnancy like nausea, constipation, back pain, sleeplessness, gastritis, joint pain, fatigue and stress. Post delivery care therapies include massage, steam bath, dhara, vethu kuli (bath with medicated water), pichu, lepa and several other modalities according to the demand of the health needs.",
         direction: "row",
-        readmore:"/post_deliery_care"
+        readmore:"/post_delivery_care"
     },
     {
         name: "Swarna Prashana",
         image: SwarnaPrashana,
-        description: "Suvarnaprashan is a Ayurvedic Immunomodulatory Medicine Preparation for 0 to 12 years of child. Suvarnaprashan is made by Suvarna Bhasma (purified Gold Ash) and other important herbs. ... Overall Suvarnaprashan makes child healthier both physically and mentally.",
+        description: "Swarna prashana is an ancient practice of giving gold and vacha (Acorus calamus roots) and other brain stimulating medicines to the new born kid along with or without addition of breast milk. We provide specific Ayurvedic ghee preparations during every month on the date of Pushya nakshatra for kids of the age between 6 months to 10 years on appointment basis.",
         direction: "row-reverse",
         readmore:"/swarna_prashana"
     },
     {
-        name: "Yoga",
+        name: "Therapeutic Yoga",
         image: Yoga,
-        description: "Yoga is a group of physical, mental, and spiritual practices or disciplines which originated in ancient India. Yoga is one of the six Āstika schools of Indian philosophical traditions. There is a broad variety of yoga schools, practices, and goals in Hinduism, Buddhism, and Jainism.",
+        description: "Yoga is a life style. Most recent researches prove that Yoga is not just a health practice but also a treatment modality for systemic disorders. We teach Yoga to kids and for the elderly for its health benefits. We also provide therapeutic yoga sessions for specific disorders like diabetes, hypertension, obesity, stress, depression, insomnia, menstrual disorders and hormonal problems. ",
         direction: "row",
         readmore:"/yoga"
     }
