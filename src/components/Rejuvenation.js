@@ -2,6 +2,7 @@ import React,{useState}  from 'react'
 import './Rejuvenation.css'
 import {Button} from 'react-bootstrap'
 import HomeAppointment from './HomeAppointment'
+import PainTherapy from '../images/pain_therapy.jpg'
 
 const Rejuvenation = () => {
     const [show, setShow] = useState(false);
@@ -14,6 +15,9 @@ const Rejuvenation = () => {
                 <p>All Rejuvenation &amp; Pain Relief Therapies  will be done at home by trained therapists under doctor’s supervision.</p>
             </div>
             <div className="content">
+                <div className="content__image">
+                    <img src={PainTherapy} alt="swarna prashana" />
+                </div>
                 <p>There are several therapies in Ayurveda which helps in the treatment of musculoskeletal diseases like slip disc, joint pains, arthritis of different kind, spondylosis and spondylitis. It is also used in the treatment of  neurological diseases, skin disorders, obesity, stress, depression, insomnia and migraine. These therapies include:</p>
                 <div className="sub_heading2">
                     <h3> 1.	Abhyanga and steam bath (Massage)</h3>

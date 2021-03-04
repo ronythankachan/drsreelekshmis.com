@@ -30,10 +30,18 @@ a{
 }
 .footer__heading,.footer__logo{
     font-weight: bolder;
-    color: lightcyan;
+    color: rgb(228, 172, 19);
+}
+.footer__logo> h2 > a{
+    color: rgb(228, 172, 19);
+
+}
+.footer__heading > h2{
+    font-size: 1.4rem;
 }
 .footer__right >p {
     text-align: center;
+    font-size: unset;
 }
 .footer__right__socialmedia{
     color: #fff;
@@ -45,7 +53,7 @@ a{
 .footer__right__socialmedia >a {
     margin-right: 10px;
     color:cadetblue;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .footer__right__socialmedia >a:hover {
     color:grey;

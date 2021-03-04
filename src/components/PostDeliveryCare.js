@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './PostDeliveryCare.css'
 import {Button} from 'react-bootstrap'
 import HomeAppointment from './HomeAppointment'
+import PregnantImg from '../images/pregnant_women.jpg'
 
 const PostDeliveryCare = () => {
     const [show, setShow] = useState(false);
@@ -14,6 +15,9 @@ const PostDeliveryCare = () => {
                 <p>All Pregnancy and Post Delivery Care Services will be done at home by trained therapists under doctor’s supervision.</p>
             </div>
             <div className="content">
+                <div className="content__image">
+                    <img src={PregnantImg} alt="swarna prashana" />
+                </div>
                 <p>We provide simple home based herbal formulations and diet plans for common health problems associated with pregnancy like nausea, constipation, back pain, sleeplessness, gastritis, joint pain, fatigue and stress.</p>
                 <p>We also provide pre natal Ayurveda massage at home for carrying ladies for general health and for specific problems like low back pain. </p>
                 <h3> Post Delivery Care</h3>

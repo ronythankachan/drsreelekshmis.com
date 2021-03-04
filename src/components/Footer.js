@@ -12,18 +12,22 @@ const Footer = () => {
                         <Link to={'/'} className="link logo_green">Dr.Sreelakshmi clinic</Link>
                     </h2>
                 </div>
-
-            </div>
-            <div className="footer__middle">
-                <div className="footer__heading">
-                    <h2>Links</h2>
-                </div>
                 <Link to={'/about'} className="link">About</Link>
                 <Link to={'/contact'} className="link">Contact us</Link>
             </div>
+            <div className="footer__middle">
+                <div className="footer__heading">
+                    <h2>SERVICES</h2>
+                </div>
+                <Link to={'/rejuvenation'} className="link">Rejuvenation &amp; Pain Relief Therapies</Link>
+                <Link to={'/post_delivery_care'} className="link">Pregnancy &amp; Post Delivery Care</Link>
+                <Link to={'/panchakarma'} className="link">Panchakarma</Link>
+                <Link to={'/swarna_prashana'} className="link">Swarna Prashana</Link>
+                <Link to={'/yoga'} className="link">Yoga</Link>
+            </div>
             <div className="footer__right">
                 <div className="footer__heading">
-                    <h2>Connect with us</h2>
+                    <h2>CONNECT WITH US</h2>
                 </div>
                 <p>Tel: +919847532286</p>
                 <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>

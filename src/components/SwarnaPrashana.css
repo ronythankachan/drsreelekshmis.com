@@ -1,3 +1,50 @@
 .swarnaprashana{
-    min-height: 100vh;
+    max-width: 1000px;
+    padding: 30px;
+}
+.main__heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 50px 0px;
+}
+.main__heading > h1{
+    color: rgba(20, 20, 20, .9);
+    font-size: 60px;
+}
+.main__heading > p{
+    font-style: italic;
+    color: white;
+    background: grey;
+    padding: 10px;
+    border-radius: 6px;
+}
+.book__button{
+    font-size: 1.3rem;
+    float: right;
+    margin-top: 20px;
+}
+.content__image{
+    height: 400px;
+    width: 100%;
+    margin: 20px 0px;
+}
+.content__image > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+@media screen and (max-width:768px){
+    .main__heading{
+        margin: 0px 0px 50px 0px;
+    }
+    .main__heading > h1{
+        font-size: 38px;
+    }
+    .book__button{
+        float: left;
+        font-size: 1rem;
+    }
+    .content__image{
+        height: 200px;
+    }
 }
