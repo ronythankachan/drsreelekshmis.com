@@ -29,7 +29,9 @@ const Footer = () => {
                 <div className="footer__heading">
                     <h2>CONNECT WITH US</h2>
                 </div>
-                <p>Tel: +919847532286</p>
+                <p>Phone &amp; Whatsapp: <span style={{color:"lightgreen",fontWeight:"bold"}}>+91 97404 76241</span> </p>
+                <p>Email: <span style={{color:"lightgreen"}}>drsreelekshmi'sclinic@gmail.com</span> </p>
+
                 <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
                 <div className="footer__right__socialmedia">
                     <a href="https://www.instagram.com"><FaFacebook/></a>
