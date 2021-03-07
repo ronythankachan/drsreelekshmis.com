@@ -4,7 +4,6 @@ import { CgPhone } from "react-icons/cg";
 import { FaLocationArrow } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 
 
@@ -20,7 +19,6 @@ const Header = () => {
           <div className="social__media">
               <a href="https://www.facebook.com/dr.sreesAyur/" target="_blank" rel="noopener noreferrer"><FaFacebookF/></a>
               <a href="https://www.instagram.com/dr_srees_ayur_/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
-              {/* <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter/></a> */}
           </div>
         </div>
     )
