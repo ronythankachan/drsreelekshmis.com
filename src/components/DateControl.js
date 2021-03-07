@@ -17,25 +17,25 @@ const DateControl = () => {
         })
     }
 
-    var getDaysArray = function(start,end) {
+    // Generate Dates between start and end date
+    var getDates = function(start,end) {
         var dateArray = []
         var startDate = new Date(start)
         var endDate = new Date(end)
         while(startDate<=endDate){
-            var newDate = new Date(startDate)
+            let newDate = new Date(startDate)
+            dateArray.push((newDate.getFullYear()+"-"+("0"+(newDate.getMonth()+1)).slice(-2)+"-"+("0"+newDate.getDate()).slice(-2)).toString())
             newDate.setDate(newDate.getDate()+1)
             startDate = newDate
-            dateArray.push(newDate)
         }
         return dateArray
-        // return dateArray
     }
 
     const handleSubmit = (event) =>{
         event.preventDefault()
-        // Generate Dates between start and end date
         console.log("form data", dateRange)
-        console.log(getDaysArray(dateRange.startDate,dateRange.endDate))
+        var dates = getDates(dateRange.startDate,dateRange.endDate)
+        console.log(dates)
     }
 
     return (
