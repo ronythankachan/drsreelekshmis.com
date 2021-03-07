@@ -124,12 +124,21 @@ const HomeAppointment = ({handleClose,show}) => {
                             <Form.Label>Service *</Form.Label>
                             <Form.Control as="select" name="service" value={formik.values.service} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.service && formik.errors.service}>
                                 <option>Choose...</option>
-                                <option>Panchakarma</option>
-                                <option>Marma Therapy</option>
+                                <option>Abhyanga and steam bath (Massage)</option>
+                                <option>Pinda sweda/Kizhi (Heat fomentation using herbs)</option>
+                                <option>Shastika shali panda sveda (SSPS)</option>
+                                <option>Kati, Greeva &amp; Janu basti</option>
+                                <option>Udvartanam</option>
+                                <option>Dhara</option>
+                                <option>Pichu</option>
+                                <option>Dhara</option>
+                                <option>Lepam</option>
+                                <option>Vamana (Therapeutically induced vomiting)</option>
+                                <option>Virechana (Therapeutically induced loose motion)</option>
+                                <option>Basti (Medicated enema)</option>
+                                <option>Nasya (Instillation of medicines to nose)</option>
+                                <option>Rakta mokshana (Blood letting)</option>
                                 <option>Post Delivery Care</option>
-                                <option>Swarna prashana</option>
-                                <option>Yoga</option>
-                                <option>Others</option>
                             </Form.Control>
                             {formik.touched.service && formik.errors.service ? (<div className="error">{formik.errors.service}</div>) : null}
                         </Form.Group>
@@ -190,7 +199,7 @@ const HomeAppointment = ({handleClose,show}) => {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Comments</Form.Label>
-                            <Form.Control as="textarea" rows={3} id="comments" placeholder="Comments" name="comments" value={formik.values.comments} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                            <Form.Control as="textarea" rows={3} id="comments" placeholder="(Optional)" name="comments" value={formik.values.comments} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                         </Form.Group>
                         <Modal.Footer>
                             <Button variant="warning" onClick={handleClose}>

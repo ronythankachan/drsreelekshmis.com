@@ -13,7 +13,7 @@ const Navbar = ({toggle}) => {
             </div>
             <div className="navbar">
                 <div className="navbar__left">
-                    <Link to={'/'} className="link navbar__logo">Dr.Sreelekshmi clinic</Link>
+                    <Link to={'/'} className="link navbar__logo">Dr.Sreelekshmi's</Link>
                 </div>
                 <div className="navbar__middle">
                     <Link to={'/about'} className="link">About</Link>

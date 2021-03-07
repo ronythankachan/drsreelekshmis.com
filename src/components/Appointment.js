@@ -41,10 +41,10 @@ const Appointment = ({data}) => {
                         {data.sex}
                     </p>
                     {
-                        data.service ? <p><span>Service</span> {data.service}</p>: null
+                        data.zip ? <p><span>Pin Code</span> {data.zip}</p>: null
                     }
                     {
-                        data.zip ? <p><span>Pin Code</span> {data.zip}</p>: null
+                        data.service ? <p style={{lineHeight:"1rem", color:"white", fontWeight:"500", textAlign:"center"}}>{data.service}</p>: null
                     }
                 </div>
                 <div className="card__address">
