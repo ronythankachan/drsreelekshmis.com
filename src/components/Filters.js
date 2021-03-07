@@ -5,7 +5,6 @@ import { Form, Button } from 'react-bootstrap'
 const initialFormData = {
     date:'',
     service:'',
-    doctor:'',
     appointmentType:''
 }
 
@@ -37,23 +36,22 @@ const Filters = ({setFilters}) => {
                     <Form.Control type="date" name="date" onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Doctor</Form.Label>
-                    <Form.Control as="select" name="doctor" onChange={handleChange}>
-                        <option>Choose...</option>
-                        <option>Dr.Leena</option>
-                        <option>Dr.Rony</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group>
                     <Form.Label>Service</Form.Label>
                     <Form.Control as="select" name="service" onChange={handleChange}>
                         <option>Choose...</option>
-                        <option>Panchakarma</option>
-                        <option>Marma Therapy</option>
-                        <option>Post Delivery care</option>
-                        <option>Swarna Prashana</option>
-                        <option>Yoga</option>
-                        <option>Others</option>
+                        <option>Abhyanga and steam bath (Massage)</option>
+                        <option>Pinda sweda/Kizhi (Heat fomentation using herbs)</option>
+                        <option>Shastika shali panda sveda (SSPS)</option>
+                        <option>Kati, Greeva &amp; Janu basti</option>
+                        <option>Udvartanam</option>
+                        <option>Pichu</option>
+                        <option>Lepam</option>
+                        <option>Vamana (Therapeutically induced vomiting)</option>
+                        <option>Virechana (Therapeutically induced loose motion)</option>
+                        <option>Basti (Medicated enema)</option>
+                        <option>Nasya (Instillation of medicines to nose)</option>
+                        <option>Rakta mokshana (Blood letting)</option>
+                        <option>Post Delivery Care</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group>
