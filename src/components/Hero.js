@@ -21,7 +21,7 @@ const Hero = () => {
                 <h1>Dr. Sreelekshmi’s kerala Ayurveda Centre</h1>
                 <h4>An Ayurveda care centre for your day today health problems</h4>
                 <div className="hero__buttons">
-                    <button><Link to={'/shop'} className="link black">Buy Kerala Medicines</Link></button>
+                    <button><Link to={'/shop'} className="link black">Buy Medicines</Link></button>
                     <button onClick={handleShow}>Schedule a home appointment</button> 
                 </div>
             </div>

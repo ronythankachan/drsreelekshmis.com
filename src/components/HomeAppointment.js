@@ -4,10 +4,20 @@ import {Modal,Button, Form, Row, Col, Toast} from 'react-bootstrap';
 import {useFormik} from 'formik'
 import backend from '../axios'
 
+var isValid = false
 const isValidZip = (zip) =>{
-    // Check if service is available in this zip
-    return true
+    backend.get('/zip').then(
+            (response)=>{
+                if(response.data.includes(zip.toString())){
+                    isValid = true
+                }
+            }, (error)=>{
+                console.log(error)
+            }
+        )
+    return isValid
 }
+
 const isValidDate = (date) =>{
     // Check if doctors are available in this date
     return true

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import {Link} from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -34,9 +34,8 @@ const Footer = () => {
 
                 <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
                 <div className="footer__right__socialmedia">
-                    <a href="https://www.instagram.com"><FaFacebook/></a>
-                    <a href="https://www.facebook.com"><FaInstagram/></a>
-                    <a href="https://www.twitter.com"><FaTwitter/></a>
+                    <a href="https://www.instagram.com/dr_srees_ayur_/"><FaFacebook/></a>
+                    <a href="https://www.facebook.com/dr.sreesAyur/"><FaInstagram/></a>
                 </div>
             </div>
         </div>

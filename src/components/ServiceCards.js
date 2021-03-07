@@ -45,8 +45,8 @@ const cardData = [
     }
 ]
 
-const serviceCards = cardData.map((data)=>{
-        return <SCard name={data.name} image={data.image} description={data.description} direction={data.direction} readmore={data.readmore}/> 
+const serviceCards = cardData.map((data, index)=>{
+        return <SCard name={data.name} image={data.image} description={data.description} direction={data.direction} readmore={data.readmore} key={index}/> 
 })
 
 const ServiceCards = () => {

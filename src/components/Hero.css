@@ -60,6 +60,11 @@
     .hero__buttons{
         display:flex;
         flex-direction:column;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero__buttons > button{
+        width: 260px;
     }
     .hero__video >video{
         height: 100vh;
