@@ -20,7 +20,10 @@ const isValidZip = (zip) =>{
 
 const isValidDate = (date) =>{
     // Check if doctors are available in this date
-    return true
+    if(new Date(date)>= new Date()){
+        return true
+    }
+    return false
 }
 
 const validate = values => {
@@ -33,7 +36,7 @@ const validate = values => {
     if(!values.date){
         errors.date = 'Required field'
     }else if(!isValidDate(values.date)){
-        errors.date = 'Doctors are not available on this date. Please select some other date'
+        errors.date = 'Cannot book appointment on this date.'
     }
     if(!values.firstName){
         errors.firstName = 'Required field'

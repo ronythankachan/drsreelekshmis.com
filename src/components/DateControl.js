@@ -16,8 +16,26 @@ const DateControl = () => {
             [event.target.name]: event.target.value
         })
     }
+
+    var getDaysArray = function(start,end) {
+        var dateArray = []
+        var startDate = new Date(start)
+        var endDate = new Date(end)
+        while(startDate<=endDate){
+            var newDate = new Date(startDate)
+            newDate.setDate(newDate.getDate()+1)
+            startDate = newDate
+            dateArray.push(newDate)
+        }
+        return dateArray
+        // return dateArray
+    }
+
     const handleSubmit = (event) =>{
         event.preventDefault()
+        // Generate Dates between start and end date
+        console.log("form data", dateRange)
+        console.log(getDaysArray(dateRange.startDate,dateRange.endDate))
     }
 
     return (
