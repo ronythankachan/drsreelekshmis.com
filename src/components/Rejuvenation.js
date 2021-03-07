@@ -24,7 +24,7 @@ const Rejuvenation = () => {
                     <p>Massage is done using specific oils depending on the disease and condition of the patient. The process will help improve blood circulation, tone up the muscles, reduces pain and inflammation in the body and improves skin tone.</p>
                     <h3>2. Pinda sweda/Kizhi (Heat fomentation using herbs) </h3>
                     <p>This procedure is done using a bolus of medicinal herbs, powders and roots roasted in medicated oil and tied in a cloth and used for rubbing on the affected part of the body. This process helps reduce pain and inflammation in joints caused due to different kinds of arthritis and other musculoskeletal diseases.</p>
-                    <h3>3. Shastika shali panda sveda (SSPS)  </h3>
+                    <h3>3. Shastika shali pinda sweda (SSPS)  </h3>
                     <p>SSPS is similar to patrapinda sweda except that the medicine used for making the bolus is not herbs but shashtika rice cooked and soaked in herbal decoction or milk before rubbing on the body. This helps improve strength and tone of muscles, gives nourishment to the body, improves health and immunity, and maintain good skin tone.</p>
                     <h3>4. Kati, Greeva &amp; Janu basti </h3>
                     <p>Basti is the process in which warm medicated oils are made to stand on back (Kati), neck (Greeva) and knee (Janu) joints. This helps to lubricate the joints, reduce inflammation and pain. This process is used to treat disorders like osteoarthritis, spondylosis, spondylitis, rheumatoid arthritis, slip disc and sciatica. </p>
