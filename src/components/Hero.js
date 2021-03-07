@@ -1,14 +1,18 @@
 import React,{useState} from 'react';
 import './Hero.css';
 import HeroVideo from '../video/hero_background.mp4';
-import {Link} from 'react-router-dom';
 import HomeAppointment from './HomeAppointment';
+import MedicineShop from './MedicineShop';
 
 const Hero = () => {
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [showMed, setShowMed] = useState(false);
+    const handleCloseMed = () => setShowMed(false);
+    const handleShowMed = () => setShowMed(true);
 
     return (
         <div className="hero">
@@ -21,10 +25,11 @@ const Hero = () => {
                 <h1>Dr. Sreelekshmi’s kerala Ayurveda Centre</h1>
                 <h4>An Ayurveda care centre for your day today health problems</h4>
                 <div className="hero__buttons">
-                    <button><Link to={'/shop'} className="link black">Buy Medicines</Link></button>
+                    <button onClick={handleShowMed}>Buy Medicines</button> 
                     <button onClick={handleShow}>Schedule a home appointment</button> 
                 </div>
             </div>
+            <MedicineShop handleCloseMed={handleCloseMed} showMed={showMed} />
             <HomeAppointment handleClose={handleClose} show={show} />
         </div>
     )

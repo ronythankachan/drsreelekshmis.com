@@ -6,10 +6,13 @@ const Vision = ( ) => {
     return (
         <div className="vision">
             <Jumbotron className="jumbotron">
+                <h1 > Our Mission</h1>
+                <p>
+                    To educate and encourage households to use Ayurveda inspired solutions to remedy day today health problems of the family 
+                </p>
                 <h1 > Our Vision</h1>
                 <p>
-                    To provide affordable ayurvedic treatments to help patients get their daily life health problems under control. 
-                    Our vision is to enable people to get the proper ayurvedic treatment to help them to live a happy prosperous life.
+                    To make healthcare system more rooted in the traditions of our country thereby achieving effective, safe and natural solutions for health problems of 21st century.
                 </p>
             </Jumbotron>
         </div>

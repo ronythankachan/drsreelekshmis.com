@@ -1,13 +1,14 @@
 import React from 'react';
 import './MedicineShop.css';
-import DeliveryBoyGif from '../gif/delivery_boy.gif';
+import {Modal} from 'react-bootstrap'
 
-const MedicineShop = () => {
+const MedicineShop = ({handleCloseMed,showMed}) => {
     return (
-        <div className="medicineshop">
-            <img src={DeliveryBoyGif} alt="delivery boy"></img>
-            <h2>Order authentic kerala ayurvedic medicines. (COMING SOON)</h2>
-        </div>
+        <Modal show={showMed} onHide={handleCloseMed} backdrop="static" keyboard={false} centered>
+            <Modal.Header closeButton style={{backgroundColor:"lightgreen", color:"black"}}>
+                <Modal.Title>Please call +91 9740476241 to enquire and buy medicines.</Modal.Title>
+            </Modal.Header>
+        </Modal>
     )
 }
 
