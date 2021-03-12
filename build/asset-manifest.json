@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4c0cba94.chunk.css",
+    "main.js": "/static/js/main.efa7b5a8.chunk.js",
+    "main.js.map": "/static/js/main.efa7b5a8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.471cc886.js",
+    "runtime-main.js.map": "/static/js/runtime-main.471cc886.js.map",
+    "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
+    "static/js/2.899ed211.chunk.js": "/static/js/2.899ed211.chunk.js",
+    "static/js/2.899ed211.chunk.js.map": "/static/js/2.899ed211.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.4c0cba94.chunk.css.map": "/static/css/main.4c0cba94.chunk.css.map",
+    "static/js/2.899ed211.chunk.js.LICENSE.txt": "/static/js/2.899ed211.chunk.js.LICENSE.txt",
+    "static/media/avatar.2150ba3e.png": "/static/media/avatar.2150ba3e.png",
+    "static/media/LoginPage.css": "/static/media/background_pattern.70d889ff.png",
+    "static/media/clinic_icon.140317c4.png": "/static/media/clinic_icon.140317c4.png",
+    "static/media/hero_background.5c35ae38.mp4": "/static/media/hero_background.5c35ae38.mp4",
+    "static/media/marma_therapy.093cf35c.jpg": "/static/media/marma_therapy.093cf35c.jpg",
+    "static/media/pain_therapy.2ce01dc1.jpg": "/static/media/pain_therapy.2ce01dc1.jpg",
+    "static/media/panchakarma.2998ae14.jpg": "/static/media/panchakarma.2998ae14.jpg",
+    "static/media/panchakarma2.eee5dcc9.jpg": "/static/media/panchakarma2.eee5dcc9.jpg",
+    "static/media/post_delivery_care.748db6f3.jpg": "/static/media/post_delivery_care.748db6f3.jpg",
+    "static/media/pregnant_women.eb068a0b.jpg": "/static/media/pregnant_women.eb068a0b.jpg",
+    "static/media/rony.f657c5dd.jpg": "/static/media/rony.f657c5dd.jpg",
+    "static/media/swarna_prashana.02c7d8f6.jpg": "/static/media/swarna_prashana.02c7d8f6.jpg",
+    "static/media/swarna_prashana_baby.cf41ea96.jpg": "/static/media/swarna_prashana_baby.cf41ea96.jpg",
+    "static/media/yoga.1d3edeef.jpg": "/static/media/yoga.1d3edeef.jpg",
+    "static/media/yoga_girl.b7639411.jpg": "/static/media/yoga_girl.b7639411.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.471cc886.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.899ed211.chunk.js",
+    "static/css/main.4c0cba94.chunk.css",
+    "static/js/main.efa7b5a8.chunk.js"
+  ]
+}
