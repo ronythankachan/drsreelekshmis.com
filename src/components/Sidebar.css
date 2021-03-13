@@ -16,11 +16,11 @@
 .icon :hover{
     color: grey;
 }
-.show_sidebar{
+.show{
     top: 0%;
     opacity: 1;
 }
-.hide_sidebar{
+.hide{
     top: -100%;
     opacity: 0;
 }

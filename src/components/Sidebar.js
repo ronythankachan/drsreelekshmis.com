@@ -6,7 +6,7 @@ import {NavDropdown, Button} from 'react-bootstrap'
 
 const Sidebar = ({isOpen,toggle}) => {
     return (
-        <div className={"sidebar "+(isOpen?'show_sidebar':'hide_sidebar')}>
+        <div className={"sidebar "+(isOpen?'show':'hide')}>
             <div className="icon">
                 <FaTimes onClick={toggle}/>
             </div>
