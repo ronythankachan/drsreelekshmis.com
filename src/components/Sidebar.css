@@ -18,11 +18,11 @@
 }
 .show_sidebar{
     top: 0%;
-    opacity: 100%;
+    opacity: 1;
 }
 .hide_sidebar{
     top: -100%;
-    opacity: 0%;
+    opacity: 0;
 }
 .sidebar-content{
     height: 100vh;
