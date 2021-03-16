@@ -1,7 +1,7 @@
 import React from 'react';
 import './ServiceCards.css';
 import Panchakarma from '../images/panchakarma.jpg';
-import Marma from '../images/marma_therapy.jpg';
+import Rejuvenation from '../images/rejuvenation.jpg';
 import PostDeliveryCare from '../images/post_delivery_care.jpg';
 import SwarnaPrashana from '../images/swarna_prashana.jpg';
 import Yoga from '../images/yoga.jpg';
@@ -10,7 +10,7 @@ import SCard from './SCard';
 const cardData = [
     {
         name: "Rejuvenation & Pain Relief Therapies",
-        image: Marma,
+        image: Rejuvenation,
         description: "There are several therapies in Ayurveda which helps in the treatment of musculoskeletal diseases like slip disc, joint pains, arthritis of different kind, spondylosis and spondylitis. It is also used in the treatment of neurological diseases, skin disorders, obesity, stress, depression, insomnia and migraine.",
         direction: "row",
         readmore:"/rejuvenation"
@@ -18,14 +18,14 @@ const cardData = [
     {
         name: "Panchakarma",
         image: Panchakarma,
-        description: "Marma points therapy is a traditional Ayurvedic massage technique that's believed to help sustain the flow of energy throughout your body. There are 107 marma points located around your body. Stimulation of these points is said to affect everything from the health of your organs to the production of hormones and more.",
+        description: "Panchakarma literally meaning five purificatory procedures are specialized treatment techniques used in Ayurveda for detoxification, to improve health and to treat specific diseases.",
         direction: "row-reverse",
         readmore:"/panchakarma"
     },
     {
         name: "Pregnancy & Post Delivery Care",
         image: PostDeliveryCare,
-        description: "We provide simple home based herbal formulations and diet plans for common health problems associated with pregnancy like nausea, constipation, back pain, sleeplessness, gastritis, joint pain, fatigue and stress. Post delivery care therapies include massage, steam bath, dhara, vethu kuli (bath with medicated water), pichu, lepa and several other modalities according to the demand of the health needs.",
+        description: "We provide simple home based herbal formulations and diet plans for common health problems associated with pregnancy like nausea, constipation, back pain, sleeplessness, gastritis, joint pain, fatigue and stress. Post delivery care therapies include massage, steam bath, dhara, vethu kuli (bath with medicated water), pichu, lepa and several other modalities which will help reduce belly, strengthen and tone muscles and skin and give nourishment to the body to recover fully post delivery.",
         direction: "row",
         readmore:"/post_delivery_care"
     },

@@ -5,7 +5,11 @@ import {useFormik} from 'formik'
 import backend from '../axios'
 
 const isValidDate = (date) =>{
-    if(new Date(date)>= new Date()){
+
+
+    console.log(new Date().getDate())
+    console.log(new Date(date).getDate())
+    if(new Date(date).getDate() >= new Date().getDate()){
         return true
     }
     return false

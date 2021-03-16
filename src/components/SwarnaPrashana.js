@@ -1,6 +1,6 @@
 import React from 'react'
 import './SwarnaPrashana.css'
-import SPImage from '../images/swarna_prashana_baby.jpg'
+import SPImage from '../images/swarna_prashana.jpg'
 import {Button} from 'react-bootstrap'
 
 const SwarnaPrashana = () => {

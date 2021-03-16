@@ -14,7 +14,7 @@ const Header = () => {
             <FaLocationArrow/>Yelahanka New town, Bangalore
           </div>
           <div className="phone">
-            <IoLogoWhatsapp style={{color:"lightgreen"}}/> Whatspp  / <CgPhone style={{color:"orange"}}/>Contact at +91 97404 76241
+            <IoLogoWhatsapp style={{color:"lightgreen"}}/> Whatsapp  / <CgPhone style={{color:"orange"}}/>Contact at +91 97404 76241
           </div>
           <div className="social__media">
               <a href="https://www.facebook.com/dr.sreesAyur/" target="_blank" rel="noopener noreferrer"><FaFacebookF/></a>
