@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.31e7fc57.chunk.css",
-    "main.js": "/static/js/main.28296c75.chunk.js",
-    "main.js.map": "/static/js/main.28296c75.chunk.js.map",
+    "main.js": "/static/js/main.0b9b0e81.chunk.js",
+    "main.js.map": "/static/js/main.0b9b0e81.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.471cc886.js",
     "runtime-main.js.map": "/static/js/runtime-main.471cc886.js.map",
     "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
-    "static/js/2.899ed211.chunk.js": "/static/js/2.899ed211.chunk.js",
-    "static/js/2.899ed211.chunk.js.map": "/static/js/2.899ed211.chunk.js.map",
+    "static/js/2.a983a32b.chunk.js": "/static/js/2.a983a32b.chunk.js",
+    "static/js/2.a983a32b.chunk.js.map": "/static/js/2.a983a32b.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
     "static/css/main.31e7fc57.chunk.css.map": "/static/css/main.31e7fc57.chunk.css.map",
-    "static/js/2.899ed211.chunk.js.LICENSE.txt": "/static/js/2.899ed211.chunk.js.LICENSE.txt",
+    "static/js/2.a983a32b.chunk.js.LICENSE.txt": "/static/js/2.a983a32b.chunk.js.LICENSE.txt",
     "static/media/avatar.2150ba3e.png": "/static/media/avatar.2150ba3e.png",
     "static/media/LoginPage.css": "/static/media/background_pattern.70d889ff.png",
     "static/media/clinic_icon.140317c4.png": "/static/media/clinic_icon.140317c4.png",
@@ -30,8 +30,8 @@
   "entrypoints": [
     "static/js/runtime-main.471cc886.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.899ed211.chunk.js",
+    "static/js/2.a983a32b.chunk.js",
     "static/css/main.31e7fc57.chunk.css",
-    "static/js/main.28296c75.chunk.js"
+    "static/js/main.0b9b0e81.chunk.js"
   ]
 }
