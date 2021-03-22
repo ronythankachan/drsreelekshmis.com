@@ -31,7 +31,7 @@ const data = [
     },
     {
         id:4,
-        heading:'Kati, Greeva &amp; Janu basti',
+        heading:'Kati, Greeva & Janu basti',
         image:Kati,
         content:"Basti is the process in which warm medicated oils are made to stand on back (Kati), neck (Greeva) and knee (Janu) joints. This helps to lubricate the joints, reduce inflammation and pain. This process is used to treat disorders like osteoarthritis, spondylosis, spondylitis, rheumatoid arthritis, slip disc and sciatica."
     },
