@@ -22,7 +22,6 @@
     column-gap: 50px;
     padding: 100px 0px;
     border-bottom: 4px solid grey;
-
 }
 .content__with__image >img{
     min-width: 500px;
@@ -32,9 +31,6 @@
 }
 .content__without__image{
     margin: 50px 0px;
-}
-.content__with__image >p {
-    color: #6a6d75;
 }
 @media screen and (max-width:1200px){
     .content__title >img{
