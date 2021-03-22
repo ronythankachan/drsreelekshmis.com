@@ -12,7 +12,7 @@ const AppointmentList = ({filters}) => {
         console.log(filters)
         async function fetchData(){
             setIsLoading(true)
-            await backend.get('/appointments',{
+            await backend.get('/api/appointments',{
                  params:{
                      "doctor":filters.doctor,
                      "date":filters.date,

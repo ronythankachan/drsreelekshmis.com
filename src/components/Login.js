@@ -19,7 +19,7 @@ const Login = ({setLoginKey,validKey}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        backend.post('/login',loginData)
+        backend.post('/api/login',loginData)
         .then((response)=>{
             setLoginKey(validKey);
         })

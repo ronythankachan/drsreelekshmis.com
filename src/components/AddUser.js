@@ -22,7 +22,7 @@ const AddUser = () => {
     const handleSubmit = (event) =>{
         event.preventDefault()
         console.log(userData)
-        backend.post('/signup',userData)
+        backend.post('/api/signup',userData)
         .then((response) =>{
             setToastMsg(`${userData.username}, is successfully added as an admin user.`)
             setToastColor("green")

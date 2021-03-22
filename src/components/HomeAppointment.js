@@ -6,7 +6,7 @@ import backend from '../axios'
 
 var isValid = false
 const isValidZip = (zip) =>{
-    backend.get('/zip').then(
+    backend.get('/api/zip').then(
             (response)=>{
                 if(response.data.includes(zip.toString())){
                     isValid = true
@@ -87,7 +87,7 @@ const HomeAppointment = ({handleClose,show}) => {
         },
         validate,
         onSubmit: values => {
-            backend.post('/appointments',values)
+            backend.post('/api/appointments',values)
             .then((response) =>{
                 setToastMsg(`Hi ${values.firstName}, Your appointment has been made successfully on ${values.date}`)
                 setToastColor("green")

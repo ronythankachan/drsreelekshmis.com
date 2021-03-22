@@ -21,7 +21,7 @@ const ZipControl = () => {
     }
     const handleSubmit = (event) =>{
         event.preventDefault()
-        backend.post('/add_zip',validZip)
+        backend.post('/api/add_zip',validZip)
         .then((response) =>{
             setToastMsg(`Pin Code  ${validZip.zip} is successfully added`)
             setToastColor("green")
@@ -33,7 +33,7 @@ const ZipControl = () => {
         })
     }
     const deleteZip = ()=>{
-        backend.post('/delete_zip',validZip)
+        backend.post('/api/delete_zip',validZip)
         .then((response) =>{
             setToastMsg(`Pin Code ${validZip.zip} is successfully removed`)
             setToastColor("green")
