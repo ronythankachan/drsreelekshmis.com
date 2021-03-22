@@ -6,6 +6,7 @@
     column-gap: 100px;
     margin-bottom: 100px;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 .card__image{
@@ -25,7 +26,6 @@
     text-align: center;
     color: #6a6d75;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif;
     padding:0px 15px;
 
 }
@@ -38,7 +38,6 @@
     font-size: 40px;
     font-weight: 700;
     color: #303236;
-    font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width:1200px){

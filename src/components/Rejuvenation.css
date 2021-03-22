@@ -1,46 +1,56 @@
 .rejuvenation{
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 30px;
+    font-family: 'Poppins', sans-serif;
 }
-.content{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.main__heading{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 50px 0px;
-}
-.main__heading > h1{
-    color: rgba(20, 20, 20, .9);
-    font-size: 60px;
-}
-.main__heading > p{
+.highlighted_notification > p{
     font-style: italic;
     color: white;
-    background: grey;
+    background: rgb(34, 153, 13);
     padding: 10px;
     border-radius: 6px;
 }
-p{
-    font-size: 1.3rem;
+.content__title >img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 60px 0px 20px 0px;
 }
-h1, h3{
-    line-height: 4rem;
-    font-weight: bold;
+.content__with__image{
+    display: flex;
+    column-gap: 50px;
+    padding: 100px 0px;
+    border-bottom: 4px solid grey;
+
 }
-.book__button{
-    font-size: 1.3rem;
-    float: right;
-    margin-top: 20px;
+.content__with__image >img{
+    min-width: 500px;
+    height: 400px;
+    border-radius: 12px;
+    object-fit: cover;
 }
-@media screen and (max-width:768px){
-    .main__heading{
-        margin: 0px 0px 50px 0px;
+.content__without__image{
+    margin: 50px 0px;
+}
+.content__with__image >p {
+    color: #6a6d75;
+}
+@media screen and (max-width:1200px){
+    .content__title >img{
+        height: 220px;
     }
-    .main__heading > h1{
-        font-size: 38px;
+    .content__with__image{
+        flex-direction: column;
     }
-    .book__button{
-        float: left;
-        font-size: 1rem;
+    .content__with__image > img{
+        min-width: unset;
+        width: 100%;
+        height: 220px;
+    }
+    .content__with__image,.content__without__image{
+        padding: 20px 0px;
     }
 }
+
+
