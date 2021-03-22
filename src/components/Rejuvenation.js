@@ -43,7 +43,7 @@ const data = [
     },
     {
         id:6,
-        heading:'Abhyanga (Massage) and steam bath',
+        heading:'Dhaara',
         image:Dhaara,
         content:"In Dhaara therapy, medicated oil/kashayam/milk/buttermilk is steadily poured on the affected part of the body without break for specific time. Dhaara is done on the forehead to treat diseases like depression, head ache, sleeplessness, stress, and hypertension. It is also done over other parts of the body for treating neurological and musculoskeletal disorders. Dhaara helps improve the health of muscles and nerves, reduces inflammation and lubricates the joints."
     },
