@@ -10,9 +10,11 @@ const Panchakarma = () => {
     const handleShow = () => setShow(true);
     return (
         <div className="panchakarma">
-            <div className="main__heading">
+            <div className="content__title">
                 <h1>Ayurveda Panchakarma Therapy</h1>
-                <p>All Panchakarma therapies will be done at home by trained therapists under doctor’s supervision.</p>
+                <div className="highlighted_notification">
+                    <p>All Panchakarma therapies will be done at home by trained therapists under doctor’s supervision.</p>
+                </div>
             </div>
 
             <div className="content">

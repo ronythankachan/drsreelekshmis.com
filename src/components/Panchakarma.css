@@ -1,12 +1,9 @@
 .panchakarma{
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 30px;
-}
-.content{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
 }
 .main__heading{
-    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 50px 0px;
 }
 .main__heading > h1{
@@ -32,7 +29,7 @@ li{
 }
 ul{
     list-style:circle;
-    list-style-position: inside;
+    margin-left: 20px;
 }
 .book__button{
     font-size: 1.3rem;

@@ -26,7 +26,9 @@ const Hero = () => {
                 <h4>An Ayurveda care centre for your day today health problems</h4>
                 <div className="hero__buttons">
                     <button onClick={handleShowMed}>Buy Medicines</button> 
-                    <button onClick={handleShow}>Schedule a home appointment</button> 
+                    <button onClick={handleShow}>Book Home Therapies</button> 
+                    <button><a href="/book_appointment" style={{color:"black"}}>Doctor Consulation </a></button>
+
                 </div>
             </div>
             <MedicineShop handleCloseMed={handleCloseMed} showMed={showMed} />

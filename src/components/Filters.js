@@ -60,6 +60,7 @@ const Filters = ({setFilters}) => {
                         <option>Choose...</option>
                         <option>Home</option>
                         <option>Clinic</option>
+                        <option>Online</option>
                     </Form.Control>
                 </Form.Group>
                 <Button type="submit" variant="success" className="mr-3">Apply</Button>

@@ -5,18 +5,18 @@ import {Badge} from 'react-bootstrap'
 const ClinicInfo = () => {
     return (
         <div className="clinicinfo">
-            <h6>
-                <Badge variant="primary" style={{margin:"10px",width:"80px"}}>Address</Badge> 
-                First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064
-            </h6> 
-            <h6>
-                <Badge variant="danger" style={{margin:"10px",width:"80px"}}>Phone</Badge> 
-                +91 97404 76241
-            </h6> 
-            <h6>
-                <Badge variant="dark" style={{margin:"10px",width:"80px"}}>Email</Badge> 
-                drsreelekshmi'sclinic@gmail.com
-            </h6> 
+            <div className="info__item">
+                <Badge variant="primary" className="badge">Address</Badge> 
+                <p> First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
+            </div>
+            <div className="info__item">
+                <Badge variant="danger" className="badge">Phone</Badge> 
+                <p> +91 97404 76241</p>
+            </div>
+            <div className="info__item">
+                <Badge variant="dark" className="badge">Email</Badge> 
+                <p> drsreelekshmisclinic@gmail.com</p>
+            </div>
         </div>
     )
 }

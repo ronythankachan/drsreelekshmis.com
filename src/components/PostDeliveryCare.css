@@ -1,46 +1,6 @@
 .postdeliverycare{
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 30px;
-}
-.content{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.main__heading{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 50px 0px;
-}
-.main__heading > h1{
-    color: rgba(20, 20, 20, .9);
-    font-size: 60px;
-}
-.main__heading > p{
-    font-style: italic;
-    color: white;
-    background: grey;
-    padding: 10px;
-    border-radius: 6px;
-}
-h1, h3 {
-    line-height: 4rem;
-    font-weight: bold;
-}
-p{
-    font-size: 1.3rem;
-}
-.book__button{
-    font-size: 1.3rem;
-    float: right;
-    margin-top: 20px;
-}
-@media screen and (max-width:768px){
-    .main__heading{
-        margin: 0px 0px 50px 0px;
-    }
-    .main__heading > h1{
-        font-size: 38px;
-    }
-    .book__button{
-        float: left;
-        font-size: 1rem;
-    }
+    font-family: 'Poppins', sans-serif;
+
 }

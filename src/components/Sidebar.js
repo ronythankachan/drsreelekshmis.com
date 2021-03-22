@@ -2,7 +2,7 @@ import React from 'react'
 import './Sidebar.css'
 import {FaTimes} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
-import {NavDropdown, Button} from 'react-bootstrap'
+import {NavDropdown} from 'react-bootstrap'
 
 const Sidebar = ({isOpen,toggle}) => {
     return (
@@ -21,7 +21,6 @@ const Sidebar = ({isOpen,toggle}) => {
                     <NavDropdown.Item href="/swarna_prashana">Swarna Prashana</NavDropdown.Item>
                     <NavDropdown.Item href="/yoga">Therapeutic Yoga</NavDropdown.Item>
                 </NavDropdown>
-                <Button variant="primary" onClick={toggle} className="bottom" href='/book_appointment'>Book Appointment</Button>
             </div>
         </div>
     )

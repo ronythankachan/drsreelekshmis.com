@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, NavDropdown } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {RiMenu3Fill} from 'react-icons/ri';
 import './Navbar.css';
@@ -28,9 +28,6 @@ const Navbar = ({toggle}) => {
                     </NavDropdown>
                 </div>
                 <div className="navbar__right">
-                    <div className="navbar__button">
-                        <Button href="/book_appointment">Book Appointment</Button>
-                    </div>
                     <div className="navbar__mobile__icon" onClick={toggle}>
                         <RiMenu3Fill/>
                     </div>
