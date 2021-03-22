@@ -10,6 +10,8 @@ const isValidZip = (zip) =>{
             (response)=>{
                 if(response.data.includes(zip.toString())){
                     isValid = true
+                }else{
+                    isValid = false
                 }
             }, (error)=>{
                 console.log(error)
