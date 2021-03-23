@@ -38,16 +38,16 @@ const Footer = () => {
 
                     <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
                     <div className="footer__right__socialmedia">
-                        <a href="https://www.instagram.com/dr_srees_ayur_/"><FaFacebook/></a>
-                        <a href="https://www.facebook.com/dr.sreesAyur/"><FaInstagram/></a>
+                        <a href="https://www.instagram.com/dr_srees_ayur_/" target="_blank" rel="noopener noreferrer"><FaFacebook/></a>
+                        <a href="https://www.facebook.com/dr.sreesAyur/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
                     </div>
                 </div>
             </div>
             <div className="shamelessplug">
                     <p><AiOutlineCopyright/> This site is developed and managed by Rony Thankachan, 2021</p>
                     <div className="shamelessplug__icons">
-                        <a href="https://www.facebook.com/dr.sreesAyur/"><RiLinkedinBoxLine/></a>
-                        <a href="https://www.facebook.com/dr.sreesAyur/"><AiOutlineGithub/></a> 
+                        <a href="https://in.linkedin.com/in/ronythankachan" target="_blank" rel="noopener noreferrer"><RiLinkedinBoxLine/></a>
+                        <a href="https://github.com/ronythankachan" target="_blank" rel="noopener noreferrer"><AiOutlineGithub/></a> 
                     </div>
             </div>
         </div>
