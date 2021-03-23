@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
-import './Hero.css';
-import HeroVideo from '../video/hero_background.mp4';
-import HomeAppointment from './HomeAppointment';
-import MedicineShop from './MedicineShop';
+import React,{useState} from 'react'
+import './Hero.css'
+import HeroVideo from '../video/hero_background.mp4'
+import HomeAppointment from './HomeAppointment'
+import MedicineShop from './MedicineShop'
+import {Button} from 'react-bootstrap'
 
 const Hero = () => {
 
@@ -25,10 +26,9 @@ const Hero = () => {
                 <h1>Dr. Sreelekshmi’s kerala Ayurveda Centre</h1>
                 <h4>An Ayurveda care centre for your day today health problems</h4>
                 <div className="hero__buttons">
-                    <button onClick={handleShowMed}>Buy Medicines</button> 
-                    <button onClick={handleShow}>Book Home Therapies</button> 
-                    <button><a href="/book_appointment" style={{color:"black"}}>Doctor Consulation </a></button>
-
+                    <Button onClick={handleShowMed}>Buy Medicines</Button> 
+                    <Button onClick={handleShow}>Book Home Therapies</Button> 
+                    <Button className="appointment__button" href="/book_appointment">Doctor Consulation</Button>
                 </div>
             </div>
             <MedicineShop handleCloseMed={handleCloseMed} showMed={showMed} />

@@ -15,16 +15,11 @@ const Panchakarma = () => {
                 <div className="highlighted_notification">
                     <p>All Panchakarma therapies will be done at home by trained therapists under doctor’s supervision.</p>
                 </div>
-            </div>
-
-            <div className="content">
-                <div className="content__image">
-                    <img src={PanchakarmaImg} alt="pain" />
-                </div>
-                <div className="sub__heading1">
-                    <h2>Panchakarma (Detox therapies)</h2>
-                </div>
+                <img src={PanchakarmaImg} alt="" />
+                <h2>Panchakarma (Detox therapies)</h2>
                 <p>Panchakarma literally meaning five purificatory procedures are specialized treatment techniques used in Ayurveda for detoxification, to improve health and to treat specific diseases.</p>
+            </div>
+            <div className="content">
                 <div className="sub_heading2">
                     <h3> 1.	Vamana (Therapeutically induced vomiting)</h3>
                     <p>This procedure is mainly done to balance the Kapha dosa in the body. It eliminates toxins from the upper part of the body. The procedure takes 2 hours and will be administered at home under supervision of a doctor. </p>
