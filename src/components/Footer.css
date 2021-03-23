@@ -51,6 +51,12 @@
         flex-direction: column;
         row-gap: 10px;
     }
+    .shamelessplug > p{
+        font-size: 0.8rem;
+    }
+    .shamelessplug__icons > a{
+        font-size: 0.8rem;
+    }
 }
 .footer__left, .footer__middle, .footer__right{
     display: flex;
