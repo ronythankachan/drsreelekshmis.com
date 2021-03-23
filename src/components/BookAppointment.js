@@ -152,7 +152,7 @@ const BookAppointment = () => {
                     </Form.Group>
                     <Button variant="primary" type="submit" >Book appointment</Button>
                 </Form>
-                <div style={{position: 'fixed',bottom: 0,right: 0,margin:"30px"}}>
+                <div style={{position: 'fixed',bottom: 0,right: 0,margin:"30px",zIndex:"999"}}>
                     <Toast variant="primary" onClose={() => setShow(false)} show={show} delay={3000} style={{color:"white",backgroundColor:toastColor, borderRadius:"12px"}}>
                         <Toast.Header style={{fontSize:"1rem", color:"white",backgroundColor:toastColor,borderRadius:"12px"}}>
                             <strong className="mr-auto">Appointment Booking</strong>
