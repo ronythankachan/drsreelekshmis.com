@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import RejuvenationPage from './pages/RejuvenationPage';
 import AdminPanel from './components/AdminPanel';
+import CartPage from './pages/CartPage';
 
 function App() {
 
@@ -35,7 +36,6 @@ function App() {
               <Route path='/about' component={AboutPage}/>
               <Route path='/contact' component={ContactPage}/>
               <Route path='/book_appointment' component={BookAppointmentPage}/>
-              <Route path='/shop' component={ShoppingPage}/>
               <Route path='/appointments' component={AdminPanel}/>
               <Route path='/rejuvenation' component={RejuvenationPage}/>
               <Route path='/panchakarma' component={PanchakarmaPage}/>
@@ -43,6 +43,8 @@ function App() {
               <Route path='/post_delivery_care' component={PostDeliveryCarePage}/>
               <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
               <Route path='/yoga' component={YogaPage}/>
+              <Route path='/shop' component={ShoppingPage}/>
+              <Route path='/cart' component={CartPage}/>
           </Switch>
           <Footer/>
       </Router>

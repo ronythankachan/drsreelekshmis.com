@@ -2,6 +2,7 @@ import React from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {RiMenu3Fill} from 'react-icons/ri';
+import {RiShoppingCart2Fill} from 'react-icons/ri';
 import './Navbar.css';
 import Header from './Header';
 
@@ -28,9 +29,16 @@ const Navbar = ({toggle}) => {
                     </NavDropdown>
                 </div>
                 <div className="navbar__right">
+                    <div className="cart__icon">
+                        <a href='/cart'>
+                            <RiShoppingCart2Fill/>
+                            <small>&nbsp;cart</small>
+                        </a>
+                    </div>
                     <div className="navbar__mobile__icon" onClick={toggle}>
                         <RiMenu3Fill/>
                     </div>
+
                 </div>
             </div>
         </div>
