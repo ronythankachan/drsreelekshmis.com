@@ -1,7 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
 import Doctors from '../components/Doctors';
-import Qualities from '../components/Qualities';
 import Vision from '../components/Vision';
 
 const AboutPage = () => {
@@ -9,7 +8,6 @@ const AboutPage = () => {
         <div className="aboutpage">
             <Vision/>
             <Doctors/>
-            <Qualities/>
         </div>
     )
 }

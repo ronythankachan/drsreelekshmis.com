@@ -25,7 +25,7 @@ const Doctors = () => {
                 <Card>
                     <Card.Img variant="top" src={Varghese}  style={{height:"400px",objectFit:"cover"}}/>
                     <Card.Body>
-                    <Card.Title style={{fontWeight:"bold"}}>Dr. Vargheese Thomas (BAMS, MD)</Card.Title>
+                    <Card.Title style={{fontWeight:"bold"}}>Dr. Varghese Thomas (BAMS, MD)</Card.Title>
                     <Card.Text>
                     Dr. Varghese Thomas is pursuing Ph.D in Trans-Disciplinary University Bengaluru. His area of specialization is Ayurvedic pharmacology.
                     </Card.Text>
