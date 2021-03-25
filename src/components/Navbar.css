@@ -44,6 +44,21 @@
     display: flex;
     justify-content: center;
 }
+.account{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    margin-left: 20px;
+}
+.nav__icons{
+    font-size: 1.6rem;
+    margin-right: 5px;
+}
+.nav-link{
+    padding: unset;
+}
 @media screen and (max-width:1200px){
     .navbar__container{
         position: relative !important;

@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import './Hero.css'
 import HeroVideo from '../video/hero_background.mp4'
 import HomeAppointment from './HomeAppointment'
-import MedicineShop from './MedicineShop'
 import {Button} from 'react-bootstrap'
 
 const Hero = () => {
