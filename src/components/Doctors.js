@@ -2,7 +2,7 @@ import React from 'react'
 import { CardDeck, Card } from 'react-bootstrap'
 import './Doctors.css'
 import Sreelekshmi from '../images/sreelekshmi.jpg'
-import Leena from '../images/leena.jpg'
+import Varghese from '../images/varghese.jpeg'
 
 const Doctors = () => {
     
@@ -13,27 +13,25 @@ const Doctors = () => {
                 <Card>
                     <Card.Img variant="top" src={Sreelekshmi} style={{height:"400px",objectFit:"cover"}} />
                     <Card.Body>
-                    <Card.Title>Dr.Sreelekshmi</Card.Title>
+                    <Card.Title style={{fontWeight:"bold"}}>Dr. Sreelekshmi S S (BAMS, Yoga TTC)</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                    Dr. Sreelekshmi completed her BAMS from Rajiv Gandhi University of health Sciences and carry an experience of several years in the field of Ayurvedic medical practice. She is a Yoga trainer practicing therapeutic Yoga since the last 4 years. Currently she is pursuing masters in Yoga from SVYASA University, Bangalore.
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    <small className="text-muted">Available on monday to friday</small>
+                    <small className="text-muted">Available on all days except Tuesday from 10 AM to 1 PM and 4 PM to 8 PM</small>
                     </Card.Footer>
                 </Card>
                 <Card>
-                    <Card.Img variant="top" src={Leena}  style={{height:"400px",objectFit:"cover"}}/>
+                    <Card.Img variant="top" src={Varghese}  style={{height:"400px",objectFit:"cover"}}/>
                     <Card.Body>
-                    <Card.Title>Dr.Vargheese</Card.Title>
+                    <Card.Title style={{fontWeight:"bold"}}>Dr. Vargheese Thomas (BAMS, MD)</Card.Title>
                     <Card.Text>
-                        This card has supporting text below as a natural lead-in to additional
-                        content.{' '}
+                    Dr. Varghese Thomas is pursuing Ph.D in Trans-Disciplinary University Bengaluru. His area of specialization is Ayurvedic pharmacology.
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    <small className="text-muted">Available on Saturday and Sunday</small>
+                    <small className="text-muted">Available on Saturday and Sunday on prior appointment.</small>
                     </Card.Footer>
                 </Card>
             </CardDeck>

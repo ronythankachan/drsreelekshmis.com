@@ -101,7 +101,7 @@ const Rejuvenation = () => {
                     <p>All Rejuvenation &amp; Pain Relief Therapies  will be done at home by trained therapists under doctor’s supervision.</p>
                 </div>
                 <img src={RejuvenationImg} alt="swarna prashana" />
-                <p>There are several therapies in Ayurveda which helps in the treatment of musculoskeletal diseases like slip disc, joint pains, arthritis of different kind, spondylosis and spondylitis. It is also used in the treatment of  neurological diseases, skin disorders, obesity, stress, depression, insomnia and migraine. These therapies include:</p>
+                <p>There are several therapies in Ayurveda that help in the treatment of musculoskeletal diseases like slip disc, joint pains, arthritis of different kinds, spondylosis and spondylitis. It is also used in the treatment of neurological diseases, skin disorders, obesity, stress, depression, insomnia and migraine. These therapies include:</p>
             </div>
             <div className="content__cards">
                 {contentCards}

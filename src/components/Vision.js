@@ -8,7 +8,7 @@ const Vision = ( ) => {
             <Jumbotron className="jumbotron">
                 <h1 > Our Mission</h1>
                 <p>
-                    To educate and encourage households to use Ayurveda inspired solutions to remedy day today health problems of the family 
+                    To educate and encourage households to use Ayurveda inspired solutions to remedy day-to-day health problems of the family 
                 </p>
                 <h1 > Our Vision</h1>
                 <p>

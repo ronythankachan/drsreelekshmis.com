@@ -6,13 +6,11 @@ import backend from '../axios'
 
 const isValidDate = (date) =>{
 
-
-    console.log(new Date().getDate())
-    console.log(new Date(date).getDate())
-    if(new Date(date).getDate() >= new Date().getDate()){
-        return true
-    }
-    return false
+        // Check if doctors are available in this date
+        if(new Date(date)>= new Date()){
+            return true
+        }
+        return false
 }
 
 const validate = values =>{

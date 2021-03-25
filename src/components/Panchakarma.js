@@ -17,7 +17,7 @@ const Panchakarma = () => {
                 </div>
                 <img src={PanchakarmaImg} alt="" />
                 <h2>Panchakarma (Detox therapies)</h2>
-                <p>Panchakarma literally meaning five purificatory procedures are specialized treatment techniques used in Ayurveda for detoxification, to improve health and to treat specific diseases.</p>
+                <p>Panchakarma, which literally means five purification procedures, are specialized treatment techniques used in Ayurveda for detoxification,  improving health, and treating specific diseases.</p>
             </div>
             <div className="content">
                 <div className="sub_heading2">
@@ -41,7 +41,7 @@ const Panchakarma = () => {
                         <li>High cholestrol levels in blood (Dyslipideamia)</li>
                     </ul>
                     <h3> 2.	Virechana (Therapeutically induced loose motion)</h3>
-                    <p>Purgation/virechana is controlled induction of loose motion to remove toxins from the lower part of the body by administering special herbal medicines specific to condition of the patient. It reduces Pitta in the body. </p>
+                    <p>Purgation/virechana is inducing controlled loose motion by administering specific herbal medicines to remove toxins from the body. This process helps to enhance the receptivity of medicines administered for specific health problems. </p>
                     <h5>Benefits</h5>
                     <ul>
                         <li>Flushes out toxins from the body</li>

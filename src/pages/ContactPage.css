@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .contact__start{
@@ -17,5 +19,4 @@
     margin-bottom: 40px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(20, 20, 20);
-    font-family: serif;
 }

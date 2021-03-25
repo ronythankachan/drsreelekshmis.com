@@ -36,7 +36,7 @@ const Footer = () => {
                     <p>Phone &amp; Whatsapp: <span style={{color:"lightgreen",fontWeight:"bold"}}>+91 97404 76241</span> </p>
                     <p>Email: <span style={{color:"lightgreen"}}>drsreelekshmisclinic@gmail.com</span> </p>
 
-                    <p>First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
+                    <p>First floor, Maruthi complex, SFS 407, 4th phase, Yelahanka New town, Bangalore 560064</p>
                     <div className="footer__right__socialmedia">
                         <a href="https://www.instagram.com/dr_srees_ayur_/" target="_blank" rel="noopener noreferrer"><FaFacebook/></a>
                         <a href="https://www.facebook.com/dr.sreesAyur/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>

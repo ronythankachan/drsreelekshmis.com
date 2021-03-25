@@ -5,6 +5,8 @@
     margin: 30px;
     display: flex;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+
 }
 .map > h3{
     width: fit-content;
@@ -13,7 +15,6 @@
     margin-bottom: 40px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(20, 20, 20);
-    font-family: serif;
 }
 .marker{
     display: flex;

@@ -7,7 +7,7 @@ const ClinicInfo = () => {
         <div className="clinicinfo">
             <div className="info__item">
                 <Badge variant="primary" className="badge">Address</Badge> 
-                <p> First floor, Maruthi complex, SFS 407, 4t phase, Yelahanka New town, Bangalore 560064</p>
+                <p> First floor, Maruthi complex, SFS 407, 4th phase, Yelahanka New town, Bangalore 560064</p>
             </div>
             <div className="info__item">
                 <Badge variant="danger" className="badge">Phone</Badge> 

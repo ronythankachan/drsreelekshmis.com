@@ -1,6 +1,7 @@
 .vision{
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 30px;
+    font-family: 'Poppins', sans-serif;
 }
 .vision > h3{
     width: fit-content;
@@ -9,13 +10,9 @@
     margin-bottom: 40px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(20, 20, 20);
-    font-family: serif;
 }
 .jumbotron{
     background-color: white !important;
     border-radius: 0px !important;
     border-bottom: 1px solid black;
-}
-.jumbotron > h1{
-    font-family: serif;
 }

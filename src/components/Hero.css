@@ -6,6 +6,7 @@
     color: #fff;
     background-color: rgb(0, 0, 0);
     min-height: fit-content;
+    font-family: 'Poppins', sans-serif;
 }
 .hero__video > video{
     width: 100%;
@@ -22,13 +23,13 @@
     transform: translate(-50%,-50%);
 }
 .hero__title >h1{
-    font-size: 3rem;
+    font-size: 2.7rem;
     font-weight: bolder;
 }
 .hero__title >h4{
     color: darkgrey;
-    font-family: monospace !important;
     font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .hero__buttons >button, .appointment__button{
@@ -58,6 +59,12 @@
 }
 .black{
     color: #010606;
+}
+.btn-primary:focus, .btn-primary:active{
+    color: #010606;
+    background:#01bf71;
+    border-color: unset;
+    box-shadow: unset;
 }
 
 @media screen and (max-width:1200px){
