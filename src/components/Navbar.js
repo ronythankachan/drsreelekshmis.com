@@ -34,17 +34,6 @@ const Navbar = ({toggle}) => {
                             <small>&nbsp;cart</small>
                         </a>
                     </div>
-                    <div className="account">
-                        <RiAccountCircleFill className="nav__icons"/>
-                        <NavDropdown title="Account" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
-                            <NavDropdown.Item href="/post_delivery_care">Sign Up</NavDropdown.Item>
-                            <NavDropdown.Item href="/panchakarma">Login</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="/swarna_prashana">Swarna Prashana</NavDropdown.Item>
-                            <NavDropdown.Item href="/yoga">Therapeutic Yoga </NavDropdown.Item>
-                        </NavDropdown>
-                    </div>
                     <div className="navbar__mobile__icon" onClick={toggle}>
                         <RiMenu3Fill/>
                     </div>
