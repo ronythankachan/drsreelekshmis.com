@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
-import ShopPage from './pages/ShopPage';
+import ShoppingPage from './pages/ShoppingPage';
 import PanchakarmaPage from './pages/PanchakarmaPage';
 import MarmaTherapyPage from './pages/MarmaTherapyPage';
 import PostDeliveryCarePage from './pages/PostDeliveryCarePage';
@@ -35,7 +35,7 @@ function App() {
               <Route path='/about' component={AboutPage}/>
               <Route path='/contact' component={ContactPage}/>
               <Route path='/book_appointment' component={BookAppointmentPage}/>
-              <Route path='/shop' component={ShopPage}/>
+              <Route path='/shop' component={ShoppingPage}/>
               <Route path='/appointments' component={AdminPanel}/>
               <Route path='/rejuvenation' component={RejuvenationPage}/>
               <Route path='/panchakarma' component={PanchakarmaPage}/>
