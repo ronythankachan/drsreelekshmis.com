@@ -32,7 +32,7 @@
     font-size: 1.2rem;
 }
 
-.hero__buttons >button, .appointment__button{
+.hero__buttons >button, .green__button{
     border-radius:50px;
     background:#01bf71;
     white-space:nowrap;
@@ -46,7 +46,7 @@
     text-decoration:none;
     margin:10px 5px;
 }
-.appointment__button:hover{
+.green__button:hover{
     transition:all 0.2s ease-in-out;
     background:#fff;
     color:#106060 !important;
@@ -74,7 +74,7 @@
         align-items: center;
         justify-content: center;
     }
-    .hero__buttons > button, .appointment__button{
+    .hero__buttons > button, .green__button{
         width: 260px;
     }
     .hero__video >video{

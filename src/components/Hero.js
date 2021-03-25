@@ -11,10 +11,6 @@ const Hero = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [showMed, setShowMed] = useState(false);
-    const handleCloseMed = () => setShowMed(false);
-    const handleShowMed = () => setShowMed(true);
-
     return (
         <div className="hero">
             <div className="hero__video">
@@ -26,12 +22,11 @@ const Hero = () => {
                 <h1>Dr. Sreelekshmi’s kerala Ayurveda Centre</h1>
                 <h4>An Ayurveda care centre for your day-to-day health problems</h4>
                 <div className="hero__buttons">
-                    <Button onClick={handleShowMed}>Buy Medicines</Button> 
+                    <Button className="green__button" href='/shop'>Buy Medicines</Button> 
                     <Button onClick={handleShow}>Book Home Therapies</Button> 
-                    <Button className="appointment__button" href="/book_appointment">Doctor Consulation</Button>
+                    <Button className="green__button" href="/book_appointment">Doctor Consulation</Button>
                 </div>
             </div>
-            <MedicineShop handleCloseMed={handleCloseMed} showMed={showMed} />
             <HomeAppointment handleClose={handleClose} show={show} />
         </div>
     )
