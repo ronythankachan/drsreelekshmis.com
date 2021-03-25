@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.27be23f4.chunk.css",
-    "main.js": "/static/js/main.89e4f532.chunk.js",
-    "main.js.map": "/static/js/main.89e4f532.chunk.js.map",
+    "main.js": "/static/js/main.b9709e28.chunk.js",
+    "main.js.map": "/static/js/main.b9709e28.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.471cc886.js",
     "runtime-main.js.map": "/static/js/runtime-main.471cc886.js.map",
     "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
@@ -12,31 +12,31 @@
     "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
     "static/css/main.27be23f4.chunk.css.map": "/static/css/main.27be23f4.chunk.css.map",
     "static/js/2.3a70e4f3.chunk.js.LICENSE.txt": "/static/js/2.3a70e4f3.chunk.js.LICENSE.txt",
-    "static/media/abhyunga.92f93454.jpg": "/static/media/abhyunga.92f93454.jpg",
-    "static/media/avatar.2150ba3e.png": "/static/media/avatar.2150ba3e.png",
+    "static/media/abhyunga.c4bbefac.jpg": "/static/media/abhyunga.c4bbefac.jpg",
+    "static/media/avatar.6643e5f6.png": "/static/media/avatar.6643e5f6.png",
     "static/media/LoginPage.css": "/static/media/background_pattern.70d889ff.png",
     "static/media/clinic_icon.140317c4.png": "/static/media/clinic_icon.140317c4.png",
-    "static/media/dhaara.b3f01d56.jpg": "/static/media/dhaara.b3f01d56.jpg",
+    "static/media/dhaara.34c43fef.jpg": "/static/media/dhaara.34c43fef.jpg",
     "static/media/hero_background.5c35ae38.mp4": "/static/media/hero_background.5c35ae38.mp4",
-    "static/media/kati.0c8aea3f.jpg": "/static/media/kati.0c8aea3f.jpg",
+    "static/media/kati.4885e84d.jpg": "/static/media/kati.4885e84d.jpg",
     "static/media/panchakarma.2998ae14.jpg": "/static/media/panchakarma.2998ae14.jpg",
-    "static/media/panchakarma2.eee5dcc9.jpg": "/static/media/panchakarma2.eee5dcc9.jpg",
-    "static/media/pinda.4c920eb2.jpg": "/static/media/pinda.4c920eb2.jpg",
-    "static/media/post_delivery_care.c992ed46.jpg": "/static/media/post_delivery_care.c992ed46.jpg",
-    "static/media/pregnant_women.eb068a0b.jpg": "/static/media/pregnant_women.eb068a0b.jpg",
-    "static/media/rejuvenation.2e70be74.jpg": "/static/media/rejuvenation.2e70be74.jpg",
-    "static/media/shastika.22c481dd.jpg": "/static/media/shastika.22c481dd.jpg",
+    "static/media/panchakarma2.9b792565.jpg": "/static/media/panchakarma2.9b792565.jpg",
+    "static/media/pinda.86157268.jpg": "/static/media/pinda.86157268.jpg",
+    "static/media/post_delivery_care.b2677bb0.jpg": "/static/media/post_delivery_care.b2677bb0.jpg",
+    "static/media/pregnant_women.10027d94.jpg": "/static/media/pregnant_women.10027d94.jpg",
+    "static/media/rejuvenation.a8fea4ec.jpg": "/static/media/rejuvenation.a8fea4ec.jpg",
+    "static/media/shastika.d269b933.jpg": "/static/media/shastika.d269b933.jpg",
     "static/media/sreelekshmi.6d25aee0.jpg": "/static/media/sreelekshmi.6d25aee0.jpg",
     "static/media/swarna_prashana.cf41ea96.jpg": "/static/media/swarna_prashana.cf41ea96.jpg",
-    "static/media/udvartanam.02ab2d72.jpg": "/static/media/udvartanam.02ab2d72.jpg",
-    "static/media/yoga.56454ac1.jpg": "/static/media/yoga.56454ac1.jpg",
-    "static/media/yoga_girl.b7639411.jpg": "/static/media/yoga_girl.b7639411.jpg"
+    "static/media/udvartanam.27adbb4e.jpg": "/static/media/udvartanam.27adbb4e.jpg",
+    "static/media/yoga.2097508f.jpg": "/static/media/yoga.2097508f.jpg",
+    "static/media/yoga_girl.b5be27cd.jpg": "/static/media/yoga_girl.b5be27cd.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.471cc886.js",
     "static/css/2.150d169a.chunk.css",
     "static/js/2.3a70e4f3.chunk.js",
     "static/css/main.27be23f4.chunk.css",
-    "static/js/main.89e4f532.chunk.js"
+    "static/js/main.b9709e28.chunk.js"
   ]
 }
