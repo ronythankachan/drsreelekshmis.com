@@ -6,6 +6,7 @@
     justify-content: space-evenly;
     align-content: center;
     padding: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .shamelessplug{
@@ -31,7 +32,6 @@
 }
 .shamelessplug > p{
     margin: unset;
-    font-family: monospace;
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -41,7 +41,7 @@
         height: fit-content;
         flex-direction: column;
         justify-content:space-between;
-        padding:20px;
+        padding:10px;
     }
     .footer__left, .footer__middle, .footer__right{
         margin-bottom: 20px;
