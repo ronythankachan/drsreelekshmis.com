@@ -1,0 +1,21 @@
+.cartitem{
+    min-width: 1000px;
+    display: flex;
+    border: 3px solid black;
+    align-items: center;
+    margin: 20px;
+}
+.product__image{
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    margin: 30px;
+}
+.product__image > img{
+    width: 100%;
+    object-fit: cover;
+}
+.quantity{
+    display: flex;
+    column-gap: 20px;
+}
