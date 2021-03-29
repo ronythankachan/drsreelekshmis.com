@@ -1,12 +1,18 @@
 import React from 'react'
 import './ProductCard.css'
 import { Button } from 'react-bootstrap'
+import backend from '../axios'
 
-const addToCart =(id)=>{
-    console.log('adding',id,' item  to Cart')
-}
-const buyNow = (id) => {
-    console.log('adding',id,' item  to Cart and opening Cart')
+const addToCart =(medicineId)=>{
+    var userId =2000
+    backend.post('/api/add_to_cart',{medicineId:medicineId,userId:userId}).then(
+        (response)=>{
+            console.log(response.data)
+        },(error)=>{
+            console.log("failed to add item to cart",error)
+        }
+    )
+    console.log('adding',medicineId,' item  to Cart')
 }
 
 const ProductCard = ({data}) => {
@@ -17,8 +23,8 @@ const ProductCard = ({data}) => {
             <h3>Rs. {data.price}</h3>
             <p>{data.description}</p>
             <div className="productcard__buttons">
-                <Button variant="warning" onClick={()=>addToCart(data.id)}>Add to Cart</Button>
-                <Button variant="success" onClick={()=>buyNow(data.id)}>Buy Now</Button>
+                <Button variant="warning" onClick={()=>addToCart(data._id)}>Add to Cart</Button>
+                <Button variant="success" href="/cart">Buy Now</Button>
             </div>
         </div>
     )

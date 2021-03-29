@@ -2,6 +2,7 @@ import React from 'react'
 import './CartPage.css'
 import PlaceHolder from '../images/Shop/placeholder.png'
 import CartItem from '../components/CartItem'
+import { Button } from 'react-bootstrap'
 
 const testData = [
     {
@@ -34,6 +35,7 @@ const CartPage = () => {
     return (
         <div className="cartpage">
             {products}
+            <Button variant="info">Proceed to checkout</Button>
         </div>
     )
 }
