@@ -10,7 +10,6 @@ const buyNow = (id) => {
 }
 
 const ProductCard = ({data}) => {
-    console.log(data)
     return (
         <div className="productcard">
             <img src={data.img} alt=""/>

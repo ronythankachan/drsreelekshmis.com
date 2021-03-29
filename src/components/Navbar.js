@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import {RiMenu3Fill, RiShoppingCart2Fill, RiAccountCircleFill} from 'react-icons/ri';
+import {RiMenu3Fill, RiShoppingCart2Fill} from 'react-icons/ri';
 import './Navbar.css';
 import Header from './Header';
 
