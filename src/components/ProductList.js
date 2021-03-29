@@ -1,53 +1,31 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './ProductList.css'
 import PlaceHolder from '../images/Shop/placeholder.png'
 import ProductCard from '../components/ProductCard'
+import backend from '../axios'
+import { useState } from 'react'
 
-const testData =[
-    {
-        id:1,
-        name:'Abhayarishtam',
-        category:'Arishtam',
-        description:'Abhayarishtam description',
-        price:120,
-        quantiy:23,
-        img:PlaceHolder
+const ProductList = ({setLoading}) => {
 
-    },
-    {
-        id:2,
-        name:'Ashta Choornam',
-        category:'Choornam',
-        description:'Ashta Choornam description',
-        price:320,
-        quantiy:49,
-        img:PlaceHolder
-    },
-    {
-        id:3,
-        name:'Brahmi Ghritham',
-        category:'Ghritam',
-        description:'Brahmi Ghritham description',
-        price:500,
-        quantiy:42,
-        img:PlaceHolder
-    },
-    {
-        id:4,
-        name:'Amrutharishtam',
-        category:'Arishtam',
-        description:'Amrutharishtam description',
-        price:143,
-        quantiy:53,
-        img:PlaceHolder
-    }
-]
 
-const products = testData.map(item => {
-    return <ProductCard data={item} key={item.id}/>  
-})
+    const [medicines, setMedicines] = useState([])
 
-const ProductList = () => {
+    // Get all the medicine lists
+    useEffect(() => {
+        backend.get('/api/get_medicines')
+        .then((response)=>{
+            console.log(response)
+            setMedicines(response.data)
+            console.log("medicines", medicines)
+        },(error)=>{
+            console.log(error)
+        })
+    }, [])
+
+    const products = medicines.map(item => {
+        return <ProductCard data={item} key={item._id}/>  
+    })
+
     return (
         <div className="productlist">
             {products}
