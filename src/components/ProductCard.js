@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap'
 import backend from '../axios'
 
 const addToCart =(medicineId)=>{
-    var userId =2000
-    backend.post('/api/add_to_cart',{medicineId:medicineId,userId:userId}).then(
+    var userId = "602bd642603494016ba038c2" // User ID for Rony
+    backend.post('/api/add_to_cart',{userId:userId,medicineId:medicineId,quantity:1}).then(
         (response)=>{
             console.log(response.data)
             alert(response.data)
@@ -13,7 +13,7 @@ const addToCart =(medicineId)=>{
             console.log("failed to add item to cart",error)
         }
     )
-    console.log('adding',medicineId,' item  to Cart')
+    console.log(`adding ${medicineId} item to Cart`)
 }
 
 const ProductCard = ({data}) => {
