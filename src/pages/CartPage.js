@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect } from 'react'
 import './CartPage.css'
 import PlaceHolder from '../images/Shop/placeholder.png'
 import CartItem from '../components/CartItem'
@@ -32,6 +32,15 @@ const products = testData.map(item => {
 
 
 const CartPage = () => {
+    const [cart, setCart] = useState([])
+
+    useEffect(()=>{
+        
+        
+
+    },[])
+
+
     return (
         <div className="cartpage">
             {products}

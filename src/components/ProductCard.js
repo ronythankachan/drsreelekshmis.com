@@ -8,6 +8,7 @@ const addToCart =(medicineId)=>{
     backend.post('/api/add_to_cart',{medicineId:medicineId,userId:userId}).then(
         (response)=>{
             console.log(response.data)
+            alert(response.data)
         },(error)=>{
             console.log("failed to add item to cart",error)
         }
