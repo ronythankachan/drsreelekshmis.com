@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap'
 
 
 const CartItem = ({data}) => {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(data.quantity);
 
     const addQuantity = () =>{
         setQuantity(quantity+1)
@@ -31,6 +31,7 @@ const CartItem = ({data}) => {
                 <div className="total">
                     <h3>Amount : {quantity * data.price}</h3>
                 </div>
+                
             </div>
         </div>
     )

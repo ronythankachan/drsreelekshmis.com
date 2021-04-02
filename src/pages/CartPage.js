@@ -1,50 +1,28 @@
 import React,{useState, useEffect } from 'react'
 import './CartPage.css'
-import PlaceHolder from '../images/Shop/placeholder.png'
 import CartItem from '../components/CartItem'
 import { Button } from 'react-bootstrap'
-
-const testData = [
-    {
-        id:1,
-        name:'Abhayarishtam',
-        category:'Arishtam',
-        description:'Abhayarishtam description',
-        price:120,
-        quantiy:23,
-        img:PlaceHolder
-
-    },
-    {
-        id:2,
-        name:'Ashta Choornam',
-        category:'Choornam',
-        description:'Ashta Choornam description',
-        price:320,
-        quantiy:49,
-        img:PlaceHolder
-    }
-]
-
-const products = testData.map(item => {
-    return <CartItem data={item}/>
-})
-
+import backend from '../axios'
 
 const CartPage = () => {
     const [cart, setCart] = useState([])
-
     useEffect(()=>{
-        
-        
-
+        backend.post('/api/get_cart_items',{userId:"602bd642603494016ba038c2"})
+        .then((response)=>{
+            setCart(response.data)
+        },(error)=>{
+            console.log(error)
+        })
     },[])
 
+    const cartItems = cart.map(item => {
+        return <CartItem data={item} key={item.medicineId}/>
+    })
 
     return (
         <div className="cartpage">
-            {products}
-            <Button variant="info">Proceed to checkout</Button>
+            {cartItems}
+            {cart.length>0?<Button variant="info">Proceed to checkout</Button>:null}
         </div>
     )
 }
