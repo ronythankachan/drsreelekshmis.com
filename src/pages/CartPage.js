@@ -6,15 +6,16 @@ import backend from '../axios'
 
 const CartPage = () => {
     const [cart, setCart] = useState([])
+
     useEffect(()=>{
-        backend.post('/api/get_cart_items',{userId:"602bd642603494016ba038c2"})
+        var userId = "602bd642603494016ba038c2" // User ID for Rony
+        backend.post('/api/get_cart_items',{userId:userId})
         .then((response)=>{
             setCart(response.data)
         },(error)=>{
             console.log(error)
         })
     },[])
-
     const cartItems = cart.map(item => {
         return <CartItem data={item} key={item.medicineId}/>
     })

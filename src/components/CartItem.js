@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './CartItem.css'
 import {Button} from 'react-bootstrap'
+import backend from '../axios'
 
 
 const CartItem = ({data}) => {
@@ -8,11 +9,31 @@ const CartItem = ({data}) => {
 
     const addQuantity = () =>{
         setQuantity(quantity+1)
+        var userId = "602bd642603494016ba038c2" // User ID for Rony
+        backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:1}).then(
+            (response)=>{
+                console.log(response.data)
+                alert(response.data)
+            },(error)=>{
+                console.log("failed to add item to cart",error)
+            }
+        )
+        console.log(`adding ${data.medicineId} item to Cart`)
     }
 
     const subtractQuantity = () =>{
         if(quantity>1){
             setQuantity(quantity-1)
+            var userId = "602bd642603494016ba038c2" // User ID for Rony
+            backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:-1}).then(
+                (response)=>{
+                    console.log(response.data)
+                    alert(response.data)
+                },(error)=>{
+                    console.log("failed to add item to cart",error)
+                }
+            )
+            console.log(`adding ${data.medicineId} item to Cart`)
         }
     }
 
