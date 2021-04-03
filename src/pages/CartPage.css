@@ -5,3 +5,9 @@
     flex-direction: column;
     align-items: center;
 }
+.cartpage__button{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}

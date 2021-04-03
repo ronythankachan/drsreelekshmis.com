@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap'
 import backend from '../axios'
 
 
-const CartItem = ({data}) => {
+const CartItem = ({data,total,setTotal}) => {
     const [quantity, setQuantity] = useState(data.quantity);
 
     const addQuantity = () =>{
@@ -12,8 +12,7 @@ const CartItem = ({data}) => {
         var userId = "602bd642603494016ba038c2" // User ID for Rony
         backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:1}).then(
             (response)=>{
-                console.log(response.data)
-                alert(response.data)
+                setTotal(total+data.price)
             },(error)=>{
                 console.log("failed to add item to cart",error)
             }
@@ -27,8 +26,7 @@ const CartItem = ({data}) => {
             var userId = "602bd642603494016ba038c2" // User ID for Rony
             backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:-1}).then(
                 (response)=>{
-                    console.log(response.data)
-                    alert(response.data)
+                    setTotal(total-data.price)
                 },(error)=>{
                     console.log("failed to add item to cart",error)
                 }
