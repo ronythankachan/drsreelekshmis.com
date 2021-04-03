@@ -14,7 +14,7 @@ const CartPage = () => {
         .then((response)=>{
             setCart(response.data)
             var sum=0
-            response.data.map(item=>{
+            Array.prototype.forEach.call(response.data,item=>{
                 sum+=item.quantity*item.price
             })
             console.log(sum)
