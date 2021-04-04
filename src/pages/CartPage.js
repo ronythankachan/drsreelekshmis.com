@@ -38,7 +38,10 @@ const CartPage = () => {
                             <h3>Total Amount: {total}</h3>
                             <Button variant="info">Proceed to checkout</Button>
                         </div>
-                    </div>:null
+                    </div>:
+                    <div style={{display:"grid",alignContent:"center"}}>
+                        <h2>Your Cart is empty.</h2>
+                    </div>
                 }
         </div>
     )
