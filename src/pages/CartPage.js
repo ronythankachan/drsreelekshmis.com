@@ -22,7 +22,7 @@ const CartPage = () => {
         },(error)=>{
             console.log(error)
         })
-    },[])
+    },[total])
 
     const cartItems = cart.map(item => {
         return <CartItem data={item} key={item.medicineId} total={total} setTotal={setTotal}/>
@@ -30,9 +30,16 @@ const CartPage = () => {
 
     return (
         <div className="cartpage">
-            {cartItems}
-            <h3>Amount: {total}</h3>
-            {cart.length>0?<Button variant="info">Proceed to checkout</Button>:null}
+                {
+                    cart.length>0?
+                    <div>
+                        {cartItems}
+                        <div style={{display:"flex",justifyContent:"space-between",padding:"30px"}}>
+                            <h3>Total Amount: {total}</h3>
+                            <Button variant="info">Proceed to checkout</Button>
+                        </div>
+                    </div>:null
+                }
         </div>
     )
 }

@@ -3,13 +3,12 @@ import './CartItem.css'
 import {Button} from 'react-bootstrap'
 import backend from '../axios'
 
-
+const userId = "602bd642603494016ba038c2" // User ID for Rony
 const CartItem = ({data,total,setTotal}) => {
     const [quantity, setQuantity] = useState(data.quantity);
 
     const addQuantity = () =>{
         setQuantity(quantity+1)
-        var userId = "602bd642603494016ba038c2" // User ID for Rony
         backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:1}).then(
             (response)=>{
                 setTotal(total+data.price)
@@ -35,6 +34,16 @@ const CartItem = ({data,total,setTotal}) => {
         }
     }
 
+    const deleteItem = () =>{
+        backend.post('/api/remove_from_cart',{userId:userId,medicineId:data.medicineId}).then(
+            (response)=>{
+                setTotal(total-data.quantity*data.price)
+            },(error)=>{
+                console.log("failed to delete medicine from cart",error)
+            }
+        )
+    }
+
     return (
         <div className="cartitem">
             <div className="product__image">
@@ -47,10 +56,8 @@ const CartItem = ({data,total,setTotal}) => {
                     <h3>{quantity}</h3>
                     <Button onClick={addQuantity} variant="secondary">+</Button>
                 </div>
-                <div className="total">
-                    <h3>Amount : {quantity * data.price}</h3>
-                </div>
-                
+                <h3>Amount : {quantity * data.price}</h3>
+                <Button onClick={deleteItem}>Delete</Button>
             </div>
         </div>
     )
