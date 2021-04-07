@@ -35,6 +35,8 @@
         width: 100%;
         height: fit-content;
         padding: 10px;
+        max-width: unset;
+        min-width: unset;
     }
     .minimize_button{
         display: none;
