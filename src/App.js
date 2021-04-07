@@ -19,6 +19,7 @@ import ScrollToTop from './ScrollToTop';
 import RejuvenationPage from './pages/RejuvenationPage';
 import AdminPanel from './components/AdminPanel';
 import CartPage from './pages/CartPage';
+import TestPage from './pages/TestPage';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
               <Route path='/yoga' component={YogaPage}/>
               <Route path='/shop' component={ShoppingPage}/>
               <Route path='/cart' component={CartPage}/>
+              <Route path='/test' component={TestPage}/>
           </Switch>
           <Footer/>
       </Router>

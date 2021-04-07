@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './AdminPage.css'
-import SidePanel from '../components/SidePanel'
+import AdminControls from '../components/AdminControls'
 import AppointmentList from '../components/AppointmentList'
-import { useState,useEffect } from 'react'
+import SidePanelContainer from '../components/SidePanelContainer'
 
 const initialFilters = {
     date:'',
@@ -12,28 +12,13 @@ const initialFilters = {
 }
 
 const AdminPage = () => {
-    const [isMinimized,setIsMinimized] =useState(false)
-    const [appointmentListClasses, setAppointmentListClasses] = useState("appointment__list")
-    const [sidePanelClass, setSidePanelClass] =useState("side__panel")
     const [filters,setFilters] = useState(initialFilters)
-
-    useEffect(() => {
-        if(isMinimized){
-            setAppointmentListClasses("full_screen")
-            setSidePanelClass("minimized")
-        }else{
-            setAppointmentListClasses("appointment__list")
-            setSidePanelClass("side__panel")
-        }
-    }, [isMinimized])
     return (
         <div className="adminpage">
-            <div className={sidePanelClass}>
-                <SidePanel setIsMinimized={setIsMinimized} setFilters={setFilters}/>
-            </div>
-            <div className={appointmentListClasses}>
-                <AppointmentList filters={filters}/>
-            </div>
+            <SidePanelContainer>
+                <AdminControls setFilters={setFilters}/>
+            </SidePanelContainer>
+            <AppointmentList filters={filters}/>
         </div>
     )
 }

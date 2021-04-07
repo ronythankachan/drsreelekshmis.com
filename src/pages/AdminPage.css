@@ -2,33 +2,8 @@
     min-height: 100vh;
     display: flex;
 }
-.side__panel{
-    width: 300px;
-    -webkit-transition: all ease .2s;
-    transition: all ease .2s;
-}
-.appointment__list{
-    width: calc(100vw - 300px);
-    padding: 0px 50px;
-}
-.full_screen{
-    width: 100%;
-    -webkit-transition: all ease .2s;
-    transition: all ease .2s;
-}
-.minimized{
-    width: 20px;
-}
-@media screen and (max-width:768px){
+@media screen and (max-width:1200px){
     .adminpage{
-        min-height: 100vh;    
         flex-direction: column;
-    }
-    .appointment__list{
-        width: 100%;
-        padding: 0;
-    }
-    .side__panel{
-        width: 100%;
     }
 }
