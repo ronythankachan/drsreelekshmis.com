@@ -2,6 +2,7 @@ import React from 'react'
 import './ShoppingPage.css'
 import ProductList from '../components/ProductList'
 import SidePanelContainer from '../components/SidePanelContainer'
+import Search from '../components/Search'
 
 
 const ShoppingPage = () => {
@@ -12,7 +13,7 @@ const ShoppingPage = () => {
                 <p>Sidepanel items</p>
             </SidePanelContainer>
             <div className="shoppingpage__body">
-                    {/* <Search/> */}
+                    <Search/>
                     <ProductList/>
             </div>
         </div>
