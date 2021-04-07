@@ -21,7 +21,7 @@ const Search = () => {
                 <InputGroup>
                     <Form.Control type="text" placeholder="Search.." onChange={handleChange}/>
                     <InputGroup.Append>
-                        <Button type="submit" variant="secondary">Search &nbsp;<RiSearchLine/></Button>
+                        <Button type="submit" variant="secondary">Search &nbsp;<RiSearchLine style={{fontSize:"1.2rem"}}/></Button>
                     </InputGroup.Append>
                 </InputGroup>
             </Form>

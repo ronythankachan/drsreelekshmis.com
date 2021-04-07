@@ -1,7 +1,11 @@
 .search{
     margin:40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#search{
     width: 720px;
-    text-align: center;
 }
 @media screen and (max-width:768px){
     .search{
