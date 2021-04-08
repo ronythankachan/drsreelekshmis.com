@@ -39,22 +39,28 @@
 }
 .cart__icon{
     color: white;
-    font-size: 1.4rem;
+    font-size: 1rem;
     align-items: center;
     display: flex;
     justify-content: center;
+    font-weight: 400;
+}
+.cart__icon >p{
+    background-color: red;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    padding:3px 6px;
 }
 @media screen and (max-width:1200px){
     .navbar__container{
         position: relative !important;
     }
-    .navbar__middle{
-        display: none;
-    }
-    .navbar__button{
+    .navbar__middle,.navbar__button,.cart__icon,.account__info{
         display: none;
     }
     .navbar__mobile__icon{
         display: block;
     }
+
 }

@@ -38,6 +38,7 @@ function App() {
               <Route path='/contact' component={ContactPage}/>
               <Route path='/book_appointment' component={BookAppointmentPage}/>
               <Route path='/appointments' component={AdminPanel}/>
+              <Route path='/sign_in' component={AdminPanel}/>
               <Route path='/rejuvenation' component={RejuvenationPage}/>
               <Route path='/panchakarma' component={PanchakarmaPage}/>
               <Route path='/marma_therapy' component={MarmaTherapyPage}/>

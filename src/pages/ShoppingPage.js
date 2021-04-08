@@ -3,14 +3,14 @@ import './ShoppingPage.css'
 import ProductList from '../components/ProductList'
 import SidePanelContainer from '../components/SidePanelContainer'
 import Search from '../components/Search'
+import MedicineFilter from '../components/MedicineFilter'
 
 
 const ShoppingPage = () => {
     return (
         <div className="shoppingpage">
             <SidePanelContainer>
-                {/* filters */}
-                <p>Sidepanel items</p>
+                <MedicineFilter/>
             </SidePanelContainer>
             <div className="shoppingpage__body">
                     <Search/>

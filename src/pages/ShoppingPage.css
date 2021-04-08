@@ -3,6 +3,9 @@
     min-height: 100vh;
     display: flex;
 }
+.shoppingpage__body{
+    width: 100%;
+}
 @media screen and (max-width:1200px){
     .shoppingpage{
         flex-direction: column;
