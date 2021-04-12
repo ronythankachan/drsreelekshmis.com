@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {RiMenu3Fill, RiShoppingCart2Fill} from 'react-icons/ri';
@@ -7,12 +7,19 @@ import Header from './Header';
 import { useState } from 'react';
 
 const Navbar = ({toggle}) => {
-
-    const [userId,setUserId] = useState("602bd642603494016ba038c2")
+    const invalidKey = '^BvasX$134!ZY453@23##!'
+    const validKey = 'JG$@zn*^!$GHT)XrYZL4*@'
+    const [isLoggedIn,setIsLoggedIn] = useState(false)
     const signOut =()=>{
-        alert("signed out")
-        setUserId("");
+        localStorage.removeItem("isLoggedIn")
+        setIsLoggedIn(false)
+        alert("Signed out")
     }
+
+    useEffect(()=>{
+        let value = localStorage.getItem("isLoggedIn") || invalidKey
+        value === validKey?  setIsLoggedIn(true): setIsLoggedIn(false)
+    },[isLoggedIn]);
 
 
     return (
@@ -49,7 +56,7 @@ const Navbar = ({toggle}) => {
                         <NavDropdown title="Account" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
                             {
-                                userId? <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>:
+                                isLoggedIn? <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>:
                                 <NavDropdown.Item href="/sign_in">Sign In</NavDropdown.Item>
                             }
                         </NavDropdown>

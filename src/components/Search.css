@@ -7,6 +7,15 @@
 #search{
     width: 720px;
 }
+#search > .input-group >.form-control{
+    border-color: black;
+}
+#search >.input-group >.form-control:focus{
+    border-color: black;
+    box-shadow: none;
+    outline: none;
+}
+
 @media screen and (max-width:768px){
     .search{
         margin: 20px;
