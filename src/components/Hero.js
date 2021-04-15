@@ -28,7 +28,7 @@ const Hero = () => {
                 <div className="hero__buttons">
                     <Button onClick={handleShowMed}>Buy Medicines</Button> 
                     <Button onClick={handleShow}>Book Home Therapies</Button> 
-                    <Button className="appointment__button" href="/book_appointment">Doctor Consulation</Button>
+                    <Button className="appointment__button" href="/book_appointment">Doctor Consultation</Button>
                 </div>
             </div>
             <MedicineShop handleCloseMed={handleCloseMed} showMed={showMed} />
