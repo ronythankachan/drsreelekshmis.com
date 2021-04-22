@@ -3,13 +3,11 @@
     height: 200px;
     padding: 20px 0px;
     display: flex;
-    /* background-color: lightblue; */
     border-bottom: 1px solid rgba(128, 128, 128, 0.39);
 }
 .item__img{
     width: 20%;
     height:100%;
-    /* background-color: orange; */
     margin-right: 20px;
 }
 .item__img > img{
@@ -19,7 +17,10 @@
 }
 .item__content{
     width: 80%;
-    /* background-color: lightcoral; */
+}
+
+.price__and__deletebtn> h4{
+    font-weight: bolder;
 }
 .price__and__deletebtn{
     display: flex;

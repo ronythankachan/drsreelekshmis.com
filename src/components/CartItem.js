@@ -26,7 +26,7 @@ const CartItem = () => {
             </div>
             <div className="item__content">
                 <div className="price__and__deletebtn">
-                    <p>Rs. 60.0</p>
+                    <h4>Rs. 60.0</h4>
                     <button onClick={deleteItem}>X</button>
                 </div>
                 <p>Chandra Choornam ( choornam )</p>
