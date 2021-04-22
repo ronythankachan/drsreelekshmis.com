@@ -13,7 +13,9 @@ const CartPage = ({cart,setCart}) => {
                     <CartHeader title="My Cart"/>
                     <CartItem/>
                     <CartItem/>
-                    <small>** Usually we ship medicines in 3-4 business days. For any further enquiries, please contact out helpline number at +91 97404 76241</small>
+                    <CartItem/>
+                    <CartItem/>
+                    <small>** Usually we ship medicines in 3-4 business days. For any further enquiries, please contact our helpline number at +91 97404 76241</small>
                 </div>
                 <div className="cartpage__right">
                     <CartHeader title="Total"/>
