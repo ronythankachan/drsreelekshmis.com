@@ -9,6 +9,7 @@
     width: 20%;
     height:100%;
     margin-right: 20px;
+    min-width: 120px;
 }
 .item__img > img{
     width: 100%;
@@ -54,4 +55,14 @@
 .item__quantity > button:hover{
     font-weight: bolder;
     background-color: lightgrey;
+}
+@media screen and (max-width:400px){
+    .cartitem{
+        flex-direction: column;
+        height: fit-content;
+        row-gap: 20px;
+    }
+    .price__and__deletebtn > button{
+        margin-top: -400px;
+    }
 }

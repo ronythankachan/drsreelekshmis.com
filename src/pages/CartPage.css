@@ -1,6 +1,6 @@
 .cartpage__container{
     width: 100%;
-    background-color: rgba(211, 211, 211, 0.322);
+    background-color: rgba(211, 211, 211, 0.096);
     min-height: 100vh;
 }
 .cartpage{
@@ -24,4 +24,15 @@
     padding: 20px;
     background-color: white; 
     border-radius: 12px;
+}
+@media screen and (max-width:1200px){
+    .cartpage{
+        flex-direction: column;
+    }
+    .cartpage__main{
+        width: 100%;
+    }
+    .cartpage__right{
+        width: 100%;
+    }
 }
