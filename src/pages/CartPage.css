@@ -1,13 +1,27 @@
-.cartpage{
+.cartpage__container{
     width: 100%;
+    background-color: rgba(211, 211, 211, 0.322);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-.cartpage__button{
-    width: 1000px;
+.cartpage{
+    max-width: 1300px;
+    margin:auto;
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 30px;
+
+}
+.cartpage__main{
+    width: 60%;
+    padding: 20px;
+    background-color: white; 
+    margin-right: 20px;
+    border-radius: 12px;
+}
+.cartpage__right{
+    width: 40%;
+    max-height: 400px;
+    padding: 20px;
+    background-color: white; 
+    border-radius: 12px;
 }

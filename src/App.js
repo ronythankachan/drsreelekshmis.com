@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
@@ -20,17 +20,37 @@ import RejuvenationPage from './pages/RejuvenationPage';
 import AdminPanel from './components/AdminPanel';
 import CartPage from './pages/CartPage';
 import TestPage from './pages/TestPage';
+import backend from './axios'
 
 function App() {
 
+  // fetch cart data and store it in state. when cart changes, fetch it from db
+  const [cart, setCart] = useState([])
+  const [isCartLoaded, setIsCartLoaded] = useState(false)
   const [isOpen,setIsOpen] =useState(false);
   const toggle = () =>{
       setIsOpen(!isOpen)
   }
+
+  // This will execute when loading and whenever cart value changes
+  useEffect(() => {
+    var userId = "602bd642603494016ba038c2" // User ID for Rony
+    backend.post('/api/get_cart_items',{userId:userId})
+        .then((response)=>{
+            if(!isCartLoaded){
+                setIsCartLoaded(true)
+            }
+            setCart(response.data)
+        },(error)=>{
+            console.log(error)
+        })
+  },[isCartLoaded])
+  console.log(cart)
+
   return (
       <Router>
-          <Navbar toggle={toggle}/>
-          <Sidebar isOpen={isOpen} toggle={toggle}/>
+          <Navbar toggle={toggle} cartCount={cart.length}/>
+          <Sidebar isOpen={isOpen} toggle={toggle} cartCount={cart.length}/>
           <ScrollToTop/>
           <Switch>
               <Route exact path='/' component={HomePage}/>
@@ -46,7 +66,7 @@ function App() {
               <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
               <Route path='/yoga' component={YogaPage}/>
               <Route path='/shop' component={ShoppingPage}/>
-              <Route path='/cart' component={CartPage}/>
+              <Route path='/cart' component={()=><CartPage cart={cart} setCart={setCart}/>}/>
               <Route path='/test' component={TestPage}/>
           </Switch>
           <Footer/>

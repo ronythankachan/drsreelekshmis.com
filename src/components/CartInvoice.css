@@ -1,0 +1,20 @@
+.cartinvoice__item{
+    display: flex;
+    justify-content: space-between;
+}
+.cartinvoice__item > h4{
+    font-weight: bolder;
+}
+.checkout__btn{
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid black;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.checkout__btn > button{
+    width: 80%;
+    height: 4rem;
+    font-size: 1.4rem;
+    font-weight: bolder;
+}

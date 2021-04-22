@@ -1,63 +1,41 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './CartItem.css'
-import {Button} from 'react-bootstrap'
-import backend from '../axios'
 
-const userId = "602bd642603494016ba038c2" // User ID for Rony
-const CartItem = ({data,total,setTotal}) => {
-    const [quantity, setQuantity] = useState(data.quantity);
+const CartItem = () => {
 
-    const addQuantity = () =>{
-        setQuantity(quantity+1)
-        backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:1}).then(
-            (response)=>{
-                setTotal(total+data.price)
-            },(error)=>{
-                console.log("failed to add item to cart",error)
-            }
-        )
-        console.log(`adding ${data.medicineId} item to Cart`)
-    }
-
-    const subtractQuantity = () =>{
-        if(quantity>1){
-            setQuantity(quantity-1)
-            var userId = "602bd642603494016ba038c2" // User ID for Rony
-            backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId,quantity:-1}).then(
-                (response)=>{
-                    setTotal(total-data.price)
-                },(error)=>{
-                    console.log("failed to add item to cart",error)
-                }
-            )
-            console.log(`adding ${data.medicineId} item to Cart`)
-        }
-    }
-
+    // delete an item from cart 
     const deleteItem = () =>{
-        backend.post('/api/remove_from_cart',{userId:userId,medicineId:data.medicineId}).then(
-            (response)=>{
-                setTotal(total-data.quantity*data.price)
-            },(error)=>{
-                console.log("failed to delete medicine from cart",error)
-            }
-        )
+        console.log("deleting item")
     }
+
+    // increment quantity of an item
+    const incrementQuantity = () =>{
+        console.log("incrementing quantity")
+    }
+
+    // increment quantity of an item
+    const decrementQuantity = () =>{
+        console.log("decrementing quantity")
+    }
+
 
     return (
         <div className="cartitem">
-            <div className="product__image">
-                <img src={data.img} alt=""/>
+            <div className="item__img">
+                <img src="https://assetscdn1.paytm.com/images/catalog/product/A/AP/APPEYEBOGLER-COSEVE88413F32E363/1601890054864_0..jpg" alt=""/>
             </div>
-            <div className="product__details">
-                <h3>{data.name} <small>({data.category})</small></h3> 
-                <div className="quantity">
-                    <Button style={{paddingTop:"0px"}}onClick={subtractQuantity} variant="secondary">-</Button>
-                    <h3>{quantity}</h3>
-                    <Button onClick={addQuantity} variant="secondary">+</Button>
+            <div className="item__content">
+                <div className="price__and__deletebtn">
+                    <p>Rs. 60.0</p>
+                    <button onClick={deleteItem}>X</button>
                 </div>
-                <h3>Amount : {quantity * data.price}</h3>
-                <Button onClick={deleteItem}>Delete</Button>
+                <p>Chandra Choornam ( choornam )</p>
+                <div className="item__quantity">
+                    <p>Quantity</p>
+                    <button onClick={incrementQuantity}>-</button>
+                    <p>1</p>
+                    <button onClick={decrementQuantity}>+</button>
+                </div>
             </div>
         </div>
     )

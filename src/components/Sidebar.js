@@ -6,15 +6,13 @@ import {NavDropdown} from 'react-bootstrap'
 import { RiShoppingCart2Fill} from 'react-icons/ri';
 
 
-const Sidebar = ({isOpen,toggle}) => {
+const Sidebar = ({isOpen,toggle, cartCount}) => {
 
     const [userId,setUserId] = useState("602bd642603494016ba038c2")
     const signOut =()=>{
         alert("signed out")
         setUserId("");
     }
-
-
 
     return (
         <div className={"sidebar "+(isOpen?'show':'hide')}>
@@ -34,7 +32,7 @@ const Sidebar = ({isOpen,toggle}) => {
                     <NavDropdown.Item href="/yoga">Therapeutic Yoga</NavDropdown.Item>
                 </NavDropdown>
                 <div className="cart__icon__mobile">
-                    <p>0</p> &nbsp;
+                    <p>{cartCount}</p> &nbsp;
                     <a href='/cart'>
                         <RiShoppingCart2Fill/>
                         <small>&nbsp;cart</small>

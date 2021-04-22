@@ -6,7 +6,7 @@ import './Navbar.css';
 import Header from './Header';
 import { useState } from 'react';
 
-const Navbar = ({toggle}) => {
+const Navbar = ({toggle, cartCount}) => {
     const invalidKey = '^BvasX$134!ZY453@23##!'
     const validKey = 'JG$@zn*^!$GHT)XrYZL4*@'
     const [isLoggedIn,setIsLoggedIn] = useState(false)
@@ -46,7 +46,7 @@ const Navbar = ({toggle}) => {
                 </div>
                 <div className="navbar__right">
                     <div className="cart__icon">
-                        <p>0</p> &nbsp;
+                        <p>{cartCount}</p> &nbsp;
                         <a href='/cart'>
                             <RiShoppingCart2Fill/>
                             &nbsp;cart
