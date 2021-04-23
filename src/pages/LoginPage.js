@@ -2,10 +2,10 @@ import React from 'react'
 import Login from '../components/Login'
 import './LoginPage.css'
 
-const Loginpage = ({setLoginKey,validKey}) => {
+const Loginpage = ({route,userData,setUserData}) => {
     return (
         <div className="loginpage">
-            <Login setLoginKey={setLoginKey} validKey={validKey}/>
+            <Login route={route} userData={userData} setUserData={setUserData}/> 
         </div>
     )
 }

@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import './Login.css'
 import { Form, Button } from 'react-bootstrap'
+import { useHistory } from "react-router-dom";
 import backend from '../axios'
 
-const Login = ({setLoginKey,validKey}) => {
+const Login = ({route, userData,setUserData}) => {
 
+    const history = useHistory();
     const [loginData,setLoginData] =useState({
         username:'',
         password:''
@@ -18,18 +20,15 @@ const Login = ({setLoginKey,validKey}) => {
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        backend.post('/api/login',loginData)
-        .then((response)=>{
-            setLoginKey(validKey);
+        // do a backend call to check if login is successfull, if login is success, then reroute 
+        setUserData({
+            ...userData,
+            userId:"602bd642603494016ba038c2",
+            isLoggedIn:true
         })
-        .catch((error=> {
-            if(error.response && error.response.status === 401){
-                setLoginMsg(error.response.data)
-            }else{
-                setLoginMsg("Something went wrong")
-            }
-        }))
+        // reroute to the origin intended page after logging in 
+        console.log("route is", route)
+        history.push(route)
     }
 
     return (

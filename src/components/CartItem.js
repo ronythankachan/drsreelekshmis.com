@@ -2,7 +2,7 @@ import React from 'react'
 import './CartItem.css'
 import backend from '../axios'
 
-const CartItem = ({cart,data, setCart, userId}) => {
+const CartItem = ({cart,data, setCart, userData}) => {
 
     // delete an item from cart 
     const deleteItem = () =>{
@@ -10,7 +10,7 @@ const CartItem = ({cart,data, setCart, userId}) => {
         const filteredCart = cart.filter(item => item.medicineId!==data.medicineId)
         setCart(filteredCart)
         // update this removal in db also
-        backend.post('/api/remove_from_cart',{medicineId:data.medicineId, userId:userId})
+        backend.post('/api/remove_from_cart',{medicineId:data.medicineId, userId:userData.userId})
         .then(response => {
             console.log(response.data)
         },
@@ -25,7 +25,7 @@ const CartItem = ({cart,data, setCart, userId}) => {
             if(item.medicineId===data.medicineId){
                 ++item.quantity
                 // update the same in db
-                backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId, quantity:1})
+                backend.post('/api/add_to_cart',{userId:userData.userId,medicineId:data.medicineId, quantity:1})
                 .then(response => {
                     console.log(response.data)
                 },error=>{
@@ -43,7 +43,7 @@ const CartItem = ({cart,data, setCart, userId}) => {
             if(item.medicineId===data.medicineId && item.quantity>1){
                 --item.quantity
                 // Update the same in db too
-                backend.post('/api/add_to_cart',{userId:userId,medicineId:data.medicineId, quantity:-1})
+                backend.post('/api/add_to_cart',{userId:userData.userId,medicineId:data.medicineId, quantity:-1})
                 .then(response => {
                     console.log(response.data)
                 },error=>{

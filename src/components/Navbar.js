@@ -5,14 +5,13 @@ import {RiMenu3Fill, RiShoppingCart2Fill} from 'react-icons/ri';
 import './Navbar.css';
 import Header from './Header';
 
-const Navbar = ({toggle, cartCount,isLoggedIn, setIsLoggedIn}) => {
+const Navbar = ({toggle, cartCount, route, setRoute, userData}) => {
 
-    const signOut =()=>{
-        localStorage.removeItem("isLoggedIn")
-        setIsLoggedIn(false)
-        alert("Signed out")
+    console.log(route)
+    const setOrderRoute = () =>{
+        setRoute('/orders')
     }
-
+    console.log(route)
     return (
         <div className="navbar__container">
             <div className="header">
@@ -45,10 +44,15 @@ const Navbar = ({toggle, cartCount,isLoggedIn, setIsLoggedIn}) => {
                     </div>
                     <div className="account__info">
                         <NavDropdown title="Account" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
-                            {
-                                isLoggedIn? <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>:
-                                <NavDropdown.Item href="/sign_in">Sign In</NavDropdown.Item>
+                            {  userData.isLoggedIn?
+                                    <>
+                                        <NavDropdown.Item href="/orders" >My Orders</NavDropdown.Item>
+                                        <NavDropdown.Item>Sign Out</NavDropdown.Item>
+                                    </>:
+                                    <>
+                                        <NavDropdown.Item href="/sign_in" onClick={setOrderRoute}>My adOrders</NavDropdown.Item>
+                                        <NavDropdown.Item href="/sign_in" onClick={()=>setRoute('/shop')}>Signas In</NavDropdown.Item>
+                                    </>
                             }
                         </NavDropdown>
                     </div>
