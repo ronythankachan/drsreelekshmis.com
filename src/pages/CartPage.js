@@ -17,7 +17,7 @@ const CartPage = ({cart,setCart,userId}) => {
         total +=cart[i].price*cart[i].quantity
     }
 
-    
+
     return (
         <div className="cartpage__container">
             <div className="cartpage">
@@ -28,7 +28,7 @@ const CartPage = ({cart,setCart,userId}) => {
                 </div>
                 <div className="cartpage__right">
                     <CartHeader title="Total"/>
-                    <CartInvoice total={total} delivery={delivery}/>
+                    <CartInvoice total={total} delivery={delivery} userId={userId}/>
                 </div>
             </div>
         </div>

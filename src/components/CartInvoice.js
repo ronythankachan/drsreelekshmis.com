@@ -2,12 +2,10 @@ import React from 'react'
 import './CartInvoice.css'
 import {Button} from 'react-bootstrap'
 
-const CartInvoice = ({total,delivery}) => {
-
+const CartInvoice = ({total,delivery,userId}) => {
     const checkOut = () =>{
-        console.log("checking out items")
+        alert(`checking out items for ${userId}`)
     }
-
     return (
         <div className="cartinvoice">
             <div className="cartinvoice__item">

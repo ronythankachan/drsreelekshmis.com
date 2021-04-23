@@ -1,26 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {RiMenu3Fill, RiShoppingCart2Fill} from 'react-icons/ri';
 import './Navbar.css';
 import Header from './Header';
-import { useState } from 'react';
 
-const Navbar = ({toggle, cartCount}) => {
-    const invalidKey = '^BvasX$134!ZY453@23##!'
-    const validKey = 'JG$@zn*^!$GHT)XrYZL4*@'
-    const [isLoggedIn,setIsLoggedIn] = useState(false)
+const Navbar = ({toggle, cartCount,isLoggedIn, setIsLoggedIn}) => {
+
     const signOut =()=>{
         localStorage.removeItem("isLoggedIn")
         setIsLoggedIn(false)
         alert("Signed out")
     }
-
-    useEffect(()=>{
-        let value = localStorage.getItem("isLoggedIn") || invalidKey
-        value === validKey?  setIsLoggedIn(true): setIsLoggedIn(false)
-    },[isLoggedIn]);
-
 
     return (
         <div className="navbar__container">
