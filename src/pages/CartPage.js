@@ -4,12 +4,20 @@ import CartItem from '../components/CartItem'
 import CartHeader from '../components/CartHeader'
 import CartInvoice from '../components/CartInvoice'
 
-const CartPage = ({cart,setCart}) => {
+const CartPage = ({cart,setCart,userId}) => {
 
     const cartItems = cart.map(item=>{
-        return <CartItem data={item} key={item.medicineId}/>
+        return <CartItem cart={cart} data={item} key={item.medicineId} setCart={setCart} userId={userId}/>
     })
 
+    // Calculate total amount and delivery charge
+    var total = 0
+    var delivery = 20
+    for(var i=0;i<cart.length;i++){
+        total +=cart[i].price*cart[i].quantity
+    }
+
+    
     return (
         <div className="cartpage__container">
             <div className="cartpage">
@@ -20,7 +28,7 @@ const CartPage = ({cart,setCart}) => {
                 </div>
                 <div className="cartpage__right">
                     <CartHeader title="Total"/>
-                    <CartInvoice total={120} delivery={20}/>
+                    <CartInvoice total={total} delivery={delivery}/>
                 </div>
             </div>
         </div>

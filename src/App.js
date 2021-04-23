@@ -22,6 +22,8 @@ import CartPage from './pages/CartPage';
 import TestPage from './pages/TestPage';
 import backend from './axios'
 
+
+var userId = "602bd642603494016ba038c2" // User ID for Rony
 function App() {
 
   // fetch cart data and store it in state. when cart changes, fetch it from db
@@ -34,7 +36,6 @@ function App() {
 
   // This will execute when loading and whenever cart value changes
   useEffect(() => {
-    var userId = "602bd642603494016ba038c2" // User ID for Rony
     backend.post('/api/get_cart_items',{userId:userId})
         .then((response)=>{
             if(!isCartLoaded){
@@ -65,7 +66,7 @@ function App() {
               <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
               <Route path='/yoga' component={YogaPage}/>
               <Route path='/shop' component={ShoppingPage}/>
-              <Route path='/cart' component={()=><CartPage cart={cart} setCart={setCart}/>}/>
+              <Route path='/cart' component={()=><CartPage cart={cart} setCart={setCart} userId={userId}/>}/>
               <Route path='/test' component={TestPage}/>
           </Switch>
           <Footer/>
