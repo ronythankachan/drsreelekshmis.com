@@ -1,7 +1,9 @@
 import React from 'react'
 import './CartItem.css'
 
-const CartItem = () => {
+const CartItem = ({data}) => {
+
+    console.log(data)
 
     // delete an item from cart 
     const deleteItem = () =>{
@@ -22,18 +24,18 @@ const CartItem = () => {
     return (
         <div className="cartitem">
             <div className="item__img">
-                <img src="https://assetscdn1.paytm.com/images/catalog/product/A/AP/APPEYEBOGLER-COSEVE88413F32E363/1601890054864_0..jpg" alt=""/>
+                <img src={data.img} alt=""/>
             </div>
             <div className="item__content">
                 <div className="price__and__deletebtn">
-                    <h4>Rs. 60.0</h4>
+                    <h4>Rs. {data.price}</h4>
                     <button onClick={deleteItem}>X</button>
                 </div>
-                <p>Chandra Choornam ( choornam )</p>
+                <p>{data.name} ( {data.category} )</p>
                 <div className="item__quantity">
                     <p>Quantity</p>
                     <button onClick={incrementQuantity}>-</button>
-                    <p>1</p>
+                    <p>{data.quantity}</p>
                     <button onClick={decrementQuantity}>+</button>
                 </div>
             </div>

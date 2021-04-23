@@ -45,7 +45,6 @@ function App() {
             console.log(error)
         })
   },[isCartLoaded])
-  console.log(cart)
 
   return (
       <Router>
