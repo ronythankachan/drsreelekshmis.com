@@ -12,7 +12,7 @@ const CartItem = ({cart,data, setCart, userId}) => {
         // update this removal in db also
         backend.post('/api/remove_from_cart',{medicineId:data.medicineId, userId:userId})
         .then(response => {
-            alert(response.data)
+            console.log(response.data)
         },
         error=>{
             console.log(error)
@@ -21,7 +21,6 @@ const CartItem = ({cart,data, setCart, userId}) => {
 
     // increment quantity of an item
     const incrementQuantity = () =>{
-        console.log("incrementing quantity", cart)
         var newCart=cart.map(item => {
             if(item.medicineId===data.medicineId){
                 ++item.quantity
@@ -40,7 +39,6 @@ const CartItem = ({cart,data, setCart, userId}) => {
 
     // decrement quantity of an item
     const decrementQuantity = () =>{
-        console.log("decrementing quantity")
         var newCart=cart.map(item => {
             if(item.medicineId===data.medicineId && item.quantity>1){
                 --item.quantity
