@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import RejuvenationPage from './pages/RejuvenationPage';
 import AdminPanel from './components/AdminPanel';
+import OnlineConsulatationPage from './pages/OnlineConsultationPage';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
               <Route path='/post_delivery_care' component={PostDeliveryCarePage}/>
               <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
               <Route path='/yoga' component={YogaPage}/>
+              <Route path='/video_consultation' component={OnlineConsulatationPage}/>
           </Switch>
           <Footer/>
       </Router>

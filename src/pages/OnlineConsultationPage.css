@@ -1,0 +1,32 @@
+.onlineconsulatationage{
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.onlineconsultationinfo{
+    width: 70%;
+    padding-bottom: 30px;
+}
+.onlineconsultationform > form{
+    width:400px;
+}
+@media screen and (max-width:1200px){
+    .onlineconsulatationage{
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+    }
+    .onlineconsultationinfo,.onlineconsultationform{
+        width: 100%;
+    }
+
+    .onlineconsultationform > form{
+        width:unset;
+        border-top: 1px solid grey;
+        padding-top: 30px;
+    }
+}
