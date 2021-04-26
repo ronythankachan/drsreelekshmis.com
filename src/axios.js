@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const backend = axios.create({
-    baseURL: 'https://drsreelekshmis.com/'
+    baseURL: 'http://localhost:8001/'
 });
 
 export default backend;

@@ -5,25 +5,37 @@ import { Button } from 'react-bootstrap'
 import {useFormik} from 'formik'
 import backend from '../axios'
 
-var timeSlots={}
-const generateTimeSlots = (startTimeInMinutes, numberOfSlots)=>{
-    for(var i=0;i<numberOfSlots;i++){
-        timeSlots[startTimeInMinutes] =0
-        startTimeInMinutes+=30
-    }
-    return timeSlots
-}
+// var timeSlots={}
+// const generateTimeSlots = (startTimeInMinutes, numberOfSlots)=>{
+//     for(var i=0;i<numberOfSlots;i++){
+//         timeSlots[startTimeInMinutes] =0
+//         startTimeInMinutes+=30
+//     }
+//     return timeSlots
+// }
 
-const timeMap = {
-    '4.00 PM':960,
-    '4.30 PM':990,
-    '5.00 PM':1020,
-    '5.30 PM':1050,
-    '6.00 PM':1080,
-    '6.30 PM':1110,
-    '7.00 PM':1140,
-    '7.30 PM':1170,
-    '8.00 PM':1200
+// const timeMap = {
+//     '4.00 PM':960,
+//     '4.30 PM':990,
+//     '5.00 PM':1020,
+//     '5.30 PM':1050,
+//     '6.00 PM':1080,
+//     '6.30 PM':1110,
+//     '7.00 PM':1140,
+//     '7.30 PM':1170,
+//     '8.00 PM':1200
+// }
+
+const timeMap={
+    960:'4.00 PM',
+    990:'4.30 PM',
+    1020:'5.00 PM',
+    1050:'5.30 PM',
+    1080:'6.00 PM',
+    1110:'6.30 PM',
+    1140:'7.00 PM',
+    1170:'7.30 PM',
+    1200:'8.00 PM'
 }
 
 var isValid = false
@@ -126,8 +138,16 @@ const OnlineConsultationForm = () => {
         },
         validate,
         onSubmit: values => {
+            if(formik.values.time){
+                formik.values.time=Object.keys(timeMap).find(key=>timeMap[key]===formik.values.time)
+            }
+            backend.post('/api/appointments',values)
+            .then(response=>{
+                alert(response.data)
+            },error=>{
+                console.log(error)
+            })
             console.log(values)
-            alert("appointment scheduled")
             formik.resetForm()
         }
     })
@@ -136,18 +156,32 @@ const OnlineConsultationForm = () => {
 
     useEffect(() => {
         if(formik.values.date && isValidDate(formik.values.date)){
-
             // get the timeslots for the date and only put the valid time slots
 
-
-            const timeSlots = Object.keys(timeMap).map(item=>{
-                return <option key={timeMap[item]}>{item}</option>
+            backend.get('api/timeSlots',{
+                params:{
+                    date:formik.values.date,
+                    appointmentType:formik.values.appointmentType
+                }
+            }).then(response=>{
+                var slotArr = response.data
+                const timeSlots = Object.keys(timeMap).map(item=>{
+                    if(!slotArr.includes(parseInt(item))){
+                        return <option key={item}>{timeMap[item]}</option>
+                    }else{
+                        return null
+                    }
+                })
+                setTimeSlots(timeSlots)
+            },error=>{
+                console.log(error)
             })
-            setTimeSlots(timeSlots)
+
         }else{
             formik.values.time=''
             setTimeSlots([])
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formik.values.date])
 
     return (
@@ -190,7 +224,7 @@ const OnlineConsultationForm = () => {
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>ZIP*</Form.Label>
-                            <Form.Control id="zip" type="number" placeholder="Zip Code" name="zip" value={formik.values.zip} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.zip && formik.errors.zip}/>       
+                            <Form.Control type="number" placeholder="Zip Code" name="zip" value={formik.values.zip} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.zip && formik.errors.zip}/>       
                             {formik.touched.zip && formik.errors.zip ? (<div className="error">{formik.errors.zip}</div>) : null}                
                         </Form.Group>
                     </>:null
