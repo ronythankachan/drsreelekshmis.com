@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import './OnlineConsultationForm.css'
 import { Form, Row, Col } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
+import { Button, Toast } from 'react-bootstrap'
 import {useFormik} from 'formik'
 import backend from '../axios'
 
@@ -62,6 +62,9 @@ const isValidDate = (date) =>{
 }
 
 const OnlineConsultationForm = () => {
+    const [show, setShow] = useState(false);
+    const [toastMsg, setToastMsg] =useState("");
+    const [toastColor, setToastColor] = useState("red");
 
 
     const validate = values =>{
@@ -139,15 +142,16 @@ const OnlineConsultationForm = () => {
         validate,
         onSubmit: values => {
             if(formik.values.time){
-                formik.values.time=Object.keys(timeMap).find(key=>timeMap[key]===formik.values.time)
+                formik.values.time=parseInt(Object.keys(timeMap).find(key=>timeMap[key]===formik.values.time))
             }
             backend.post('/api/appointments',values)
             .then(response=>{
-                alert(response.data)
+                setToastColor("green")
+                setToastMsg(response.data)
+                setShow(true)
             },error=>{
                 console.log(error)
             })
-            console.log(values)
             formik.resetForm()
         }
     })
@@ -304,6 +308,15 @@ const OnlineConsultationForm = () => {
                 </Form.Group>
                 <Button type="submit">Book Appointment</Button>
             </Form>
+            <div style={{position: 'fixed',bottom: 0,right: 0,margin:"30px",zIndex:"999"}}>
+                    <Toast variant="primary" onClose={() => setShow(false)} show={show} delay={3000} style={{color:"white",backgroundColor:toastColor, borderRadius:"12px"}}>
+                        <Toast.Header style={{fontSize:"1rem", color:"white",backgroundColor:toastColor,borderRadius:"12px"}}>
+                            <strong className="mr-auto">Appointment Booking</strong>
+                            <small >Just now</small>
+                        </Toast.Header>
+                        <Toast.Body style={{fontSize:"1rem"}}>{toastMsg}</Toast.Body>
+                    </Toast>
+                </div>
         </div>
     )
 }
