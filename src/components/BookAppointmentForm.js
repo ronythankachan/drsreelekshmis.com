@@ -1,30 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import './OnlineConsultationForm.css'
-import { Form, Row, Col } from 'react-bootstrap'
+import { Form, Row, Col, Spinner } from 'react-bootstrap'
 import { Button, Toast } from 'react-bootstrap'
 import {useFormik} from 'formik'
 import backend from '../axios'
-
-// var timeSlots={}
-// const generateTimeSlots = (startTimeInMinutes, numberOfSlots)=>{
-//     for(var i=0;i<numberOfSlots;i++){
-//         timeSlots[startTimeInMinutes] =0
-//         startTimeInMinutes+=30
-//     }
-//     return timeSlots
-// }
-
-// const timeMap = {
-//     '4.00 PM':960,
-//     '4.30 PM':990,
-//     '5.00 PM':1020,
-//     '5.30 PM':1050,
-//     '6.00 PM':1080,
-//     '6.30 PM':1110,
-//     '7.00 PM':1140,
-//     '7.30 PM':1170,
-//     '8.00 PM':1200
-// }
 
 const timeMap={
     960:'4.00 PM',
@@ -61,10 +39,11 @@ const isValidDate = (date) =>{
     return false
 }
 
-const OnlineConsultationForm = () => {
+const BookAppointmentForm = () => {
     const [show, setShow] = useState(false);
     const [toastMsg, setToastMsg] =useState("");
     const [toastColor, setToastColor] = useState("red");
+    const [bookButtonVal, setBookButtonVal] = useState("Schedule Appointment")
 
 
     const validate = values =>{
@@ -141,11 +120,13 @@ const OnlineConsultationForm = () => {
         },
         validate,
         onSubmit: values => {
+            setBookButtonVal("Loading...")
             if(formik.values.time){
                 formik.values.time=parseInt(Object.keys(timeMap).find(key=>timeMap[key]===formik.values.time))
             }
             backend.post('/api/appointments',values)
             .then(response=>{
+                setBookButtonVal('Schedule Appointment')
                 setToastColor("green")
                 setToastMsg(response.data)
                 setShow(true)
@@ -189,7 +170,7 @@ const OnlineConsultationForm = () => {
     }, [formik.values.date])
 
     return (
-        <div className="onlineconsultationform">
+        <div className="bookappointmentform">
             <Form onSubmit={formik.handleSubmit} >
                 <Form.Group>
                     <Form.Label>Appointment Type*</Form.Label>
@@ -306,7 +287,7 @@ const OnlineConsultationForm = () => {
                     <Form.Control as="textarea" rows={3} id="address" placeholder="Address with ZIP Code" name="address" value={formik.values.address} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.address && formik.errors.address}/>
                     {formik.touched.address && formik.errors.address ? (<div className="error">{formik.errors.address}</div>) : null}
                 </Form.Group>
-                <Button type="submit">Book Appointment</Button>
+            <Button type="submit">{bookButtonVal}</Button>
             </Form>
             <div style={{position: 'fixed',bottom: 0,right: 0,margin:"30px",zIndex:"999"}}>
                     <Toast variant="primary" onClose={() => setShow(false)} show={show} delay={3000} style={{color:"white",backgroundColor:toastColor, borderRadius:"12px"}}>
@@ -321,4 +302,4 @@ const OnlineConsultationForm = () => {
     )
 }
 
-export default OnlineConsultationForm
+export default BookAppointmentForm

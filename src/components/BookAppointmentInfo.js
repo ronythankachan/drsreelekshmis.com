@@ -1,11 +1,11 @@
 import React from 'react'
-import './OnlineConsultationInfo.css'
+import './BookAppointmentInfo.css'
 import {GiBreakingChain, GiHospitalCross} from 'react-icons/gi'
 import {HiDocument} from 'react-icons/hi'
 
-const OnlineConsulatationInfo = () => {
+const BookAppointmentInfo = () => {
     return (
-        <div className="onlineconsultationinfo">
+        <div className="bookappointmentinfo">
         <h1>Book Online Appointment</h1>
         <p>Let's fight covid together</p>
         <div className="bullets">
@@ -32,4 +32,4 @@ const OnlineConsulatationInfo = () => {
     )
 }
 
-export default OnlineConsulatationInfo
+export default BookAppointmentInfo
