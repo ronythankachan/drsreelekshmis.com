@@ -41,26 +41,26 @@ const Appointment = ({data}) => {
                 </div>
                 <div className="others">
                     <p>
-                        <span>Age</span> 
+                        <span>Age:&nbsp;</span> 
                         {data.age}
                     </p>
                     <p>
-                        <span>Phone</span> 
+                        <span>Phone:&nbsp;</span> 
                         {data.phone}
                     </p>
                     <p>
-                        <span>Sex</span> 
+                        <span>Sex:&nbsp;</span> 
                         {data.sex}
                     </p>
                     {
                         data.zoomID ? <p><span>Zoom ID</span> {data.zoomID}</p>: null
                     }
                     <p>
-                        <span>Email</span> 
+                        <span>Email:&nbsp;</span> 
                         {data.email}
                     </p>
                     {
-                        data.zip ? <p><span>Pin Code</span> {data.zip}</p>: null
+                        data.zip ? <p><span>Pin Code:&nbsp;</span> {data.zip}</p>: null
                     }
                     {
                         data.service ? <p style={{lineHeight:"1rem", color:"white", fontWeight:"500", textAlign:"center"}}>{data.service}</p>: null
