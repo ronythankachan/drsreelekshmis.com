@@ -1,8 +1,11 @@
 import React,{useState, useEffect} from 'react'
-import { Form, Row, Col, Spinner } from 'react-bootstrap'
-import { Button, Toast } from 'react-bootstrap'
+import { Form, Row, Col, Button} from 'react-bootstrap'
 import {useFormik} from 'formik'
 import backend from '../axios'
+import Alert from './Alert'
+import Confirm from '../images/confirm.svg'
+import Failed from '../images/sad.svg'
+
 
 const timeMap={
     960:'4.00 PM',
@@ -40,9 +43,10 @@ const isValidDate = (date) =>{
 }
 
 const BookAppointmentForm = () => {
-    const [show, setShow] = useState(false);
-    const [toastMsg, setToastMsg] =useState("");
-    const [toastColor, setToastColor] = useState("red");
+
+    const [alert,setAlert] =useState(false)
+    const [success,setSuccess] =useState(false)
+
     const [bookButtonVal, setBookButtonVal] = useState("Schedule Appointment")
 
 
@@ -126,12 +130,13 @@ const BookAppointmentForm = () => {
             }
             backend.post('/api/appointments',values)
             .then(response=>{
-                setBookButtonVal('Schedule Appointment')
-                setToastColor("green")
-                setToastMsg(response.data)
-                setShow(true)
+                setAlert(true)
+                setSuccess(true)
+                setBookButtonVal("Schedule Appointment")
             },error=>{
-                console.log(error)
+                setSuccess(false)
+                setAlert(true)
+                setBookButtonVal("Schedule Appointment")
             })
             formik.resetForm()
         }
@@ -219,7 +224,7 @@ const BookAppointmentForm = () => {
                     <>
                         <Form.Group>
                             <Row>
-                                <Col>
+                                <Col style={{width:"60%"}}>
                                     <Form.Label>Select Date*</Form.Label>
                                     <Form.Control type="date" name="date" value={formik.values.date} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.date && formik.errors.date}/>
                                     {formik.touched.date && formik.errors.date ? (<div className="error">{formik.errors.date}</div>) : null}
@@ -287,17 +292,29 @@ const BookAppointmentForm = () => {
                     <Form.Control as="textarea" rows={3} id="address" placeholder="Address with ZIP Code" name="address" value={formik.values.address} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.address && formik.errors.address}/>
                     {formik.touched.address && formik.errors.address ? (<div className="error">{formik.errors.address}</div>) : null}
                 </Form.Group>
-            <Button type="submit">{bookButtonVal}</Button>
+            <Button variant="info" type="submit" style={{width:"200px",height:"70px"}}>{bookButtonVal}</Button>
             </Form>
-            <div style={{position: 'fixed',bottom: 0,right: 0,margin:"30px",zIndex:"999"}}>
-                    <Toast variant="primary" onClose={() => setShow(false)} show={show} delay={3000} style={{color:"white",backgroundColor:toastColor, borderRadius:"12px"}}>
-                        <Toast.Header style={{fontSize:"1rem", color:"white",backgroundColor:toastColor,borderRadius:"12px"}}>
-                            <strong className="mr-auto">Appointment Booking</strong>
-                            <small >Just now</small>
-                        </Toast.Header>
-                        <Toast.Body style={{fontSize:"1rem"}}>{toastMsg}</Toast.Body>
-                    </Toast>
-                </div>
+            
+            {
+                alert?
+                <Alert setAlert={setAlert} alert>
+                    { 
+                        success?
+                        <>
+                            <img src={Confirm} alt=""/>
+                            <h4 style={{color:"#00BFA6",fontWeight:"bold"}}>Booked successfully</h4>
+                            <small style={{fontStyle:"italic", color:"grey",fontWeight:"bolder",fontSize:".9rem"}}>( An email confirmation is sent )</small>
+                        </>
+                        :
+                        <>
+                            <img src={Failed} alt=""/>
+                            <h4 style={{color:"#F50057",fontWeight:"bold"}}>Booking Failed. Please try later.</h4>
+                        </>
+                    }
+                </Alert>
+                :null
+            }
+
         </div>
     )
 }

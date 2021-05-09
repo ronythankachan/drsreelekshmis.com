@@ -1,13 +1,9 @@
-import React,{useState} from 'react'
+import React from 'react'
 import './Panchakarma.css'
 import {Button} from 'react-bootstrap'
-import HomeAppointment from './HomeAppointment'
 import PanchakarmaImg from '../images/panchakarma2.jpg'
 
 const Panchakarma = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     return (
         <div className="panchakarma">
             <div className="content__title">
@@ -83,8 +79,7 @@ const Panchakarma = () => {
                     </ul>
                 </div>
             </div>
-            <Button className="book__button" variant="success" onClick={handleShow}>Book Appointment</Button>
-            <HomeAppointment handleClose={handleClose} show={show} />
+            <Button className="book__button" href='/book_appointment' variant="success">Book Appointment</Button>
         </div>
     )
 }

@@ -1,7 +1,6 @@
-import React,{useState}  from 'react'
+import React from 'react'
 import './Rejuvenation.css'
 import {Button} from 'react-bootstrap'
-import HomeAppointment from './HomeAppointment'
 import RejuvenationImg from '../images/rejuvenation.jpg'
 import Abhyunga from '../images/Rejuvenation/abhyunga.jpg'
 import PindaImg from '../images/Rejuvenation/pinda.jpg'
@@ -90,9 +89,6 @@ const contentCards = data.map(item => {
 
 
 const Rejuvenation = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     return (
         <div className="rejuvenation">
             <div className="content__title">
@@ -106,8 +102,7 @@ const Rejuvenation = () => {
             <div className="content__cards">
                 {contentCards}
             </div>
-            <Button className="book__button" variant="success" onClick={handleShow}>Book Appointment</Button>
-            <HomeAppointment handleClose={handleClose} show={show} />
+            <Button className="book__button" href='/book_appointment' variant="success">Book Appointment</Button>
         </div>
     )
 }

@@ -1,34 +1,37 @@
 import React from 'react'
 import './BookAppointmentInfo.css'
-import {GiBreakingChain, GiHospitalCross} from 'react-icons/gi'
-import {HiDocument} from 'react-icons/hi'
+import {FcOk} from 'react-icons/fc'
+import SocialDistance from '../images/social_distance.svg'
 
 const BookAppointmentInfo = () => {
     return (
         <div className="bookappointmentinfo">
-        <h1>Book Online Appointment</h1>
-        <p>Let's fight covid together</p>
-        <div className="bullets">
-            <div className="bullet__item">
-                <div className="bullet__icon">
-                    <GiBreakingChain style={{color:"green"}}/>
-                </div>
-                <p>Due to increasing number of covid cases in india, let's work together to break the chain.</p>
+            <h1>Book Appointment</h1>
+            <p>Let's fight covid together</p>
+            <div className="pageImage">
+                <img src={SocialDistance} alt=""/>
             </div>
-            <div className="bullet__item">
-                <div className="bullet__icon">
-                    <GiHospitalCross style={{color:"blue"}}/>
+            <div className="bullets">
+                <div className="bullet__item">
+                    <div className="bullet__icon">
+                        <FcOk style={{color:"green"}}/>
+                    </div>
+                    <p>Due to alarming increase of COVID-19 cases, we have launched consultation via video calls. You can schedule a video call appointment by selecting appoitment type as "Online". Let's break the chain together.</p>
                 </div>
-                <p>We are launching online consultation to avoid coming to clinic for minor health issues.</p>
-            </div>
-            <div className="bullet__item">
-                <div className="bullet__icon">
-                    <HiDocument style={{color:"orange"}}/>
+                <div className="bullet__item">
+                    <div className="bullet__icon">
+                        <FcOk style={{color:"blue"}}/>
+                    </div>
+                    <p>There are several services that are done by experts in your home. To book a home appointment, select appointment type as "Home"</p>
                 </div>
-                <p>You can schedule an appointment by providing the details and upon booking, a zoom meeting link will be generated and send to your email address along with instructions.</p>
+                <div className="bullet__item">
+                    <div className="bullet__icon">
+                        <FcOk style={{color:"orange"}}/>
+                    </div>
+                    <p>You can also book an appointment in clinic. If there is any change of plans, please contact us.</p>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

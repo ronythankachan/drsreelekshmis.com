@@ -1,15 +1,10 @@
 import React,{useState} from 'react'
 import './Hero.css'
 import HeroVideo from '../video/hero_background.mp4'
-import HomeAppointment from './HomeAppointment'
 import MedicineShop from './MedicineShop'
 import {Button} from 'react-bootstrap'
 
 const Hero = () => {
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     const [showMed, setShowMed] = useState(false);
     const handleCloseMed = () => setShowMed(false);
@@ -31,7 +26,6 @@ const Hero = () => {
                 </div>
             </div>
             <MedicineShop handleCloseMed={handleCloseMed} showMed={showMed} />
-            <HomeAppointment handleClose={handleClose} show={show} />
         </div>
     )
 }
