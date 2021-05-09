@@ -148,7 +148,7 @@ const BookAppointmentForm = () => {
         if(formik.values.date && isValidDate(formik.values.date)){
             // get the timeslots for the date and only put the valid time slots
 
-            backend.get('api/timeSlots',{
+            backend.get('/api/timeSlots',{
                 params:{
                     date:formik.values.date,
                     appointmentType:formik.values.appointmentType
