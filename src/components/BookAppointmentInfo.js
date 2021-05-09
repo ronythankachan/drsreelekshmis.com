@@ -7,7 +7,7 @@ const BookAppointmentInfo = () => {
     return (
         <div className="bookappointmentinfo">
             <h1>Book Appointment</h1>
-            <p>Let's fight covid together</p>
+            <p>Let's fight COVID-19 together</p>
             <div className="pageImage">
                 <img src={SocialDistance} alt=""/>
             </div>
@@ -16,7 +16,7 @@ const BookAppointmentInfo = () => {
                     <div className="bullet__icon">
                         <FcOk style={{color:"green"}}/>
                     </div>
-                    <p>Due to alarming increase of COVID-19 cases, we have launched consultation via video calls. You can schedule a video call appointment by selecting appoitment type as "Online". Let's break the chain together.</p>
+                    <p>Due to alarming increase of COVID-19 cases, we have launched consultation via video calls. You can schedule a video call appointment by selecting appointment type as "Online". Let's break the chain together.</p>
                 </div>
                 <div className="bullet__item">
                     <div className="bullet__icon">
@@ -28,7 +28,7 @@ const BookAppointmentInfo = () => {
                     <div className="bullet__icon">
                         <FcOk style={{color:"orange"}}/>
                     </div>
-                    <p>You can also book an appointment in clinic. If there is any change of plans, please contact us.</p>
+                    <p>You can also book an appointment in clinic. If there is any change of plans after booking, please contact us.</p>
                 </div>
             </div>
         </div>
