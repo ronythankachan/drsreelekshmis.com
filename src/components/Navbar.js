@@ -45,7 +45,7 @@ const Navbar = ({toggle, cartCount}) => {
                     <div className="account__info">
                         <NavDropdown title="Account" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
-                            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                            <NavDropdown.Item href="/login">Sign up/Login</NavDropdown.Item>
                         </NavDropdown>
                     </div>
                     <div className="navbar__mobile__icon" onClick={toggle}>
