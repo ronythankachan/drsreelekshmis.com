@@ -7,7 +7,6 @@ import Sidebar from './components/Sidebar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import BookAppointmentPage from './pages/BookAppointmentPage';
 import ShoppingPage from './pages/ShoppingPage';
 import PanchakarmaPage from './pages/PanchakarmaPage';
 import MarmaTherapyPage from './pages/MarmaTherapyPage';
@@ -22,11 +21,12 @@ import CartPage from './pages/CartPage';
 import TestPage from './pages/TestPage';
 import backend from './axios'
 import MyOrdersPage from './pages/MyOrdersPage';
+import BookAppointmentPage from './pages/BookAppointmentPage';
+
 
 
 var userId = "602bd642603494016ba038c2" // User ID for Rony
 function App() {
-
     // set login
     const [isLoggedIn,setIsLoggedIn] = useState(false)
 
@@ -77,6 +77,7 @@ function App() {
             <Footer/>
         </Router>
     );
+
 }
 
 export default App;

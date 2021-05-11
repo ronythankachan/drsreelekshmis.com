@@ -1,0 +1,30 @@
+.bullet__item{
+    display: flex;
+}
+.bullet__icon{
+    font-size: 2rem;
+    color: green;
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+.pageImage {
+    display: flex;
+    justify-content: center;
+}
+.pageImage > img{
+    max-width: 500px;
+    margin: 40px;
+}
+@media screen and (max-width:550px){
+    .pageImage > img{
+        max-width: 250px;
+    }
+}
+@media screen and (max-width:400px){
+    .bookappointmentinfo > img{
+        max-width: 200px;
+        margin: 10px;
+    }
+}
+

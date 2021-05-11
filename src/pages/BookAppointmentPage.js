@@ -1,10 +1,18 @@
 import React from 'react'
-import BookAppointment from '../components/BookAppointment'
+import './BookAppointmentPage.css'
+import BookAppointmentInfo from '../components/BookAppointmentInfo'
+import BookAppointmentForm from '../components/BookAppointmentForm'
+
 
 const BookAppointmentPage = () => {
     return (
-        <div>
-            <BookAppointment/>
+        <div className="bookappointmentpage">
+            <div className="bookappointmentinfo">
+                <BookAppointmentInfo/>
+            </div>
+            <div className="bookappointmentform">
+                <BookAppointmentForm/>
+            </div>
         </div>
     )
 }

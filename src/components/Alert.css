@@ -1,0 +1,28 @@
+.modal-content{
+    border-radius: 10px;
+}
+.alert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:280px;
+}
+.alert > button{
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    border: none;
+    background-color:transparent;
+    font-size: 1.4rem;
+    transition: 0.3s transform;
+
+}
+.alert > button:hover{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+.alert > img{
+    width: 200px;
+    padding: 20px;
+}

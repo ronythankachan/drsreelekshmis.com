@@ -62,7 +62,6 @@
 }
 .btn-primary:focus, .btn-primary:active{
     color: #010606;
-    background:#01bf71;
     border-color: unset;
     box-shadow: unset;
 }
@@ -82,5 +81,16 @@
     }
     .hero{
         height: 100vh;
+    }
+}
+@media screen and (max-width:320px){
+    .hero__video >video{
+        height: 120vh;
+    }
+    .hero{
+        height: 120vh;
+    }
+    .hero__title{
+        margin-top: 100px;
     }
 }
