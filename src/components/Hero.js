@@ -16,7 +16,7 @@ const Hero = () => {
                 <h4>An Ayurveda care centre for your day-to-day health problems</h4>
                 <div className="hero__buttons">
                     <Button className="green__button" href='/shop'>Buy Medicines</Button>
-                    <Button className="appointment__button" href="/book_appointment">Book Appointment</Button>
+                    <Button className="green__button" href="/book_appointment">Book Appointment</Button>
                 </div>
             </div>
 

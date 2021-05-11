@@ -5,11 +5,10 @@ import {RiMenu3Fill, RiShoppingCart2Fill} from 'react-icons/ri';
 import './Navbar.css';
 import Header from './Header';
 
-const Navbar = ({toggle, cartCount,isLoggedIn, setIsLoggedIn}) => {
+const Navbar = ({toggle, cartCount}) => {
 
     const signOut =()=>{
         localStorage.removeItem("isLoggedIn")
-        setIsLoggedIn(false)
         alert("Signed out")
     }
 
@@ -46,10 +45,7 @@ const Navbar = ({toggle, cartCount,isLoggedIn, setIsLoggedIn}) => {
                     <div className="account__info">
                         <NavDropdown title="Account" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
-                            {
-                                isLoggedIn? <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>:
-                                <NavDropdown.Item href="/sign_in">Sign In</NavDropdown.Item>
-                            }
+                            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
                         </NavDropdown>
                     </div>
                     <div className="navbar__mobile__icon" onClick={toggle}>

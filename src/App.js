@@ -22,13 +22,10 @@ import TestPage from './pages/TestPage';
 import backend from './axios'
 import MyOrdersPage from './pages/MyOrdersPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
-
-
+import Loginpage from './pages/LoginPage';
 
 var userId = "602bd642603494016ba038c2" // User ID for Rony
 function App() {
-    // set login
-    const [isLoggedIn,setIsLoggedIn] = useState(false)
 
     // fetch cart data and store it in state. when cart changes, fetch it from db
     const [cart, setCart] = useState([])
@@ -53,8 +50,8 @@ function App() {
 
     return (
         <Router>
-            <Navbar toggle={toggle} cartCount={cart.length} isLoggedIn setIsLoggedIn={setIsLoggedIn}/>
-            <Sidebar isOpen={isOpen} toggle={toggle} cartCount={cart.length} isLoggedIn/>
+            <Navbar toggle={toggle} cartCount={cart.length}/>
+            <Sidebar isOpen={isOpen} toggle={toggle} cartCount={cart.length} />
             <ScrollToTop/>
             <Switch>
                 <Route exact path='/' component={HomePage}/>
@@ -62,7 +59,7 @@ function App() {
                 <Route path='/contact' component={ContactPage}/>
                 <Route path='/book_appointment' component={BookAppointmentPage}/>
                 <Route path='/appointments' component={AdminPanel}/>
-                <Route path='/sign_in' component={()=><AdminPanel setIsLoggedIn={setIsLoggedIn}/>}/>
+                <Route path='/login' component={Loginpage}/>
                 <Route path='/rejuvenation' component={RejuvenationPage}/>
                 <Route path='/panchakarma' component={PanchakarmaPage}/>
                 <Route path='/marma_therapy' component={MarmaTherapyPage}/>
