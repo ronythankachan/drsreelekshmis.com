@@ -7,11 +7,10 @@ import Header from './Header';
 
 const Navbar = ({toggle, cartCount}) => {
 
-    const signOut =()=>{
-        localStorage.removeItem("isLoggedIn")
-        alert("Signed out")
-    }
-
+    // const signOut =()=>{
+    //     localStorage.removeItem("isLoggedIn")
+    //     alert("Signed out")
+    // }
     return (
         <div className="navbar__container">
             <div className="header">

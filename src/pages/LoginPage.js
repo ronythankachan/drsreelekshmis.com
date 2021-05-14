@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import './LoginPage.css'
+import SignUp from '../components/SignUp'
+import Login from '../components/Login'
 
 const signUpData = {
     titlebtn:'Sign up',
@@ -36,7 +38,7 @@ const Loginpage = () => {
                 </div>
                 <div className="loginpage__form">
                     {
-                        signUp ? <p>Sign UP</p> : <p>Login</p>
+                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login/>
                     }
                     {/* test2 */}
                 </div>

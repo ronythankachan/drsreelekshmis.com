@@ -16,6 +16,7 @@ const AdminPanel = ({setIsLoggedIn}) => {
             setLoginKey(invalidKey)
             setIsLoggedIn(false)
         }
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
