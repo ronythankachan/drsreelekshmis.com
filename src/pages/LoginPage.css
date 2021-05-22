@@ -46,7 +46,6 @@
     font-weight: bold;
 }
 .loginpage__form{
-    /* background-color: rgba(255, 255, 0, 0.185); */
     margin-left: 10px;
     border-radius: 15px;
     padding: 30px;
@@ -62,4 +61,26 @@
 .loginpage__form{
     width: 70%;
     height: 100%;
+}
+
+@media screen and (max-width:768px){
+    .loginpage__container{
+        width: 100%;
+        flex-direction: column;
+        height: fit-content;
+        padding:unset;
+        border-radius: unset;
+    }
+    .loginpage__info,.loginpage__form{
+        width: 100%;
+        padding: unset;
+        border-radius: unset;
+    }
+    .loginpage__form{
+        padding: 40px 0px;
+        margin: unset;
+    }
+    .loginpage{
+        align-items: unset;
+    }
 }

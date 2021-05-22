@@ -20,7 +20,7 @@ import AdminPanel from './components/AdminPanel';
 import CartPage from './pages/CartPage';
 import TestPage from './pages/TestPage';
 import backend from './axios'
-import MyOrdersPage from './pages/MyOrdersPage';
+import MyAccountPage from './pages/MyAccountPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
 import Loginpage from './pages/LoginPage';
 
@@ -68,7 +68,7 @@ function App() {
                 <Route path='/yoga' component={YogaPage}/>
                 <Route path='/shop' component={ShoppingPage}/>
                 <Route path='/cart' component={()=><CartPage cart={cart} setCart={setCart} userId={userId}/>}/>
-                <Route path='/orders' component={MyOrdersPage}/>
+                <Route path='/account' component={MyAccountPage}/>
                 <Route path='/test' component={TestPage}/>
             </Switch>
             <Footer/>

@@ -43,7 +43,7 @@ const Navbar = ({toggle, cartCount}) => {
                     </div>
                     <div className="account__info">
                         <NavDropdown title="Account" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+                            <NavDropdown.Item href="/account">My Account</NavDropdown.Item>
                             <NavDropdown.Item href="/login">Sign up/Login</NavDropdown.Item>
                         </NavDropdown>
                     </div>

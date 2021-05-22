@@ -50,3 +50,11 @@
     font-weight: bold;
     color: grey;
 }
+.form__width{
+    width: 350px;
+}
+@media screen and (max-width:768px){
+    .form__width{
+        width: unset;
+    }
+}

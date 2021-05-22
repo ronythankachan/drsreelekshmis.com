@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import './LoginPage.css'
 import SignUp from '../components/SignUp'
 import Login from '../components/Login'
@@ -23,6 +23,9 @@ const Loginpage = () => {
         signUp? setInfoData(loginData):setInfoData(signUpData);
         setSignUp(!signUp)
     }
+    useEffect(() => {
+        signUp ? setInfoData(signUpData):setInfoData(loginData)
+    }, [signUp])
     return (
         <div className="loginpage">
             <div className="loginpage__container">

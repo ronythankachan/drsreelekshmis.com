@@ -1,0 +1,31 @@
+.myaccountpage{
+    min-height: 100vh;
+    display: flex;
+}
+.sidepanel__items{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.sidepanel__items > button{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    padding:10px 30px;
+    border: unset;
+    border-left: 6px solid transparent;
+    background-color: unset;
+    margin: 0px 10px 0px 10px;
+}
+.sidepanel__items > button:hover{
+    border-left: 6px solid green;
+    border-radius: 7px;
+    color: white;
+    background-color: rgba(137, 43, 226, 0.568);
+}
+.resetpasswordform{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}

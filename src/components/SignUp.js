@@ -16,6 +16,8 @@ const SignUp = ({setSignUp}) => {
         }
         if(!values.password1){
             errors.password1 = 'Enter password'
+        }else if(values.password1.length < 8){
+            errors.password1 = 'Minimum 8 characters needed'
         }
         if(!values.password2){
             errors.password2 = 'Repeat password'
@@ -38,7 +40,6 @@ const SignUp = ({setSignUp}) => {
                 setSignUpClicked(false)
                 setSignUp(false)
             }, 6000);
-            console.log(values)
             console.log(formik.errors)
         }
     })
@@ -51,7 +52,7 @@ const SignUp = ({setSignUp}) => {
             <h3>Dr. Sreelekshmi's</h3>
             <small>Ayurveda care center</small>
         </div>
-        <Form style={{width:"350px"}} onSubmit={formik.handleSubmit}>
+        <Form className="form__width" onSubmit={formik.handleSubmit}>
             <Form.Group style={{height:"50px"}}>
                 <Form.Control type="text" placeholder="E-mail" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.email && formik.errors.email}/>
                 {formik.touched.email && formik.errors.email ? (<div className="error">{formik.errors.email}</div>) : null}                

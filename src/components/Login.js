@@ -50,7 +50,7 @@ const Login = () => {
                 <h3>Dr. Sreelekshmi's</h3>
                 <small>Ayurveda care center</small>
             </div>
-            <Form style={{width:"350px"}} onSubmit={formik.handleSubmit}>
+            <Form className="form__width" onSubmit={formik.handleSubmit}>
                 <Form.Group style={{height:"50px"}}>
                     <Form.Control type="text" placeholder="E-mail" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.email && formik.errors.email}/>
                     {formik.touched.email && formik.errors.email ? (<div className="error">{formik.errors.email}</div>) : null}                

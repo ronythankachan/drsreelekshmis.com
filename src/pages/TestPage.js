@@ -1,19 +1,20 @@
 import React from 'react'
+import './TestPage.css'
 
-const TestPage = (props) => {
+const TestPage = () => {
     return (
-        <Container>
-            <h1>hello</h1>
-            <p>world</p>
-        </Container>
+        <div className="testpage">
+            <div className="contact">
+                <div className="first">
+                    <p>Contact us</p>
+                </div>
+                <div className="second">
+                    <p>form</p>
+                </div>
+            </div>
+        </div>
+
     )
 }
 
-const Container = (props)=>{
-    return(
-        <div className="container">
-            {props.children}
-        </div>
-    );
-}
 export default TestPage
