@@ -7,11 +7,21 @@
 #search{
     width: 720px;
 }
+#search > .input-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #search > .input-group >.form-control{
-    border-color: black;
+    border:hidden;
 }
 #search >.input-group >.form-control:focus{
-    border-color: black;
+    border:none;
+    box-shadow: none;
+    outline: none;
+}
+#search >.input-group >.form-control:focus-visible{
+    border: none;
     box-shadow: none;
     outline: none;
 }

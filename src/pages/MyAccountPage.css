@@ -6,22 +6,26 @@
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    font-family: 'Manrope' !important;
 }
 .sidepanel__items > button{
+    color: black;
     display: flex;
     align-items: center;
-    column-gap: 30px;
+    column-gap: 20px;
     padding:10px 30px;
     border: unset;
     border-left: 6px solid transparent;
-    background-color: unset;
-    margin: 0px 10px 0px 10px;
+    background: #C5F2C7;
+    margin: 5px 15px 0px 10px;
+    border-radius: 7px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 .sidepanel__items > button:hover{
     border-left: 6px solid green;
-    border-radius: 7px;
-    color: white;
-    background-color: rgba(137, 43, 226, 0.568);
+    color: #0F56B3;
+    background-color: #C5DCFA;
 }
 .resetpasswordform{
     width: 100%;

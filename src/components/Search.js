@@ -19,10 +19,9 @@ const Search = () => {
         <div className="search">
             <Form onSubmit={handleSubmit} id="search">
                 <InputGroup>
-                    <Form.Control type="text" placeholder="Search.." onChange={handleChange}/>
-                    <InputGroup.Append>
-                        <Button type="submit" variant="secondary">Search &nbsp;<RiSearchLine style={{fontSize:"1.2rem"}}/></Button>
-                    </InputGroup.Append>
+                    <RiSearchLine style={{fontSize:"1.2rem", color:"gray"}}/>
+                    <Form.Control type="text" placeholder="Search for products.." onChange={handleChange}/>
+                    <button type="submit" style={{display:"none"}}>Search</button>
                 </InputGroup>
             </Form>
         </div>

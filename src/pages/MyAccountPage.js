@@ -14,8 +14,8 @@ const MyOrdersPage = () => {
         <div className="myaccountpage">
             <SidePanelContainer>
                 <div className="sidepanel__items">
-                    <button onClick={()=>setSidePanelControl('resetPassword')}><BiReset/>Reset Password</button>
                     <button onClick={()=>setSidePanelControl('orders')}><FaShoppingBasket/>My Orders</button>
+                    <button onClick={()=>setSidePanelControl('resetPassword')}><BiReset/>Reset Password</button>
                 </div>
             </SidePanelContainer>
             <PageContent sidePanelControl={sidePanelControl}/>

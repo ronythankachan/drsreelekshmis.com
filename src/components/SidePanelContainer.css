@@ -3,24 +3,24 @@
     min-width: 300px;
     max-width: 300px;
     min-height: 100%;
-    background-color: rgba(192, 186, 186, 0.075);
-    border-right: 2px solid rgba(0, 0, 0, 0.075);
+    background-color: white;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
     -webkit-transition: all ease .2s;
-    transition: all ease .2s;
+    transition: all ease .6s;
 }
 .minimize_button{
     position: absolute;
     right: 0;
-    top:40px;
+    top:20px;
     margin-right: -13px;
     z-index: 2;
 }
 .minimize_button > button{
     border-radius: 50px;
-    width: 30px;
-    height: 30px;
-    background:#fff;
-    color: #7f98a4;
+    width: 25px;
+    height: 25px;
+    background:rgba(8, 133, 235, 0.774);
+    color: white;
     font-weight: bolder;
     border: 1px solid #b8cdd8;
     box-shadow: 0 0 4px 0 rgb(0 0 0 / 25%);
