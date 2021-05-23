@@ -33,7 +33,7 @@ const Login = ({url="/",setUserData}) => {
                 setLoginClicked(false)
                 setUserData({
                     userId:"602bd642603494016ba038c2",
-                    userType:"admin"
+                    userType:"client"
                 })
                 history.push(url)
             }, 2000);

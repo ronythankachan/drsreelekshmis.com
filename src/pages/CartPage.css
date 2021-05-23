@@ -1,6 +1,6 @@
 .cartpage__container{
     width: 100%;
-    background-color: rgba(211, 211, 211, 0.096);
+    /* background-color: rgba(211, 211, 211, 0.096); */
     min-height: 100vh;
 }
 .cartpage{
@@ -17,6 +17,7 @@
     background-color: white; 
     margin-right: 20px;
     border-radius: 12px;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
 }
 .cartpage__right{
     width: 40%;
@@ -24,6 +25,7 @@
     padding: 20px;
     background-color: white; 
     border-radius: 12px;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
 }
 @media screen and (max-width:1200px){
     .cartpage{
