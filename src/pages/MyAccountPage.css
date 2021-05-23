@@ -27,9 +27,18 @@
     color: #0F56B3;
     background-color: #C5DCFA;
 }
-.resetpasswordform{
+.resetpassword{
     width: 100%;
     margin-top: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.resetpassword__form{
+    width: 1000px;
+    /* background-color: red; */
+}
+.resetpassword__form> form{
+    color: blue;
+    padding: 30px;
 }

@@ -7,15 +7,15 @@ import { BiReset } from 'react-icons/bi';
 import { FaShoppingBasket } from 'react-icons/fa';
 
 
-const MyOrdersPage = () => {
+const MyAccountPage = () => {
     const [sidePanelControl,setSidePanelControl] =useState('resetPassword')
 
     return (
         <div className="myaccountpage">
             <SidePanelContainer>
                 <div className="sidepanel__items">
-                    <button onClick={()=>setSidePanelControl('orders')}><FaShoppingBasket/>My Orders</button>
-                    <button onClick={()=>setSidePanelControl('resetPassword')}><BiReset/>Reset Password</button>
+                    <button onClick={()=>setSidePanelControl('orders')} id="target1"><FaShoppingBasket/>My Orders</button>
+                    <button onClick={()=>setSidePanelControl('resetPassword')} id="target2"><BiReset/>Reset Password</button>
                 </div>
             </SidePanelContainer>
             <PageContent sidePanelControl={sidePanelControl}/>
@@ -36,24 +36,27 @@ const PageContent = ({sidePanelControl}) =>{
 
 const ResetPasswordForm = () =>{
     return (
-        <div className="resetpasswordform">
-            <Form>
-                <Form.Group>
-                    <Form.Label>Current Password</Form.Label>
-                    <Form.Control type="password" placeholder="Current Password"/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>New Password</Form.Label>
-                    <Form.Control type="password" placeholder="New Password"/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Re-type Password</Form.Label>
-                    <Form.Control type="password" placeholder="Re-type Password"/>
-                </Form.Group>
-            </Form>
+        <div className="resetpassword">
+            <h3>Reset your password</h3>
+            <div className="resetpassword__form">
+                <Form >
+                    <Form.Group style={{display:"flex"}}>
+                        <Form.Label>Current Password</Form.Label>
+                        <Form.Control type="password" placeholder="Current Password"/>
+                    </Form.Group>
+                    <Form.Group style={{display:"flex"}}>
+                        <Form.Label>New Password</Form.Label>
+                        <Form.Control type="password" placeholder="New Password"/>
+                    </Form.Group>
+                    <Form.Group style={{display:"flex"}}>
+                        <Form.Label>Re-type Password</Form.Label>
+                        <Form.Control type="password" placeholder="Re-type Password"/>
+                    </Form.Group>
+                </Form>
+            </div>
         </div>
     )
 }
 
 
-export default MyOrdersPage
+export default MyAccountPage

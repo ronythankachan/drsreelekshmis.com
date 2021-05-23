@@ -17,14 +17,16 @@ import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import RejuvenationPage from './pages/RejuvenationPage';
 import AdminPanel from './components/AdminPanel';
-import CartPage from './pages/CartPage';
-import TestPage from './pages/TestPage';
 import backend from './axios'
-import MyAccountPage from './pages/MyAccountPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
 import Loginpage from './pages/LoginPage';
+import LoginManager from './components/LoginManager';
 
 var userId = "602bd642603494016ba038c2" // User ID for Rony
+const userData = {
+    userId:"602bd642603494016ba038c2",
+    userType:"client"
+}
 function App() {
 
     // fetch cart data and store it in state. when cart changes, fetch it from db
@@ -67,9 +69,9 @@ function App() {
                 <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
                 <Route path='/yoga' component={YogaPage}/>
                 <Route path='/shop' component={ShoppingPage}/>
-                <Route path='/cart' component={()=><CartPage cart={cart} setCart={setCart} userId={userId}/>}/>
-                <Route path='/account' component={MyAccountPage}/>
-                <Route path='/test' component={TestPage}/>
+                <Route path='/cart' component={()=><LoginManager cart={cart} setCart={setCart} userData={userData}/>}/>
+                <Route path='/account' component={()=><LoginManager userData={userData}/>}/>
+                <Route path='/test' component={()=><LoginManager userData={userData}/>}/>
             </Switch>
             <Footer/>
         </Router>

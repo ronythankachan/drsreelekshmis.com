@@ -17,7 +17,6 @@ const SidePanelContainer = (props) => {
 
     const minimize = () =>{
         setIsHidden(!isHidden)
-        console.log(isHidden)
         setIsMinimized(isHidden)
         if(isHidden){
             setSidePanelClass("sidepanelcontainer minimize")

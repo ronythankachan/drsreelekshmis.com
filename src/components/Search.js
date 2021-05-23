@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, InputGroup, Button } from 'react-bootstrap'
+import { Form, InputGroup } from 'react-bootstrap'
 import './Search.css'
 import { RiSearchLine } from "react-icons/ri";
 import { useState } from 'react';
