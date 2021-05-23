@@ -3,9 +3,10 @@ import './Login.css'
 import {Form, Spinner} from 'react-bootstrap'
 import { useFormik } from 'formik'
 import { CgArrowLongRight } from 'react-icons/cg';
+import { useHistory } from "react-router-dom";
 
-const Login = () => {
-
+const Login = ({url="/",setUserData}) => {
+    let history = useHistory()
     const [loginClicked,setLoginClicked] =useState(false)
     const validate = values =>{
         const errors = {}
@@ -30,6 +31,11 @@ const Login = () => {
             setLoginClicked(true)
             setTimeout(() => {
                 setLoginClicked(false)
+                setUserData({
+                    userId:"602bd642603494016ba038c2",
+                    userType:"client"
+                })
+                history.push(url)
             }, 6000);
             console.log(values)
             console.log(formik.errors)

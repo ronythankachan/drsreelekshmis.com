@@ -22,7 +22,12 @@ const LoginManager = (props) => {
             else if(props.userData.userType === "client") return <CartPage userData={props.userData} cart={props.cart} setCart={props.setCart}/>
         }
     }else{
-        return <Redirect to='/login'/>
+        return <Redirect to={{
+            pathname:'/login',
+            state:{
+                reurl:'/account'
+            }
+        }}/>
     }
     return (
         <div>

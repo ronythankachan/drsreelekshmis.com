@@ -16,8 +16,9 @@ const loginData = {
     subbtn:'Sign up'
 }
 
-const Loginpage = () => {
-    const [signUp, setSignUp] = useState(true)
+const Loginpage = (props) => {
+    console.log("balh test",props.location)
+    const [signUp, setSignUp] = useState(false)
     const [infoData, setInfoData] =useState(signUpData)
     const toggle = () =>{
         signUp? setInfoData(loginData):setInfoData(signUpData);
@@ -41,7 +42,7 @@ const Loginpage = () => {
                 </div>
                 <div className="loginpage__form">
                     {
-                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login/>
+                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login url={'/'} setUserData={props.setUserData}/>
                     }
                     {/* test2 */}
                 </div>

@@ -23,16 +23,13 @@ import Loginpage from './pages/LoginPage';
 import LoginManager from './components/LoginManager';
 
 var userId = "602bd642603494016ba038c2" // User ID for Rony
-const userData = {
-    userId:"602bd642603494016ba038c2",
-    userType:"client"
-}
 function App() {
 
     // fetch cart data and store it in state. when cart changes, fetch it from db
     const [cart, setCart] = useState([])
     const [isCartLoaded, setIsCartLoaded] = useState(false)
     const [isOpen,setIsOpen] =useState(false);
+    const [userData,setUserData] =useState({})
     const toggle = () =>{
         setIsOpen(!isOpen)
     }
@@ -61,7 +58,7 @@ function App() {
                 <Route path='/contact' component={ContactPage}/>
                 <Route path='/book_appointment' component={BookAppointmentPage}/>
                 <Route path='/appointments' component={AdminPanel}/>
-                <Route path='/login' component={Loginpage}/>
+                <Route path='/login' component={()=><Loginpage setUserData={setUserData}/>}/>
                 <Route path='/rejuvenation' component={RejuvenationPage}/>
                 <Route path='/panchakarma' component={PanchakarmaPage}/>
                 <Route path='/marma_therapy' component={MarmaTherapyPage}/>
