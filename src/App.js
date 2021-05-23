@@ -58,7 +58,7 @@ function App() {
                 <Route path='/contact' component={ContactPage}/>
                 <Route path='/book_appointment' component={BookAppointmentPage}/>
                 <Route path='/appointments' component={AdminPanel}/>
-                <Route path='/login' component={()=><Loginpage setUserData={setUserData}/>}/>
+                <Route path='/login' component={(props)=><Loginpage setUserData={setUserData} {...props}/>}/>
                 <Route path='/rejuvenation' component={RejuvenationPage}/>
                 <Route path='/panchakarma' component={PanchakarmaPage}/>
                 <Route path='/marma_therapy' component={MarmaTherapyPage}/>

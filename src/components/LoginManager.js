@@ -25,7 +25,7 @@ const LoginManager = (props) => {
         return <Redirect to={{
             pathname:'/login',
             state:{
-                reurl:'/account'
+                redirect_uri:'/account'
             }
         }}/>
     }

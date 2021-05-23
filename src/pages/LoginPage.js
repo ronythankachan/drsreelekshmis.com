@@ -17,7 +17,6 @@ const loginData = {
 }
 
 const Loginpage = (props) => {
-    console.log("balh test",props.location)
     const [signUp, setSignUp] = useState(false)
     const [infoData, setInfoData] =useState(signUpData)
     const toggle = () =>{
@@ -42,7 +41,7 @@ const Loginpage = (props) => {
                 </div>
                 <div className="loginpage__form">
                     {
-                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login url={'/'} setUserData={props.setUserData}/>
+                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login url={props.location.state.redirect_uri} setUserData={props.setUserData}/>
                     }
                     {/* test2 */}
                 </div>

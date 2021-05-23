@@ -33,10 +33,10 @@ const Login = ({url="/",setUserData}) => {
                 setLoginClicked(false)
                 setUserData({
                     userId:"602bd642603494016ba038c2",
-                    userType:"client"
+                    userType:"admin"
                 })
                 history.push(url)
-            }, 6000);
+            }, 2000);
             console.log(values)
             console.log(formik.errors)
         }
