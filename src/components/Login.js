@@ -4,10 +4,13 @@ import {Form, Spinner} from 'react-bootstrap'
 import { useFormik } from 'formik'
 import { CgArrowLongRight } from 'react-icons/cg';
 import { useHistory } from "react-router-dom";
+import backend from '../axios'
 
 const Login = ({url="/",setUserData}) => {
     let history = useHistory()
     const [loginClicked,setLoginClicked] =useState(false)
+    const [msg, setMsg]=useState('')
+    const [msgClass, setMsgClass] =useState('signup__msg')
     const validate = values =>{
         const errors = {}
         if(!values.email){
@@ -28,16 +31,26 @@ const Login = ({url="/",setUserData}) => {
         },
         validate,
         onSubmit: values =>{
+            setMsgClass("signup__msg")
+            setMsg('')
             setLoginClicked(true)
-            setTimeout(() => {
+            backend.post('/api/login',values)
+            .then(response=>{
+            
+                setMsgClass("signup__msg success")
+                setMsg("Logged in successfully")
+                setUserData({})
+                setTimeout(() => {
+                    history.push(url)
+                }, 5000);
+            },error=>{
+                setMsgClass("signup__msg error")
+                setMsg(error.response.data)
+            })
+            .finally(()=>{
                 setLoginClicked(false)
-                setUserData({
-                    userId:"602bd642603494016ba038c2",
-                    userType:"client"
-                })
-                history.push(url)
-            }, 2000);
-            console.log(values)
+            })
+            formik.resetForm()
             console.log(formik.errors)
         }
     })
@@ -55,6 +68,9 @@ const Login = ({url="/",setUserData}) => {
             <div className="login__title">
                 <h3>Dr. Sreelekshmi's</h3>
                 <small>Ayurveda care center</small>
+            </div>
+            <div className={msgClass}>
+                <p>{msg}</p>
             </div>
             <Form className="form__width" onSubmit={formik.handleSubmit}>
                 <Form.Group style={{height:"50px"}}>
