@@ -17,6 +17,7 @@ const loginData = {
 }
 
 const Loginpage = (props) => {
+    const redirect_uri = props.location.state?.redirect_uri 
     const [signUp, setSignUp] = useState(false)
     const [infoData, setInfoData] =useState(signUpData)
     const toggle = () =>{
@@ -41,7 +42,7 @@ const Loginpage = (props) => {
                 </div>
                 <div className="loginpage__form">
                     {
-                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login url={props.location.state.redirect_uri} setUserData={props.setUserData}/>
+                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login url={redirect_uri} setUserData={props.setUserData}/>
                     }
                     {/* test2 */}
                 </div>

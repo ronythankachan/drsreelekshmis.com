@@ -3,10 +3,13 @@ import './SignUp.css'
 import { useFormik } from 'formik'
 import {Form, Spinner} from 'react-bootstrap'
 import { CgArrowLongRight } from 'react-icons/cg';
+import backend from '../axios'
 
 const SignUp = ({setSignUp}) => {
 
     const [signUpClicked,setSignUpClicked] =useState(false)
+    const [msg, setMsg]=useState('')
+    const [msgClass, setMsgClass] =useState('signup__msg')
     const validate = values =>{
         const errors = {}
         if(!values.email){
@@ -31,15 +34,34 @@ const SignUp = ({setSignUp}) => {
         initialValues:{
             email:'',
             password1:'',
-            password2:''
+            password2:'',
+            usertype:'client'
         },
         validate,
         onSubmit: values =>{
+            setMsgClass("signup__msg")
+            setMsg('')
             setSignUpClicked(true)
-            setTimeout(() => {
+            let postValues = {
+                userType:values.userType,
+                email:values.email,
+                password:values.password1
+            }
+            backend.post('/api/signup',postValues)
+            .then(response=>{
+                setMsgClass("signup__msg success")
+                setMsg(response.data)
                 setSignUpClicked(false)
-                setSignUp(false)
-            }, 6000);
+                setTimeout(() => {
+                    setSignUp(false)
+                }, 3000);
+            },error=>{
+                setMsgClass("signup__msg error")
+                setMsg(error.response.data)
+            }).finally(()=>{
+                setSignUpClicked(false)
+                formik.resetForm();
+            })
             console.log(formik.errors)
         }
     })
@@ -52,6 +74,9 @@ const SignUp = ({setSignUp}) => {
             <h3>Dr. Sreelekshmi's</h3>
             <small>Ayurveda care center</small>
         </div>
+        <div className={msgClass}>
+            <p>{msg}</p>
+        </div>
         <Form className="form__width" onSubmit={formik.handleSubmit}>
             <Form.Group style={{height:"50px"}}>
                 <Form.Control type="text" placeholder="E-mail" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.email && formik.errors.email}/>
@@ -62,13 +87,15 @@ const SignUp = ({setSignUp}) => {
                 {formik.touched.password1 && formik.errors.password1 ? (<div className="error">{formik.errors.password1}</div>) : null}                
             </Form.Group>
             <Form.Group style={{height:"50px"}}>
-                <Form.Control type="password" placeholder="Repeat Password" name="password2" value={formik.values.password2} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.password2 && formik.errors.password2}/>
+                <Form.Control type="password" placeholder="Confirm Password" name="password2" value={formik.values.password2} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.password2 && formik.errors.password2}/>
                 {formik.touched.password2 && formik.errors.password2 ? (<div className="error">{formik.errors.password2}</div>) : null}                
             </Form.Group>
+
             <div className="login__buttons">
                 <button className="submit" type="submit">{signupText()}</button>
             </div>
         </Form>
+ 
         </div>
     )
 }

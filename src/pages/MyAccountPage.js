@@ -8,14 +8,14 @@ import { FaShoppingBasket } from 'react-icons/fa';
 
 
 const MyAccountPage = () => {
-    const [sidePanelControl,setSidePanelControl] =useState('resetPassword')
+    const [sidePanelControl,setSidePanelControl] =useState('orders')
 
     return (
         <div className="myaccountpage">
             <SidePanelContainer>
                 <div className="sidepanel__items">
-                    <button onClick={()=>setSidePanelControl('orders')} id="target1"><FaShoppingBasket/>My Orders</button>
-                    <button onClick={()=>setSidePanelControl('resetPassword')} id="target2"><BiReset/>Reset Password</button>
+                    <button onClick={()=>setSidePanelControl('orders')}><FaShoppingBasket/>My Orders</button>
+                    <button onClick={()=>setSidePanelControl('resetPassword')}><BiReset/>Reset Password</button>
                 </div>
             </SidePanelContainer>
             <PageContent sidePanelControl={sidePanelControl}/>
