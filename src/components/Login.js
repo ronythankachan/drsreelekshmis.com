@@ -6,11 +6,11 @@ import { CgArrowLongRight } from 'react-icons/cg';
 import { useHistory } from "react-router-dom";
 import backend from '../axios'
 
-const Login = ({url="/",setUserData}) => {
+const Login = ({url="/"}) => {
     let history = useHistory()
     const [loginClicked,setLoginClicked] =useState(false)
     const [msg, setMsg]=useState('')
-    const [msgClass, setMsgClass] =useState('signup__msg')
+    const [msgClass, setMsgClass] =useState('login__msg')
     const validate = values =>{
         const errors = {}
         if(!values.email){
@@ -31,20 +31,20 @@ const Login = ({url="/",setUserData}) => {
         },
         validate,
         onSubmit: values =>{
-            setMsgClass("signup__msg")
+            setMsgClass("login__msg")
             setMsg('')
             setLoginClicked(true)
             backend.post('/api/login',values)
             .then(response=>{
-            
-                setMsgClass("signup__msg success")
+                setMsgClass("login__msg login__success")
                 setMsg("Logged in successfully")
-                setUserData({})
+                localStorage.setItem("userId",response.data.userId)
+                localStorage.setItem("userType",response.data.userType)
                 setTimeout(() => {
                     history.push(url)
-                }, 5000);
+                }, 2000);
             },error=>{
-                setMsgClass("signup__msg error")
+                setMsgClass("login__msg login__error")
                 setMsg(error.response.data)
             })
             .finally(()=>{

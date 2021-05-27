@@ -6,10 +6,10 @@
     border-radius: 12px;
     text-align: center;
 }
-.signup__msg.success{
+.signup__success{
     background-color: lightgreen;
 }
-.signup__msg.error{
+.signup__error{
     color: black;
     background-color: lightpink;
 }

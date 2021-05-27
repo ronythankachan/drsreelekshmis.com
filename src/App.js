@@ -29,11 +29,25 @@ function App() {
     const [cart, setCart] = useState([])
     const [isCartLoaded, setIsCartLoaded] = useState(false)
     const [isOpen,setIsOpen] =useState(false);
-    const [userData,setUserData] =useState({})
+    const [userData,setUserData] =useState({
+        userId:'',
+        userType:''
+    })
+    console.log("user data", userData)
+
     const toggle = () =>{
         setIsOpen(!isOpen)
     }
-
+    useEffect(() => {
+        let userId = localStorage.getItem("userId")
+        let userType = localStorage.getItem("userType")
+        if(userId && userType){
+            setUserData({
+                userId:userId,
+                userType:userType
+            })
+        }
+    }, [])
     // This will execute when loading and whenever cart value changes
     useEffect(() => {
         backend.post('/api/get_cart_items',{userId:userId})
@@ -58,7 +72,7 @@ function App() {
                 <Route path='/contact' component={ContactPage}/>
                 <Route path='/book_appointment' component={BookAppointmentPage}/>
                 <Route path='/appointments' component={AdminPanel}/>
-                <Route path='/login' component={(props)=><Loginpage setUserData={setUserData} {...props}/>}/>
+                <Route path='/login' component={(props)=><LoginManager {...props}/>}/>
                 <Route path='/rejuvenation' component={RejuvenationPage}/>
                 <Route path='/panchakarma' component={PanchakarmaPage}/>
                 <Route path='/marma_therapy' component={MarmaTherapyPage}/>
@@ -66,9 +80,9 @@ function App() {
                 <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
                 <Route path='/yoga' component={YogaPage}/>
                 <Route path='/shop' component={ShoppingPage}/>
-                <Route path='/cart' component={()=><LoginManager cart={cart} setCart={setCart} userData={userData}/>}/>
-                <Route path='/account' component={()=><LoginManager userData={userData}/>}/>
-                <Route path='/test' component={()=><LoginManager userData={userData}/>}/>
+                <Route path='/cart' component={()=><LoginManager cart={cart} setCart={setCart} />}/>
+                <Route path='/account' component={()=><LoginManager />}/>
+                <Route path='/test' component={()=><LoginManager/>}/>
             </Switch>
             <Footer/>
         </Router>

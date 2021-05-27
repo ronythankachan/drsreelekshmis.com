@@ -5,7 +5,7 @@ import {Form, Spinner} from 'react-bootstrap'
 import { CgArrowLongRight } from 'react-icons/cg';
 import backend from '../axios'
 
-const SignUp = ({setSignUp}) => {
+const SignUp = ({setLogIn}) => {
 
     const [signUpClicked,setSignUpClicked] =useState(false)
     const [msg, setMsg]=useState('')
@@ -35,7 +35,7 @@ const SignUp = ({setSignUp}) => {
             email:'',
             password1:'',
             password2:'',
-            usertype:'client'
+            userType:'client'
         },
         validate,
         onSubmit: values =>{
@@ -49,14 +49,14 @@ const SignUp = ({setSignUp}) => {
             }
             backend.post('/api/signup',postValues)
             .then(response=>{
-                setMsgClass("signup__msg success")
+                setMsgClass("signup__msg signup__success")
                 setMsg(response.data)
                 setSignUpClicked(false)
                 setTimeout(() => {
-                    setSignUp(false)
+                    setLogIn(true)
                 }, 3000);
             },error=>{
-                setMsgClass("signup__msg error")
+                setMsgClass("signup__msg signup__error")
                 setMsg(error.response.data)
             }).finally(()=>{
                 setSignUpClicked(false)

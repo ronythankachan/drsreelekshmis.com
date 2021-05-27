@@ -18,15 +18,16 @@ const loginData = {
 
 const Loginpage = (props) => {
     const redirect_uri = props.location.state?.redirect_uri 
-    const [signUp, setSignUp] = useState(false)
-    const [infoData, setInfoData] =useState(signUpData)
+    // const [signUp, setSignUp] = useState(false)
+    const [login, setLogIn] = useState(true)
+    const [infoData, setInfoData] =useState(loginData)
     const toggle = () =>{
-        signUp? setInfoData(loginData):setInfoData(signUpData);
-        setSignUp(!signUp)
+        login? setInfoData(signUpData):setInfoData(loginData);
+        setLogIn(!login)
     }
     useEffect(() => {
-        signUp ? setInfoData(signUpData):setInfoData(loginData)
-    }, [signUp])
+        login ? setInfoData(loginData):setInfoData(signUpData)
+    }, [login])
     return (
         <div className="loginpage">
             <div className="loginpage__container">
@@ -42,7 +43,7 @@ const Loginpage = (props) => {
                 </div>
                 <div className="loginpage__form">
                     {
-                        signUp ? <SignUp setSignUp={setSignUp}/> : <Login url={redirect_uri} setUserData={props.setUserData}/>
+                        login ? <Login url={redirect_uri}/>:<SignUp setLogIn={setLogIn}/> 
                     }
                     {/* test2 */}
                 </div>

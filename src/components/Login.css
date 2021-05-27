@@ -53,6 +53,21 @@
 .form__width{
     width: 350px;
 }
+.login__msg{
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+.login__success{
+    background-color: lightgreen;
+}
+.login__error{
+    color: black;
+    background-color: lightpink;
+}
 @media screen and (max-width:768px){
     .form__width{
         width: unset;

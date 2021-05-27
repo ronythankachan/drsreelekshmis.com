@@ -42,7 +42,7 @@ const Navbar = ({toggle, cartCount}) => {
                         </a>
                     </div>
                     <div className="account__info">
-                        <NavDropdown title="Account" id="basic-nav-dropdown">
+                        <NavDropdown title="Account" id="basic-nav-dropdown" style={{margin:"0"}}>
                             <NavDropdown.Item href="/account">My Account</NavDropdown.Item>
                             <NavDropdown.Item href="/login">Sign up/Login</NavDropdown.Item>
                         </NavDropdown>
