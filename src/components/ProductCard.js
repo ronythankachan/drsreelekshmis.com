@@ -8,21 +8,31 @@ import { UserContext } from '../App'
 const ProductCard = ({data}) => {
     const {user,cartUpdated,setCartUpdated} =useContext(UserContext)
     const [alertClasses,setAlertClasses] = useState("simple__alert alert__hide")
+    const [alertMsg,setAlertMsg] =useState()
     const addToCart =(medicineId)=>{
         setAlertClasses("simple__alert alert__hide")
         if(user){
             backend.post('/api/add_to_cart',{userId:user.userId,medicineId:medicineId,quantity:1}).then(
                 ()=>{
                     setAlertClasses("simple__alert")
+                    setAlertMsg("Added to cart")
                     setCartUpdated(!cartUpdated)
                     setTimeout(() => {
                         setAlertClasses("simple__alert alert__hide")
+                        setAlertMsg('')
                     }, 2000);
                 },(error)=>{
                     console.log("failed to add item to cart",error)
                 }
             )
             console.log(`adding ${medicineId} item to Cart`)
+        }else{
+            setAlertClasses("simple__alert orange")
+            setAlertMsg("Please Login First")
+            setTimeout(() => {
+                setAlertClasses("simple__alert alert__hide")
+                setAlertMsg('')
+            }, 2000);
         }
     }
     const buyNow = (medicineId)=>{
@@ -41,7 +51,7 @@ const ProductCard = ({data}) => {
                 <Button variant="success" onClick={()=>buyNow(data._id)} href="/cart">Buy Now</Button>
             </div>
             <div className={alertClasses}>
-                Added to cart
+                {alertMsg}
             </div>
         </div>
     )
