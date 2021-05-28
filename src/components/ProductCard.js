@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './ProductCard.css'
 import { Button } from 'react-bootstrap'
 import backend from '../axios'
@@ -6,18 +6,24 @@ import { useContext } from 'react'
 import { UserContext } from '../App'
 
 const ProductCard = ({data}) => {
-    const {cartUpdated,setCartUpdated} =useContext(UserContext)
+    const {user,cartUpdated,setCartUpdated} =useContext(UserContext)
+    const [alertClasses,setAlertClasses] = useState("simple__alert alert__hide")
     const addToCart =(medicineId)=>{
-        var userId = "60aeb96102003012efe28cd9" // User ID for Rony
-        backend.post('/api/add_to_cart',{userId:userId,medicineId:medicineId,quantity:1}).then(
-            (response)=>{
-                console.log(response.data)
-                setCartUpdated(!cartUpdated)
-            },(error)=>{
-                console.log("failed to add item to cart",error)
-            }
-        )
-        console.log(`adding ${medicineId} item to Cart`)
+        setAlertClasses("simple__alert alert__hide")
+        if(user){
+            backend.post('/api/add_to_cart',{userId:user.userId,medicineId:medicineId,quantity:1}).then(
+                ()=>{
+                    setAlertClasses("simple__alert")
+                    setCartUpdated(!cartUpdated)
+                    setTimeout(() => {
+                        setAlertClasses("simple__alert alert__hide")
+                    }, 2000);
+                },(error)=>{
+                    console.log("failed to add item to cart",error)
+                }
+            )
+            console.log(`adding ${medicineId} item to Cart`)
+        }
     }
     const buyNow = (medicineId)=>{
         addToCart(medicineId)
@@ -33,6 +39,9 @@ const ProductCard = ({data}) => {
             <div className="productcard__buttons">
                 <Button variant="warning" onClick={()=>addToCart(data._id)}>Add to Cart</Button>
                 <Button variant="success" onClick={()=>buyNow(data._id)} href="/cart">Buy Now</Button>
+            </div>
+            <div className={alertClasses}>
+                Added to cart
             </div>
         </div>
     )

@@ -21,3 +21,25 @@
     display: flex;
     column-gap: 20px;
 }
+.simple__alert{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    width: fit-content;
+    height: 50px;
+    background-color: rgb(20, 129, 44);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    line-height: 0;
+    border-radius: 12px;
+    font-weight: bolder;
+    
+}
+.alert__hide{
+    display: none;
+    transition: 1s ease-in-out;
+}
