@@ -1,13 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import './Login.css'
 import {Form, Spinner} from 'react-bootstrap'
 import { useFormik } from 'formik'
 import { CgArrowLongRight } from 'react-icons/cg';
-import { useHistory } from "react-router-dom";
+import {Redirect, useHistory } from "react-router-dom";
 import backend from '../axios'
+import { UserContext } from '../App';
 
-const Login = ({url="/"}) => {
+const Login = ({redirectUri}) => {
     let history = useHistory()
+    const {user,setUser} = useContext(UserContext)
     const [loginClicked,setLoginClicked] =useState(false)
     const [msg, setMsg]=useState('')
     const [msgClass, setMsgClass] =useState('login__msg')
@@ -23,7 +25,6 @@ const Login = ({url="/"}) => {
         }
         return errors
     }
-
     const formik = useFormik({
         initialValues:{
             email:'',
@@ -40,9 +41,13 @@ const Login = ({url="/"}) => {
                 setMsg("Logged in successfully")
                 localStorage.setItem("userId",response.data.userId)
                 localStorage.setItem("userType",response.data.userType)
+                setUser({
+                    userId:response.data.userId,
+                    userType:response.data.userType
+                })
                 setTimeout(() => {
-                    history.push(url)
-                }, 2000);
+                    history.push(redirectUri)
+                }, 3000);
             },error=>{
                 setMsgClass("login__msg login__error")
                 setMsg(error.response.data)
@@ -51,9 +56,9 @@ const Login = ({url="/"}) => {
                 setLoginClicked(false)
             })
             formik.resetForm()
-            console.log(formik.errors)
         }
     })
+    if(user) return <Redirect to="/"/>
     const forgotPass = ()=>{
         if(formik.values.email && !formik.errors.email) alert("E-mail to reset password sent")
         else if(!formik.values.email) alert("Provide an email address")

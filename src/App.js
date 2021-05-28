@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import HomePage from './pages/HomePage';
@@ -17,53 +17,56 @@ import Footer from './components/Footer';
 import ScrollToTop from './ScrollToTop';
 import RejuvenationPage from './pages/RejuvenationPage';
 import AdminPanel from './components/AdminPanel';
-import backend from './axios'
 import BookAppointmentPage from './pages/BookAppointmentPage';
 import Loginpage from './pages/LoginPage';
-import LoginManager from './components/LoginManager';
+import MyAccountPage from './pages/MyAccountPage';
+import CartPage from './pages/CartPage';
+import AdminPage from './pages/AdminPage';
+import { createContext } from 'react';
+import backend from './axios'
 
-var userId = "602bd642603494016ba038c2" // User ID for Rony
+
+export const UserContext = createContext()
 function App() {
-
     // fetch cart data and store it in state. when cart changes, fetch it from db
     const [cart, setCart] = useState([])
-    const [isCartLoaded, setIsCartLoaded] = useState(false)
-    const [isOpen,setIsOpen] =useState(false);
-    const [userData,setUserData] =useState({
-        userId:'',
-        userType:''
+    const [user,setUser] =useState(()=>{
+        let userId= localStorage.getItem("userId")
+        var userType = localStorage.getItem("userType") 
+        if(userId && userType) return {userId,userType}
+        else return null
     })
-    console.log("user data", userData)
-
+    const [isOpen,setIsOpen] =useState(false);
     const toggle = () =>{
         setIsOpen(!isOpen)
     }
     useEffect(() => {
-        let userId = localStorage.getItem("userId")
-        let userType = localStorage.getItem("userType")
-        if(userId && userType){
-            setUserData({
-                userId:userId,
-                userType:userType
-            })
-        }
-    }, [])
-    // This will execute when loading and whenever cart value changes
-    useEffect(() => {
-        backend.post('/api/get_cart_items',{userId:userId})
+        let userId= localStorage.getItem("userId")
+        var userType = localStorage.getItem("userType")
+        if(userId && userType) {
+            setUser({userId,userType})
+            backend.post('/api/get_cart_items',{userId:userId})
             .then((response)=>{
-                if(!isCartLoaded){
-                    setIsCartLoaded(true)
-                }
                 setCart(response.data)
             },(error)=>{
                 console.log(error)
             })
-    },[isCartLoaded])
+        }
+    }, [])
 
+    useEffect(()=>{
+        if(user) {
+            backend.post('/api/get_cart_items',{userId:user.userId})
+            .then((response)=>{
+                setCart(response.data)
+            },(error)=>{
+                console.log(error)
+            })
+        }
+    },[user])
     return (
         <Router>
-            <Navbar toggle={toggle} cartCount={cart.length}/>
+            <Navbar toggle={toggle} cartCount={cart.length} user={user} setUser={setUser} setCart={setCart}/>
             <Sidebar isOpen={isOpen} toggle={toggle} cartCount={cart.length} />
             <ScrollToTop/>
             <Switch>
@@ -72,7 +75,6 @@ function App() {
                 <Route path='/contact' component={ContactPage}/>
                 <Route path='/book_appointment' component={BookAppointmentPage}/>
                 <Route path='/appointments' component={AdminPanel}/>
-                <Route path='/login' component={(props)=><LoginManager {...props}/>}/>
                 <Route path='/rejuvenation' component={RejuvenationPage}/>
                 <Route path='/panchakarma' component={PanchakarmaPage}/>
                 <Route path='/marma_therapy' component={MarmaTherapyPage}/>
@@ -80,9 +82,21 @@ function App() {
                 <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
                 <Route path='/yoga' component={YogaPage}/>
                 <Route path='/shop' component={ShoppingPage}/>
-                <Route path='/cart' component={()=><LoginManager cart={cart} setCart={setCart} />}/>
-                <Route path='/account' component={()=><LoginManager />}/>
-                <Route path='/test' component={()=><LoginManager/>}/>
+                <UserContext.Provider value={{user,setUser,cart,setCart}}>
+                    <Route path="/login" component={Loginpage}/>
+                    <Route path="/account" component={()=>{
+                        if(user){
+                            if(user.userType === "admin") return <AdminPage/>
+                            else if(user.userType === "client") return <MyAccountPage/>
+                            else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/account"}}}/>
+                        }
+                        else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/account"}}}/>
+                    }}/>
+                    <Route path="/cart" component={()=>{
+                        if(user) return <CartPage/>
+                        else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/cart"}}}/>
+                    }}/>
+                </UserContext.Provider>
             </Switch>
             <Footer/>
         </Router>

@@ -1,23 +1,21 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './CartPage.css'
 import CartItem from '../components/CartItem'
 import CartHeader from '../components/CartHeader'
 import CartInvoice from '../components/CartInvoice'
+import { UserContext } from '../App'
 
-const CartPage = ({cart,setCart,userData}) => {
-
+const CartPage = () => {
+    const {user,cart,setCart} = useContext(UserContext)
     const cartItems = cart.map(item=>{
-        return <CartItem cart={cart} data={item} key={item.medicineId} setCart={setCart} userId={userData.userId}/>
+        return <CartItem cart={cart} data={item} key={item.medicineId} setCart={setCart} userId={user.userId}/>
     })
-
     // Calculate total amount and delivery charge
     var total = 0
-    var delivery = 20
+    var delivery = cart.length === 0?0:20
     for(var i=0;i<cart.length;i++){
         total +=cart[i].price*cart[i].quantity
     }
-
-
     return (
         <div className="cartpage__container">
             <div className="cartpage">
@@ -28,7 +26,7 @@ const CartPage = ({cart,setCart,userData}) => {
                 </div>
                 <div className="cartpage__right">
                     <CartHeader title="Total"/>
-                    <CartInvoice total={total} delivery={delivery} userId={userData.userId}/>
+                    <CartInvoice total={total} delivery={delivery} userId={user.userId}/>
                 </div>
             </div>
         </div>

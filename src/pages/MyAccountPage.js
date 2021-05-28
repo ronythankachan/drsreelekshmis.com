@@ -9,7 +9,6 @@ import { FaShoppingBasket } from 'react-icons/fa';
 
 const MyAccountPage = () => {
     const [sidePanelControl,setSidePanelControl] =useState('orders')
-
     return (
         <div className="myaccountpage">
             <SidePanelContainer>
