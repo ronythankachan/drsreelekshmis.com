@@ -2,17 +2,17 @@ import React from 'react'
 import './ProductCard.css'
 import { Button } from 'react-bootstrap'
 import backend from '../axios'
-
-
+import { useContext } from 'react'
+import { UserContext } from '../App'
 
 const ProductCard = ({data}) => {
-
+    const {cartUpdated,setCartUpdated} =useContext(UserContext)
     const addToCart =(medicineId)=>{
-        var userId = "602bd642603494016ba038c2" // User ID for Rony
+        var userId = "60aeb96102003012efe28cd9" // User ID for Rony
         backend.post('/api/add_to_cart',{userId:userId,medicineId:medicineId,quantity:1}).then(
             (response)=>{
                 console.log(response.data)
-                alert(response.data)
+                setCartUpdated(!cartUpdated)
             },(error)=>{
                 console.log("failed to add item to cart",error)
             }

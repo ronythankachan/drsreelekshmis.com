@@ -30,6 +30,7 @@ export const UserContext = createContext()
 function App() {
     // fetch cart data and store it in state. when cart changes, fetch it from db
     const [cart, setCart] = useState([])
+    const [cartUpdated,setCartUpdated]= useState(false)
     const [user,setUser] =useState(()=>{
         let userId= localStorage.getItem("userId")
         var userType = localStorage.getItem("userType") 
@@ -63,7 +64,7 @@ function App() {
                 console.log(error)
             })
         }
-    },[user])
+    },[cartUpdated,user])
     return (
         <Router>
             <Navbar toggle={toggle} cartCount={cart.length} user={user} setUser={setUser} setCart={setCart}/>
@@ -81,9 +82,9 @@ function App() {
                 <Route path='/post_delivery_care' component={PostDeliveryCarePage}/>
                 <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
                 <Route path='/yoga' component={YogaPage}/>
-                <Route path='/shop' component={ShoppingPage}/>
-                <UserContext.Provider value={{user,setUser,cart,setCart}}>
+                <UserContext.Provider value={{user,setUser,cart,setCart,cartUpdated,setCartUpdated}}>
                     <Route path="/login" component={Loginpage}/>
+                    <Route path='/shop' component={ShoppingPage}/>
                     <Route path="/account" component={()=>{
                         if(user){
                             if(user.userType === "admin") return <AdminPage/>
