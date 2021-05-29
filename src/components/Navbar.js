@@ -6,14 +6,12 @@ import './Navbar.css';
 import Header from './Header';
 
 const Navbar = ({user,setUser,toggle, cartCount,setCart}) => {
-
     let history = useHistory();
     const signOut =()=>{
         localStorage.removeItem("userId")
         localStorage.removeItem("userType")
         setUser(null)
         setCart([])
-        alert("Signed out")
         history.push('/')
     }
     return (

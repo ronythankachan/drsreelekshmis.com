@@ -45,9 +45,7 @@ const Login = ({redirectUri}) => {
                     userId:response.data.userId,
                     userType:response.data.userType
                 })
-                setTimeout(() => {
-                    history.push(redirectUri)
-                }, 3000);
+                history.push(redirectUri)
             },error=>{
                 setMsgClass("login__msg login__error")
                 setMsg(error.response.data)
