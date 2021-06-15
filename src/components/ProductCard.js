@@ -44,8 +44,8 @@ const ProductCard = ({data}) => {
         <div className="productcard">
             <img src={data.img} alt=""/>
             <h3>{data.name} <small>({data.category})</small></h3> 
+            <small>{data.description}</small>
             <h3>Rs. {data.price}</h3>
-            <p>{data.description}</p>
             <div className="productcard__buttons">
                 <Button variant="warning" onClick={()=>addToCart(data._id)}>Add to Cart</Button>
                 <Button variant="success" onClick={()=>buyNow(data._id)} href="/cart">Buy Now</Button>
