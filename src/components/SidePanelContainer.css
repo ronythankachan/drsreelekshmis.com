@@ -1,7 +1,7 @@
 .sidepanelcontainer{
     position: relative;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 250px;
+    max-width: 250px;
     min-height: 100%;
     background-color: white;
     box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
@@ -28,7 +28,7 @@
     cursor: pointer;
 }
 .minimize{
-    margin-left: -280px;
+    margin-left: -230px;
 }
 @media screen and (max-width:1200px){
     .sidepanelcontainer{

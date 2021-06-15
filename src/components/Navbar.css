@@ -89,7 +89,7 @@
     padding:3px 6px;
 }
 .dropdown-menu{
-    transition: 0.4s;
+    transition: 0.2s;
 }
 @media screen and (max-width:1200px){
     .navbar__container{
