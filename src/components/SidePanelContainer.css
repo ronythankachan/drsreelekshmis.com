@@ -11,26 +11,26 @@
 .minimize_button{
     position: absolute;
     right: 0;
-    top:20px;
+    top:0px;
     margin-right: -13px;
     z-index: 2;
 }
 .minimize_button > button{
     border-radius: 50px;
-    width: 25px;
-    height: 25px;
-    background:#fed47e;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
     color: black;
     font-weight: bolder;
     border: transparent;
-    /* border: 1px solid #b8cdd8; */
+    border: 1px solid #b8cdd8;
     box-shadow: 0 0 4px 0 rgb(0 0 0 / 25%);
     cursor: pointer;
 }
 .minimize{
     margin-left: -230px;
 }
-@media screen and (max-width:1200px){
+@media screen and (max-width:720px){
     .sidepanelcontainer{
         position: unset;
         width: 100%;

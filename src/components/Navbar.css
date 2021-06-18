@@ -91,7 +91,7 @@
 .dropdown-menu{
     transition: 0.2s;
 }
-@media screen and (max-width:1200px){
+@media screen and (max-width:760px){
     .navbar__container{
         position: relative !important;
     }

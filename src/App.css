@@ -6,6 +6,9 @@
 }
 body{
     font-family: 'Poppins', sans-serif !important;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
 
 }
 .link{
@@ -20,4 +23,14 @@ a:hover{
     text-decoration: none !important;
     color: #b3b3b3 !important;
 
+}
+.subheading{
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #24292e;
+    border-bottom: 1px solid #ebedef;
+}
+.form-control{
+    height: 35px !important;
 }
