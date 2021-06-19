@@ -3,15 +3,12 @@ import { Form, InputGroup } from 'react-bootstrap'
 import './Search.css'
 import { RiSearchLine } from "react-icons/ri";
 const Search = ({setQuery}) => {
-    const handleChange = (event) =>{
-        setQuery(event.target.value)
-    }
     return (
         <div className="search">
-            <Form id="search">
+            <Form onSubmit={e=>e.preventDefault()} id="search">
                 <InputGroup>
                     <RiSearchLine style={{fontSize:"1.2rem", color:"gray"}}/>
-                    <Form.Control type="text" placeholder="Search for products.." onChange={handleChange}/>
+                    <Form.Control type="text" placeholder="Search for products.." onChange={e=>setQuery(e.target.value)}/>
                 </InputGroup>
             </Form>
         </div>
