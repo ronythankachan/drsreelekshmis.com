@@ -65,7 +65,6 @@ const ResetPasswordForm = () =>{
             .then(response=>{
                 setMsgClass("success")
                 setMsg(response.data)
-                formik.resetForm()
             },error =>{
                 setMsgClass("error")
                 setMsg(error.response.data)
@@ -76,6 +75,7 @@ const ResetPasswordForm = () =>{
                     setMsg('')
                     setMsgClass('')
                 }, 3000);
+                formik.resetForm()
             })
         }
     })
