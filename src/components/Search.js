@@ -3,17 +3,15 @@ import { Form, InputGroup } from 'react-bootstrap'
 import './Search.css'
 import { RiSearchLine } from "react-icons/ri";
 import { useState } from 'react';
-const Search = () => {
+const Search = ({setQuery}) => {
 
-    const [query,setQuery] = useState("")
-
+    const [value,setValue] = useState("")
     const handleChange = (event) =>{
-        setQuery(event.target.value)
+        setValue(event.target.value)
     }
     const handleSubmit = (event) =>{
-        event.preventDefault();
-        console.log(query)
-        document.getElementById("search").reset();
+        event.preventDefault()
+        setQuery(value)
     }
     return (
         <div className="search">
