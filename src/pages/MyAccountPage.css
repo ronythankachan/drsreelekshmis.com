@@ -42,7 +42,7 @@
     max-width: 350px;
     width: 250px;
 }
-@media screen and (max-width:720px) {
+@media screen and (max-width:1200px) {
     .myaccountpage{
         flex-direction: column;
     }
