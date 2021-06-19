@@ -19,6 +19,15 @@
 .item__content{
     width: 80%;
 }
+.cartitem > button{
+    position: relative;
+    height: fit-content;
+    background-color: unset;
+    border: transparent;
+}
+.cartitem > button:hover{
+    color: gray;
+}
 
 .price__and__deletebtn> h4{
     font-weight: bolder;
@@ -26,19 +35,6 @@
 .price__and__deletebtn{
     display: flex;
     justify-content: space-between;
-}
-.price__and__deletebtn > button{
-    margin-top: -50px;
-}
-.price__and__deletebtn > button{
-    padding: 0px 10px;
-    border: none;
-    background-color: unset;
-    font-weight: bolder;
-    transition: 0.5;
-}
-.price__and__deletebtn > button:hover{
-    color: rgba(0, 0, 0, 0.562);
 }
 .item__quantity{
     display: flex;

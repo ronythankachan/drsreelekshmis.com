@@ -62,10 +62,7 @@ const CartItem = ({cart,data, setCart, userId}) => {
                 <img src={data.img} alt=""/>
             </div>
             <div className="item__content">
-                <div className="price__and__deletebtn">
-                    <h4>Rs. {data.price}</h4>
-                    <button onClick={deleteItem}>X</button>
-                </div>
+                <h4>Rs. {data.price}</h4>
                 <p>{data.name} ( {data.category} )</p>
                 <div className="item__quantity">
                     <p>Quantity</p>
@@ -74,6 +71,7 @@ const CartItem = ({cart,data, setCart, userId}) => {
                     <button onClick={incrementQuantity}>+</button>
                 </div>
             </div>
+            <button onClick={deleteItem}>X</button>
         </div>
     )
 }

@@ -1,18 +1,17 @@
 .cartpage__container{
     width: 100%;
-    /* background-color: rgba(211, 211, 211, 0.096); */
     min-height: 100vh;
 }
 .cartpage{
     max-width: 1300px;
     margin:auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 30px;
 
 }
 .cartpage__main{
-    width: 60%;
+    width: 50%;
     padding: 20px;
     background-color: white; 
     margin-right: 20px;
@@ -20,8 +19,8 @@
     box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
 }
 .cartpage__right{
-    width: 40%;
-    max-height: 400px;
+    width: 30%;
+    height: fit-content;
     padding: 20px;
     background-color: white; 
     border-radius: 12px;
