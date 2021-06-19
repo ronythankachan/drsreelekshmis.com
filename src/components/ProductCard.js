@@ -4,8 +4,10 @@ import { Button } from 'react-bootstrap'
 import backend from '../axios'
 import { useContext } from 'react'
 import { UserContext } from '../App'
+import { useHistory } from 'react-router-dom'
 
 const ProductCard = ({data}) => {
+    const history = useHistory()
     const {user,cartUpdated,setCartUpdated} =useContext(UserContext)
     const [alertClasses,setAlertClasses] = useState("simple__alert alert__hide")
     const [alertMsg,setAlertMsg] =useState()
@@ -37,6 +39,7 @@ const ProductCard = ({data}) => {
     }
     const buyNow = (medicineId)=>{
         addToCart(medicineId)
+        history.push('/cart')
     }
 
 
@@ -48,7 +51,7 @@ const ProductCard = ({data}) => {
             <h3>Rs. {data.price}</h3>
             <div className="productcard__buttons">
                 <Button variant="warning" onClick={()=>addToCart(data._id)}>Add to Cart</Button>
-                <Button variant="success" onClick={()=>buyNow(data._id)} href="/cart">Buy Now</Button>
+                <Button variant="success" onClick={()=>buyNow(data._id)}>Buy Now</Button>
             </div>
             <div className={alertClasses}>
                 {alertMsg}
