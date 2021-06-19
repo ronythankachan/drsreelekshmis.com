@@ -14,9 +14,6 @@
 .bookappointmentform > form{
     width:400px;
 }
-.error{
-    color: red;
-}
 @media screen and (max-width:1200px){
     .bookappointmentpage{
         flex-direction: column;

@@ -35,9 +35,10 @@
     border: none;
     background-color: unset;
     font-weight: bolder;
+    transition: 0.5;
 }
 .price__and__deletebtn > button:hover{
-    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.562);
 }
 .item__quantity{
     display: flex;

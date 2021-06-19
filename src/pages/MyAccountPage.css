@@ -41,6 +41,7 @@
 }
 .resetpassword__form > .form-group > .form-control{
     max-width: 350px;
+    width: 250px;
 }
 @media screen and (max-width:720px) {
     .myaccountpage{
