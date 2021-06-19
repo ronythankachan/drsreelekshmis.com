@@ -4,13 +4,13 @@ import ProductCard from '../components/ProductCard'
 import backend from '../axios'
 import { useState } from 'react'
 
-const ProductList = ({query}) => {
+const ProductList = ({query,category}) => {
 
     const [medicines, setMedicines] = useState([])
     useEffect(()=>{
         backend.get('/api/get_medicines',{
             params:{
-                value:query
+                value:query+''+category
             }
         })
         .then((response)=>{
@@ -18,7 +18,7 @@ const ProductList = ({query}) => {
         },(error)=>{
             console.log(error)
         })
-    },[query])
+    },[query,category])
 
 
     const products = medicines.map(item => {

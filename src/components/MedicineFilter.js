@@ -1,25 +1,16 @@
 import React from 'react'
-import { Form, Button } from 'react-bootstrap'
-import { useState } from 'react'
+import { Form } from 'react-bootstrap'
 
-const MedicineFilter = () => {
-    const [category,setCategory] =useState("")
+const MedicineFilter = ({setCategory}) => {
 
     const handleChange = (event) =>{
-        if(event.target.value !== "Choose..."){
-            setCategory(event.target.value)
-        }
-    }
-
-    const handleSubmit = (event) =>{
-        event.preventDefault();
-        console.log(category)
-        document.getElementById("medicinefilter").reset();
+        if(event.target.value !== "Choose...") setCategory(' '+event.target.value)
+        else setCategory('')
     }
 
     return (
         <div style={{padding:"30px"}}>
-            <Form onSubmit={handleSubmit} id="medicinefilter">
+            <Form id="medicinefilter">
                 <Form.Group>
                     <Form.Label style={{fontWeight:"bold", marginLeft:"5px"}}>Category</Form.Label>
                     <Form.Control as="select" name="category" onChange={handleChange}>
@@ -35,7 +26,6 @@ const MedicineFilter = () => {
                         <option>Creams, soaps and facepacks</option>
                     </Form.Control>
                 </Form.Group>
-                <Button type="submit">Apply</Button>
             </Form>
             
         </div>
