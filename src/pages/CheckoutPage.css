@@ -5,7 +5,26 @@
     justify-content: center;
 }
 .checkout{
-    width: 1200px;
+    width: 1000px;
     height: 100%;
-    background-color: red;
+}
+.addresses{
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+.addresscard{
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%);
+    border: 1px solid gray;
+    line-height:0.5rem;
+    font-size: 14px;
+}
+.addresscard__buttons{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
