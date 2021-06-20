@@ -24,6 +24,7 @@ import CartPage from './pages/CartPage';
 import AdminPage from './pages/AdminPage';
 import { createContext } from 'react';
 import backend from './axios'
+import CheckoutPage from './pages/CheckoutPage';
 
 
 export const UserContext = createContext()
@@ -96,6 +97,10 @@ function App() {
                     <Route path="/cart" component={()=>{
                         if(user) return <CartPage/>
                         else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/cart"}}}/>
+                    }}/>
+                    <Route path="/checkout" component={()=>{
+                        if(user) return <CheckoutPage/>
+                        else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/checkout"}}}/>
                     }}/>
                 </UserContext.Provider>
             </Switch>

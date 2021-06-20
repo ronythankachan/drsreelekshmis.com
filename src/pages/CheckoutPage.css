@@ -1,0 +1,11 @@
+.checkoutpage{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.checkout{
+    width: 1200px;
+    height: 100%;
+    background-color: red;
+}

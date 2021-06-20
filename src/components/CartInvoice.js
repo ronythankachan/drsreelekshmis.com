@@ -1,10 +1,12 @@
 import React from 'react'
 import './CartInvoice.css'
 import {Button} from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 
 const CartInvoice = ({total,delivery,userId}) => {
+    const history = useHistory()
     const checkOut = () =>{
-        alert(`checking out items for ${userId}`)
+        history.push('/checkout')
     }
     return (
         <div className="cartinvoice">
