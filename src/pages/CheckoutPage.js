@@ -34,21 +34,9 @@ const CheckoutPage = () => {
                     </Accordion.Collapse>
                 </Card>
             </Accordion>
-            {/* <div className="checkout">
-                <h3 className="subheading">Select a delivery address</h3>
-                <AddressList/>
-                <h3 className="subheading">Add a new address</h3>
-                <NewAddress/>
-                <h3 className="subheading">Select Payment method</h3>
-                <Payment/>
-            </div> */}
             <div className="summary">
                 <h3 className="subheading">Summary</h3>
             </div>
-            {/* payment method
-            total amount on side
-            checkout
-            confirmation  */}
         </div>
     )
 }
