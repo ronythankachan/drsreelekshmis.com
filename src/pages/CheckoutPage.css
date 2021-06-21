@@ -8,7 +8,7 @@
 .summary{
     margin-top: 10px;
     width: 25%;
-    height: 350px;
+    height: fit-content;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%);

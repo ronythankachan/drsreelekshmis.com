@@ -5,7 +5,10 @@ import './CheckoutPage.css'
 import { Form, Row,Col} from 'react-bootstrap'
 import { useFormik } from 'formik'
 
-const CheckoutPage = () => {
+const CheckoutPage = (props) => {
+    const placeOrder = ()=>{
+        alert("Order placed successfully")
+    }
     return (
         <div className="checkoutpage">
             <Accordion defaultActiveKey="0" style={{margin:"30px 10px"}}>
@@ -36,6 +39,21 @@ const CheckoutPage = () => {
             </Accordion>
             <div className="summary">
                 <h3 className="subheading">Summary</h3>
+                <div className="cartinvoice__item">
+                <p>Amount</p>
+                <p>Rs. {props.location?.state?.total}</p>
+            </div>
+            <div className="cartinvoice__item">
+                <p>Delivery</p>
+                <p>Rs. {props.location?.state?.delivery}</p>
+            </div>
+            <div className="cartinvoice__item">
+                <h4>Sub-total</h4>
+                <h4>Rs. {props.location?.state?.total+props.location?.state?.delivery}</h4>
+            </div>
+            <div className="checkout__btn">
+                <Button variant="success" onClick={placeOrder}>Place Order</Button>
+            </div>
             </div>
         </div>
     )
@@ -97,8 +115,8 @@ const AddressCard = ({data,setUpdater})=>{
         </div>
     )
 }
-const NewAddress = ()=>{
 
+const NewAddress = ()=>{
     const validate = values =>{
 
     }

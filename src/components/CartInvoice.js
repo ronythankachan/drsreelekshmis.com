@@ -3,10 +3,16 @@ import './CartInvoice.css'
 import {Button} from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
-const CartInvoice = ({total,delivery,userId}) => {
+const CartInvoice = ({total,delivery}) => {
     const history = useHistory()
     const checkOut = () =>{
-        history.push('/checkout')
+        history.push({
+            pathname:'/checkout',
+            state:{
+                total:total,
+                delivery: delivery,
+            }
+        })
     }
     return (
         <div className="cartinvoice">
@@ -23,7 +29,7 @@ const CartInvoice = ({total,delivery,userId}) => {
                 <h4>Rs. {total+delivery}</h4>
             </div>
             <div className="checkout__btn">
-                <Button variant="success" onClick={checkOut}>CHECKOUT</Button>
+                <Button variant="success" onClick={checkOut}>Checkout</Button>
             </div>
         </div>
     )
