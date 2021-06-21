@@ -4,6 +4,7 @@ import Doctors from '../components/Doctors';
 import Vision from '../components/Vision';
 
 const AboutPage = () => {
+    console.log("about page rendered")
     return (
         <div className="aboutpage">
             <Vision/>

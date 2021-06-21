@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom';
@@ -23,49 +23,26 @@ import MyAccountPage from './pages/MyAccountPage';
 import CartPage from './pages/CartPage';
 import AdminPage from './pages/AdminPage';
 import { createContext } from 'react';
-import backend from './axios'
 import CheckoutPage from './pages/CheckoutPage';
-
+import useCart from './components/useCart';
 
 export const UserContext = createContext()
+
 function App() {
     // fetch cart data and store it in state. when cart changes, fetch it from db
-    const [cart, setCart] = useState([])
-    const [cartUpdated,setCartUpdated]= useState(false)
+    // const [cartUpdated,setCartUpdated]= useState(false)
     const [user,setUser] =useState(()=>{
         let userId= localStorage.getItem("userId")
         var userType = localStorage.getItem("userType") 
         if(userId && userType) return {userId,userType}
         else return null
     })
-    const [isOpen,setIsOpen] =useState(false);
+    const [isOpen,setIsOpen] =useState(false)
     const toggle = () =>{
         setIsOpen(!isOpen)
     }
-    useEffect(() => {
-        let userId= localStorage.getItem("userId")
-        var userType = localStorage.getItem("userType")
-        if(userId && userType) {
-            setUser({userId,userType})
-            backend.post('/api/get_cart_items',{userId:userId})
-            .then((response)=>{
-                setCart(response.data)
-            },(error)=>{
-                console.log(error)
-            })
-        }
-    }, [])
+    const [cart,setCart,cartUpdated,setCartUpdated] =useCart(user)
 
-    useEffect(()=>{
-        if(user) {
-            backend.post('/api/get_cart_items',{userId:user.userId})
-            .then((response)=>{
-                setCart(response.data)
-            },(error)=>{
-                console.log(error)
-            })
-        }
-    },[cartUpdated,user])
     return (
         <Router>
             <Navbar toggle={toggle} cartCount={cart.length} user={user} setUser={setUser} setCart={setCart}/>
@@ -83,6 +60,7 @@ function App() {
                 <Route path='/post_delivery_care' component={PostDeliveryCarePage}/>
                 <Route path='/swarna_prashana' component={SwarnaPrashanaPage}/>
                 <Route path='/yoga' component={YogaPage}/>
+                <Route path="/checkout" component={CheckoutPage}/>
                 <UserContext.Provider value={{user,setUser,cart,setCart,cartUpdated,setCartUpdated}}>
                     <Route path="/login" component={Loginpage}/>
                     <Route path='/shop' component={ShoppingPage}/>
@@ -97,10 +75,6 @@ function App() {
                     <Route path="/cart" component={()=>{
                         if(user) return <CartPage/>
                         else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/cart"}}}/>
-                    }}/>
-                    <Route path="/checkout" component={()=>{
-                        if(user) return <CheckoutPage/>
-                        else return <Redirect to ={{pathname:"/login",state:{redirectUri:"/checkout"}}}/>
                     }}/>
                 </UserContext.Provider>
             </Switch>
