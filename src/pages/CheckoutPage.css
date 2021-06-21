@@ -3,11 +3,20 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    column-gap: 30px;
 }
 .checkout{
-    width: 1000px;
+    width: 50%;
     height: 100%;
     padding: 20px;
+}
+.summary{
+    margin-top: 10px;
+    width: 25%;
+    height: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%);
 }
 .addresses{
     display: flex;

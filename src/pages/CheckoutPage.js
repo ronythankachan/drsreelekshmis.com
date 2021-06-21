@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap'
+import {Button , Accordion, Card} from 'react-bootstrap'
 import React,{useEffect,useState} from 'react'
 import backend from '../axios'
 import './CheckoutPage.css'
@@ -8,15 +8,43 @@ import { useFormik } from 'formik'
 const CheckoutPage = () => {
     return (
         <div className="checkoutpage">
-            
-        <div className="checkout">
-            <h3 className="subheading">Select a delivery address</h3>
-            <AddressList/>
-            <h3 className="subheading">Add a new address</h3>
-            <NewAddress/>
-            <h3 className="subheading">Select Payment method</h3>
-            <Payment/>
-        </div>
+            <Accordion defaultActiveKey="0" style={{margin:"30px 0px"}}>
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="0" style={{width:"800px"}}>Select a delivery address</Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                    <Card.Body>
+                        <AddressList/>
+                    </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="1" style={{width:"800px"}}>Add a new address</Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                    <Card.Body>
+                        <NewAddress/>
+                    </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="2" style={{width:"800px"}}>Select Payment method</Accordion.Toggle>
+                    <Accordion.Collapse eventKey="2">
+                    <Card.Body>
+                        <Payment/>
+                    </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+            </Accordion>
+            {/* <div className="checkout">
+                <h3 className="subheading">Select a delivery address</h3>
+                <AddressList/>
+                <h3 className="subheading">Add a new address</h3>
+                <NewAddress/>
+                <h3 className="subheading">Select Payment method</h3>
+                <Payment/>
+            </div> */}
+            <div className="summary">
+                <h3 className="subheading">Summary</h3>
+            </div>
             {/* payment method
             total amount on side
             checkout
@@ -178,7 +206,6 @@ const Payment = () =>{
                 <Form.Check type="radio" label="Credit/ Debit Cards" disabled/>
                 <small>Pay using any credit/debit cards</small>
             </Form.Group>
-            <Button variant="success">Place Order</Button>
         </Form>
     )
 }
