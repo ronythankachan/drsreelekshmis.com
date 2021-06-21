@@ -8,7 +8,7 @@ import { useFormik } from 'formik'
 const CheckoutPage = () => {
     return (
         <div className="checkoutpage">
-            <Accordion defaultActiveKey="0" style={{margin:"30px 0px"}}>
+            <Accordion defaultActiveKey="0" style={{margin:"30px 10px"}}>
                 <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="0" style={{width:"800px"}}>Select a delivery address</Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
