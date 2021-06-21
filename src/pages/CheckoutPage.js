@@ -3,7 +3,7 @@ import React,{useEffect,useState} from 'react'
 import backend from '../axios'
 import './CheckoutPage.css'
 import { Form, Row,Col} from 'react-bootstrap'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 
 const CheckoutPage = () => {
     return (
@@ -14,6 +14,8 @@ const CheckoutPage = () => {
             <AddressList/>
             <h3 className="subheading">Add a new address</h3>
             <NewAddress/>
+            <h3 className="subheading">Select Payment method</h3>
+            <Payment/>
         </div>
             {/* payment method
             total amount on side
@@ -94,6 +96,7 @@ const NewAddress = ()=>{
             addressLine2:'',
             city:'',
             state:'',
+            landMark:''
         },
         validate,
         onSubmit:values =>{
@@ -102,7 +105,7 @@ const NewAddress = ()=>{
     })
 
     return(
-       <Form>
+       <Form onSubmit={formik.handleSubmit}>
            <Form.Group>
                <Row>
                    <Col>
@@ -128,10 +131,54 @@ const NewAddress = ()=>{
                </Row>
            </Form.Group>
            <Form.Group>
-               <Form.Label>Flat, House no.,Building, Company, Apartment</Form.Label>
-               <Form.Control type="text" placeholder="Address Line 1"/>
+               <Form.Label>Flat, House no.,Building, Company, Apartment*</Form.Label>
+               <Form.Control type="text" placeholder="Address Line 1" name="addressLine1" value={formik.values.addressLine1} onChange={formik.handleChange}/>
            </Form.Group>
-           
+           <Form.Group>
+               <Form.Label>Area, Colony, Street, Sector, Village</Form.Label>
+               <Form.Control type="text" placeholder="Address Line 2" name="addressLine2" value={formik.values.addressLine2} onChange={formik.handleChange}/>
+           </Form.Group>
+           <Form.Group>
+               <Form.Label>LandMark</Form.Label>
+               <Form.Control type="text" placeholder="Eg: Near PVR Cinemas" name="landMark" value={formik.values.landMark} onChange={formik.handleChange}/>
+           </Form.Group>
+           <Form.Group>
+               <Row>
+                   <Col>
+                        <Form.Label>Town/City*</Form.Label>
+                        <Form.Control type="text" placeholder="Eg:Kochi" name="city" value={formik.values.city} onChange={formik.handleChange}/>
+                   </Col>
+                   <Col>
+                    <Form.Label>State*</Form.Label>
+                    <Form.Control as="select" title="Choose..." name="state" value={formik.values.state} onChange={formik.handleChange}>
+                        <option>Kerala</option>
+                        <option>TamilNadu</option>
+                        <option>Karnataka</option>
+                        <option>Mumbai</option>
+                    </Form.Control>
+                   </Col>
+               </Row>
+           </Form.Group>     
+           <Form.Group>
+                <Form.Label>Delivery Instructions</Form.Label>
+                <Form.Control as="textarea" rows={3} /> 
+            </Form.Group>     
+            <Button variant="success" type="submit">Add Address</Button> 
        </Form>
+    )
+}
+const Payment = () =>{
+    return (
+        <Form>
+            <Form.Group>
+                <Form.Check type="radio" label="COD (Cash on Delivery)" defaultChecked/>
+                <small>Please pay at the time of the delivery in cash.</small>
+                <Form.Check type="radio" label="UPI" disabled/>
+                <small>Pay using Google pay, Phone pe, Paytm or any other UPI services.</small>
+                <Form.Check type="radio" label="Credit/ Debit Cards" disabled/>
+                <small>Pay using any credit/debit cards</small>
+            </Form.Group>
+            <Button variant="success">Place Order</Button>
+        </Form>
     )
 }

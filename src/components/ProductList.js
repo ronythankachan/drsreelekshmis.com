@@ -28,7 +28,6 @@ const ProductList = ({query,category}) => {
     const products = medicines.map(item => {
         return <ProductCard data={item} key={item._id}/>  
     })
-
     return (
         <div className="productlist">
             {loading?<Spinner animation="grow" style={{marginTop:"100px", width:"30px"}}/>:products}
