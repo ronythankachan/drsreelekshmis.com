@@ -99,6 +99,8 @@ const AddressList = ({setSelectedAddress})=>{
     )
 }
 const AddressCard = ({data, setUpdater, setSelectedAddress})=>{
+
+    const[background,setBackground] = useState('white')
     const handleEdit = (e)=>{
 
     }
@@ -107,16 +109,20 @@ const AddressCard = ({data, setUpdater, setSelectedAddress})=>{
         setUpdater(current => !current)
         console.log(response.data)
     }
+    const handleSelectAddress = ()=>{
+        setSelectedAddress(data)
+        setBackground('lightgray')
+    }
 
     return (
-        <div className="addresscard">
+        <div className="addresscard" style={{backgroundColor:background}}>
             <p>{data.firstName+' '+data.lastName}</p>
             <p>{data.addressLine1}</p>
             <p>{data.addressLine2}</p>
             <p>{data.city+', '+data.state}</p>
             <p>{data.zip+', Ph:'+data.phone}</p>
             <div className="addresscard__buttons">
-                <Button variant="success" onClick={()=>setSelectedAddress(data)}>Deliver to this address</Button>
+                <Button variant="success" onClick={handleSelectAddress}>Deliver to this address</Button>
                 <div style={{display:'flex',columnGap:"10px"}}>
                     <Button variant="warning" style={{width:"50%"}} onClick={handleEdit}>Edit</Button>
                     <Button variant="danger" style={{width:"50%"}} onClick={handleDelete}>Delete</Button>
@@ -128,6 +134,15 @@ const AddressCard = ({data, setUpdater, setSelectedAddress})=>{
 
 const NewAddress = ()=>{
     const validate = values =>{
+
+        const errors = {}
+        if(!values.firstName) errors.firstName = "Required field"
+        if(!values.phone) errors.firstName = "Required field"
+        if(!values.zip) errors.firstName = "Required field"
+        if(!values.addressLine1) errors.firstName = "Required field"
+        if(!values.city) errors.firstName = "Required field"
+        if(!values.state) errors.firstName = "Required field"
+        return errors
 
     }
     const formik = useFormik({
@@ -154,10 +169,12 @@ const NewAddress = ()=>{
                <Row>
                    <Col>
                         <Form.Label>First Name*</Form.Label>
-                        <Form.Control type="text" name="firstName" placeholder="First Name" value={formik.values.firstName} onChange={formik.handleChange}/>
+                        <Form.Control type="text" name="firstName" placeholder="First Name" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.firstName && formik.errors.firstName}/>
+                        {formik.touched.firstName && formik.errors.firstName ? (<div className="error">{formik.errors.firstName}</div>) : null}
+
                    </Col>
                    <Col>
-                        <Form.Label>First Name*</Form.Label>
+                        <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" name="lastName" placeholder="Last Name" value={formik.values.lastName} onChange={formik.handleChange}/>
                    </Col>
                </Row>
@@ -166,17 +183,21 @@ const NewAddress = ()=>{
                <Row>
                    <Col>
                         <Form.Label>Phone*</Form.Label>
-                        <Form.Control type="number" name="phone" placeholder="Mobile Number" value={formik.values.phone} onChange={formik.handleChange}/>
+                        <Form.Control type="number" name="phone" placeholder="Mobile Number" value={formik.values.phone} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.phone && formik.errors.phone}/>
+                        {formik.touched.phone && formik.errors.phone ? (<div className="error">{formik.errors.phone}</div>) : null}
+
                    </Col>
                    <Col>
                         <Form.Label>Pin Code*</Form.Label>
-                        <Form.Control type="number" name="zip" placeholder="Pin Code" value={formik.values.zip} onChange={formik.handleChange}/>
+                        <Form.Control type="number" name="zip" placeholder="Pin Code" value={formik.values.zip} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.zip && formik.errors.zip}/>
+                        {formik.touched.zip && formik.errors.zip ? (<div className="error">{formik.errors.zip}</div>) : null}
                    </Col>
                </Row>
            </Form.Group>
            <Form.Group>
                <Form.Label>Flat, House no.,Building, Company, Apartment*</Form.Label>
-               <Form.Control type="text" placeholder="Address Line 1" name="addressLine1" value={formik.values.addressLine1} onChange={formik.handleChange}/>
+               <Form.Control type="text" placeholder="Address Line 1" name="addressLine1" value={formik.values.addressLine1} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.addressLine1 && formik.errors.addressLine1}/>
+               {formik.touched.addressLine1 && formik.errors.addressLine1 ? (<div className="error">{formik.errors.addressLine1}</div>) : null}
            </Form.Group>
            <Form.Group>
                <Form.Label>Area, Colony, Street, Sector, Village</Form.Label>
@@ -190,16 +211,19 @@ const NewAddress = ()=>{
                <Row>
                    <Col>
                         <Form.Label>Town/City*</Form.Label>
-                        <Form.Control type="text" placeholder="Eg:Kochi" name="city" value={formik.values.city} onChange={formik.handleChange}/>
+                        <Form.Control type="text" placeholder="Eg:Kochi" name="city" value={formik.values.city} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.city && formik.errors.city}/>
+                        {formik.touched.city && formik.errors.city ? (<div className="error">{formik.errors.city}</div>) : null}
+
                    </Col>
                    <Col>
                     <Form.Label>State*</Form.Label>
-                    <Form.Control as="select" title="Choose..." name="state" value={formik.values.state} onChange={formik.handleChange}>
+                    <Form.Control as="select" title="Choose..." name="state" value={formik.values.state} onChange={formik.handleChange} onBlur={formik.handleBlur} isInvalid={formik.touched.state && formik.errors.state}>
                         <option>Kerala</option>
                         <option>TamilNadu</option>
                         <option>Karnataka</option>
                         <option>Mumbai</option>
                     </Form.Control>
+                    {formik.touched.state && formik.errors.state ? (<div className="error">{formik.errors.state}</div>) : null}
                    </Col>
                </Row>
            </Form.Group>     
