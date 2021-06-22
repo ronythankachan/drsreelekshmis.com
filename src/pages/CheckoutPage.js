@@ -6,9 +6,19 @@ import { Form, Row,Col} from 'react-bootstrap'
 import { useFormik } from 'formik'
 
 const CheckoutPage = (props) => {
+
+    const [selectedAddress,setSelectedAddress] = useState(null)
+
     const placeOrder = ()=>{
         alert("Order placed successfully")
     }
+
+    const isInvalidOrder = ()=>{
+        console.log("selected address ",selectedAddress)
+        if(selectedAddress) return false
+        return true
+    }
+
     return (
         <div className="checkoutpage">
             <Accordion defaultActiveKey="0" style={{margin:"30px 10px"}}>
@@ -16,7 +26,7 @@ const CheckoutPage = (props) => {
                     <Accordion.Toggle as={Card.Header} eventKey="0" style={{width:"800px"}}>Select a delivery address</Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                     <Card.Body>
-                        <AddressList/>
+                        <AddressList setSelectedAddress={setSelectedAddress}/>
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
@@ -52,7 +62,7 @@ const CheckoutPage = (props) => {
                 <h4>Rs. {props.location?.state?.total+props.location?.state?.delivery}</h4>
             </div>
             <div className="checkout__btn">
-                <Button variant="success" onClick={placeOrder}>Place Order</Button>
+                <Button variant="success" onClick={placeOrder} disabled={isInvalidOrder()}>Place Order</Button>
             </div>
             </div>
         </div>
@@ -61,7 +71,7 @@ const CheckoutPage = (props) => {
 
 export default CheckoutPage
 
-const AddressList = ()=>{
+const AddressList = ({setSelectedAddress})=>{
     const [addressList,setAddressList] = useState([])
     const [updater,setUpdater] =  useState(false);
 
@@ -79,7 +89,7 @@ const AddressList = ()=>{
     }, [updater])
 
     const addresses = addressList.map((item,index) =>{
-       return <AddressCard data={item} setUpdater={setUpdater} key={index}/>
+       return <AddressCard data={item} setUpdater={setUpdater} key={index} setSelectedAddress={setSelectedAddress}/>
     })
 
     return(
@@ -88,7 +98,7 @@ const AddressList = ()=>{
         </div>
     )
 }
-const AddressCard = ({data,setUpdater})=>{
+const AddressCard = ({data, setUpdater, setSelectedAddress})=>{
     const handleEdit = (e)=>{
 
     }
@@ -106,7 +116,7 @@ const AddressCard = ({data,setUpdater})=>{
             <p>{data.city+', '+data.state}</p>
             <p>{data.zip+', Ph:'+data.phone}</p>
             <div className="addresscard__buttons">
-                <Button variant="success">Deliver to this address</Button>
+                <Button variant="success" onClick={()=>setSelectedAddress(data)}>Deliver to this address</Button>
                 <div style={{display:'flex',columnGap:"10px"}}>
                     <Button variant="warning" style={{width:"50%"}} onClick={handleEdit}>Edit</Button>
                     <Button variant="danger" style={{width:"50%"}} onClick={handleDelete}>Delete</Button>
