@@ -2,17 +2,17 @@ import React from 'react'
 import './CartInvoice.css'
 import {Button} from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+const CartInvoice = ({total,delivery,cart}) => {
 
-const CartInvoice = ({total,delivery}) => {
     const history = useHistory()
+    console.log("cartpage rendered")
     const checkOut = () =>{
-        history.push({
-            pathname:'/checkout',
-            state:{
-                total:total,
-                delivery: delivery,
-            }
-        })
+        history.push(`/checkout/${cart[0]._id}`)
+    }
+
+    const isCartEmpty =() =>{
+        if (cart.length > 0) return false
+        else return true
     }
     return (
         <div className="cartinvoice">
@@ -29,7 +29,7 @@ const CartInvoice = ({total,delivery}) => {
                 <h4>Rs. {total+delivery}</h4>
             </div>
             <div className="checkout__btn">
-                <Button variant="success" onClick={checkOut}>Checkout</Button>
+                <Button variant="success" onClick={checkOut} disabled={isCartEmpty()}>Checkout</Button>
             </div>
         </div>
     )

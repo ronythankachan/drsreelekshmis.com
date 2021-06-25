@@ -26,7 +26,7 @@ const CartPage = () => {
                 </div>
                 <div className="cartpage__right">
                     <CartHeader title="Total"/>
-                    <CartInvoice total={total} delivery={delivery} userId={user.userId}/>
+                    <CartInvoice total={total} delivery={delivery} userId={user.userId} cart={cart}/>
                 </div>
             </div>
         </div>
