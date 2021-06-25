@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './ProductCard.css'
-import { Button } from 'react-bootstrap'
+import { Button,Spinner} from 'react-bootstrap'
 import backend from '../axios'
 import { useContext } from 'react'
 import { UserContext } from '../App'
@@ -9,20 +9,21 @@ import { useHistory } from 'react-router-dom'
 const ProductCard = ({data}) => {
     const history = useHistory()
     const {user,cartUpdated,setCartUpdated} =useContext(UserContext)
-    const [alertClasses,setAlertClasses] = useState("simple__alert alert__hide")
+    const [alertClasses,setAlertClasses] = useState("alert__hide")
     const [alertMsg,setAlertMsg] =useState()
+    const [addToCartClicked, setAddToCartClicked] =useState(false)
+
+    const addToCartBtnText = () =>{
+        return addToCartClicked ?  <div style={{display:"flex",alignItems:"center"}}><Spinner animation="border" size="sm" style={{marginRight:"5px"}}/>Adding...</div>:<div className="logintxt">Add to Cart</div>
+    }
+
     const addToCart =(medicineId)=>{
-        setAlertClasses("simple__alert alert__hide")
         if(user){
+            setAddToCartClicked(true)
             backend.post('/api/add_to_cart',{userId:user.userId,medicineId:medicineId,quantity:1}).then(
                 ()=>{
-                    setAlertClasses("simple__alert")
-                    setAlertMsg("Added to cart")
                     setCartUpdated(!cartUpdated)
-                    setTimeout(() => {
-                        setAlertClasses("simple__alert alert__hide")
-                        setAlertMsg('')
-                    }, 2000);
+                    setAddToCartClicked(false)
                 },(error)=>{
                     console.log("failed to add item to cart",error)
                 }
@@ -50,12 +51,12 @@ const ProductCard = ({data}) => {
             <small>{data.description}</small>
             <h3>Rs. {data.price}</h3>
             <div className="productcard__buttons">
-                <Button variant="warning" onClick={()=>addToCart(data._id)}>Add to Cart</Button>
+                <Button variant="warning" onClick={()=>addToCart(data._id)}><Spinner/>{addToCartBtnText()}</Button>
                 <Button variant="success" onClick={()=>buyNow(data._id)}>Buy Now</Button>
             </div>
-            <div className={alertClasses}>
-                {alertMsg}
-            </div>
+            {
+                user?null:<div className={alertClasses}>{alertMsg}</div>
+            }
         </div>
     )
 }
