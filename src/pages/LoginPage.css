@@ -1,88 +1,88 @@
-.loginpage{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+.loginpage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
-.loginpage__container{
-    width: 700px;
-    height: 500px;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: white;
-    display: flex;
-    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
-
+.loginpage__container {
+  width: 700px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
 }
-.loginpage__info{
-    width: 30%;
-    height: 100%;
-    border-radius: 15px;
-    background-color: #1d5fbbdc;
-    color: white;
-    display: flex;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    flex-direction: column;
-    justify-content: space-between;
+.loginpage__info {
+  width: 30%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #1d5fbbdc;
+  color: white;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.loginpage__info__content{
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
+.loginpage__info__content {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
 }
-.loginpage__info___loginbtn{
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: #6b94ce69;
-    padding: 10px 20px;
-    border-radius: 15px;
+.loginpage__info___loginbtn {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #6b94ce69;
+  padding: 10px 20px;
+  border-radius: 15px;
 }
-.loginpage__info___loginbtn > button{
-    background-color: transparent;
-    border: unset;
-    color: white;
-    width: fit-content;
-    font-weight: bold;
+.loginpage__info___loginbtn > button {
+  background-color: transparent;
+  border: unset;
+  color: white;
+  width: fit-content;
+  font-weight: bold;
 }
-.loginpage__form{
-    margin-left: 10px;
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.loginpage__form {
+  margin-left: 10px;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.loginpage__info___loginbtn > button:hover{
-    color: lightgrey;
-}
-
-.loginpage__form{
-    width: 70%;
-    height: 100%;
+.loginpage__info___loginbtn > button:hover {
+  color: lightgrey;
 }
 
-@media screen and (max-width:768px){
-    .loginpage__container{
-        width: 100%;
-        flex-direction: column;
-        height: fit-content;
-        padding:unset;
-        border-radius: unset;
-    }
-    .loginpage__info,.loginpage__form{
-        width: 100%;
-        padding: unset;
-        border-radius: unset;
-    }
-    .loginpage__form{
-        padding: 40px 0px;
-        margin: unset;
-    }
-    .loginpage{
-        align-items: unset;
-    }
+.loginpage__form {
+  width: 70%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .loginpage__container {
+    width: 100%;
+    flex-direction: column;
+    height: fit-content;
+    padding: unset;
+    border-radius: unset;
+  }
+  .loginpage__info,
+  .loginpage__form {
+    width: 100%;
+    padding: unset;
+    border-radius: unset;
+  }
+  .loginpage__form {
+    padding: 40px 0px;
+    margin: unset;
+  }
+  .loginpage {
+    align-items: unset;
+  }
 }

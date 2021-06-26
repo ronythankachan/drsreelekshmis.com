@@ -1,24 +1,27 @@
-.panchakarma{
-    max-width: 1200px;
-    padding: 30px;
-    font-family: 'Poppins', sans-serif;
+.panchakarma {
+  max-width: 1200px;
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
 }
-h1, h2, h3, h5 {
-    line-height: 4rem;
-    font-weight: bold;
+h1,
+h2,
+h3,
+h5 {
+  line-height: 4rem;
+  font-weight: bold;
 }
-ul{
-    list-style:circle;
-    margin-left: 20px;
+ul {
+  list-style: circle;
+  margin-left: 20px;
 }
-.book__button{
-    font-size: 1.3rem;
-    float: right;
-    margin-top: 20px;
+.book__button {
+  font-size: 1.3rem;
+  float: right;
+  margin-top: 20px;
 }
-@media screen and (max-width:768px){
-    .book__button{
-        float: left;
-        font-size: 1rem;
-    }
+@media screen and (max-width: 768px) {
+  .book__button {
+    float: left;
+    font-size: 1rem;
+  }
 }

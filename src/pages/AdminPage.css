@@ -1,9 +1,9 @@
-.adminpage{
-    min-height: 100vh;
-    display: flex;
+.adminpage {
+  min-height: 100vh;
+  display: flex;
 }
-@media screen and (max-width:1200px){
-    .adminpage{
-        flex-direction: column;
-    }
+@media screen and (max-width: 1200px) {
+  .adminpage {
+    flex-direction: column;
+  }
 }

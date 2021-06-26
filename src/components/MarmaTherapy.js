@@ -1,12 +1,8 @@
-import React from 'react'
-import "./MarmaTherapy.css"
+import React from "react";
+import "./MarmaTherapy.css";
 
 const MarmaTherapy = () => {
-    return (
-        <div className="marmatherapy">
-            marma therapy
-        </div>
-    )
-}
+  return <div className="marmatherapy">marma therapy</div>;
+};
 
-export default MarmaTherapy
+export default MarmaTherapy;

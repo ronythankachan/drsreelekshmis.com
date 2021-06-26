@@ -1,95 +1,96 @@
-.hero{
-    width: 100%;
-    height: 50vh;
-    position: relative;
-    text-align: center;
-    color: #fff;
-    background-color: rgb(0, 0, 0);
-    min-height: fit-content;
-    font-family: 'Poppins', sans-serif;
+.hero {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background-color: rgb(0, 0, 0);
+  min-height: fit-content;
+  font-family: "Poppins", sans-serif;
 }
-.hero__video > video{
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-    opacity: .5;
-
+.hero__video > video {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  opacity: 0.5;
 }
-.hero__title{
-    margin-top: 80px;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.hero__title {
+  margin-top: 80px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.hero__title >h1{
-    font-weight: bolder;
+.hero__title > h1 {
+  font-weight: bolder;
 }
-.hero__title >h4{
-    color: darkgrey;
-    font-weight: bolder;
-    font-size: 1.2rem;
-}
-
-.hero__buttons >button, .green__button{
-    border-radius:50px;
-    background:#01bf71;
-    white-space:nowrap;
-    padding:10px 22px;
-    color: #010606;
-    font-size: 16px;
-    outline:none;
-    border: none;
-    cursor:pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration:none;
-    margin:10px 5px;
-}
-.green__button:hover{
-    transition:all 0.2s ease-in-out;
-    background:#fff;
-    color:#106060 !important;
-}
-.hero__buttons >button:hover{
-    transition:all 0.2s ease-in-out;
-    background:#fff;
-    color:#106060;
-
-}
-.black{
-    color: #010606;
-}
-.btn-primary:focus, .btn-primary:active{
-    color: #010606;
-    border-color: unset;
-    box-shadow: unset;
+.hero__title > h4 {
+  color: darkgrey;
+  font-weight: bolder;
+  font-size: 1.2rem;
 }
 
-@media screen and (max-width:1200px){
-    .hero__buttons{
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-        justify-content: center;
-    }
-    .hero__buttons > button, .green__button{
-        width: 260px;
-    }
-    .hero__video >video{
-        height: 100vh;
-    }
-    .hero{
-        height: 100vh;
-    }
+.hero__buttons > button,
+.green__button {
+  border-radius: 50px;
+  background: #01bf71;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: #010606;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  margin: 10px 5px;
 }
-@media screen and (max-width:320px){
-    .hero__video >video{
-        height: 120vh;
-    }
-    .hero{
-        height: 120vh;
-    }
-    .hero__title{
-        margin-top: 100px;
-    }
+.green__button:hover {
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+  color: #106060 !important;
+}
+.hero__buttons > button:hover {
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+  color: #106060;
+}
+.black {
+  color: #010606;
+}
+.btn-primary:focus,
+.btn-primary:active {
+  color: #010606;
+  border-color: unset;
+  box-shadow: unset;
+}
+
+@media screen and (max-width: 1200px) {
+  .hero__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero__buttons > button,
+  .green__button {
+    width: 260px;
+  }
+  .hero__video > video {
+    height: 100vh;
+  }
+  .hero {
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 320px) {
+  .hero__video > video {
+    height: 120vh;
+  }
+  .hero {
+    height: 120vh;
+  }
+  .hero__title {
+    margin-top: 100px;
+  }
 }

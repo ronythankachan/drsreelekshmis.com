@@ -1,50 +1,49 @@
-.myaccountpage{
-    min-height: 100vh;
-    display: flex;
+.myaccountpage {
+  min-height: 100vh;
+  display: flex;
 }
-.sidepanel__items{
-    display: flex;
+.sidepanel__items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  font-family: "Manrope" !important;
+}
+.sidepanel__items > button {
+  color: black;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding: 10px 30px;
+  border: 1px solid lightgray;
+  background: #24292e09;
+  margin: -1px 15px 0px 10px;
+  border-radius: 3px;
+  transition: 0.1s;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.sidepanel__items > button:hover {
+  border-left: 2px solid #f66a0a;
+  color: #0f56b3;
+  background-color: #24292e1c;
+}
+.form-label {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #24292e;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.resetpassword {
+  width: 100%;
+  margin: 0px 40px;
+}
+.resetpassword__form > .form-group > .form-control {
+  max-width: 350px;
+  width: 250px;
+}
+@media screen and (max-width: 1200px) {
+  .myaccountpage {
     flex-direction: column;
-    margin-top: 30px;
-    font-family: 'Manrope' !important;
-}
-.sidepanel__items > button{
-    color: black;
-    display: flex;
-    align-items: center;
-    column-gap: 20px;
-    padding:10px 30px;
-    border: 1px solid lightgray;
-    background: #24292e09;
-    margin: -1px 15px 0px 10px;
-    border-radius: 3px;
-    transition: 0.1s;
-    font-weight: bold;
-    font-size: .8rem;
-}
-.sidepanel__items > button:hover{
-    border-left: 2px solid #f66a0a;
-    color: #0F56B3;
-    background-color: #24292e1c;
-}
-.form-label{
-    font-size: 14px;
-    line-height: 1.5;
-    color: #24292e;
-    font-weight: 600;
-    margin-left: 2px;
-}
-.resetpassword{
-    width: 100%;
-    margin: 0px 40px;
-}
-.resetpassword__form > .form-group > .form-control{
-    max-width: 350px;
-    width: 250px;
-}
-@media screen and (max-width:1200px) {
-    .myaccountpage{
-        flex-direction: column;
-    }
-    
+  }
 }

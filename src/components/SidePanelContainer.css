@@ -1,45 +1,45 @@
-.sidepanelcontainer{
-    position: relative;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100%;
-    background-color: white;
-    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
-    -webkit-transition: all ease .2s;
-    transition: all ease .6s;
+.sidepanelcontainer {
+  position: relative;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100%;
+  background-color: white;
+  box-shadow: 0 7px 30px -10px rgba(150, 170, 180, 0.5);
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.6s;
 }
-.minimize_button{
-    position: absolute;
-    right: 0;
-    top:0px;
-    margin-right: -13px;
-    z-index: 2;
+.minimize_button {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  margin-right: -13px;
+  z-index: 2;
 }
-.minimize_button > button{
-    border-radius: 50px;
-    width: 20px;
-    height: 20px;
-    font-size: 10px;
-    color: black;
-    font-weight: bolder;
-    border: transparent;
-    border: 1px solid #b8cdd8;
-    box-shadow: 0 0 4px 0 rgb(0 0 0 / 25%);
-    cursor: pointer;
+.minimize_button > button {
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  color: black;
+  font-weight: bolder;
+  border: transparent;
+  border: 1px solid #d0e7f3;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 25%);
+  cursor: pointer;
 }
-.minimize{
-    margin-left: -230px;
+.minimize {
+  margin-left: -230px;
 }
-@media screen and (max-width:1200px){
-    .sidepanelcontainer{
-        position: unset;
-        width: 100%;
-        height: fit-content;
-        padding: 10px;
-        max-width: unset;
-        min-width: unset;
-    }
-    .minimize_button{
-        display: none;
-    }
+@media screen and (max-width: 1200px) {
+  .sidepanelcontainer {
+    position: unset;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    max-width: unset;
+    min-width: unset;
+  }
+  .minimize_button {
+    display: none;
+  }
 }
