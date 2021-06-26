@@ -14,7 +14,6 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ShoppingPage from "./pages/ShoppingPage";
 import PanchakarmaPage from "./pages/PanchakarmaPage";
-import MarmaTherapyPage from "./pages/MarmaTherapyPage";
 import PostDeliveryCarePage from "./pages/PostDeliveryCarePage";
 import SwarnaPrashanaPage from "./pages/SwarnaPrashanaPage";
 import YogaPage from "./pages/YogaPage";
@@ -67,7 +66,6 @@ function App() {
         <Route path="/appointments" component={AdminPanel} />
         <Route path="/rejuvenation" component={RejuvenationPage} />
         <Route path="/panchakarma" component={PanchakarmaPage} />
-        <Route path="/marma_therapy" component={MarmaTherapyPage} />
         <Route path="/post_delivery_care" component={PostDeliveryCarePage} />
         <Route path="/swarna_prashana" component={SwarnaPrashanaPage} />
         <Route path="/yoga" component={YogaPage} />
