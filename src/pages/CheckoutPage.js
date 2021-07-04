@@ -5,30 +5,32 @@ import "./CheckoutPage.css";
 import AddressForm from "../components/AddressForm";
 import PaymentSelector from "../components/PaymentSelector";
 import AddressCard from "../components/AddressCard";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
 const CheckoutPage = (props) => {
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [cart, setCart] = useState([]);
-  console.log("cart is", cart);
-  const placeOrder = () => {
-    alert("Order placed successfully");
-  };
+  const { cart, setCart } = useContext(UserContext);
 
-  useEffect(() => {
-    const getCartItems = async () => {
-      try {
-        const response = await backend.get("/api/get_cart_items", {
-          params: { userId: localStorage.getItem("userId") },
-        });
-        setCart(response.data);
-        return response.data;
-      } catch (error) {
-        console.log(error);
-        return [];
-      }
-    };
-    getCartItems();
-  }, []);
+  // Calculate total amount and delivery charge
+  var total = 0;
+  var delivery = cart.length === 0 ? 0 : 20;
+  for (var i = 0; i < cart.length; i++) {
+    total += cart[i].price * cart[i].quantity;
+  }
+
+  const placeOrder = async () => {
+    const response = await backend.post("/api/place_order", {
+      userId: localStorage.getItem("userId"),
+      cartId: props.match.params.cartId,
+    });
+    if (response.statusText === "OK") {
+      setCart([]);
+      alert("Order placed successfully");
+    } else {
+      alert(response.statusText);
+    }
+  };
 
   const isInvalidOrder = () => {
     if (selectedAddress) return false;
@@ -76,17 +78,15 @@ const CheckoutPage = (props) => {
         <h3 className="subheading">Summary</h3>
         <div className="cartinvoice__item">
           <p>Amount</p>
-          <p>Rs. {props.location?.state?.total}</p>
+          <p>Rs. {total}</p>
         </div>
         <div className="cartinvoice__item">
           <p>Delivery</p>
-          <p>Rs. {props.location?.state?.delivery}</p>
+          <p>Rs. {delivery}</p>
         </div>
         <div className="cartinvoice__item">
           <h4>Sub-total</h4>
-          <h4>
-            Rs. {props.location?.state?.total + props.location?.state?.delivery}
-          </h4>
+          <h4>Rs. {total + delivery}</h4>
         </div>
         <div className="checkout__btn">
           <Button

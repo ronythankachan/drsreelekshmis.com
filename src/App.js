@@ -69,10 +69,10 @@ function App() {
         <Route path="/post_delivery_care" component={PostDeliveryCarePage} />
         <Route path="/swarna_prashana" component={SwarnaPrashanaPage} />
         <Route path="/yoga" component={YogaPage} />
-        <Route exact path="/checkout/:cartId" component={CheckoutPage} />
         <UserContext.Provider
           value={{ user, setUser, cart, setCart, cartUpdated, setCartUpdated }}
         >
+          <Route exact path="/checkout/:cartId" component={CheckoutPage} />
           <Route path="/login" component={Loginpage} />
           <Route path="/shop" component={ShoppingPage} />
           <Route
