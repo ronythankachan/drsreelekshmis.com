@@ -97,6 +97,7 @@ const CheckoutPage = (props) => {
             Place Order
           </Button>
         </div>
+        <small>* Cash on Delivery.</small>
       </div>
     </div>
   );
@@ -133,5 +134,6 @@ const AddressList = ({ selectedAddress, setSelectedAddress }) => {
     );
   });
 
-  return <div className="addresses">{addresses}</div>;
+  if (addresses.length) return <div className="addresses">{addresses}</div>;
+  else return <h4>Add an address</h4>;
 };

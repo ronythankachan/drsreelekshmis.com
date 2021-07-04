@@ -8,6 +8,7 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import { useFormik } from "formik";
 import backend from "../axios";
+import Orders from "../components/Orders";
 
 const MyAccountPage = () => {
   const [sidePanelControl, setSidePanelControl] = useState("orders");
@@ -35,7 +36,7 @@ const PageContent = ({ sidePanelControl }) => {
     case "resetPassword":
       return <ResetPasswordForm />;
     case "orders":
-      return <p>Orders Page</p>;
+      return <Orders />;
     default:
       return null;
   }

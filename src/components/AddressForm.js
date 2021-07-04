@@ -1,7 +1,46 @@
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import { useFormik } from "formik";
+import backend from "../axios";
+import LoadingButton from "./LoadingButton";
+import { useState } from "react";
+
+const indianStates = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chandigarh",
+  "Chhattisgarh",
+  "Delhi",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jammu and Kashmir",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Ladakh",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Punjab",
+  "Puducherry",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+];
 
 const AddressForm = () => {
+  const [loading, setLoading] = useState(false);
   const validate = (values) => {
     const errors = {};
     if (!values.firstName) errors.firstName = "Required field";
@@ -9,7 +48,8 @@ const AddressForm = () => {
     if (!values.zip) errors.zip = "Required field";
     if (!values.addressLine1) errors.addressLine1 = "Required field";
     if (!values.city) errors.city = "Required field";
-    if (!values.state) errors.kerala = "Required field";
+    if (!values.state || values.state === "Choose...")
+      errors.state = "Required field";
     return errors;
   };
   const formik = useFormik({
@@ -25,7 +65,20 @@ const AddressForm = () => {
       landMark: "",
     },
     validate,
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      setLoading(true);
+      const addAddress = async () => {
+        const response = await backend.post("/api/add_address", {
+          ...values,
+          userId: localStorage.getItem("userId"),
+        });
+        if (response.statusText === "OK") {
+          setLoading(false);
+          alert("Address added successfully");
+        }
+      };
+      addAddress();
+    },
   });
 
   return (
@@ -156,10 +209,10 @@ const AddressForm = () => {
               onBlur={formik.handleBlur}
               isInvalid={formik.touched.state && formik.errors.state}
             >
-              <option>Kerala</option>
-              <option>TamilNadu</option>
-              <option>Karnataka</option>
-              <option>Mumbai</option>
+              <option>Choose...</option>
+              {indianStates.map((state) => (
+                <option>{state}</option>
+              ))}
             </Form.Control>
             {formik.touched.state && formik.errors.state ? (
               <div className="error">{formik.errors.state}</div>
@@ -171,9 +224,13 @@ const AddressForm = () => {
         <Form.Label>Delivery Instructions</Form.Label>
         <Form.Control as="textarea" rows={3} />
       </Form.Group>
-      <Button variant="success" type="submit">
-        Add Address
-      </Button>
+      <LoadingButton
+        variant="success"
+        type="submit"
+        loadingText="Adding..."
+        text="Add Address"
+        loading={loading}
+      />
     </Form>
   );
 };
