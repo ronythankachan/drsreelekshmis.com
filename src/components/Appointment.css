@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  row-gap: 10px;
 }
 .avatar > img {
   width: 100px;
@@ -55,6 +56,7 @@
   font-size: 1.3rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
 }
 .others > p {
   font-size: 1rem;
@@ -88,18 +90,10 @@
   }
   .more__info > h1 {
     line-height: 1.2rem;
-    margin-top: 60px;
   }
   .avatar > img {
     width: 70px;
     height: 70px;
-  }
-  .type {
-    font-size: 0.6rem;
-  }
-  .avatar {
-    margin-top: 50px;
-    margin-bottom: 50px;
   }
   .others > p {
     font-size: 0.8rem;
