@@ -9,7 +9,7 @@
 }
 
 .order {
-  max-width: 700px;
+  width: 700px;
   height: 300px;
   border: 1px solid lightgray;
   border-radius: 12px;
@@ -75,6 +75,7 @@
 }
 @media screen and (max-width: 720px) {
   .order {
+    width: fit-content;
     height: fit-content;
   }
   .order__header {

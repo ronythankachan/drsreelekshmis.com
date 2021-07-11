@@ -1,65 +1,111 @@
 import React, { useState, useEffect } from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import backend from "../axios";
+import LoadingButton from "./LoadingButton";
 import "./Orders.css";
+
+const orders = [
+  {
+    id: "18923434896",
+    date: "21 June 2021",
+    name: "Ashta Choornam",
+    price: 340,
+    quantity: 3,
+    status: "Processing",
+    img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
+  },
+  {
+    id: "28923434895",
+    date: "21 June 2021",
+    name: "Ayur Tablets",
+    price: 240,
+    quantity: 2,
+    status: "Shipped",
+    img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
+  },
+  {
+    id: "1892734894",
+    date: "21 June 2021",
+    name: "Kanti Choornam",
+    price: 340,
+    quantity: 3,
+    status: "Delivered",
+    img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
+  },
+];
+const status = {
+  Processing: 10,
+  Shipped: 60,
+  Delivered: 100,
+};
 const Orders = () => {
-  const [orders, setOrders] = useState(null);
+  // const [orders, setOrders] = useState(null);
 
-  useEffect(() => {
-    const getOrders = async () => {
-      const response = await backend.get("api/get_orders", {
-        params: {
-          userId: localStorage.getItem("userId"),
-        },
-      });
-      setOrders(response.data);
-    };
-    getOrders();
-  }, []);
+  // useEffect(() => {
+  //   const getOrders = async () => {
+  //     const response = await backend.get("api/get_orders", {
+  //       params: {
+  //         userId: localStorage.getItem("userId"),
+  //       },
+  //     });
+  //     setOrders(response.data);
+  //   };
+  //   getOrders();
+  // }, []);
 
-  console.log(orders);
+  // console.log(orders);
   return (
     <div className="orders">
       <h4 className="subheading">Your Orders</h4>
-      <Order />
-      <Order />
-      <Order />
-
+      {orders.map((order) => (
+        <Order order={order} />
+      ))}
     </div>
   );
 };
 
 export default Orders;
 
-const Order = () => {
+const Order = ({ order }) => {
+  const cancelOrder = () => {
+    alert("cancel");
+  };
+  const returnItem = () => {
+    alert("return");
+  };
   return (
     <div className="order">
       <div className="order__header">
         <div className="order__header__date">
           <p>ORDER PLACED</p>
-          <p>2021 June 23</p>
+          <p>{order.date}</p>
         </div>
         <div className="order__header__total">
           <p>TOTAL</p>
-          <p>Rs. 820</p>
+          <p>Rs. {order.price * order.quantity}</p>
         </div>
         <div className="order__header__id">
           <p>ORDER ID</p>
-          <p>#234681634</p>
+          <p>#{order.id}</p>
         </div>
       </div>
       <div className="order__body">
-        <img
-          src="https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg"
-          alt=""
-        />
+        <img src={order.img} alt="Medicine" />
         <div className="order__body__data">
           <div className="order__body__details">
-            <h4>Ashta Choornam</h4>
-            <p>Quantity: 3</p>
+            <h4>{order.name}</h4>
+            <p>Quantity: {order.quantity}</p>
           </div>
           <div className="order__body__buttons">
-            <Button size="sm" variant="dark">Cancel Order</Button>
+            {order.status === "Processing" ? (
+              <Button size="sm" variant="dark" onClick={cancelOrder}>
+                Cancel Order
+              </Button>
+            ) : order.status === "Delivered" ? (
+              <Button size="sm" variant="dark" onClick={returnItem}>
+                Return Item
+              </Button>
+            ) : null}
           </div>
         </div>
       </div>
@@ -69,7 +115,7 @@ const Order = () => {
           <small>Shipped</small>
           <small>Delivered</small>
         </div>
-        <ProgressBar variant="success" animated now={50} />
+        <ProgressBar variant="success" animated now={status[order.status]} />
       </div>
     </div>
   );

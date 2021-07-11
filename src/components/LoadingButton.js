@@ -1,7 +1,14 @@
 import { Button, Spinner } from "react-bootstrap";
 import React from "react";
 
-const LoadingButton = ({ variant, type, loading, loadingText, text }) => {
+const LoadingButton = ({
+  variant,
+  type,
+  loading,
+  loadingText,
+  text,
+  onClickFn,
+}) => {
   const buttonText = () => {
     return loading ? (
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -14,11 +21,16 @@ const LoadingButton = ({ variant, type, loading, loadingText, text }) => {
   };
   if (type)
     return (
-      <Button variant={variant} type={type}>
+      <Button variant={variant} type={type} onClick={onClickFn}>
         {buttonText()}
       </Button>
     );
-  else return <Button variant={variant}>{buttonText()}</Button>;
+  else
+    return (
+      <Button variant={variant} onClick={onClickFn}>
+        {buttonText()}
+      </Button>
+    );
 };
 
 export default LoadingButton;
