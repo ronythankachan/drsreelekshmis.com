@@ -2,7 +2,8 @@
 
 .appointment {
   width: 450px;
-  height: 250px;
+  max-width: 450px;
+  height: fit-content;
   background-color: #fceeb5;
   background: linear-gradient(#92bca6, #a2ccb6);
   box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
@@ -24,15 +25,24 @@
   white-space: nowrap;
   width: fit-content;
   margin: 0 auto;
-  margin-top: 25px;
 }
 .card__left {
   width: 35%;
   border-right: 1px solid rgba(0, 0, 0, 0.116);
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 20px;
 }
 .card__right {
   width: 65%;
-  padding: 0px 15px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
 }
 .avatar > img {
   width: 100px;
@@ -40,17 +50,10 @@
   border-radius: 50px;
   object-fit: cover;
 }
-.avatar {
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
 .more__info > h1 {
   color: #224c36;
   font-size: 1.3rem;
   font-weight: bold;
-  margin-top: 30px;
-  padding-bottom: 0px;
   text-transform: uppercase;
   text-align: center;
 }
@@ -61,7 +64,6 @@
   justify-content: space-between;
 }
 .others {
-  margin-top: 20px;
   line-height: 0rem;
   color: #224c36;
 }
@@ -72,15 +74,14 @@
 }
 .card__address {
   color: #224c36;
-  position: absolute;
-  bottom: 0px;
   text-align: center;
+  font-weight: bolder;
 }
 .time {
   position: absolute;
   right: 15px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .appointment {
     width: 100%;
     padding: 0px;
@@ -88,18 +89,10 @@
   }
   .more__info > h1 {
     line-height: 1.2rem;
-    margin-top: 60px;
   }
   .avatar > img {
     width: 70px;
     height: 70px;
-  }
-  .type {
-    font-size: 0.6rem;
-  }
-  .avatar {
-    margin-top: 50px;
-    margin-bottom: 50px;
   }
   .others > p {
     font-size: 0.8rem;
