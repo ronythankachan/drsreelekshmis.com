@@ -7,7 +7,7 @@ import ZipControl from "./ZipControl";
 
 const AdminControls = ({ setFilters }) => {
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <Accordion>
         <Card>
           <Accordion.Toggle as={Card.Header} eventKey="0">
