@@ -94,7 +94,7 @@ const Order = ({ order }) => {
         <div className="order__body__data">
           <div className="order__body__details">
             <h4>{order.name}</h4>
-            <p>Quantity: {order.quantity}</p>
+            <p>{order.quantity} items</p>
           </div>
           <div className="order__body__buttons">
             {order.status === "Processing" ? (
