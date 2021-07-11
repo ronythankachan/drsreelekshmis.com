@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button, ProgressBar } from "react-bootstrap";
-import backend from "../axios";
-import LoadingButton from "./LoadingButton";
 import "./Orders.css";
 
 const orders = [
@@ -17,11 +15,11 @@ const orders = [
   {
     id: "28923434895",
     date: "21 June 2021",
-    name: "Ayur Tablets",
+    name: "COVIShield Vaccine",
     price: 240,
     quantity: 2,
     status: "Shipped",
-    img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
+    img: "https://images.financialexpress.com/2021/02/covishield-2.jpg",
   },
   {
     id: "1892734894",
@@ -30,7 +28,7 @@ const orders = [
     price: 340,
     quantity: 3,
     status: "Delivered",
-    img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
+    img: "https://img.etimg.com/thumb/msid-76075220,width-1200,height-900/industry/healthcare/biotech/pharmaceuticals/government-frees-exports-of-paracetamol-apis.jpg",
   },
 ];
 const status = {
@@ -90,7 +88,7 @@ const Order = ({ order }) => {
         </div>
       </div>
       <div className="order__body">
-        <img src={order.img} alt="Medicine" />
+        <img src={order.img} alt="" />
         <div className="order__body__data">
           <div className="order__body__details">
             <h4>{order.name}</h4>
