@@ -60,7 +60,14 @@ function App() {
         setUser={setUser}
         setCart={setCart}
       />
-      <Sidebar isOpen={isOpen} toggle={toggle} cartCount={cart.length} />
+      <Sidebar
+        isOpen={isOpen}
+        toggle={toggle}
+        cartCount={cart.length}
+        user={user}
+        setUser={setUser}
+        setCart={setCart}
+      />
       <ScrollToTop />
       <Switch>
         <Route exact path="/" component={HomePage} />
