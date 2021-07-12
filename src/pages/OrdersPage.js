@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, ProgressBar } from "react-bootstrap";
-import "./Orders.css";
+import "./OrdersPage.css";
+
 
 const orders = [
   {
@@ -36,22 +37,7 @@ const status = {
   Shipped: 60,
   Delivered: 100,
 };
-const Orders = () => {
-  // const [orders, setOrders] = useState(null);
-
-  // useEffect(() => {
-  //   const getOrders = async () => {
-  //     const response = await backend.get("api/get_orders", {
-  //       params: {
-  //         userId: localStorage.getItem("userId"),
-  //       },
-  //     });
-  //     setOrders(response.data);
-  //   };
-  //   getOrders();
-  // }, []);
-
-  // console.log(orders);
+const OrdersPage = () => {
   return (
     <div className="orders">
       <h4 className="subheading">Your Orders</h4>
@@ -62,7 +48,7 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default OrdersPage;
 
 const Order = ({ order }) => {
   const cancelOrder = () => {

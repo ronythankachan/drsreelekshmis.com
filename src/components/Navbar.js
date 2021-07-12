@@ -14,6 +14,7 @@ const Navbar = ({ user, setUser, toggle, cartCount, setCart }) => {
     setCart([]);
     history.push("/");
   };
+
   return (
     <div className="navbar__container">
       <div className="header">
@@ -66,9 +67,32 @@ const Navbar = ({ user, setUser, toggle, cartCount, setCart }) => {
           </div>
           <div className="account__info">
             <NavDropdown title="Account">
-              <NavDropdown.Item>
-                <Link to="/account">My Account</Link>
-              </NavDropdown.Item>
+              {user && user.userType === "client" ? (
+                <>
+                  <NavDropdown.Item>
+                    <Link to="/orders">Orders &amp; Returns</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/settings">Account Settings</Link>
+                  </NavDropdown.Item>
+                </>
+              ) : user && user.userType === "admin" ? (
+                <>
+                  <NavDropdown.Item>
+                    <Link to="/manage_appointments">Appointments</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/manage_products">Products</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/manage_orders">Orders</Link>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/admin_settings">Settings</Link>
+                  </NavDropdown.Item>
+                </>
+              ) : null}
+
               {user ? (
                 <button onClick={signOut}>Sign Out</button>
               ) : (

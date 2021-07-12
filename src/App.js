@@ -23,12 +23,16 @@ import RejuvenationPage from "./pages/RejuvenationPage";
 import AdminPanel from "./components/AdminPanel";
 import BookAppointmentPage from "./pages/BookAppointmentPage";
 import Loginpage from "./pages/LoginPage";
-import MyAccountPage from "./pages/MyAccountPage";
 import CartPage from "./pages/CartPage";
-import AdminPage from "./pages/AdminPage";
 import { createContext } from "react";
 import CheckoutPage from "./pages/CheckoutPage";
 import useCart from "./components/useCart";
+import ManageAppointmentsPage from "./pages/ManageAppointmentsPage";
+import ManageProductsPage from "./pages/ManageProductsPage";
+import ManageOrdersPage from "./pages/ManageOrdersPage";
+import AdminSettingsPage from "./pages/AdminSettingsPage";
+import OrdersPage from "./pages/OrdersPage";
+import ClientSettingsPage from "./pages/ClientSettingsPage";
 
 export const UserContext = createContext();
 
@@ -76,32 +80,6 @@ function App() {
           <Route path="/login" component={Loginpage} />
           <Route path="/shop" component={ShoppingPage} />
           <Route
-            path="/account"
-            component={() => {
-              if (user) {
-                if (user.userType === "admin") return <AdminPage />;
-                else if (user.userType === "client") return <MyAccountPage />;
-                else
-                  return (
-                    <Redirect
-                      to={{
-                        pathname: "/login",
-                        state: { redirectUri: "/account" },
-                      }}
-                    />
-                  );
-              } else
-                return (
-                  <Redirect
-                    to={{
-                      pathname: "/login",
-                      state: { redirectUri: "/account" },
-                    }}
-                  />
-                );
-            }}
-          />
-          <Route
             path="/cart"
             component={() => {
               if (user) return <CartPage />;
@@ -109,6 +87,113 @@ function App() {
                 return (
                   <Redirect
                     to={{ pathname: "/login", state: { redirectUri: "/cart" } }}
+                  />
+                );
+            }}
+          />
+          <Route
+            path="/manage_appointments"
+            component={() => {
+              if (user && user.userType === "admin")
+                return <ManageAppointmentsPage />;
+              else if (user && user.userType === "client")
+                return <Redirect to={"/"} />;
+              else
+                return (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { redirectUri: "/manage_appointments" },
+                    }}
+                  />
+                );
+            }}
+          />
+          <Route
+            path="/manage_products"
+            component={() => {
+              if (user && user.userType === "admin")
+                return <ManageProductsPage />;
+              else if (user && user.userType === "client")
+                return <Redirect to={"/"} />;
+              else
+                return (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { redirectUri: "/manage_products" },
+                    }}
+                  />
+                );
+            }}
+          />
+          <Route
+            path="/manage_orders"
+            component={() => {
+              if (user && user.userType === "admin")
+                return <ManageOrdersPage />;
+              else if (user && user.userType === "client")
+                return <Redirect to={"/"} />;
+              else
+                return (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { redirectUri: "/manage_orders" },
+                    }}
+                  />
+                );
+            }}
+          />
+          <Route
+            path="/admin_settings"
+            component={() => {
+              if (user && user.userType === "admin")
+                return <AdminSettingsPage />;
+              else if (user && user.userType === "client")
+                return <Redirect to={"/"} />;
+              else
+                return (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { redirectUri: "/admin_settings" },
+                    }}
+                  />
+                );
+            }}
+          />
+          <Route
+            path="/orders"
+            component={() => {
+              if (user && user.userType === "client") return <OrdersPage />;
+              else if (user && user.userType === "admin")
+                return <Redirect to={"/"} />;
+              else
+                return (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { redirectUri: "/orders" },
+                    }}
+                  />
+                );
+            }}
+          />
+          <Route
+            path="/settings"
+            component={() => {
+              if (user && user.userType === "client")
+                return <ClientSettingsPage />;
+              else if (user && user.userType === "admin")
+                return <Redirect to={"/"} />;
+              else
+                return (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                      state: { redirectUri: "/settings" },
+                    }}
                   />
                 );
             }}

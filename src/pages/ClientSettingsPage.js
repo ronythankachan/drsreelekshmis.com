@@ -1,46 +1,20 @@
-import React from "react";
-import "./MyAccountPage.css";
-import SidePanelContainer from "../components/SidePanelContainer";
-import { Form } from "react-bootstrap";
-import { useState } from "react";
-import { FiSettings } from "react-icons/fi";
-import { FaShoppingBasket } from "react-icons/fa";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useFormik } from "formik";
 import backend from "../axios";
-import Orders from "../components/Orders";
+import { Form } from "react-bootstrap";
+import "./ClientSettingsPage.css";
 
-const MyAccountPage = () => {
-  const [sidePanelControl, setSidePanelControl] = useState("orders");
+const ClientSettingsPage = () => {
   return (
-    <div className="myaccountpage">
-      <SidePanelContainer>
-        <div className="sidepanel__items">
-          <button onClick={() => setSidePanelControl("orders")}>
-            <FaShoppingBasket />
-            My Orders
-          </button>
-          <button onClick={() => setSidePanelControl("resetPassword")}>
-            <FiSettings />
-            Settings
-          </button>
-        </div>
-      </SidePanelContainer>
-      <PageContent sidePanelControl={sidePanelControl} />
+    <div className="clientsettingspage">
+      <h4 className="subheading">Reset Password</h4>
+      <ResetPasswordForm />
     </div>
   );
 };
 
-const PageContent = ({ sidePanelControl }) => {
-  switch (sidePanelControl) {
-    case "resetPassword":
-      return <ResetPasswordForm />;
-    case "orders":
-      return <Orders />;
-    default:
-      return null;
-  }
-};
+export default ClientSettingsPage;
 
 const ResetPasswordForm = () => {
   const [msg, setMsg] = useState("");
@@ -95,7 +69,6 @@ const ResetPasswordForm = () => {
   });
   return (
     <div className="resetpassword">
-      <h5 className="subheading">Reset Password</h5>
       <Form className="resetpassword__form" onSubmit={formik.handleSubmit}>
         <Form.Group>
           <Form.Label>Current Password *</Form.Label>
@@ -153,5 +126,3 @@ const ResetPasswordForm = () => {
     </div>
   );
 };
-
-export default MyAccountPage;
