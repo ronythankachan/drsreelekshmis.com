@@ -72,9 +72,9 @@ const Navbar = ({ user, setUser, toggle, cartCount, setCart }) => {
                   <NavDropdown.Item>
                     <Link to="/orders">Orders &amp; Returns</Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
+                  {/* <NavDropdown.Item>
                     <Link to="/settings">Account Settings</Link>
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
                 </>
               ) : user && user.userType === "admin" ? (
                 <>
