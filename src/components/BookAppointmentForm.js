@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Form, Row, Col, Button } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import { useFormik } from "formik";
 import backend from "../axios";
 import Alert from "./Alert";
 import Confirm from "../images/confirm.svg";
 import Failed from "../images/sad.svg";
+import LoadingButton from "./LoadingButton";
 
 const timeMap = {
   960: "4.00 PM",
@@ -45,8 +46,7 @@ const isValidDate = (date) => {
 const BookAppointmentForm = () => {
   const [alert, setAlert] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  const [bookButtonVal, setBookButtonVal] = useState("Schedule Appointment");
+  const [loading, setLoading] = useState(false);
 
   const validate = (values) => {
     const errors = {};
@@ -125,7 +125,7 @@ const BookAppointmentForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      setBookButtonVal("Loading...");
+      setLoading(true);
       if (formik.values.time) {
         formik.values.time = parseInt(
           Object.keys(timeMap).find(
@@ -137,12 +137,12 @@ const BookAppointmentForm = () => {
         (response) => {
           setAlert(true);
           setSuccess(true);
-          setBookButtonVal("Schedule Appointment");
+          setLoading(false);
         },
         (error) => {
           setSuccess(false);
           setAlert(true);
-          setBookButtonVal("Schedule Appointment");
+          setLoading(false);
         }
       );
       formik.resetForm();
@@ -430,13 +430,21 @@ const BookAppointmentForm = () => {
             <div className="error">{formik.errors.address}</div>
           ) : null}
         </Form.Group>
-        <Button
+        {/* <Button
           variant="info"
           type="submit"
           style={{ width: "200px", height: "70px" }}
         >
           {bookButtonVal}
-        </Button>
+        </Button> */}
+
+        <LoadingButton
+          variant="dark"
+          type="submit"
+          loading={loading}
+          text="Book Appointment"
+          loadingText="Please wait.."
+        />
       </Form>
 
       {alert ? (

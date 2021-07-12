@@ -7,7 +7,7 @@ const LoadingButton = ({
   loading,
   loadingText,
   text,
-  onClickFn,
+  onClick,
 }) => {
   const buttonText = () => {
     return loading ? (
@@ -21,13 +21,13 @@ const LoadingButton = ({
   };
   if (type)
     return (
-      <Button variant={variant} type={type} onClick={onClickFn}>
+      <Button variant={variant} type={type} onClick={onClick}>
         {buttonText()}
       </Button>
     );
   else
     return (
-      <Button variant={variant} onClick={onClickFn}>
+      <Button variant={variant} onClick={onClick}>
         {buttonText()}
       </Button>
     );

@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, ProgressBar } from "react-bootstrap";
+import React, { useState } from "react";
+import { ProgressBar } from "react-bootstrap";
+import LoadingButton from "../components/LoadingButton";
 import "./OrdersPage.css";
-
 
 const orders = [
   {
@@ -51,11 +51,18 @@ const OrdersPage = () => {
 export default OrdersPage;
 
 const Order = ({ order }) => {
+  const [loading, setLoading] = useState(false);
   const cancelOrder = () => {
-    alert("cancel");
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
   const returnItem = () => {
-    alert("return");
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
   return (
     <div className="order">
@@ -81,7 +88,7 @@ const Order = ({ order }) => {
             <p>{order.quantity} items</p>
           </div>
           <div className="order__body__buttons">
-            {order.status === "Processing" ? (
+            {/* {order.status === "Processing" ? (
               <Button size="sm" variant="dark" onClick={cancelOrder}>
                 Cancel Order
               </Button>
@@ -89,6 +96,23 @@ const Order = ({ order }) => {
               <Button size="sm" variant="dark" onClick={returnItem}>
                 Return Item
               </Button>
+            ) : null} */}
+            {order.status === "Processing" ? (
+              <LoadingButton
+                onClick={cancelOrder}
+                text="Cancel Order"
+                loading={loading}
+                loadingText={"Please wait"}
+                variant="dark"
+              />
+            ) : order.status === "Delivered" ? (
+              <LoadingButton
+                onClick={returnItem}
+                text="Return Item"
+                loading={loading}
+                loadingText={"Please wait"}
+                variant="dark"
+              />
             ) : null}
           </div>
         </div>
