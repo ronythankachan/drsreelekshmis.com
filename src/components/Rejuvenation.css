@@ -1,52 +1,51 @@
-.rejuvenation{
-    max-width: 1200px;
-    padding: 30px;
-    font-family: 'Poppins', sans-serif;
+.rejuvenation {
+  max-width: 1200px;
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
 }
-.highlighted_notification > p{
-    font-style: italic;
-    color: white;
-    background: rgb(34, 153, 13);
-    padding: 10px;
-    border-radius: 6px;
+.highlighted_notification > p {
+  font-style: italic;
+  color: white;
+  background: rgb(34, 153, 13);
+  padding: 10px;
+  border-radius: 6px;
 }
-.content__title >img{
+.content__title > img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 60px 0px 20px 0px;
+}
+.content__with__image {
+  display: flex;
+  column-gap: 50px;
+  padding: 100px 0px;
+  border-bottom: 4px solid grey;
+}
+.content__with__image > img {
+  min-width: 500px;
+  height: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.content__without__image {
+  margin: 50px 0px;
+}
+@media screen and (max-width: 1200px) {
+  .content__title > img {
+    height: 220px;
+  }
+  .content__with__image {
+    flex-direction: column;
+  }
+  .content__with__image > img {
+    min-width: unset;
     width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 60px 0px 20px 0px;
+    height: 220px;
+  }
+  .content__with__image,
+  .content__without__image {
+    padding: 20px 0px;
+  }
 }
-.content__with__image{
-    display: flex;
-    column-gap: 50px;
-    padding: 100px 0px;
-    border-bottom: 4px solid grey;
-}
-.content__with__image >img{
-    min-width: 500px;
-    height: 400px;
-    border-radius: 12px;
-    object-fit: cover;
-}
-.content__without__image{
-    margin: 50px 0px;
-}
-@media screen and (max-width:1200px){
-    .content__title >img{
-        height: 220px;
-    }
-    .content__with__image{
-        flex-direction: column;
-    }
-    .content__with__image > img{
-        min-width: unset;
-        width: 100%;
-        height: 220px;
-    }
-    .content__with__image,.content__without__image{
-        padding: 20px 0px;
-    }
-}
-
-
