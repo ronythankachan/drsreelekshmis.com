@@ -53,8 +53,7 @@
 }
 .order__body__buttons {
   height: 30%;
-  display: flex;
-  justify-content: right;
+  float: right;
   padding: 3px 10px;
   /* background-color: orange; */
 }

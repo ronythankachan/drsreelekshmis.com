@@ -4,7 +4,6 @@ import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 const CartInvoice = ({ total, delivery, cart }) => {
   const history = useHistory();
-  console.log("cartpage rendered");
   const checkOut = () => {
     history.push(`/checkout/${cart[0]._id}`);
   };

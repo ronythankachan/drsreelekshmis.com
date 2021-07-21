@@ -5,35 +5,6 @@ import LoadingButton from "../components/LoadingButton";
 import backend from "../axios";
 import "./OrdersPage.css";
 
-// const dummy = [
-//   {
-//     id: "18923434896",
-//     date: "21 June 2021",
-//     name: "Ashta Choornam",
-//     price: 340,
-//     quantity: 3,git 
-//     status: "Processing",
-//     img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
-//   },
-//   {
-//     id: "28923434895",
-//     date: "21 June 2021",
-//     name: "COVIShield Vaccine",
-//     price: 240,
-//     quantity: 2,
-//     status: "Shipped",
-//     img: "https://images.financialexpress.com/2021/02/covishield-2.jpg",
-//   },
-//   {
-//     id: "1892734894",
-//     date: "21 June 2021",
-//     name: "Kanti Choornam",
-//     price: 340,
-//     quantity: 3,
-//     status: "Delivered",
-//     img: "https://img.etimg.com/thumb/msid-76075220,width-1200,height-900/industry/healthcare/biotech/pharmaceuticals/government-frees-exports-of-paracetamol-apis.jpg",
-//   },
-// ];
 const status = {
   Processing: 10,
   Shipped: 60,
@@ -53,12 +24,11 @@ const OrdersPage = () => {
     };
     fetchOrders();
   }, []);
-
   return (
     <div className="orders">
       <h4 className="subheading">Your Orders</h4>
-      {orders ? (
-        orders.map((order) => <Order order={order} />)
+      {orders && orders.length ? (
+        orders.map((order, index) => <Order order={order} key={index} />)
       ) : (
         <p>You haven't ordered anything yet.</p>
       )}
@@ -93,10 +63,10 @@ const Order = ({ order }) => {
           <p>TOTAL</p>
           <p>Rs. {order.price * order.quantity}</p>
         </div>
-        {/* <div className="order__header__id">
-          <p>ORDER ID</p>
-          <p>#{order._id}</p>
-        </div> */}
+        <div className="order__header__id" style={{ color: "green" }}>
+          <p>Expected Delivery</p>
+          <p>{new Date(order.deliveryDate).toDateString()}</p>
+        </div>
       </div>
       <div className="order__body">
         <img src={order.img} alt="" />
