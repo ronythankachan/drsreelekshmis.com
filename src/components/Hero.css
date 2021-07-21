@@ -1,6 +1,6 @@
 .hero {
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   position: relative;
   text-align: center;
   color: #fff;
@@ -10,7 +10,7 @@
 }
 .hero__video > video {
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   object-fit: cover;
   opacity: 0.5;
 }

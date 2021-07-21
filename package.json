@@ -3,31 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
+    "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.11.2",
     "@mooncake-dev/react-day-time-picker": "^1.0.5",
     "@react-google-maps/api": "^2.2.0",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.0",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
-    "formik": "^2.2.8",
-    "google-map-react": "^2.1.9",
+    "formik": "^2.2.9",
+    "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
-    "react-datepicker": "^3.8.0",
+    "react-datepicker": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-lazyload": "^3.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^4.0.3",
     "react-scroll": "^1.8.2",
-    "redux": "^4.0.5",
+    "redux": "^4.1.0",
     "styled-components": "^5.3.0",
-    "sweetalert2": "^10.16.9",
-    "web-vitals": "^0.2.4"
+    "sweetalert2": "^11.0.19",
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -54,6 +54,6 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.29.0"
+    "eslint": "^7.31.0"
   }
 }

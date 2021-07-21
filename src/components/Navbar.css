@@ -8,6 +8,7 @@
   height: 4rem;
   align-items: center;
   justify-content: space-between;
+  padding-left: 20px;
 }
 .navbar__middle {
   text-align: center;
@@ -34,7 +35,7 @@
   width: 100%;
   height: 100%;
   border-radius: 6px;
-  margin:5px 0px;
+  margin: 5px 0px;
   padding: 5px;
 }
 .dropdown-menu > button:hover {
@@ -83,6 +84,14 @@
 }
 .dropdown-menu {
   transition: 0.2s;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:active,
+.nav-link:hover,
+.nav-link:focus {
+  color: gray;
 }
 @media screen and (max-width: 1200px) {
   .navbar__container {

@@ -430,21 +430,15 @@ const BookAppointmentForm = () => {
             <div className="error">{formik.errors.address}</div>
           ) : null}
         </Form.Group>
-        {/* <Button
-          variant="info"
-          type="submit"
-          style={{ width: "200px", height: "70px" }}
-        >
-          {bookButtonVal}
-        </Button> */}
-
-        <LoadingButton
-          variant="dark"
-          type="submit"
-          loading={loading}
-          text="Book Appointment"
-          loadingText="Please wait.."
-        />
+        <div style={{marginTop:"20px"}}>
+          <LoadingButton
+            variant="dark"
+            type="submit"
+            loading={loading}
+            text="Book Appointment"
+            loadingText="Please wait.."
+          />
+        </div>
       </Form>
 
       {alert ? (
