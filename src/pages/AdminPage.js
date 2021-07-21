@@ -1,49 +1,41 @@
-import React, { useState } from "react";
-import "./AdminPage.css";
-import SidePanelContainer from "../components/SidePanelContainer";
-import ManageProductsPage from "./ManageProductsPage";
-import ManageOrdersPage from "./ManageOrdersPage";
-import ManageAppointmentsPage from "./ManageAppointmentsPage";
-import AdminSettingsPage from "./AdminSettingsPage";
+import React from 'react'
+import './AdminPage.css'
+import SidePanel from '../components/SidePanel'
+import AppointmentList from '../components/AppointmentList'
+import { useState,useEffect } from 'react'
+
+const initialFilters = {
+    date:'',
+    service:'',
+    doctor:'',
+    appointmentType:'',
+}
 
 const AdminPage = () => {
-  const [navPath, setNavPath] = useState("manage_appointments");
-  return (
-    <div className="adminpage">
-      <SidePanelContainer>
-        <div className="sidepanel__items">
-          <button onClick={() => setNavPath("manage_appointments")}>
-            Manage Appointments
-          </button>
-          <button onClick={() => setNavPath("manage_products")}>
-            Manage Products
-          </button>
-          <button onClick={() => setNavPath("manage_orders")}>
-            Manage Orders
-          </button>
-          <button onClick={() => setNavPath("admin_settings")}>
-            Admin Settings
-          </button>
+    const [isMinimized,setIsMinimized] =useState(false)
+    const [appointmentListClasses, setAppointmentListClasses] = useState("appointment__list")
+    const [sidePanelClass, setSidePanelClass] =useState("side__panel")
+    const [filters,setFilters] = useState(initialFilters)
+
+    useEffect(() => {
+        if(isMinimized){
+            setAppointmentListClasses("full_screen")
+            setSidePanelClass("minimized")
+        }else{
+            setAppointmentListClasses("appointment__list")
+            setSidePanelClass("side__panel")
+        }
+    }, [isMinimized])
+    return (
+        <div className="adminpage">
+            <div className={sidePanelClass}>
+                <SidePanel setIsMinimized={setIsMinimized} setFilters={setFilters}/>
+            </div>
+            <div className={appointmentListClasses}>
+                <AppointmentList filters={filters}/>
+            </div>
         </div>
-      </SidePanelContainer>
-      <PageContent navPath={navPath} />
-    </div>
-  );
-};
+    )
+}
 
-export default AdminPage;
-
-const PageContent = ({ navPath }) => {
-  switch (navPath) {
-    case "manage_appointments":
-      return <ManageAppointmentsPage />;
-    case "manage_products":
-      return <ManageProductsPage />;
-    case "manage_orders":
-      return <ManageOrdersPage />;
-    case "admin_settings":
-      return <AdminSettingsPage />;
-    default:
-      return null;
-  }
-};
+export default AdminPage

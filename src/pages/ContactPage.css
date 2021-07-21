@@ -1,21 +1,22 @@
-.contactpage {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
+.contactpage{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
 }
 
-.contact__start {
-  max-width: 1000px;
-  padding: 30px;
+.contact__start{
+    max-width: 1000px;
+    padding: 30px;
 }
-.contact__start > h3 {
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 2.3rem;
-  margin-bottom: 40px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid rgb(20, 20, 20);
+.contact__start >h3{
+    width: fit-content;
+    margin:0 auto;
+    font-size: 2.3rem;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(20, 20, 20);
 }
