@@ -1,6 +1,7 @@
-.productlist{
-    width:100%;
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
+.productlist {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

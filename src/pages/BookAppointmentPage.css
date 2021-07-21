@@ -1,35 +1,33 @@
-.bookappointmentpage{
-    min-height: 100vh;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 60px;
-    padding-bottom: 60px;
+.bookappointmentpage {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
-.bookappointmentinfo{
-    width: 70%;
-    padding-bottom: 30px;
+.bookappointmentinfo {
+  width: 70%;
+  padding-bottom: 30px;
 }
-.bookappointmentform > form{
-    width:400px;
+.bookappointmentform > form {
+  width: 400px;
 }
-.error{
-    color: red;
-}
-@media screen and (max-width:1200px){
-    .bookappointmentpage{
-        flex-direction: column;
-        padding: 20px;
-        align-items: center;
-    }
-    .bookappointmentinfo,.bookappointmentform{
-        width: 100%;
-    }
+@media screen and (max-width: 1200px) {
+  .bookappointmentpage {
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+  .bookappointmentinfo,
+  .bookappointmentform {
+    width: 100%;
+  }
 
-    .bookappointmentform > form{
-        width:unset;
-        border-top: 1px solid grey;
-        padding-top: 30px;
-    }
+  .bookappointmentform > form {
+    width: unset;
+    border-top: 1px solid grey;
+    padding-top: 30px;
+  }
 }

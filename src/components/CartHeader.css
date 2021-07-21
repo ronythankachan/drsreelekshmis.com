@@ -1,0 +1,7 @@
+.cartheader > h1 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  padding: 20px 0px;
+  background-color: white;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+}

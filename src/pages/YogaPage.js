@@ -1,13 +1,13 @@
-import React from 'react'
-import './YogaPage.css'
-import Yoga from '../components/Yoga'
+import React from "react";
+import "./YogaPage.css";
+import Yoga from "../components/Yoga";
 
 const YogaPage = () => {
-    return (
-        <div className="yogapage">
-            <Yoga/>
-        </div>
-    )
-}
+  return (
+    <div className="yogapage">
+      <Yoga />
+    </div>
+  );
+};
 
-export default YogaPage
+export default YogaPage;

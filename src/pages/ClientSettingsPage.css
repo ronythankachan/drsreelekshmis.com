@@ -1,0 +1,13 @@
+.clientsettingspage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+}
+.resetpassword {
+  width: 500px;
+  /* background-color: teal; */
+  padding: 20px;
+}

@@ -1,25 +1,25 @@
-.clinicinfo{
-    max-width: 1000px;
-    padding: 30px;
+.clinicinfo {
+  max-width: 1000px;
+  padding: 30px;
 }
-.info__item{
-    display: flex;
+.info__item {
+  display: flex;
+  align-items: center;
+}
+.badge {
+  font-size: 1rem;
+  padding: 20px;
+  width: 100px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.info__item {
+  font-weight: 600;
+}
+@media screen and (max-width: 1200px) {
+  .info__item {
+    flex-direction: column;
+    text-align: center;
     align-items: center;
-}
-.badge{
-    font-size: 1rem;
-    padding:20px;
-    width: 100px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-.info__item{
-    font-weight: 600;
-}
-@media screen and (max-width:1200px){
-    .info__item{
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
+  }
 }

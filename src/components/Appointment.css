@@ -3,7 +3,7 @@
 .appointment {
   width: 450px;
   max-width: 450px;
-  min-height: 250px;
+  height: fit-content;
   background-color: #fceeb5;
   background: linear-gradient(#92bca6, #a2ccb6);
   box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
@@ -50,7 +50,6 @@
   border-radius: 50px;
   object-fit: cover;
 }
-
 .more__info > h1 {
   color: #224c36;
   font-size: 1.3rem;
@@ -70,7 +69,6 @@
 }
 .card__address > p {
   font-size: 1rem;
-  bottom: 0px;
   line-height: 1rem;
 }
 .card__address {

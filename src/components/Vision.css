@@ -1,18 +1,18 @@
-.vision{
-    max-width: 1200px;
-    padding: 30px;
-    font-family: 'Poppins', sans-serif;
+.vision {
+  max-width: 1200px;
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
 }
-.vision > h3{
-    width: fit-content;
-    margin:0 auto;
-    font-size: 2.3rem;
-    margin-bottom: 40px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgb(20, 20, 20);
+.vision > h3 {
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 2.3rem;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgb(20, 20, 20);
 }
-.jumbotron{
-    background-color: white !important;
-    border-radius: 0px !important;
-    border-bottom: 1px solid black;
+.jumbotron {
+  background-color: white !important;
+  border-radius: 0px !important;
+  border-bottom: 1px solid black;
 }

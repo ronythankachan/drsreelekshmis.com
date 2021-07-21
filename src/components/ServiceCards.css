@@ -1,8 +1,8 @@
-.servicecards{
-    padding-top: 100px;
+.servicecards {
+  padding-top: 100px;
 }
-@media screen and (max-width:768px){
-    .servicecards{
-        padding: 0px;
-    }
+@media screen and (max-width: 768px) {
+  .servicecards {
+    padding: 0px;
+  }
 }
