@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const backend = axios.create({
-  baseURL: "http://localhost:8001",
+    baseURL: 'https://drsreelekshmis.com/'
 });
 
 export default backend;

@@ -1,18 +1,18 @@
-.appointmentlist {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.appointmentlist{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
-.loading {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 55%;
-  font-size: 3rem;
+.loading{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    font-size: 3rem;
 }
-@media screen and (max-width: 768px) {
-  .loading {
-    top: 70%;
-    left: 45%;
-  }
+@media screen and (max-width:768px){
+    .loading{
+        top: 70%;
+        left: 45%;
+    }
 }

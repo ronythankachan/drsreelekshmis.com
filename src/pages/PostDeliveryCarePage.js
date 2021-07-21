@@ -1,13 +1,13 @@
-import React from "react";
-import "./PostDeliveryCarePage.css";
-import PostDeliveryCare from "../components/PostDeliveryCare";
+import React from 'react'
+import './PostDeliveryCarePage.css'
+import PostDeliveryCare from '../components/PostDeliveryCare'
 
 const PostDeliveryCarePage = () => {
-  return (
-    <div className="postdeliverycarepage">
-      <PostDeliveryCare />
-    </div>
-  );
-};
+    return (
+        <div className="postdeliverycarepage">
+            <PostDeliveryCare/>
+        </div>
+    )
+}
 
-export default PostDeliveryCarePage;
+export default PostDeliveryCarePage

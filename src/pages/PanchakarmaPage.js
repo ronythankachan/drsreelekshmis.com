@@ -1,13 +1,13 @@
-import React from "react";
-import Panchakarma from "../components/Panchakarma";
-import "./PanchakarmaPage.css";
+import React from 'react'
+import Panchakarma from '../components/Panchakarma'
+import './PanchakarmaPage.css'
 
 const PanchakarmaPage = () => {
-  return (
-    <div className="panchakarmapage">
-      <Panchakarma />
-    </div>
-  );
-};
+    return (
+        <div className="panchakarmapage">
+            <Panchakarma/>
+        </div>
+    )
+}
 
-export default PanchakarmaPage;
+export default PanchakarmaPage
