@@ -4,6 +4,7 @@ import { ProgressBar } from "react-bootstrap";
 import LoadingButton from "../components/LoadingButton";
 import backend from "../axios";
 import "./OrdersPage.css";
+import NoOrder from "../images/no_order.svg";
 
 const status = {
   Processing: 10,
@@ -14,28 +15,32 @@ const OrdersPage = () => {
   // fetch orders of a particular user.
   const [orders, setOrders] = useState();
   useEffect(() => {
+    let isMounted = true;
     (async () => {
       const orders = await backend.get("api/get_orders", {
         params: {
           userId: localStorage.getItem("userId"),
         },
       });
-      setOrders(orders.data);
+      if (isMounted) setOrders(orders.data);
     })();
-    return () => {
-      setOrders();
-    };
+    return () => (isMounted = false);
   }, []);
+
+  if (!orders || !orders.length)
+    return (
+      <div className="empty">
+        <img src={NoOrder} alt="" />
+        <h4>You haven't ordered anything yet!!</h4>
+      </div>
+    );
+
   return (
     <div className="orders">
       <h4 className="subheading">Your Orders</h4>
-      {orders && orders.length ? (
-        orders.map((order, index) => (
-          <Order order={order} key={index} setOrders={setOrders} />
-        ))
-      ) : (
-        <p>You haven't ordered anything yet.</p>
-      )}
+      {orders.map((order, index) => (
+        <Order order={order} key={index} setOrders={setOrders} />
+      ))}
     </div>
   );
 };

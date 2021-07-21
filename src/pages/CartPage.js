@@ -4,6 +4,7 @@ import CartItem from "../components/CartItem";
 import CartHeader from "../components/CartHeader";
 import CartInvoice from "../components/CartInvoice";
 import { UserContext } from "../App";
+import EmptyCart from "../images/empty_cart.svg";
 
 const CartPage = () => {
   const { user, cart, setCart } = useContext(UserContext);
@@ -24,6 +25,13 @@ const CartPage = () => {
   for (var i = 0; i < cart.length; i++) {
     total += cart[i].price * cart[i].quantity;
   }
+  if (!cartItems || !cartItems.length)
+    return (
+      <div className="empty">
+        <img src={EmptyCart} alt="" />
+        <h4>Uh oh!!You don't have anything in your cart.</h4>
+      </div>
+    );
 
   return (
     <div className="cartpage__container">
