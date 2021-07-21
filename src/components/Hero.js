@@ -12,7 +12,7 @@ const Hero = () => {
         </video>
       </div>
       <div className="hero__title">
-        <h1>Dr. Sreelekshmi’s kerala Ayurveda Centre</h1>
+        <h1>Dr.Sreelekshmi’s kerala Ayurveda Centre</h1>
         <h4>An Ayurveda care centre for your day-to-day health problems</h4>
         <div className="hero__buttons">
           <Button className="green__button" href="/shop">
