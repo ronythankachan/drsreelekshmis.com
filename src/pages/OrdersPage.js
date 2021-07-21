@@ -11,7 +11,7 @@ import "./OrdersPage.css";
 //     date: "21 June 2021",
 //     name: "Ashta Choornam",
 //     price: 340,
-//     quantity: 3,
+//     quantity: 3,git 
 //     status: "Processing",
 //     img: "https://images.theconversation.com/files/256057/original/file-20190129-108364-17hlc1x.jpg",
 //   },
