@@ -14,21 +14,25 @@ const OrdersPage = () => {
   // fetch orders of a particular user.
   const [orders, setOrders] = useState();
   useEffect(() => {
-    const fetchOrders = async () => {
+    (async () => {
       const orders = await backend.get("api/get_orders", {
         params: {
           userId: localStorage.getItem("userId"),
         },
       });
       setOrders(orders.data);
+    })();
+    return () => {
+      setOrders();
     };
-    fetchOrders();
   }, []);
   return (
     <div className="orders">
       <h4 className="subheading">Your Orders</h4>
       {orders && orders.length ? (
-        orders.map((order, index) => <Order order={order} key={index} />)
+        orders.map((order, index) => (
+          <Order order={order} key={index} setOrders={setOrders} />
+        ))
       ) : (
         <p>You haven't ordered anything yet.</p>
       )}
@@ -38,19 +42,44 @@ const OrdersPage = () => {
 
 export default OrdersPage;
 
-const Order = ({ order }) => {
+const Order = ({ order, setOrders }) => {
   const [loading, setLoading] = useState(false);
+
   const cancelOrder = () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    // change order status in db
+    (async () =>
+      await backend.post("/api/cancel_order", {
+        userId: localStorage.getItem("userId"),
+        orderId: order.orderId,
+        medicineId: order._id,
+      }))();
+    alert("Order Cancelled Successfully");
+    // Change order status in local state
+    setOrders((curr) =>
+      curr.filter(
+        (item) => !(item._id === order._id && item.orderId === order.orderId)
+      )
+    );
+    setLoading(false);
   };
   const returnItem = () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    // change order status in db
+    (async () =>
+      await backend.post("/api/return_item", {
+        userId: localStorage.getItem("userId"),
+        orderId: order.orderId,
+        medicineId: order._id,
+      }))();
+    alert("Return request raised");
+    // Change order status in local state
+    setOrders((curr) =>
+      curr.filter(
+        (item) => !(item._id === order._id && item.orderId === order.orderId)
+      )
+    );
+    setLoading(false);
   };
   return (
     <div className="order">

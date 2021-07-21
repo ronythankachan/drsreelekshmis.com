@@ -7,10 +7,12 @@ import PaymentSelector from "../components/PaymentSelector";
 import AddressCard from "../components/AddressCard";
 import { useContext } from "react";
 import { UserContext } from "../App";
+import { useHistory } from "react-router-dom";
 
 const CheckoutPage = (props) => {
   const [selectedAddress, setSelectedAddress] = useState(null);
   const { cart, setCart } = useContext(UserContext);
+  const history = useHistory();
 
   // Calculate total amount and delivery charge
   var total = 0;
@@ -27,6 +29,7 @@ const CheckoutPage = (props) => {
     if (response.statusText === "OK") {
       setCart([]);
       alert("Order placed successfully");
+      history.push("/orders");
     } else {
       alert(response.statusText);
     }
