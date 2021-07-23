@@ -1,5 +1,5 @@
 .doctors {
-  max-width: 1200px;
+  max-width: 1000px;
   padding: 30px;
   font-family: "Poppins", sans-serif;
 }
@@ -13,5 +13,17 @@
 }
 .card-text {
   color: grey;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+.doctor__cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 40px;
+}
+@media screen and (max-width: 768px) {
+  .doctor__cards {
+    flex-direction: column;
+    row-gap: 40px;
+  }
 }

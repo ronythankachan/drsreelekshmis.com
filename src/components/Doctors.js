@@ -1,19 +1,23 @@
 import React from "react";
-import { CardDeck, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./Doctors.css";
 import Sreelekshmi from "../images/sreelekshmi.jpg";
 import Varghese from "../images/varghese.jpeg";
 
+const cardStyle = {
+  maxWidth: "400px",
+  fontSize: "1rem",
+};
 const Doctors = () => {
   return (
     <div className="doctors">
       <h3>Doctors</h3>
-      <CardDeck>
-        <Card>
+      <div className="doctor__cards">
+        <Card style={cardStyle}>
           <Card.Img
             variant="top"
             src={Sreelekshmi}
-            style={{ height: "400px", objectFit: "cover" }}
+            style={{ height: "200px", objectFit: "cover" }}
           />
           <Card.Body>
             <Card.Title style={{ fontWeight: "bold" }}>
@@ -34,11 +38,11 @@ const Doctors = () => {
             </small>
           </Card.Footer>
         </Card>
-        <Card>
+        <Card style={cardStyle}>
           <Card.Img
             variant="top"
             src={Varghese}
-            style={{ height: "400px", objectFit: "cover" }}
+            style={{ height: "200px", objectFit: "cover" }}
           />
           <Card.Body>
             <Card.Title style={{ fontWeight: "bold" }}>
@@ -56,7 +60,7 @@ const Doctors = () => {
             </small>
           </Card.Footer>
         </Card>
-      </CardDeck>
+      </div>
     </div>
   );
 };
