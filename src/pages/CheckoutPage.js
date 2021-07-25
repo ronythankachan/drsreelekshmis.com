@@ -1,4 +1,4 @@
-import { Button, Accordion, Card } from "react-bootstrap";
+import { Button, Accordion } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import backend from "../axios";
 import "./CheckoutPage.css";
@@ -42,41 +42,31 @@ const CheckoutPage = (props) => {
 
   return (
     <div className="checkoutpage">
-      <Accordion defaultActiveKey="0" style={{ margin: "30px 10px" }}>
-        <Card style={{ width: "800px" }}>
-          <Accordion.Toggle as={Card.Header} eventKey="0">
-            Select a delivery address
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey="0">
-            <Card.Body>
+      <div className="checkoutpage__accordion">
+        <Accordion defaultActiveKey="0">
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Select Address</Accordion.Header>
+            <Accordion.Body>
               <AddressList
                 selectedAddress={selectedAddress}
                 setSelectedAddress={setSelectedAddress}
               />
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-        <Card style={{ width: "800px" }}>
-          <Accordion.Toggle as={Card.Header} eventKey="1">
-            Add a new address
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey="1">
-            <Card.Body>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Add Address</Accordion.Header>
+            <Accordion.Body>
               <AddressForm />
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-        <Card style={{ width: "800px" }}>
-          <Accordion.Toggle as={Card.Header} eventKey="2">
-            Select Payment method
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey="2">
-            <Card.Body>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2">
+            <Accordion.Header>Select payment method</Accordion.Header>
+            <Accordion.Body>
               <PaymentSelector />
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </div>
       <div className="summary">
         <h3 className="subheading">Summary</h3>
         <div className="cartinvoice__item">

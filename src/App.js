@@ -33,6 +33,7 @@ import ManageOrdersPage from "./pages/ManageOrdersPage";
 import AdminSettingsPage from "./pages/AdminSettingsPage";
 import OrdersPage from "./pages/OrdersPage";
 import ClientSettingsPage from "./pages/ClientSettingsPage";
+import TestPage from "./pages/TestPage";
 
 export const UserContext = createContext();
 
@@ -80,6 +81,7 @@ function App() {
         <Route path="/post_delivery_care" component={PostDeliveryCarePage} />
         <Route path="/swarna_prashana" component={SwarnaPrashanaPage} />
         <Route path="/yoga" component={YogaPage} />
+        <Route path="/test" component={TestPage} />
         <UserContext.Provider
           value={{ user, setUser, cart, setCart, cartUpdated, setCartUpdated }}
         >

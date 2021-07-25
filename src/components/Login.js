@@ -94,7 +94,7 @@ const Login = ({ redirectUri }) => {
         <p>{msg}</p>
       </div>
       <Form className="form__width" onSubmit={formik.handleSubmit}>
-        <Form.Group style={{ height: "50px" }}>
+        <Form.Group style={{ minHeight: "50px" }}>
           <Form.Control
             type="text"
             placeholder="E-mail"
@@ -108,7 +108,7 @@ const Login = ({ redirectUri }) => {
             <div className="error">{formik.errors.email}</div>
           ) : null}
         </Form.Group>
-        <Form.Group style={{ height: "50px" }}>
+        <Form.Group style={{ minHeight: "50px" }}>
           <Form.Control
             type="password"
             placeholder="Password"
