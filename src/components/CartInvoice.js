@@ -1,12 +1,41 @@
 import React from "react";
 import "./CartInvoice.css";
 import { Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import backend from "../axios";
 const CartInvoice = ({ total, delivery, cart }) => {
-  const history = useHistory();
+  // const history = useHistory();
+
+  // dummy items
+  const items = [
+    {
+      id: 1,
+      quantity: 3,
+    },
+    {
+      id: 2,
+      quantity: 1,
+    },
+    {
+      id: 3,
+      quantity: 13,
+    },
+  ];
+
   const checkOut = () => {
-    history.push(`/checkout/${cart[0]._id}`);
+    backend
+      .post("/api/checkout", items)
+      .then((res) => {
+        window.location = res.data.url;
+      })
+      .catch((err) => {
+        console.log(JSON.stringify(err));
+      });
   };
+
+  // const checkOut = () => {
+  //   history.push(`/checkout/${cart[0]._id}`);
+  // };
 
   const isCartEmpty = () => {
     if (cart.length > 0) return false;
