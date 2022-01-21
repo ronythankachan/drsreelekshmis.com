@@ -68,4 +68,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 3. Go to `/etc/nginx/sites-available`
 4. create a config called `drsreelekshmis` in sites-available and symlink that with sites-enabled
 5. Then type `sudo systemctl restart nginx.service`
-6. go to the backend folder and type `pm2 server.js`
+6. go to the backend folder and type `pm2 start server.js`
