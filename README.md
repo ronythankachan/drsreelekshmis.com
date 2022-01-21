@@ -63,8 +63,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Go to aws shell
+2. `cd apps` (frontend and backend present)
+3. Go to `/etc/nginx/sites-available`
+4. create a config called `drsreelekshmis` in sites-available and symlink that with sites-enabled
+5. Then type `sudo systemctl restart nginx.service`
+6. go to the backend folder and type `pm2 server.js`
