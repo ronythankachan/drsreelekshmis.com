@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  ui:
+    image: clinic-frontend
+    container_name: drsreelekshmis.com/frontend
+    volumes:
+      - ./src:/clinic-frontend/src
+      - ./public:/clinic-frontend/public
+      - ./build:/clinic-frontend/build
+  backend:
+    image: clinic-backend
+    container_name: drsreelekshmis.com/backend
+    volumes:
+      -./src:/clinic-backend/src
+      -./build:/clinic-
